@@ -20,7 +20,7 @@ export class RemoteDesktopSession {
     const url=new URL(endpoint);
     assert(url.protocol==='http:'&&url.hostname==='127.0.0.1'&&url.pathname==='/'&&!url.username&&!url.password&&!url.search,'Worker URL must be an SSH-forwarded http://127.0.0.1:port origin');
     const token=readFileSync(tokenFile,'utf8').trim();assert(/^[a-f0-9]{64}$/.test(token),'Invalid worker token file');
-    const response=await fetch(new URL('/session',url),{method:'POST',headers:{Authorization:`Bearer ${token}`},signal:AbortSignal.timeout(20000)});
+    const response=await fetch(new URL('/session',url),{method:'POST',headers:{Authorization:`Bearer ${token}`},signal:AbortSignal.timeout(50000)});
     if(!response.ok)throw new Error(`Windows worker session HTTP ${response.status}`);
     const info=await response.json() as RemoteDesktopSession['info']&{webSocketPath:string};
     const session=new RemoteDesktopSession(url.origin,token,info);

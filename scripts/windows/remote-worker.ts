@@ -45,18 +45,19 @@ async function stop(reason:string){
 function nativeRequest(method:string):Promise<any>{
   return new Promise((resolve,reject)=>{
     if(!native||native.exitCode!==null){reject(new Error('Native capture helper unavailable'));return;}
-    const id=++nativeSequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error('Native capture timed out'));},6000);
+    const id=++nativeSequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error('Native capture timed out'));},method==='info'?30000:6000);
     pending.set(id,{resolve,reject,timer});native.stdin.write(JSON.stringify({id,method,pid:chrome?.pid})+'\n');
   });
 }
 async function start(){
-  const ownership=lease.acquire();active=true;
+  active=true;
   try{
     native=spawn('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File',resolve('scripts/windows/native-worker.ps1')],{windowsHide:true,stdio:['pipe','pipe','pipe'],env:{...process.env,SPECIMEN_REMOTE_CONFIG:resolve(configPath!),SPECIMEN_REMOTE_GUEST:'1'}});
     const lines=createInterface({input:native.stdout});
     lines.on('line',line=>{try{const m=JSON.parse(line),p=pending.get(m.id);if(p){pending.delete(m.id);clearTimeout(p.timer);m.error?p.reject(new Error(m.error)):p.resolve(m.result);}}catch{void stop('Invalid native response');}});
     native.on('error',()=>void stop('Native helper failed'));native.on('exit',()=>{if(active)void stop('Native helper exited');});
-    native.stderr.on('data',()=>{/* Do not forward environment or private paths to observers. */});
+    let nativeError='';const nativeLog=join(root,'native.stderr.log');writeFileSync(nativeLog,'');
+    native.stderr.on('data',bytes=>{nativeError=(nativeError+String(bytes)).slice(-8192);writeFileSync(nativeLog,nativeError);});
     const verified=await nativeRequest('info');
     if(verified.os!=='Windows 11'||verified.isolation!=='remote-vm')throw new Error('Native VM verification failed');
     const profile=ownedProfile=join(root,'profiles',randomUUID());mkdirSync(profile,{recursive:true});
@@ -66,7 +67,10 @@ async function start(){
     while(!existsSync(join(profile,'DevToolsActivePort'))){if(!active||Date.now()>deadline||chrome.exitCode!==null)throw new Error('Chrome startup timed out');await new Promise(r=>setTimeout(r,100));}
     const [port,path]=readFileSync(join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/);
     if(!/^\d+$/.test(port)||!/^\/devtools\/browser\/[a-f0-9-]+$/.test(path))throw new Error('Invalid owned Chrome endpoint');
-    cdpURL=`ws://127.0.0.1:${port}${path}`;lease.heartbeat(ownership.leaseId,ownership.bootId);
+    cdpURL=`ws://127.0.0.1:${port}${path}`;
+    // Cold Windows module/C# initialization precedes the backend lease. Once
+    // handed to the backend, the existing 20-second heartbeat deadline applies.
+    const ownership=lease.acquire();
     audit('leased');return {...ownership,stationId:config.stationId,os:verified.os,isolation:'remote-vm',webSocketPath:`/cdp/${ownership.leaseId}`};
   }catch(error){await stop('Startup failed');throw error;}
 }
