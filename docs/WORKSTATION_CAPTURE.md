@@ -85,6 +85,12 @@ prepared Windows distro. The Python helper uses process pipes to tunnel the priv
 and framebuffer requests, avoiding WSL forwarding and external listeners.
 Closing the pipe tears down only the session's children and temporary profile.
 Chrome's normal sandbox remains enabled.
+The temporary profile explicitly selects the native Openbox frame and X11.
+Chrome's environment-dependent custom frame clipped the right edge on the first
+Linux CI run; native framing keeps the same complete 640 x 360 page rectangle
+across WSL and Linux. This setting uses Chromium's
+[`browser.custom_chrome_frame` preference](https://github.com/chromium/chromium/blob/main/chrome/common/pref_names.h),
+not painted browser controls.
 
 `npm run desktop:check` captures two separately labelled optical calibration pages
 and verifies exact page pixels. `node --import tsx scripts/workstation-ui-check.mjs`

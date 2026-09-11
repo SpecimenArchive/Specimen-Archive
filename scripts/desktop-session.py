@@ -73,7 +73,15 @@ clock_padding = 8 0
 """)
     launch(["tint2", "-c", str(panel)], env)
     profile = root / "chrome"
+    # Chrome's default frame style varies with the host desktop environment.
+    # Its client-drawn resize border otherwise clips the emulated page at the
+    # right/bottom edges. Use the real Openbox frame on every private display.
+    (profile / "Default").mkdir(parents=True)
+    (profile / "Default" / "Preferences").write_text(json.dumps({
+        "browser": {"custom_chrome_frame": False}
+    }))
     chrome = launch(["google-chrome", "--no-first-run",
+                     "--ozone-platform=x11",
                      "--no-default-browser-check", "--disable-dev-shm-usage",
                      "--disable-gpu", "--disable-session-crashed-bubble",
                      "--disable-features=Translate,MediaRouter,OptimizationHints",

@@ -9,6 +9,7 @@
 - A legacy inactive-recorder receipt lock was found during endurance. Polling now targets only the active mode; receipt storage failures are reported without terminating observation. A regression test covers the failure.
 - Final ten-minute production run passed: 602.065 seconds, 11,033 matching packets, three complete episodes plus the fourth in progress, zero browser errors/dropped frames/recorder errors, exact offline canvas freeze and successful reconnect. An 800 ms delayed-desktop test also passed with no neural-step rewind across all four views.
 - Publication to the existing public repository's master branch is explicitly authorized. The checked-in workstation reviews describe the development build; a fresh post-publication recording records the exact executed commit and video SHA256 in ignored runtime storage.
+- Workstation implementation published at `144f5bb`; Windows/Linux verification and the causal suite passed independently. Linux desktop calibration exposed Chrome's environment-dependent custom frame clipping the right edge. The private profile now explicitly selects Openbox's native frame and X11; exact pixel calibration remains the acceptance check.
 
 ## Current priority
 Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRIEF.md). The user approved the generated apparatus direction and authorized independent decisions and self-assessment at the remaining checkpoints.
