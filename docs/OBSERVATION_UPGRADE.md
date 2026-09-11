@@ -30,10 +30,14 @@ Active units use activity >0.1 in the current snapshot. Sensory imbalance is rig
 
 ## Publication and storage
 
+The operator approved the dedicated write key. Publication now runs in a separate SYSTEM service with a SYSTEM-only key/code ACL; a real station-account read attempt was denied. Actual evidence publication and remote readback succeeded. See [service setup and verification](RECORD_SERVICE.md). The backend no longer accesses the private publisher configuration or invokes Git publication.
+
 The recorder uses `specimen-records`, independently of source `master`. It writes a compact record with normal Git commits, reads the remote bytes and commit back, and recovers an existing identical record after lost receipts. Concurrent pushes retry at most three times. Recorder passes attempt at most four records; failures use exponential backoff capped at fifteen minutes and stop after five attempts. Raw videos/continuous captures and credentials remain outside ordinary Git.
 
 ## Verification checkpoint
 
 Local typecheck/build, 38 tests, changed PowerShell syntax and C# compilation pass. New pixel-contrast tests produce opposite scroll directions; motor clamping and photoreceptor disconnection abolish actions. A real local Git transport test verifies concurrent publication, lost-receipt recovery and refusal to overwrite conflicting bytes. The large frontend was inspected at 390, 1024, 1440 and 1920 px using the existing VM stream: no overflow or browser errors. Native maximisation/pinning and the new observation profile still require VM deployment and end-to-end acceptance; no ten-minute upgrade result is claimed at this checkpoint.
+
+The first deployed upgrade, `f2a17d5`, maximized Chrome successfully (native bounds -8,-8 to 1288,760 on a 1280×800 display; taskbar y752–800). Calibration correctly failed because a Windows Update restart dialog dimmed and covered the page. No neural inputs were sent. Native capture was visually inspected to identify the dialog. A new distributed pixel-agreement check also rejects an OS overlay during later decisions; it compares the actual native page with the exact sensory PNG. The update dialog requires operator dismissal before native acceptance can continue. No successful pinning, scrolling or ten-minute result for the upgraded profile is claimed yet.
 
 The requested visual reference was [flybrain.online](https://flybrain.online/) and its [source repository](https://github.com/fruitflydev/flycoinrh). Its sensory/activity/motor relationship informed hierarchy only; fly neuron names, spike/voltage metrics, learning and wallet activity were not adopted. Publication access follows [GitHub's repository deploy-key mechanism](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys); native pinning uses Windows UI Automation's [InvokePattern](https://learn.microsoft.com/en-us/dotnet/framework/ui-automation/invoke-a-control-using-ui-automation).

@@ -24,7 +24,7 @@ export class ExhibitService {
     this.recorder=new SpecimenRecorder(this.store,new GitHubCLI(this.store.root),publisher?.repository??process.env.RECORDER_REPOSITORY,publisher?publisher.enabled===true:process.env.RECORDER_ENABLED==='1',publisher?new GitRecordPublisher(publisher.objectDirectory,{sshCommand:publisher.sshCommand}):undefined);
   }
   private update(live:ExhibitLive){this.live={...live,packetSeq:++this.sequence,metrics:{...live.metrics,episodes:this.episodes,failures:this.failures,rssMB:Math.round(process.memoryUsage().rss/1048576)}};this.emit(this.live);}
-  start(){this.publicationTimer=setInterval(()=>void this.recorder.tick(),30000);this.work=this.run();return this.work;}
+  start(){if(process.env.SPECIMEN_EXTERNAL_RECORDER!=='1')this.publicationTimer=setInterval(()=>void this.recorder.tick(),30000);this.work=this.run();return this.work;}
   async stop(){clearInterval(this.publicationTimer);this.abort.abort(new Error('Operator shutdown'));await this.work;}
   private async run(){
     while(!this.abort.signal.aborted){
@@ -34,7 +34,7 @@ export class ExhibitService {
           faultAfter:episode===0&&process.env.EXHIBIT_FAULT_AFTER?Number(process.env.EXHIBIT_FAULT_AFTER):undefined,journal:this.journal,onUpdate:live=>this.update(live)});
         if(record.outcome!=='error')try{record.replay=await replayEpisode(directory,this.circuit);}catch(e){record.outcome='error';record.error=`Replay verification: ${(e as Error).message}`;}
         this.store.save(record);this.episodes++;if(record.outcome==='error')this.failures++;
-        void this.recorder.tick();this.prune();
+        if(process.env.SPECIMEN_EXTERNAL_RECORDER!=='1')void this.recorder.tick();this.prune();
         if(this.live)this.update({...this.live,state:record.outcome==='error'?'recovering':'complete',outcome:record.outcome,notice:record.error||`Episode ${episode+1} complete. Recorded supervisor reset; next intact episode follows.`});
       }catch(e){this.failures++;this.episodes++;if(this.live)this.update({...this.live,state:'recovering',notice:`Supervisor recovery: ${(e as Error).message}`});}
       if(!this.abort.signal.aborted)await delay(C.recoveryDelayMs,undefined,{signal:this.abort.signal}).catch(()=>{});

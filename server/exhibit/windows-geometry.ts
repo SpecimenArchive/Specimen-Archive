@@ -2,6 +2,18 @@ import assert from 'node:assert/strict';
 import {PNG} from 'pngjs';
 /** Setup-only pixel calibration. Its result cannot enter the neural encoder. */
 export const WINDOWS_CALIBRATION='<body style="margin:0;width:640px;height:360px;display:grid;grid-template:1fr 1fr/1fr 1fr"><div style="background:rgb(211,31,53)"></div><div style="background:rgb(29,197,73)"></div><div style="background:rgb(43,67,223)"></div><div style="background:rgb(239,193,37)"></div></body>';
+/** Compare a distributed grid across the actual page with its native display.
+ * Small live-chart differences are allowed; an OS overlay or wrong tab is not. */
+export function windowsPageAgreement(desktop:PNG,input:PNG,viewport:{x:number;y:number;scale:number}){
+  let total=0,matching=0;
+  for(let py=3;py<input.height;py+=7)for(let px=3;px<input.width;px+=7){
+    const x=Math.floor(viewport.x+px*viewport.scale),y=Math.floor(viewport.y+py*viewport.scale);total++;
+    if(x>=desktop.width||y>=desktop.height)continue;
+    const a=(py*input.width+px)*4,b=(y*desktop.width+x)*4;
+    if([0,1,2].every(c=>Math.abs(input.data[a+c]-desktop.data[b+c])<=12))matching++;
+  }
+  return matching/Math.max(1,total);
+}
 export function locateWindowsViewport(desktop:PNG,input:PNG,scale=2){
   assert.equal(input.width,640);assert.equal(input.height,360);
   assert((desktop.width===1600&&desktop.height===900&&scale===2)||(desktop.width===1280&&desktop.height===800&&scale===1.5),'Unconfigured Windows display geometry');

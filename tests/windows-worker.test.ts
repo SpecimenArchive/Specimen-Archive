@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {PNG} from 'pngjs';
 import {WorkerLease} from '../server/exhibit/worker-lease';
-import {locateWindowsViewport} from '../server/exhibit/windows-geometry';
+import {locateWindowsViewport,windowsPageAgreement} from '../server/exhibit/windows-geometry';
 
 test('worker requires authentication, rejects concurrent owners, duplicate commands and old boots',()=>{
   let now=0;const lease=new WorkerLease('a'.repeat(64),20000,()=>now);
@@ -22,8 +22,11 @@ test('Windows calibration checks every scaled pixel and rejects clipped or shift
     for(let dy=0;dy<2;dy++)for(let dx=0;dx<2;dx++)desktop.data.set(color,((100+y*2+dy)*1600+150+x*2+dx)*4);
   }
   assert.deepEqual(locateWindowsViewport(desktop,input),{x:150,y:100,scale:2});
+  assert.equal(windowsPageAgreement(desktop,input,{x:150,y:100,scale:2}),1);
   desktop.data[((100+350*2)*1600+150+630*2)*4]=0;
   assert.throws(()=>locateWindowsViewport(desktop,input),/complete/);
+  for(let i=0;i<desktop.data.length;i+=4)for(let c=0;c<3;c++)desktop.data[i+c]=Math.floor(desktop.data[i+c]*.55);
+  assert(windowsPageAgreement(desktop,input,{x:150,y:100,scale:2})<.92,'A dimmed OS overlay must stop the visible-page input');
 });
 test('persistent 1280x800 console uses calibrated 1.5x presentation without changing sensory dimensions',()=>{
   const input=new PNG({width:640,height:360}),desktop=new PNG({width:1280,height:800});

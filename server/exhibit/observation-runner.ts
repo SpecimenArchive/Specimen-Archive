@@ -1,4 +1,4 @@
-import {mkdirSync,writeFileSync} from 'node:fs';import {resolve,join} from 'node:path';import {gzipSync} from 'node:zlib';import {randomUUID} from 'node:crypto';import {setTimeout as delay} from 'node:timers/promises';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';import {resolve,join} from 'node:path';import {gzipSync} from 'node:zlib';import {randomUUID} from 'node:crypto';import {setTimeout as delay} from 'node:timers/promises';import {PNG} from 'pngjs';import {windowsPageAgreement} from './windows-geometry';
 import type {BrowserContext,Page,Video} from '@playwright/test';import type {Circuit} from '../../shared/types';import type {ExhibitLive,ExhibitRecord,ExhibitDecision,ExecutedEvent,DesktopCapture} from '../../shared/exhibit';import type {ObservationPage,ObservationEvent} from '../../shared/observation';
 import {executionOrigin} from '../provenance';import {artifactManifest,sha256} from '../browser/evidence';import {MODEL_CONFIG} from '../model/config';import {EXHIBIT_CONFIG as C} from './config';import {ExhibitController} from './controller';import {OBSERVATION_RETINA} from './observation-encoder';import {RemoteDesktopSession} from './remote-desktop';import {ObservationJournal} from './journal';import type {EpisodeOptions} from './runner';
 export const OBSERVATION_SCHEDULE=Object.freeze([
@@ -18,7 +18,10 @@ export async function runObservationEpisode(circuit:Circuit,o:EpisodeOptions){
  async function capture(page:Page){
   if(!await page.evaluate(()=>document.visibilityState==='visible'))throw new Error('Sensory page is no longer the visible Chrome tab; input stopped.');
   const png=await desktop!.screenshot(page),at=new Date().toISOString(),name=`frame-${String(frameIndex).padStart(4,'0')}.png`;writeFileSync(join(directory,name),png);
-  const native=await desktop!.capture(directory,frameIndex++,name,at,{x:0,y:0});native.cursorSource='not-present';journal.capture();return {png,at,name,native};
+  const native=await desktop!.capture(directory,frameIndex++,name,at,{x:0,y:0});native.cursorSource='not-present';
+  const agreement=windowsPageAgreement(PNG.sync.read(readFileSync(join(directory,native.path))),PNG.sync.read(png),native.station!.viewport);
+  if(agreement<.92)throw new Error(`Visible Windows page differs from the sensory PNG (${(agreement*100).toFixed(1)}% agreement). Input stopped; check an OS overlay or changed page geometry.`);
+  journal.capture();return {png,at,name,native};
  }
  emit({});
  try{

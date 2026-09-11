@@ -15,8 +15,8 @@ $env:EXHIBIT_STOP_FILE=Join-Path $project 'runtime/remote-worker/stop-backend'
 $env:RUNTIME_DIR=Join-Path $project 'runtime'
 $env:RECORDER_REPOSITORY='SpecimenArchive/Specimen-Archive'
 $env:RECORDER_ENABLED='0'
-$publisherPath=Join-Path $env:ProgramData 'SpecimenArchivePublisher/publisher.json'
-if(Test-Path -LiteralPath $publisherPath){$env:SPECIMEN_PUBLISHER_CONFIG=$publisherPath}
+$env:SPECIMEN_EXTERNAL_RECORDER='1'
+Remove-Item Env:SPECIMEN_PUBLISHER_CONFIG -ErrorAction SilentlyContinue
 $env:PORT='4317'
 $env:EXHIBIT_OBSERVER_ORIGINS='http://127.0.0.1:4319,http://localhost:4319'
 if (Test-Path -LiteralPath $env:EXHIBIT_STOP_FILE) { Remove-Item -LiteralPath $env:EXHIBIT_STOP_FILE }
