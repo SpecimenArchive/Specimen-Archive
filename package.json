@@ -1,0 +1,39 @@
+{
+  "name": "specimen-01",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An observation-only Platynereis digital biology console, driven by an inspectable published circuit.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx server/index.ts",
+    "start": "tsx server/index.ts --production",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "data:prepare": "python scripts/ingest.py",
+    "validate:science": "tsx scripts/validate.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "trace": "tsx scripts/trace.ts",
+    "verify": "npm run typecheck && npm test && npm run validate:science && npm run build"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "ws": "^8.21.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}
