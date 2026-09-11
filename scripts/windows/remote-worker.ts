@@ -39,8 +39,8 @@ async function stop(reason:string){
       // Exact owned PID only; no process-name-wide cleanup.
       const kill=spawn('taskkill.exe',['/PID',String(ownedChrome.pid),'/T','/F'],{windowsHide:true,stdio:'ignore'});
       const code=await new Promise<number|null>((r,reject)=>{kill.once('error',reject);kill.once('exit',r);});
-      await waitForExit(ownedChrome,500);
-      if(code!==0&&ownedChrome.exitCode===null&&ownedChrome.signalCode===null)throw new Error('Owned Chrome cleanup failed; operator recovery required');
+      await waitForExit(ownedChrome,2500);
+      if(code!==0&&ownedChrome.exitCode===null&&ownedChrome.signalCode===null)throw new Error(`Owned Chrome cleanup failed (taskkill exit ${code}); operator recovery required`);
     }
     chrome=undefined;
     native?.stdin.end();native?.kill();native=undefined;
@@ -76,12 +76,18 @@ async function start(){
     const verified=await nativeRequest('info');
     if(verified.os!=='Windows 11'||verified.isolation!=='remote-vm')throw new Error('Native VM verification failed');
     const profile=ownedProfile=join(root,'profiles',randomUUID());mkdirSync(profile,{recursive:true});
-    const ownedChrome=chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
+    const ownedChrome=chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--disable-smooth-scrolling','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
     ownedChrome.once('error',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome failed to start');});ownedChrome.once('exit',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome exited');});
     const deadline=Date.now()+30000;
-    while(!existsSync(join(profile,'DevToolsActivePort'))){if(!active||Date.now()>deadline||chrome.exitCode!==null)throw new Error('Chrome startup timed out');await new Promise(r=>setTimeout(r,100));}
-    const [port,path]=readFileSync(join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/);
-    if(!/^\d+$/.test(port)||!/^\/devtools\/browser\/[a-f0-9-]+$/.test(path))throw new Error('Invalid owned Chrome endpoint');
+    let port='',path='';
+    while(true){
+      if(!active||Date.now()>deadline||ownedChrome.exitCode!==null)throw new Error('Chrome startup timed out');
+      try{[port,path]=readFileSync(join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/);if(/^\d+$/.test(port)&&/^\/devtools\/browser\/[a-f0-9-]+$/.test(path))break;}
+      catch(error){if(!['ENOENT','EBUSY','EACCES'].includes((error as NodeJS.ErrnoException).code??''))throw error;}
+      // Windows may expose this new file while Chrome still holds its writer.
+      // Retry setup discovery only, never an input command or an old session.
+      await new Promise(r=>setTimeout(r,100));
+    }
     cdpURL=`ws://127.0.0.1:${port}${path}`;
     // Cold Windows module/C# initialization precedes the backend lease. Once
     // handed to the backend, the existing 20-second heartbeat deadline applies.

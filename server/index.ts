@@ -16,6 +16,7 @@ import { replayExperiment } from './replay';
 import { BrowserService } from './browser/service';
 import { ExhibitService } from './exhibit/service';
 import { serveVideo } from './media';
+import { observerOrigins } from './observer-origins';
 
 const ROOT=fileURLToPath(new URL('../',import.meta.url));
 const production=process.argv.includes('--production');
@@ -23,6 +24,7 @@ const browserEnabled=process.argv.includes('--browser-demo');
 const exhibitEnabled=!browserEnabled&&!process.argv.includes('--light-demo');
 const port=Number(process.env.PORT||4317);
 if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be an integer from 1024 to 65535');
+const allowedObservers=observerOrigins(port,process.env.EXHIBIT_OBSERVER_ORIGINS);
 const circuit=JSON.parse(readFileSync(resolve(ROOT,'data/processed/circuit.json'),'utf8')) as Circuit;
 const engine=new Engine(circuit);
 let runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`,startedAt=new Date().toISOString(),seq=0;
@@ -53,7 +55,7 @@ let droppedFrames=0;
 server.on('upgrade',(request,socket,head)=>{
   if(request.url?.split('?')[0]!=='/stream')return;
   const origin=request.headers.origin;
-  if(origin&&!['http://127.0.0.1:'+port,'http://localhost:'+port].includes(origin)){socket.destroy();return;}
+  if(origin&&!allowedObservers.has(origin)){socket.destroy();return;}
   wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot:exhibitEnabled?exhibitService.live?.snapshot:snapshot,browser:browserEnabled?browserService.live:null,exhibit:exhibitEnabled?exhibitService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
 });
 const vite=production?null:await (await import('vite')).createServer({root:ROOT,server:{middlewareMode:true,hmr:{server}},appType:'spa'});

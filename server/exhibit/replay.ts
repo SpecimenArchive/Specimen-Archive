@@ -36,7 +36,11 @@ export async function replayEpisode(directory:string,circuit:Circuit){
     const inputs=actual.filter(e=>e.type!=='navigation');assert(inputs.every(e=>e.trusted===true));
     if(d.command.kind==='wait'){assert.equal(inputs.length,0);assert.deepEqual(d.executed.from,d.executed.to);}
     if(d.command.kind==='move'){assert.equal(d.executed.to.x,Math.max(10,Math.min(C.width-10,d.executed.from.x+d.command.dx)));assert(inputs.some(e=>e.type==='mousemove'&&e.x===d.executed.to.x&&e.y===d.executed.to.y));}
-    if(d.command.kind==='scroll')assert(inputs.some(e=>e.type==='wheel'&&e.deltaY===d.command.wheelY));
+    if(d.command.kind==='scroll'){
+      const mapping=d.executed.nativeInput;
+      if(mapping){assert.equal(mapping.version,'windows-view-v2');assert.equal(mapping.coordinateScale,d.desktopBefore?.station?.viewport.scale);assert.equal(mapping.wheelScale,1);assert.equal(mapping.wheelEventScale,1/mapping.coordinateScale);assert(Number.isFinite(mapping.scrollBefore)&&Number.isFinite(mapping.scrollAfter));const delta=mapping.scrollAfter!-mapping.scrollBefore!;assert(Math.abs(delta)<=Math.abs(d.command.wheelY)+1&&delta*d.command.wheelY>=0);}
+      assert(inputs.some(e=>e.type==='wheel'&&Math.abs(e.deltaY!-d.command.wheelY*(mapping?.wheelEventScale??1))<.01));
+    }
     if(d.command.kind==='click')for(const type of ['mousedown','mouseup','click'])assert(inputs.some(e=>e.type===type&&e.x===d.executed.from.x&&e.y===d.executed.from.y));
     previous=d;
   }

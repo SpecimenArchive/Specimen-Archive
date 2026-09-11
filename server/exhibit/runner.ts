@@ -82,23 +82,31 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       });
       const commandId=`${runId}:c${String(decision).padStart(3,'0')}`;currentCommandId=commandId;
       const from={...cursor},actionStarted=new Date().toISOString(),command=calculation.command;
+      const nativeInput:ExhibitDecision['executed']['nativeInput']=desktop instanceof RemoteDesktopSession?{version:'windows-view-v2',coordinateScale:inputScale,wheelScale:1,wheelEventScale:1/inputScale}:undefined;
+      if(nativeInput&&command.kind==='scroll')nativeInput.scrollBefore=await page.evaluate(()=>scrollY);
       if(command.kind==='move'){cursor={x:Math.max(10,Math.min(C.width-10,cursor.x+command.dx)),y:cursor.y};await page.mouse.move(cursor.x*inputScale,cursor.y*inputScale);}
-      if(command.kind==='scroll')await page.mouse.wheel(0,command.wheelY*inputScale);
+      // Chromium's emulated view scales pointer coordinates and DOM wheel
+      // events, but compositor scroll distance stays in the original DIP.
+      if(command.kind==='scroll')await page.mouse.wheel(0,command.wheelY);
       if(command.kind==='click'){await page.mouse.down();await page.mouse.up();}
       // Passive settling for the real input event/navigation before recapture; no locator or scrolling helper.
       await delay(100,undefined,{signal:o.signal});await page.waitForLoadState('load');
       const actionCompleted=new Date().toISOString(),after=await screenshot(),afterCaptured=new Date().toISOString(),imageAfter=`frame-${String(decision+1).padStart(3,'0')}.png`;
+      if(nativeInput&&command.kind==='scroll')nativeInput.scrollAfter=await page.evaluate(()=>scrollY);
+      let mappingError=false;
       if(desktop instanceof RemoteDesktopSession){
         for(const event of events.filter(e=>e.commandId===commandId&&['mousemove','mousedown','mouseup','click','wheel'].includes(e.type))){
-          if(!event.trusted||event.x!==cursor.x||event.y!==cursor.y||event.type==='wheel'&&event.deltaY!==command.wheelY)throw new Error('Native presentation/input mapping changed; actual browser event disagrees with the decoded command');
+          if(!event.trusted||event.x!==cursor.x||event.y!==cursor.y||event.type==='wheel'&&Math.abs(event.deltaY!-command.wheelY/inputScale)>.01)mappingError=true;
         }
+        if(nativeInput?.scrollBefore!==undefined&&nativeInput.scrollAfter!==undefined){const delta=nativeInput.scrollAfter-nativeInput.scrollBefore;if(Math.abs(delta)>Math.abs(command.wheelY)+1||delta*command.wheelY<0)mappingError=true;}
       }
       writeFileSync(join(directory,imageAfter),after);
       const desktopAfter=await desktop?.capture(directory,decision+1,imageAfter,afterCaptured,cursor);
       const d:ExhibitDecision={context:{sourceRevision:origin.sourceRevision,sourceDirty:origin.sourceDirty,configSha256:record.configSha256,dataVersion:origin.dataVersion,intervention:o.intervention,episode:o.episode,seed:o.seed,layout:o.layout},sessionId:o.sessionId,runId,commandId,decision,imageBefore,imageAfter,imageSha256:sha256(png),afterSha256:sha256(after),capturedAt,completedAt:afterCaptured,...calculation,
         desktopBefore:presentation,desktopAfter,
-        executed:{startedAt:actionStarted,completedAt:actionCompleted,from,to:{...cursor},events:events.filter(e=>e.commandId===commandId)}};
+        executed:{startedAt:actionStarted,completedAt:actionCompleted,from,to:{...cursor},events:events.filter(e=>e.commandId===commandId),...(nativeInput?{nativeInput}:{})}};
       decisions.push(d);writeFileSync(join(directory,`decision-${decision}.json.gz`),gzipSync(JSON.stringify(d)));
+      if(mappingError)throw new Error('Native presentation/input mapping changed; saved actual events disagree with the decoded command');
       png=after;capturedAt=afterCaptured;presentation=desktopAfter;
       emit({state:'executed',browserFrame:`${runId}/${imageAfter}`,desktop:presentation??null,motor:d.motor,command:d.command,commandId,history:[...live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:`${command.dx||command.wheelY||0} px · ${d.executed.events.map(e=>e.type).join(' → ')||'gate closed'}`,timestamp:actionCompleted}].slice(-24),notice:command.reason});
     }

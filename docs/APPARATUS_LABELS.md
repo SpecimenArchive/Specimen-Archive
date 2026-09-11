@@ -1,5 +1,15 @@
 # Apparatus asset recovery
 
+## Current lettering: v4 marker refinement
+
+`public/assets/apparatus-master-v4-marker.png` replaces the tidy lettering with smaller freehand felt-tip inscriptions: `$LARVA` on the front and `Specimen 01` on the visible right face. The front capitals and the more fluid side inscription have distinct rhythms, modest stroke variation and generous edge clearance. The built-in image editor supplied the new handwriting; local integration removed the old ink, reduced the generated strokes to 86% and retained the original paint illumination. No font or programmatically drawn glyphs were used. [Exact prompts](APPARATUS_MARKER_PROMPTS.md).
+
+The final 1659 x 948 asset changes 4,581 pixels, all within two inset face regions. Every pixel outside those regions is identical to v3, including the microscope outline, scene and entire monitor. [Preservation receipt](results/apparatus-marker-preservation.json). Original v1, v2 and v3 remain intact. Renderer, chamber crop, worksheet and apparatus study now reference v4.
+
+The enlarged [housing crop](screenshots/apparatus-marker-v4-close.png) was inspected for old lettering, paint seams, spelling, perspective and clearance. The responsive dashboard review is recorded separately; VM runtime acceptance remains a separate check.
+
+## Historical v3 edit
+
 The recovered `apparatus-master-v2-indoor.png` preserves the established bench with closed blinds and controlled indoor lighting. It contains no lettering. `apparatus-master-v1.png` remains the historical daylight source. Neither is a photograph of a named laboratory or proof of physical apparatus.
 
 The current `public/assets/apparatus-master-v3-labelled.png` is a built-in ImageGen edit of v2, requested on 11 September 2026. It is 1659 x 948, with `$LARVA` on the front vertical flat face of the microscope base and smaller `Specimen 01` on the right-side face. No inscription crosses the rounded corner or upper face. `@SpecimenArchive` belongs to website branding. No staff identity, institutional affiliation or specimen electrode is added.

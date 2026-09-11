@@ -19,7 +19,7 @@ export interface ExhibitDecision {
   imageBefore:string;imageAfter:string;imageSha256:string;afterSha256:string;capturedAt:string;completedAt:string;
   input:ExhibitInput;motor:MotorReadout;command:ExhibitCommand;samples:Snapshot[];
   desktopBefore?:DesktopCapture;desktopAfter?:DesktopCapture;
-  executed:{startedAt:string;completedAt:string;from:{x:number;y:number};to:{x:number;y:number};events:ExecutedEvent[]};
+  executed:{startedAt:string;completedAt:string;from:{x:number;y:number};to:{x:number;y:number};events:ExecutedEvent[];nativeInput?:{version:'windows-view-v2';coordinateScale:number;wheelScale:1;wheelEventScale:number;scrollBefore?:number;scrollAfter?:number}};
 }
 export interface ExhibitRecord extends PublishableRecord {
   schemaVersion:1;kind:'continuous-browser-episode';recorder:'Specimen Recorder';sessionId:string;startedAt:string;
