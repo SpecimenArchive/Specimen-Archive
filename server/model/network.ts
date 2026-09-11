@@ -10,12 +10,12 @@ export class RateNetwork {
     this.activity = new Float64Array(circuit.nodes.length); this.next = new Float64Array(circuit.nodes.length);
     this.index = new Map(circuit.nodes.map((n,i)=>[n.id,i]));
     const totals = new Float64Array(circuit.nodes.length);
-    for (const e of circuit.edges) totals[this.index.get(e.target)!] += e.weight;
     let seed=C.seed;
     const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
     const targets=circuit.edges.map(e=>this.index.get(e.target)!);
     if(intervention==='shuffled')for(let i=targets.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[targets[i],targets[j]]=[targets[j],targets[i]];}
-    this.edges=circuit.edges.map((e,i)=>({source:this.index.get(e.source)!,target:targets[i],gain:e.weight / Math.max(1,totals[this.index.get(e.target)!])})).filter(e=>{
+    circuit.edges.forEach((e,i)=>{totals[targets[i]]+=e.weight;});
+    this.edges=circuit.edges.map((e,i)=>({source:this.index.get(e.source)!,target:targets[i],gain:e.weight / Math.max(1,totals[targets[i]])})).filter(e=>{
       const n=circuit.nodes[e.source];
       return !(intervention==='disconnect-photoreceptors' && n.category==='sensory') && !(intervention==='disconnect-inton' && n.type==='celltype3');
     });

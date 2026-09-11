@@ -16,7 +16,7 @@ if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be 
 const circuit=JSON.parse(readFileSync(resolve(ROOT,'data/processed/circuit.json'),'utf8')) as Circuit;
 const engine=new Engine(circuit);
 let runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`,startedAt=new Date().toISOString(),seq=0;
-let store=new Storage(process.env.RUNTIME_DIR||resolve(ROOT,'runtime'),runId,startedAt);store.restore(engine);store.prune();
+let store=new Storage(process.env.RUNTIME_DIR||resolve(ROOT,'runtime'),runId,startedAt);store.markInterrupted();store.restore(engine);store.prune();
 engine.event('session','Observation session opened');
 let segmentStart=engine.time;
 let snapshot=engine.snapshot(runId,seq,startedAt,0);

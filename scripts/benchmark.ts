@@ -1,0 +1,15 @@
+import { performance } from 'node:perf_hooks';
+import { cpus, platform, release, totalmem } from 'node:os';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { circuit } from './science';
+import { Engine } from '../server/model/engine';
+import { MODEL_CONFIG } from '../server/model/config';
+const engine=new Engine(circuit);
+for(let i=0;i<5000;i++)engine.step();
+const steps=100000,before=process.memoryUsage(),begin=performance.now();
+for(let i=0;i<steps;i++)engine.step();
+const elapsedMs=performance.now()-begin,after=process.memoryUsage();
+let bytes=0;const serialBegin=performance.now();for(let i=0;i<10000;i++)bytes+=Buffer.byteLength(JSON.stringify({type:'snapshot',snapshot:engine.snapshot('benchmark',i,'benchmark',0)}));
+const serializationMs=performance.now()-serialBegin;
+const results={measuredAt:new Date().toISOString(),node:process.version,os:`${platform()} ${release()}`,cpu:cpus()[0].model,logicalCpus:cpus().length,totalMemoryBytes:totalmem(),modelNeurons:circuit.nodes.length,modelEdges:circuit.edges.length,steps,simulatedSeconds:steps*MODEL_CONFIG.dt,elapsedMs,stepsPerWallSecond:steps/(elapsedMs/1000),simulationSecondsPerWallSecond:steps*MODEL_CONFIG.dt/(elapsedMs/1000),rssBeforeBytes:before.rss,rssAfterBytes:after.rss,heapUsedBeforeBytes:before.heapUsed,heapUsedAfterBytes:after.heapUsed,serializedSnapshots:10000,serializationMs,meanSnapshotBytes:bytes/10000,configuredStreamHz:MODEL_CONFIG.streamHz,configuredTimeScale:MODEL_CONFIG.timeScale,historyBound:80,caveat:'Engine microbenchmark and serialization measured separately. Heap delta includes garbage-collector timing; it is not a leak measurement. Actual socket throughput and browser rendering are reported separately by browser/transport verification.'};
+mkdirSync('docs/results',{recursive:true});writeFileSync('docs/results/benchmark.json',JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));

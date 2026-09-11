@@ -14,14 +14,17 @@ function seeded(seed: number) { return () => { seed|=0;seed=seed+0x6D2B79F5|0;le
 const rand=seeded(7101);
 const granules=Array.from({length:1550},()=>({y:-105+rand()*202,theta:rand()*Math.PI*2,r:Math.sqrt(rand())*.91,size:.3+rand()*1.5,tone:rand()}));
 const vesicles=Array.from({length:105},()=>({y:-37+rand()*118,theta:rand()*Math.PI*2,r:Math.sqrt(rand())*.73,size:1.5+rand()*5,tone:rand()}));
+const bristleVariation=Array.from({length:19},()=>({length:.84+rand()*.3,angle:(rand()-.5)*5,spacing:(rand()-.5)*2,focus:rand()}));
+const ciliaVariation=Array.from({length:180},()=>({spacing:(rand()-.5)*.42,length:.72+rand()*.48,lean:(rand()-.5)*1.5}));
 const dust=Array.from({length:65},()=>({x:rand(),y:rand(),r:.4+rand()*1.4,opacity:rand()*.07}));
 let tissue: HTMLImageElement | undefined;
 export function loadTissue(){ const img=new Image(); img.onload=()=>{tissue=img;};img.src='/assets/tissue-texture.png'; }
 
 export interface RenderOptions { anatomy: boolean; trails: boolean; zoom: number; reducedMotion: boolean }
 export function drawSpecimen(canvas: HTMLCanvasElement, snapshot: Snapshot, options: RenderOptions) {
-  const ctx=canvas.getContext('2d'); if(!ctx)return;
+  const context=canvas.getContext('2d'); if(!context)return;const ctx=context;
   const bounds=canvas.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
+  if(bounds.width<1||bounds.height<1)return;
   if(canvas.width!==Math.round(bounds.width*dpr)||canvas.height!==Math.round(bounds.height*dpr)){ canvas.width=Math.round(bounds.width*dpr);canvas.height=Math.round(bounds.height*dpr); }
   const w=bounds.width,h=bounds.height;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
   const field=ctx.createRadialGradient(w*.49,h*.43,0,w*.5,h*.5,Math.max(w,h)*.7);
@@ -35,21 +38,25 @@ export function drawSpecimen(canvas: HTMLCanvasElement, snapshot: Snapshot, opti
   const roll=pose.roll, bend=pose.bend;
   const center=(y:number)=>bend*20*Math.pow((y+105)/210,2);
   const point=(x:number,y:number,z=0):[number,number]=>[center(y)+x*Math.cos(roll)+z*Math.sin(roll),y+z*.10];
-  const ellipse=(x:number,y:number,rx:number,ry:number,fill:string,stroke?:string)=>{ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=.35;ctx.stroke();}};
+  const ellipse=(x:number,y:number,rx:number,ry:number,fill:string|CanvasGradient,stroke?:string)=>{ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=.35;ctx.stroke();}};
   const curve=(points:number[],color:string,width:number)=>{ctx.beginPath();ctx.moveTo(points[0],points[1]);ctx.bezierCurveTo(points[2],points[3],points[4],points[5],points[6],points[7]);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();};
   function bristles(back:boolean){
     for(const y0 of [-36,16,62])for(const side of [-1,1])for(let n=0;n<19;n++){
+      const variation=bristleVariation[n];
       const theta=side>0?.23:Math.PI-.23;
       const radial=radius(y0), z=Math.sin(theta)*radial;
       const depth=-side*Math.sin(roll)+.25*Math.cos(roll);
       if((depth<0)!==back)continue;
-      const [x,y]=point(side*radial*.94,y0,z);
-      const extent=(32+Math.sin(n*7.17)*7+n*.9)*(y0>50?.88:1);
-      const endY=y+19+n*2.2;
+      const [x,y]=point(side*radial*.94,y0+variation.spacing,z);
+      const extent=(32+Math.sin(n*7.17)*7+n*.9)*(y0>50?.88:1)*variation.length;
+      const endY=y+19+n*2.2+variation.angle;
       const sway=options.reducedMotion?0:Math.sin(pose.ciliaPhase*.06+n*.31)*.5;
       const [ex,ey]=point(side*(radial+extent),endY, z+10);
-      curve([x,y,x+side*extent*.5,y+4,ex+side*2,ey-13,ex+sway,ey],back?'rgba(102,113,98,.17)':'rgba(112,105,77,.36)',n%5===0?.52:.29);
+      // Depth is encoded in contrast/width; per-hair canvas blur would create
+      // hundreds of compositing passes and destroy stream smoothness.
+      curve([x,y,x+side*extent*.5,y+4,ex+side*2,ey-13,ex+sway,ey],`rgba(107,109,82,${.12+.23*(depth+1)/2})`,n%5===0?.56:.28);
       curve([x+.5,y,x+side*extent*.5+.7,y+3,ex+side*2+.7,ey-13,ex+sway+.4,ey],'rgba(255,255,242,.43)',.23);
+      ctx.filter='none';
     }
   }
   bristles(true);
@@ -57,26 +64,45 @@ export function drawSpecimen(canvas: HTMLCanvasElement, snapshot: Snapshot, opti
   const outline=new Path2D();
   for(let y=-112;y<=104;y+=2){const x=center(y)-radius(y);if(y===-112)outline.moveTo(x,y);else outline.lineTo(x,y);}
   for(let y=104;y>=-112;y-=2)outline.lineTo(center(y)+radius(y),y);outline.closePath();
-  ctx.save();ctx.shadowColor='rgba(87,102,90,.12)';ctx.shadowBlur=4;ctx.shadowOffsetX=1;ctx.shadowOffsetY=2;ctx.fillStyle='rgba(158,166,134,.13)';ctx.fill(outline);ctx.restore();
+  ctx.save();ctx.shadowColor='rgba(87,102,90,.09)';ctx.shadowBlur=7;ctx.shadowOffsetX=1;ctx.shadowOffsetY=2;ctx.fillStyle='rgba(158,166,134,.08)';ctx.fill(outline);ctx.restore();
+  // DIC-like directional refraction: a soft halo is separate from the membrane.
+  ctx.save();ctx.filter='blur(1.1px)';ctx.translate(-.4,.2);ctx.strokeStyle='rgba(91,112,92,.12)';ctx.lineWidth=1.1;ctx.stroke(outline);ctx.translate(.85,-.55);ctx.strokeStyle='rgba(255,255,241,.29)';ctx.lineWidth=1.2;ctx.stroke(outline);ctx.restore();
   ctx.save();ctx.clip(outline);
-  const tissueFill=ctx.createLinearGradient(-46,-40,48,0);tissueFill.addColorStop(0,'rgba(116,131,111,.32)');tissueFill.addColorStop(.09,'rgba(253,252,224,.68)');tissueFill.addColorStop(.27,'rgba(214,210,164,.29)');tissueFill.addColorStop(.52,'rgba(246,238,203,.32)');tissueFill.addColorStop(.82,'rgba(246,247,226,.66)');tissueFill.addColorStop(1,'rgba(108,128,112,.36)');ctx.fillStyle=tissueFill;ctx.fill(outline);
+  const tissueFill=ctx.createLinearGradient(-46,-40,48,0);tissueFill.addColorStop(0,'rgba(116,131,111,.24)');tissueFill.addColorStop(.09,'rgba(253,252,224,.55)');tissueFill.addColorStop(.27,'rgba(214,210,164,.21)');tissueFill.addColorStop(.52,'rgba(246,238,203,.24)');tissueFill.addColorStop(.82,'rgba(246,247,226,.49)');tissueFill.addColorStop(1,'rgba(108,128,112,.29)');ctx.fillStyle=tissueFill;ctx.fill(outline);
   if(tissue){ctx.globalAlpha=.16;ctx.globalCompositeOperation='multiply';ctx.drawImage(tissue,-60,-120,120,240);ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;}
   // Yolk vesicles and paired longitudinal tissue: artistic microstructure only.
-  for(const g of vesicles){
-    const theta=g.theta+roll;const x=center(g.y)+Math.cos(theta)*radius(g.y)*g.r, z=Math.sin(theta);const a=.13+Math.max(0,z)*.17;
-    const gradient=ctx.createRadialGradient(x-g.size*.25,g.y-g.size*.3,.1,x,g.y,g.size);
-    gradient.addColorStop(0,`rgba(249,239,177,${a+.17})`);gradient.addColorStop(.7,`rgba(192,176,110,${a})`);gradient.addColorStop(1,'rgba(142,147,97,.15)');ellipse(x,g.y,g.size,g.size*.82,gradient as unknown as string,'rgba(121,125,77,.14)');
+  for(const layer of [-1,1]){
+    ctx.filter='none';
+    for(const g of vesicles){
+      const theta=g.theta+roll,z=Math.sin(theta);if((z<0?-1:1)!==layer)continue;
+      const x=center(g.y)+Math.cos(theta)*radius(g.y)*g.r;
+      const a=.09+Math.max(0,z)*.21;
+      const gradient=ctx.createRadialGradient(x-g.size*.26,g.y-g.size*.3,.1,x,g.y,g.size);
+      gradient.addColorStop(0,`rgba(249,239,177,${a+.10})`);gradient.addColorStop(.6,`rgba(196,175,106,${a})`);gradient.addColorStop(.84,`rgba(151,146,91,${a*.8})`);gradient.addColorStop(1,'rgba(242,239,194,0)');ellipse(x,g.y,g.size,g.size*.82,gradient);
+      if(layer>0&&g.tone>.36){ctx.beginPath();ctx.ellipse(x,g.y,g.size*.84,g.size*.66,0,3.5,5.5);ctx.strokeStyle='rgba(253,255,222,.39)';ctx.lineWidth=.4;ctx.stroke();}
+    }
   }
+  ctx.filter='none';
+  // Overlapping, softly focused internal tissue makes the optical plane legible.
+  for(const side of [-1,1]){
+    const [x,y]=point(side*13,-43,11);const bulb=ctx.createRadialGradient(x-3,y-3,1,x,y,11);bulb.addColorStop(0,'rgba(246,244,214,.2)');bulb.addColorStop(.65,'rgba(147,160,126,.06)');bulb.addColorStop(.9,'rgba(105,128,103,.17)');bulb.addColorStop(1,'rgba(244,244,217,0)');
+    ellipse(x,y,11,14,bulb);
+  }
+  ctx.filter='none';
   for(const side of [-1,1])for(let i=0;i<6;i++){
     const x=side*(18+i*1.2);curve([x,-49,x+side*6,-13,center(42)+x*.8,48,center(91)+x*.3,91],'rgba(155,140,99,.115)',.45);
   }
   // A subtle developing gut column, visible through the trunk.
   curve([2,-33,center(3)-5,-10,center(49)+5,46,center(85),88],'rgba(183,160,111,.11)',8);
   curve([-1,-30,center(3)-5,-10,center(49)+4,46,center(85),88],'rgba(247,239,202,.21)',4);
-  for(const g of granules){const theta=g.theta+roll;const z=Math.sin(theta);const x=center(g.y)+Math.cos(theta)*radius(g.y)*g.r;const alpha=.055+.07*(z+1)/2;
-    ellipse(x,g.y,g.size,g.size*.76,`rgba(${g.tone>.86?'126,113,67':'138,151,125'},${alpha})`,g.size>1?'rgba(239,242,215,.16)':undefined);
+  for(const layer of [-1,1]){
+    ctx.filter='none';
+    for(const g of granules){const theta=g.theta+roll,z=Math.sin(theta);if((z<0?-1:1)!==layer)continue;const x=center(g.y)+Math.cos(theta)*radius(g.y)*g.r;const alpha=.035+.10*Math.max(0,z);
+      ellipse(x,g.y,g.size,g.size*.76,`rgba(${g.tone>.86?'126,113,67':'138,151,125'},${alpha})`,layer>0&&g.size>1?'rgba(248,247,221,.2)':undefined);
+    }
   }
-  for(const y of [-49,-1,46,85]){curve([-radius(y),y-1,-15,y+5,16+center(y),y+5,radius(y)+center(y),y-1],'rgba(128,135,103,.2)',.6);curve([-radius(y),y-2,-15,y+3,16+center(y),y+3,radius(y)+center(y),y-2],'rgba(255,255,237,.44)',.8);}
+  ctx.filter='none';
+  for(const y of [-49,-1,46,85]){curve([-radius(y),y-1,-15,y+5,16+center(y),y+5,radius(y)+center(y),y-1],'rgba(128,135,103,.14)',.9);curve([-radius(y),y-2,-15,y+3,16+center(y),y+3,radius(y)+center(y),y-2],'rgba(255,255,237,.26)',1.1);}
   // Four visual pigment cups plus the smaller lateral eyespots.
   for(const side of [-1,1])for(let i=0;i<3;i++){
     const theta=(side>0?0:Math.PI)+(i===2?.1:.55);
@@ -84,12 +110,20 @@ export function drawSpecimen(canvas: HTMLCanvasElement, snapshot: Snapshot, opti
     const [x,py]=point(Math.cos(theta)*radial,y,Math.sin(theta)*radial);
     const z=-Math.cos(theta)*Math.sin(roll)+Math.sin(theta)*Math.cos(roll);
     const opacity=.24+.66*(z+1)/2;
-    ellipse(x,py,i===2?1.7:3.0,i===2?1.5:2.7,`rgba(113,57,35,${opacity})`,'rgba(106,68,36,.33)');
-    ellipse(x-.8,py-.6,i===2?.45:1.2,i===2?.4:1.1,'rgba(240,190,122,.43)');
+    ellipse(x,py,i===2?1.7:2.9,i===2?1.5:2.6,`rgba(116,67,40,${opacity*.68})`);
+    for(let j=0;j<13;j++){const theta=j*2.4,spread=(i===2?1:1.8)*Math.sqrt((j+.5)/13);ellipse(x+Math.cos(theta)*spread,py+Math.sin(theta)*spread,.43+(j%3)*.14,.5,`rgba(115,60,34,${opacity*.38})`);}
+    ellipse(x-.6,py-.7,i===2?.3:.8,i===2?.3:.7,'rgba(240,190,122,.24)');ctx.filter='none';
   }
   // Prototroch pigment traces and head microstructure.
   for(let i=0;i<70;i++){const theta=i/70*Math.PI*2+roll;const x=Math.cos(theta)*43;const y=-60+Math.sin(theta)*4;ellipse(x,y,.8+(i%3)*.23,.8,`rgba(139,133,81,${.1+Math.max(0,Math.sin(theta))*.18})`);}
-  ctx.restore();ctx.strokeStyle='rgba(112,127,106,.36)';ctx.lineWidth=.5;ctx.stroke(outline);ctx.translate(-.6,-.3);ctx.strokeStyle='rgba(255,255,241,.64)';ctx.lineWidth=.6;ctx.stroke(outline);ctx.translate(.6,.3);
+  ctx.restore();
+  // Vary refraction continuously along the stable envelope instead of drawing
+  // an equally dark outline. Focus follows depth, never random frame noise.
+  for(const side of [-1,1])for(let y=-108;y<101;y+=3){
+    const focus=.45+.55*Math.cos((y+30)/58+side*.5),a=.05+.2*Math.max(0,focus);
+    ctx.beginPath();ctx.moveTo(center(y)+side*radius(y),y);ctx.lineTo(center(y+3)+side*radius(y+3),y+3);ctx.strokeStyle=side<0?`rgba(97,120,98,${a})`:`rgba(255,255,244,${a*2})`;ctx.lineWidth=.65+.3*(1-focus);ctx.stroke();
+  }
+  ctx.filter='none';
   // Paired parapodial lobes with thin supporting acicula.
   for(const y of [-36,16,62])for(const side of [-1,1]){
     const [x,py]=point(side*radius(y)*.91,y,4);ellipse(x,py,4.1,6,'rgba(211,204,160,.26)','rgba(142,147,113,.24)');
@@ -97,13 +131,15 @@ export function drawSpecimen(canvas: HTMLCanvasElement, snapshot: Snapshot, opti
   }
   bristles(false);
   // Metachronal ciliary bands. Phase advances only with authoritative state.
-  for(const [y0,radiusFactor,count,length] of [[-59,1.02,180,7],[0,1,70,4.4],[46,1,62,4.3],[91,1.2,40,4.8]]){
+  for(const [y0,radiusFactor,count,length] of [[-59,1.02,180,9],[0,1,70,4.4],[46,1,62,4.3],[91,1.2,40,4.8]]){
     const r=radius(y0)*radiusFactor;
     for(let i=0;i<count;i++){
-      const theta=i/count*Math.PI*2+roll;const z=Math.sin(theta);const x=center(y0)+Math.cos(theta)*r,y=y0+z*3;
+      const variation=ciliaVariation[i],theta=(i+variation.spacing)/count*Math.PI*2+roll;const z=Math.sin(theta);const x=center(y0)+Math.cos(theta)*r,y=y0+z*3;
       const phase=options.reducedMotion?0:Math.sin(pose.ciliaPhase-i*.44);
-      const dx=Math.cos(theta)*(length+phase*1.2),dy=z*3+3+phase*1.5;
-      curve([x,y,x+dx*.35,y+dy*.1,x+dx*.8+phase,y+dy*.6,x+dx,y+dy],`rgba(125,139,115,${.13+Math.max(0,z)*.18})`,.28);
+      const dx=Math.cos(theta)*(length*variation.length+phase*1.2),dy=z*3+3+phase*1.5+variation.lean;
+      curve([x,y,x+dx*.35,y+dy*.1,x+dx*.8+phase,y+dy*.6,x+dx,y+dy],`rgba(116,133,110,${.10+Math.max(0,z)*.23})`,.27);
+      if(z>.3)curve([x+.35,y-.3,x+dx*.35+.3,y+dy*.1,x+dx*.8+phase+.3,y+dy*.6,x+dx+.3,y+dy],'rgba(255,255,242,.37)',.21);
+      ctx.filter='none';
     }
   }
   // Apical tuft and short posterior cirri retain their identity across frames.
