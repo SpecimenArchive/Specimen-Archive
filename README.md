@@ -106,13 +106,17 @@ On macOS/Linux use `.venv/bin/python` instead. The pipeline caches a 566 KB publ
 | `server/index.ts` | Loopback server, clock, read-only HTTP and WebSocket stream |
 | `server/storage.ts` | Atomic checkpoints, recorded frames and retention |
 | `src/useStream.ts` | Reconnect/resync, sequence rejection and stale state |
-| `src/render/` | Specimen rendering; currently under visual replacement |
+| `src/render/` | Accepted photographic specimen rig with stable head and chaetal roots |
+| `server/exhibit/` | Continuous intact pixel controller, phase decoder, runner, replay and bounded supervisor |
+| `src/ExhibitApp.tsx`, `src/Apparatus.tsx` | Synchronized exhibit and projective actual-screen compositor |
 | `src/NetworkView.tsx` | Published edges and selectable live circuit cells |
 | `scripts/trace.ts`, `validate.ts`, `benchmark.ts` | Reproducible evidence |
 | `tests/fixtures/` | Clearly labelled synthetic software fixtures, never served as science |
 | `project-skills/specimen-review/SKILL.md` | Focused rendering/model review workflow |
 
 ## Current visual study
+
+The current integrated exhibit is complete at `/`; its recorded review is `/docs/previews/integrated-review.html`. [Extended validation](docs/EXHIBIT_VALIDATION.md) reports held-out failures as well as successful causal control, independent Linux results, ten-minute observation, reconnect and recovery. The earlier isolated visual studies below remain as development evidence.
 
 The source optical references are actual DIC footage from [Verasztó et al., eLife 26000](https://elifesciences.org/articles/26000) and [Randel et al., eLife 02730](https://elifesciences.org/articles/02730). The generated photographic still is an original synthetic material study, not an authentic micrograph or measured observation. [Renderer review](docs/RENDERER_REVIEW.md) records the user's choices and rejected approaches.
 

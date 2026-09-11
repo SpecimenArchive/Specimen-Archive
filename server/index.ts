@@ -63,9 +63,12 @@ server.on('request',(req,res)=>{
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
   if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
-  if(url.pathname==='/api/exhibit/publications'){json(exhibitService.store.publications().slice(0,50));return;}
-  if(url.pathname==='/api/exhibit/records'){json(exhibitService.store.records().slice(0,50).map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
-  if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.store.read(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}
+  if(url.pathname==='/api/exhibit/publications'){json(exhibitService.publications().slice(0,50));return;}
+  if(url.pathname==='/api/exhibit/records'){json(exhibitService.records().slice(0,50).map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
+  if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.record(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}
+  if(url.pathname==='/api/exhibit/preview'){
+    const path=resolve(ROOT,'runtime/integrated-preview/integrated-45s.webm');if(!existsSync(path)){json({error:'Download the evidence release to restore the local preview'},404);return;}res.setHeader('Content-Type','video/webm');res.end(readFileSync(path));return;
+  }
   if(url.pathname.startsWith('/api/exhibit/decision/')){const [id,index]=url.pathname.slice('/api/exhibit/decision/'.length).split('/');const d=/^\d+$/.test(index)?exhibitService.decision(id,Number(index)):null;json(d??{error:'Raw trace expired or decision not complete'},d?200:404);return;}
   if(url.pathname.startsWith('/api/exhibit/artifacts/')){
     const [id,name]=url.pathname.slice('/api/exhibit/artifacts/'.length).split('/');const path=exhibitService.file(id,name);

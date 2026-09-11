@@ -16,6 +16,7 @@ export interface ExhibitDecision {
 export interface ExhibitRecord extends PublishableRecord {
   schemaVersion:1;kind:'continuous-browser-episode';recorder:'Specimen Recorder';sessionId:string;startedAt:string;
   config:typeof EXHIBIT_CONFIG;model:typeof MODEL_CONFIG;seed:number;layout:TaskLayout;intervention:BrowserIntervention;
+  execution?:{paced:boolean;minimumWindowWallMs:number;nodeVersion:string;faultAfterWindow?:number};
   coverage:{neuronIds:string[];edges:number;synapses:number};setup:{note:string;events:ExecutedEvent[]};browserVersion:string;
   decisions:Omit<ExhibitDecision,'samples'>[];evaluator:{navigated:boolean;activated:boolean;activationCount:number};
   artifacts:{path:string;bytes:number;sha256:string}[];error?:string;replay?:{exact:boolean;samples:number;decisions:number};

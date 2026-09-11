@@ -7,7 +7,7 @@ export function SpecimenView({snapshot,circuit,anatomy=false}:{snapshot:Snapshot
   useEffect(()=>{old.current=state.current;state.current=snapshot;arrival.current=performance.now();},[snapshot]);
   useEffect(()=>{
     if(!circuit||!canvas.current)return;
-    let disposed=false,frame=0,ready=false,lastDraw=0,renderer:PhotographicRenderer;
+    let disposed=false,frame=0,ready=false,lastDraw=0,renderCount=0,renderer:PhotographicRenderer;
     try{renderer=new PhotographicRenderer(canvas.current,circuit);}catch{setError('WebGL unavailable — photographic still');return;}
     const resize=new ResizeObserver(([entry])=>renderer.resize(entry.contentRect.width,entry.contentRect.height));resize.observe(canvas.current);
     renderer.ready.then(()=>{ready=true;}).catch(()=>setError('Specimen asset could not be loaded'));
@@ -24,6 +24,8 @@ export function SpecimenView({snapshot,circuit,anatomy=false}:{snapshot:Snapshot
           shown={...s,pose,activity:s.activity.map((v,i)=>mix(p.activity[i],v)),motor:{left:mix(p.motor.left,s.motor.left),right:mix(p.motor.right,s.motor.right),forward:mix(p.motor.forward,s.motor.forward),turn:mix(p.motor.turn,s.motor.turn)}};
         }
         renderer.draw(shown);
+        // Presentation diagnostic only, never sent to the neural engine.
+        canvas.current!.dataset.renderCount=String(++renderCount);
       }
       frame=requestAnimationFrame(render);
     }

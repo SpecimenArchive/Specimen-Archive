@@ -14,10 +14,10 @@ The `pixel-motor-v2` controller, encoder and task in `server/browser` remain unc
 - [x] Pixel-driven movement, scrolling and navigation with replayable commands.
 - [x] Simultaneous specimen, input/neural signals and controlled browser; expandable apparatus.
 - [x] Local event inspection links input frame, model window, neuron states, decoder and actual events.
-- [ ] Show integrated motion for review; preserve accepted head and appendage roots.
-- [ ] Freeze extended controller before testing held-out positions, layouts and contrast; save failures and matched interventions.
-- [ ] Verify at least ten minutes with two observers, matching events and reconnection.
-- [ ] Companion worksheet, compact archive, reproducible commands and public publication receipts.
+- [x] Show integrated motion for review; preserve accepted head and appendage roots. User authorized self-assessment; actual 46.4-second preview reviewed.
+- [x] Freeze extended controller before testing held-out positions, layouts and contrast; save failures and matched interventions.
+- [x] Verify at least ten minutes with two observers, matching events and reconnection.
+- [x] Companion worksheet, compact archive, reproducible commands and public publication receipts.
 - [ ] Meaningful development checkpoints, release audit, clean public push and running final exhibit.
 
 ## Deferred scope

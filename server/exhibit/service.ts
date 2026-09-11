@@ -5,7 +5,7 @@ import { randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
 import type { Circuit } from '../../shared/types';
 import type { ExhibitLive,ExhibitRecord,ExhibitDecision } from '../../shared/exhibit';
-import { ExperimentStore } from '../experiment-store';
+import { ExperimentStore,recordHash,type Publication } from '../experiment-store';
 import { SpecimenRecorder,GitHubCLI } from '../recorder';
 import { EXHIBIT_CONFIG as C } from './config';
 import { runEpisode } from './runner';
@@ -37,7 +37,23 @@ export class ExhibitService {
   }
   file(id:string,name:string){
     if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||!/^(?:frame-\d+\.png|browser\.webm|record\.json|trace\.json\.gz|decision-\d+\.json\.gz)$/.test(name))return null;
-    const path=join(this.root,id,name);return existsSync(path)?path:null;
+    const candidates=[join(this.root,id,name),resolve(this.root,'../exhibit-validation',id,name),resolve('docs/evidence/exhibit',id,name)];return candidates.find(p=>existsSync(p))??null;
+  }
+  records(){
+    const all=this.store.records(),exported=resolve('docs/evidence/exhibit');
+    if(existsSync(exported))for(const id of readdirSync(exported)){if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||all.some(r=>r.id===id))continue;const file=join(exported,id,'record.json');if(existsSync(file))all.push(JSON.parse(readFileSync(file,'utf8')));}
+    return all.sort((a,b)=>b.completedAt.localeCompare(a.completedAt));
+  }
+  record(id:string){return this.records().find(r=>r.id===id)??null;}
+  publications(){
+    const receipts=this.store.publications();
+    for(const record of this.records()){
+      if(receipts.some(p=>p.id===record.id))continue;
+      const path=resolve('docs/evidence/exhibit',record.id,'publication.json');if(!existsSync(path))continue;
+      const p=JSON.parse(readFileSync(path,'utf8')) as Publication;
+      if(p.id===record.id&&p.state==='published'&&p.recordSha256===recordHash(record)&&p.url===`https://github.com/${p.repository}/commit/${p.commit}`)receipts.push(p);
+    }
+    return receipts;
   }
   decision(id:string,index:number){const path=this.file(id,`decision-${index}.json.gz`);return path?JSON.parse(gunzipSync(readFileSync(path)).toString()) as ExhibitDecision:null;}
   private prune(){

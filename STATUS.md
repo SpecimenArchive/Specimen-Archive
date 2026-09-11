@@ -6,10 +6,13 @@ Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRI
 ## Connected milestone — implementation checkpoint
 - Default session now runs intact continuously, with fixed-budget episodes and documented supervisor reset/recovery. The original light experiment and frozen baseline remain available by explicit commands.
 - New PNG-only phase encoder uses the same 47-cell engine to drive horizontal cursor movement, genuine wheel scrolling, a real link and a real button across two controlled pages.
-- Development seed 101: activated after scrolling/navigation; 48 decisions and 2,880 all-cell samples replayed exactly. Initial guide-threshold failure retained locally. Held-out matrix not yet executed.
+- Development seed 101 activated after scrolling/navigation. Held-out intact: standard activated; offset navigated but exhausted the budget; low contrast failed detection. Six matched control runs produced zero actions. All nine replayed 48 decisions / 2,880 all-cell samples exactly. No held-out tuning followed these results.
 - Three primary views now appear together; expandable fixed apparatus composites actual browser/telemetry. Exact input PNG, all-cell activity history, selected neuron traces, motor thresholds and causal event inspection are implemented.
 - Actual desktop/mobile inspection: no browser errors or 390px overflow. Monitor texture seams found and corrected. Accepted photographic rig unchanged.
-- 25 tests and production build pass. Pending: clean-source held-out suite, 45-second integrated review, ten-minute two-observer run, recovery test, compact public receipts and final release verification.
+- 26 tests and production build pass. Clean-source f2e3f2a is public; Windows/Linux CI 34618653790 independently repeated all outcomes. The original baseline still replays exactly.
+- 600.966-second production check: 11,066 matching packets, four completed episodes, no browser errors or dropped stream frames, exact disconnected specimen freeze and successful reconnection. Actual 46.4-second integrated preview reviewed. Renderer cadence is checked separately from rAF callbacks.
+- Nine held-out records published with verified actual commits; receipt loss recovered the original commit without duplication. Isolated forced-browser-close test recovered under the same session and retained video; no partial-window action.
+- Compact comparison archive and downloadable raw evidence are prepared. Remaining: final current-build UI check, clean public checkpoint/release upload and final licence/secret scan.
 
 ## Implemented and checked
 - Published 72 hpf Platynereis graph: 2,675 imported nodes, 14,066 edges; active 47-neuron/161-edge/711-synapse circuit. Traceable IDs and source checksums are retained.
