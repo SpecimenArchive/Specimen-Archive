@@ -1,7 +1,7 @@
 # SPECIMEN 01 — build status
 
 ## Objective
-Complete the local observation-only application specified in `specimen-01-codex-prompt.md`. No publishing, credentials, token operations or external repository creation.
+Complete the observation-only application in `specimen-01-codex-prompt.md`. Latest user scope additionally authorizes a public GitHub trail and Specimen Recorder for compact model-dependent experiment records. Repository/account are pending. No site publishing or token operations.
 
 ## Environment and decisions
 - Windows / PowerShell; Node 24.11.1, npm 11.7.0, Python 3.12.2, Git 2.42.
@@ -9,7 +9,7 @@ Complete the local observation-only application specified in `specimen-01-codex-
 - React + Vite + TypeScript; one local Node process owns the continuous model, persistence and WebSocket stream.
 - Scientific import precedes model selection. Primary Figure 2 supplement is an R binary tibble graph, not CSV.
 - User chose natural-history microscopy: translucent ivory, subtle pigment, fine bristles, graphite dashboard and restrained cyan. Asked to see rendered specimen before full UI expansion.
-- Local-only scope overrides hosted Sites setup/deployment. Use procedural controllable rendering for live pose; generated assets may support visual research only.
+- Local application scope overrides hosted Sites deployment. User selected photographic tissue and constrained model-driven deformation; integrate only after motion review.
 
 ## Milestones
 - [x] Read entire brief and inspect tools/environment.
@@ -24,7 +24,9 @@ USER STEERING: Dashboard expansion is paused. The user rejected the Canvas speci
 
 LATEST USER DECISION: prioritise layered photographic rendering with constrained orientation. Visual realism is the acceptance criterion. The current illustration must not be the foundation. Create/obtain a convincing microscopy base asset and show it at the actual 1002×470 panel size BEFORE building animation. Then local body bending, relative tissue motion and independently animated ciliary regions, connected to model outputs; stable viewing angle with only small orientation changes. Reassess 3D only if needed. A partially authored unintegrated 3D study under prototype/ is parked; do not continue it now.
 
-Image-generation created public/assets/specimen-photographic-base-v1.png (1832×859) from actual DIC references, with provenance alongside. No old Canvas artwork used. Actual 1002×470 still shown at http://127.0.0.1:4317/photographic-study.html and docs/screenshots/photographic-still-v1-panel.png. User asked whether this is the right foundation, with recommendation to soften overly bounded trunk divisions, vary homogeneous tissue granulation/focus and add vertical margin BEFORE motion. Awaiting reply; no photographic animation authored yet. The server/UI are preserved.
+User accepted photographic v1 and authorized one refinement then motion. V2 and provenance are saved; regular segmentation remains a limitation. The isolated rig now uses local focus, smaller framing, model-driven bending, bounded tissue movement and separate ciliary fields. Caption encoding is fixed. Actual 1002×470 still and 19.5-second motion: http://127.0.0.1:4317/photographic-study.html. Capture: 1,170 frames, median 16.7 ms / p95 16.8 ms. Pixel checks show independent background and exact freeze at fixed model state. See docs/PHOTOGRAPHIC_RIG.md. Integration awaits user motion review; engine/UI remain preserved.
+
+NEXT: one motor-integral → predefined light selection → response loop, explicit no-threshold outcome, replay and controlled intervention; compact records with duplicate-safe Specimen Recorder publication and accurate feed links to actual GitHub commits. User received gh auth login/switch/status instructions. Destination question is pending. Preserve history and actual authorship/timestamps; see docs/DEVELOPMENT_TRAIL.md.
 
 First optical-refinement review is in docs/previews/index.html (before/after identical actual state + 12s live clip). User explicitly found it insufficient; do not treat this as accepted visual completion.
 

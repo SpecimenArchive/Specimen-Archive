@@ -1,0 +1,31 @@
+Asset: specimen-photographic-base-v2.png
+Source method: built-in image_gen, one focused edit of v1 with two real live DIC optical reference images. v1 preserved.
+Final file dimensions: 1832 x 859 pixels (approximately 2.133:1).
+Status: still-image refinement candidate for another actual-size 1002 x 470 review before animation. No app, animation or UI edits made.
+Nature: Original synthetic illustrative photomicrograph. Never scientific evidence, measured anatomy or an authentic captured micrograph.
+
+Reference roles:
+- public/assets/specimen-photographic-base-v1.png: edit target.
+- docs/references/dic-72hpf-head.png: real live DIC optical reference.
+- docs/references/dic-72hpf-bending.png: real three-day whole-body DIC optical and proportion reference.
+
+Honest visual QA against v1 and supplied references:
+- Photographic DIC impression, paired dark irregular pigment, whole compact body, three pairs of fine lateral chaeta fans and near-frontal orientation preserved. No clipping, text, scale bar or UI.
+- Some internal density variation improved: darker soft central regions now contrast with peripheral fine granulation. The transverse collar has fine ciliary texture. Margins increased slightly.
+- Requested refinement only partially achieved. Body still occupies about 84-86 percent of field height and full cilia about 89 percent, rather than desired 74 percent and <=85 percent. These are visual estimates, not calibrated measurements.
+- Strong regular transverse segment boundaries and rounded compartment silhouettes remain too pronounced. Soft continuous living tissue is not fully achieved.
+- Granulation remains more uniform, faceted and high-contrast than real DIC head reference. Refractive outlines and chaetae remain somewhat too uniformly sharp.
+- Nearvertical pose retained; requested 8-12 degree tilt was not fully achieved. Smaller trunk ciliary regions are not clearly distinguished.
+- This is a modest optical refinement, not a complete correction. Do not characterize as accepted or biologically exact. One requested edit only; no retry performed.
+
+EXACT EDIT PROMPT
+Use case: precise-object-edit
+Asset type: focused refinement of one synthetic DIC microscopy still for a 1002 x 470 display panel.
+Input images: Image 1 specimen-photographic-base-v1.png is the EDIT TARGET: preserve the existing single whole-specimen concept and photographic transmitted-light DIC optics. Image 2 dic-72hpf-head.png and Image 3 dic-72hpf-bending.png are REAL LIVE DIC REFERENCE IMAGES for tissue optical density, depth-dependent focus, subtle cilia and naturally continuous soft body. Do not copy their frame layout, text or scale bars.
+Edit the first image with ONLY the following focused corrections:
+1. KEEP THE SAME WIDE LANDSCAPE 2.133:1 ASPECT RATIO AND NEUTRAL LIGHTLY WARM PALE GRAY FIELD. Zoom out modestly: reduce whole specimen within field to BODY HEIGHT ABOUT 74 PERCENT of image height. All cilia and chaetae fit inside central 85 percent of field height, with visible quiet top and bottom margins. Center the specimen. Maintain complete body and all lateral fans. Orient long axis near vertical with a small natural 8–12-degree diagonal tilt. Preserve near-frontal dorsal/ventral view.
+2. Make the trunk ONE SOFT CONTINUOUS BODY. Preserve exactly three chaetigerous trunk regions and their three pairs of lateral fine chaeta fans, but soften the strong regular transverse boundaries and deep separations. No three stacked individually ringed armored compartments. Three subtle successive anatomical regions should emerge naturally from underlying continuous tissue; boundaries irregular, faint, partially out of focus. Smooth compact stage-correct silhouette with gently tapering trunk and short tapered pygidium. Preserve broad rounded head and embedded paired irregular dark eye-pigment cups; no circular cartoon eyes.
+3. Replace the uniformly crisp crystalline-gravel internal appearance with realistic VARIED OPTICAL DENSITY AND DEPTH FOCUS, as in the real references. Some optically dense fine granular tissue, some soft translucent deep regions, selectively sharp small granules and fibre/membrane details. Dense overlapping irregular biological structures. Soft pale head interior with several in-focus patches; subtle continuous darker internal material through trunk. No repeating homogeneous speckling, no giant round bubbles, no glossy glass beads. The specimen is a living soft larva, not gravel, plastic or a 3D model.
+4. Resolve the prototroch as a fine delicate ciliary crown/belt between head and trunk in actual DIC fashion: very thin partially resolved short cilia mixed with softer moving-cilia haze, not a necklace, hard collar or solid dark band. Add similarly restrained smaller trunk ciliary regions at their existing anatomical locations. Keep lateral chaetae distinct from short cilia: extremely fine long optical hairs, tapering and disappearing in/out of focus. Preserve paired fan placement, no new appendages.
+5. Use restrained subtle ASYMMETRICAL REFRACTION, faint highlights on one side and softer shadows on the other; body edge naturally alternates between a few locally sharp refractive areas and softer indistinct boundaries. Remove uniformly heavy graphic outlines. Keep convincing transmitted-light DIC microphotography with neutral gray/ivory tones and dark pigment. No illustration, painting, vector drawing, watercolor, plastic render, decorative glow, lens flare, black background or vignette.
+Preserve invariants: one complete compact 72 hpf / three-day Platynereis dumerilii nectochaete larva, same stage and view, exactly three compact chaetigerous trunk regions, paired fine lateral chaetae, broad head with dark irregular paired pigment, short tapered terminal region. No anatomy changes beyond softening exaggerated boundaries and optical texture; no adult antennae or limbs, no long adult worm. No labels, text, panels, scale bar, UI or watermark. Entire background quiet and almost uniform. Original synthetic illustrative base image, never scientific evidence.
