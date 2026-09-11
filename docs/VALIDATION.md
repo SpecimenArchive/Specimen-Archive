@@ -48,3 +48,7 @@ Browser recording metrics include the overhead of software headless rendering an
 ## Limits
 
 There is one reconstructed individual and a selected subcircuit, no functional efficacy calibration, no validated receptor-sign map, no complete body biomechanics and no evidence for higher cognitive claims. The chamber and optical scale are virtual. Rendered granules and anatomical drawing coordinates are not reconstructed cells. Server gaps are disclosed; no uptime is invented. Local disk retention is bounded, so long-term archival storage requires an explicit later product decision.
+
+## Browser control acceptance
+
+Final clean-source trials at e9c1c04: three intact activations from three target seeds; zero activations and zero controller events for three motor-clamped and three photoreceptor-disconnected trials. All 144 decisions and 8,640 sampled full-network states replay exactly from PNGs. The same outcomes were independently reproduced in Linux GitHub CI. Full evidence and actual publication commits are in [the evidence index](evidence/browser/README.md). The [protocol](BROWSER_CONTROLLER.md) distinguishes published anatomy, assumed dynamics and engineered visual policy.

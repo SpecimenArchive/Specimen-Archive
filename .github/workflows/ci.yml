@@ -21,6 +21,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
+      - run: npm run browser:replay
       - run: npm run validate:science
       - run: npm run build
       # Compact CC-BY processed graphs are in source control. Re-downloading
