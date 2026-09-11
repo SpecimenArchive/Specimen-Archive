@@ -6,9 +6,10 @@ $sid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
 & icacls.exe $privateRoot /inheritance:r /grant:r "*$($sid):(OI)(CI)F" '*S-1-5-18:(OI)(CI)F' '*S-1-5-32-544:(OI)(CI)F' | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Could not restrict the private connection folder.' }
 $path=Join-Path $privateRoot 'connection.json'
-if (Test-Path -LiteralPath $path) { throw "Connection already exists at $path. Edit it locally to correct details; the key is preserved." }
-$address=Read-Host 'By-Hoster server IP or hostname (no http:// prefix)'
-$userName=Read-Host 'Windows login username supplied by By-Hoster'
+$previous=$null
+if (Test-Path -LiteralPath $path) { $previous=Get-Content -LiteralPath $path -Raw | ConvertFrom-Json }
+$address=if ($previous.address) { $previous.address } else { Read-Host 'By-Hoster server IP or hostname (no http:// prefix)' }
+$userName=if ($previous.userName) { $previous.userName } else { Read-Host 'Windows login username supplied by By-Hoster' }
 if ($address -notmatch '^[A-Za-z0-9][A-Za-z0-9.:-]*$' -or $userName -notmatch '^[A-Za-z0-9_][A-Za-z0-9_.\\-]*$') { throw 'Use a plain server address and Windows username.' }
 $key=Join-Path $privateRoot 'vm_ed25519'
 if (!(Test-Path -LiteralPath $key)) {
@@ -18,6 +19,8 @@ if (!(Test-Path -LiteralPath $key)) {
   if ($LASTEXITCODE -ne 0) { throw 'SSH key creation failed.' }
 }
 $configuration=@{provider='By-Hoster';address=$address;userName=$userName;sshPort=22;identityFile=$key;knownHostsFile=(Join-Path $privateRoot 'known_hosts');remoteProject='C:/SpecimenArchive';access='ssh-key';passwordStored=$false}
+if ($previous.rdpPort) { $configuration.rdpPort=$previous.rdpPort }
+if ($previous.sshPort) { $configuration.sshPort=$previous.sshPort }
 [IO.File]::WriteAllText($path,($configuration|ConvertTo-Json),[Text.UTF8Encoding]::new($false))
 $publicKey=(Get-Content -LiteralPath "$key.pub" -Raw).Trim()
 $bootstrap=@'
