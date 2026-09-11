@@ -17,9 +17,12 @@ import { exhibitTask } from './task';
 import { DesktopSession } from './desktop';
 import { RemoteDesktopSession } from './remote-desktop';
 import {prepareStationTabs,STATION_SCHEDULE} from './station-tabs';
+import {runObservationEpisode} from './observation-runner';
+import type {ObservationJournal} from './journal';
 const ORIGIN=executionOrigin('exhibit-process');
-export interface EpisodeOptions {root:string;sessionId:string;episode:number;seed:number;layout:TaskLayout;intervention:BrowserIntervention;fast?:boolean;signal?:AbortSignal;faultAfter?:number;onUpdate?:(state:ExhibitLive)=>void}
+export interface EpisodeOptions {root:string;sessionId:string;episode:number;seed:number;layout:TaskLayout;intervention:BrowserIntervention;fast?:boolean;signal?:AbortSignal;faultAfter?:number;journal?:ObservationJournal;onUpdate?:(state:ExhibitLive)=>void}
 export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
+  if(process.env.EXHIBIT_DESKTOP==='windows'&&process.env.EXHIBIT_OBSERVATION_PROFILE==='1')return runObservationEpisode(circuit,o);
   const startedAt=new Date().toISOString(),runId=`exhibit_${Date.now()}_${randomUUID().slice(0,8)}`,directory=resolve(o.root,runId);
   mkdirSync(directory,{recursive:true});
   const decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],origin={...ORIGIN,runId};

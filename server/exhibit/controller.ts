@@ -5,6 +5,7 @@ import { motorReadout,type MotorReadout } from '../browser/decoder';
 import type { Circuit,Snapshot } from '../../shared/types';
 import type { BrowserIntervention } from '../browser/config';
 import { EXHIBIT_CONFIG as C,type Phase } from './config';
+import {encodeObservation} from './observation-encoder';
 
 export interface ExhibitCommand {kind:'move'|'click'|'scroll'|'wait';dx:number;dy:number;wheelY:number;reason:string;motorMean:number;motorContrast:number;phase:Phase}
 // Inputs: captured pixels and a fixed, target-independent alternating phase.
@@ -28,7 +29,7 @@ export function encodeExhibit(png:Buffer,phase:Phase){
   }
   return {...retina,version:C.version,phase,verticalError,guidePixels,encoding,left,right};
 }
-export type ExhibitInput=ReturnType<typeof encodeExhibit>;
+export type ExhibitInput=ReturnType<typeof encodeExhibit>|ReturnType<typeof encodeObservation>;
 // No image, page, target, seed, success signal or DOM can reach this decoder.
 export function decodeExhibit(m:MotorReadout,phase:Phase):ExhibitCommand{
   const base={dx:0,dy:0,wheelY:0,motorMean:m.mean,motorContrast:m.contrast,phase};
@@ -40,8 +41,8 @@ export function decodeExhibit(m:MotorReadout,phase:Phase):ExhibitCommand{
 export class ExhibitController {
   readonly engine:Engine;
   constructor(circuit:Circuit,readonly runId:string,readonly startedAt:string,intervention:BrowserIntervention='intact'){this.engine=new Engine(circuit,intervention);}
-  async observe(png:Buffer,decision:number,onSample?:(s:Snapshot,input:ExhibitInput)=>Promise<void>){
-    const phase=C.phaseOrder[decision%C.phaseOrder.length],input=encodeExhibit(png,phase),samples:Snapshot[]=[],modelStartStep=this.engine.ticks;
+  async observe(png:Buffer,decision:number,onSample?:(s:Snapshot,input:ExhibitInput)=>Promise<void>,profile?:'observation-contrast-v1'){
+    const phase=profile?'scroll':C.phaseOrder[decision%C.phaseOrder.length],input=profile?encodeObservation(png):encodeExhibit(png,phase),samples:Snapshot[]=[],modelStartStep=this.engine.ticks;
     this.engine.condition={key:'pixels',label:`${phase}: ${input.encoding}`,intensity:(input.left+input.right)/2,angle:0,epoch:decision};
     for(let i=0;i<C.modelSteps;i++){
       this.engine.step({left:input.left,right:input.right});

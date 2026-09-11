@@ -4,6 +4,7 @@ import { writeFileSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { ExperimentStore, recordBytes, recordHash, type Publication, type PublishableRecord } from './experiment-store';
+import type {RecordPublisher} from './git-record-publisher';
 const exec=promisify(execFile);
 export interface RepositoryAPI {call(method:string,path:string,body?:unknown):Promise<any>}
 export class GitHubCLI implements RepositoryAPI {
@@ -25,7 +26,7 @@ export class SpecimenRecorder {
   private busy=false;
   lastError:string|null=null;
   readonly branch='specimen-records';
-  constructor(readonly store:ExperimentStore<PublishableRecord>,readonly api:RepositoryAPI,readonly repository:string|undefined,readonly enabled:boolean) {
+  constructor(readonly store:ExperimentStore<PublishableRecord>,readonly api:RepositoryAPI,readonly repository:string|undefined,readonly enabled:boolean,readonly publisher?:RecordPublisher) {
     if(repository&&!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository))throw new Error('RECORDER_REPOSITORY must be owner/repository');
   }
   private async existing(record:PublishableRecord,path:string){
@@ -39,6 +40,7 @@ export class SpecimenRecorder {
     }catch(e){if((e as {status?:number}).status===404)return null;throw e;}
   }
   private async publish(record:PublishableRecord){
+    if(this.publisher)return this.publisher.publish(record,this.repository!,this.branch);
     const path=`experiments/${record.id}.json`;
     // A separate records branch avoids local worktree/index mutations and keeps
     // generated result commits distinct from software-development history.
@@ -70,12 +72,14 @@ export class SpecimenRecorder {
   }
   async tick(){
     if(this.busy)return;this.busy=true;this.lastError=null;
-    try{for(const record of this.store.records().reverse()){
+    let remaining=4;
+    try{for(const record of this.store.records()){
       const current=this.store.publication(record.id);if(current?.state==='published')continue;
       const pendingReason=!this.repository?'Repository destination not configured':!this.enabled?'Public recorder not enabled':record.origin.sourceDirty?'Executed source has uncommitted model changes':!/^[a-f0-9]{40}$/.test(record.origin.sourceRevision)?'Executed source revision is unavailable':undefined;
       const receipt:Publication={id:record.id,state:'pending',updatedAt:new Date().toISOString(),attempts:current?.attempts??0,recordSha256:recordHash(record),repository:this.repository};
       if(pendingReason){if(current?.state!=='pending'||current.reason!==pendingReason||current.recordSha256!==receipt.recordSha256||current.repository!==receipt.repository)this.store.setPublication({...receipt,reason:pendingReason});continue;}
-      if(current?.state==='failed'&&Date.now()-Date.parse(current.updatedAt)<60000)continue;
+      if(current?.state==='failed'&&(current.attempts>=5||Date.now()-Date.parse(current.updatedAt)<Math.min(900000,60000*2**Math.max(0,current.attempts-1))))continue;
+      if(remaining--<=0)break;
       this.store.setPublication({...receipt,state:'publishing',attempts:receipt.attempts+1});
       try{const remote=await this.publish(record);this.store.setPublication({...receipt,state:'published',attempts:receipt.attempts+1,updatedAt:new Date().toISOString(),commit:remote.sha,url:remote.url,path:remote.path});}
       catch(e){this.store.setPublication({...receipt,state:'failed',attempts:receipt.attempts+1,updatedAt:new Date().toISOString(),reason:(e as Error).message});}

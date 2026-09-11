@@ -57,7 +57,7 @@ function requestStop(reason:string){void stop(reason).catch(error=>audit('cleanu
 function nativeRequest(method:string):Promise<any>{
   return new Promise((resolve,reject)=>{
     if(!native||native.exitCode!==null){reject(new Error('Native capture helper unavailable'));return;}
-    const id=++nativeSequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error('Native capture timed out'));},method==='info'?30000:6000);
+    const id=++nativeSequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error('Native capture timed out'));},['info','pin'].includes(method)?30000:6000);
     pending.set(id,{resolve,reject,timer});native.stdin.write(JSON.stringify({id,method,pid:chrome?.pid})+'\n');
   });
 }
@@ -76,7 +76,7 @@ async function start(){
     const verified=await nativeRequest('info');
     if(verified.os!=='Windows 11'||verified.isolation!=='remote-vm')throw new Error('Native VM verification failed');
     const profile=ownedProfile=join(root,'profiles',randomUUID());mkdirSync(profile,{recursive:true});
-    const ownedChrome=chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--disable-smooth-scrolling','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
+    const ownedChrome=chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--disable-smooth-scrolling','--force-renderer-accessibility','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
     ownedChrome.once('error',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome failed to start');});ownedChrome.once('exit',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome exited');});
     const deadline=Date.now()+30000;
     let port='',path='';
@@ -99,7 +99,7 @@ const server=createServer(async(req,res)=>{
   const send=(status:number,value:object)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.headers.origin||!lease.authorize(req.headers.authorization)){send(401,{error:'Unauthorized'});return;}
   if(req.method!=='POST'){send(405,{error:'POST required'});return;}
-  if(!['/session','/heartbeat','/arrange','/capture','/stop'].includes(req.url??'')){send(404,{error:'Unknown operation'});return;}
+  if(!['/session','/heartbeat','/arrange','/pin','/capture','/stop'].includes(req.url??'')){send(404,{error:'Unknown operation'});return;}
   try{
     let body='';for await(const chunk of req){body+=chunk;if(body.length>4096){send(413,{error:'Request too large'});return;}}
     if(req.url==='/session'){

@@ -13,12 +13,42 @@ $os=Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
 if ([int]$os.CurrentBuild -lt 22000) { throw 'This station requires Windows 11 or later.' }
 Add-Type -Path "$PSScriptRoot\NativeDesktop.cs" -ReferencedAssemblies System.Drawing
 [SpecimenDesktop]::Initialize()
+function Pin-Dashboard([int]$browserPid) {
+  Add-Type -AssemblyName UIAutomationClient,UIAutomationTypes,WindowsBase
+  $scope=[Windows.Automation.TreeScope]::Descendants
+  $root=[Windows.Automation.AutomationElement]::FromHandle([SpecimenDesktop]::BrowserHandle($browserPid))
+  $tabCondition=New-Object Windows.Automation.PropertyCondition([Windows.Automation.AutomationElement]::ControlTypeProperty,[Windows.Automation.ControlType]::TabItem)
+  $tabs=$root.FindAll($scope,$tabCondition)
+  $tab=@($tabs | Where-Object {$_.Current.Name -like '*Specimen 01*Specimen Archive*'})
+  if($tab.Count -ne 1){throw 'Cannot uniquely identify the observation dashboard tab.'}
+  $r=$tab[0].Current.BoundingRectangle
+  [SpecimenDesktop]::TabMenu($browserPid,[int]($r.X+$r.Width/2),[int]($r.Y+$r.Height/2))
+  $menuCondition=New-Object Windows.Automation.PropertyCondition([Windows.Automation.AutomationElement]::ControlTypeProperty,[Windows.Automation.ControlType]::MenuItem)
+  $menus=[Windows.Automation.AutomationElement]::RootElement.FindAll($scope,$menuCondition)
+  $pin=@($menus | Where-Object {$_.Current.ProcessId -eq $browserPid -and $_.Current.Name -in @('Pin','Pin tab')})
+  $unpin=@($menus | Where-Object {$_.Current.ProcessId -eq $browserPid -and $_.Current.Name -in @('Unpin','Unpin tab')})
+  if($unpin.Count -eq 1){[SpecimenDesktop]::Escape();return @{pinned=$true;alreadyPinned=$true}}
+  if($pin.Count -ne 1){[SpecimenDesktop]::Escape();throw 'Native Chrome Pin command unavailable.'}
+  ([Windows.Automation.InvokePattern]$pin[0].GetCurrentPattern([Windows.Automation.InvokePattern]::Pattern)).Invoke()
+  Start-Sleep -Milliseconds 200
+  $tabs=$root.FindAll($scope,$tabCondition)
+  $tab=@($tabs | Where-Object {$_.Current.Name -like '*Specimen 01*Specimen Archive*'})
+  if($tab.Count -ne 1){throw 'Cannot verify the pinned dashboard tab.'}
+  $r=$tab[0].Current.BoundingRectangle
+  [SpecimenDesktop]::TabMenu($browserPid,[int]($r.X+$r.Width/2),[int]($r.Y+$r.Height/2))
+  $menus=[Windows.Automation.AutomationElement]::RootElement.FindAll($scope,$menuCondition)
+  $unpin=@($menus | Where-Object {$_.Current.ProcessId -eq $browserPid -and $_.Current.Name -in @('Unpin','Unpin tab')})
+  [SpecimenDesktop]::Escape()
+  if($unpin.Count -ne 1){throw 'Native Chrome did not confirm that the dashboard is pinned.'}
+  return @{pinned=$true;alreadyPinned=$false}
+}
 while ($line=[Console]::ReadLine()) {
   try {
     $request=$line | ConvertFrom-Json
     switch ($request.method) {
       'info' { $result=@{os='Windows 11';isolation=$isolation;osBuild="$($os.CurrentBuild).$($os.UBR)";width=[SpecimenDesktop]::Width;height=[SpecimenDesktop]::Height;scale=[SpecimenDesktop]::Scale} }
       'arrange' { [SpecimenDesktop]::Arrange([int]$request.pid); $result=@{ok=$true} }
+      'pin' { $result=Pin-Dashboard ([int]$request.pid) }
       'capture' {
         $start=[DateTimeOffset]::UtcNow; $watch=[Diagnostics.Stopwatch]::StartNew()
         $png=[SpecimenDesktop]::Capture([int]$request.pid)

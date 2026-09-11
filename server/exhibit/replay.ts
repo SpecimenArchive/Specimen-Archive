@@ -8,9 +8,12 @@ import { ExhibitController } from './controller';
 import { EXHIBIT_CONFIG as C } from './config';
 import { MODEL_CONFIG } from '../model/config';
 import { sha256 } from '../browser/evidence';
+import {OBSERVATION_RETINA} from './observation-encoder';
+import {OBSERVATION_SCHEDULE} from './observation-runner';
 export async function replayEpisode(directory:string,circuit:Circuit){
   const r=JSON.parse(readFileSync(join(directory,'record.json'),'utf8')) as ExhibitRecord;
   assert.deepEqual(r.config,C);assert.equal(r.configSha256,sha256(JSON.stringify(C)));assert.deepEqual(r.model,MODEL_CONFIG);
+  if(r.observationConfig){assert.deepEqual(r.observationConfig.retina,OBSERVATION_RETINA);assert.deepEqual(r.observationConfig.schedule,OBSERVATION_SCHEDULE);}
   assert.equal(r.origin.dataSha256,sha256(readFileSync('data/processed/circuit.json')));
   for(const a of r.artifacts){const b=readFileSync(join(directory,a.path));assert.equal(b.length,a.bytes);assert.equal(sha256(b),a.sha256);}
   const trace=JSON.parse(gunzipSync(readFileSync(join(directory,'trace.json.gz'))).toString()) as ExhibitDecision[];
@@ -21,14 +24,15 @@ export async function replayEpisode(directory:string,circuit:Circuit){
     for(const [capture,pageFrame,cursor] of [[d.desktopBefore,d.imageBefore,d.executed.from],[d.desktopAfter,d.imageAfter,d.executed.to]] as const){
       if(!capture)continue;
       assert(['x11-root','windows-gdi'].includes(capture.source));assert.equal(capture.pageFrame,pageFrame);assert.deepEqual(capture.cursor,cursor);
-      if(capture.source==='windows-gdi'){assert.equal(capture.station?.os,'Windows 11');assert.equal(capture.station.dpi,96);assert((capture.width===1600&&capture.height===900&&capture.station.viewport.scale===2)||(capture.width===1280&&capture.height===800&&capture.station.viewport.scale===1.5));assert(capture.station.id);}
+      if(capture.source==='windows-gdi'){assert.equal(capture.station?.os,'Windows 11');assert.equal(capture.station.dpi,96);assert((capture.width===1600&&capture.height===900&&(capture.station.viewport.scale===2||d.sensoryProfile&&capture.station.viewport.scale===1))||(capture.width===1280&&capture.height===800&&(capture.station.viewport.scale===1.5||d.sensoryProfile&&capture.station.viewport.scale===1)));assert(capture.station.id);}
       assert.equal(sha256(readFileSync(join(directory,capture.path))),capture.sha256);
       assert.equal(capture.pageLagMs,Date.parse(capture.capturedAt)-Date.parse(capture.pageCapturedAt));assert(capture.pageLagMs>=0);
     }
     assert.equal(d.commandId,`${r.id}:c${String(d.decision).padStart(3,'0')}`);assert.equal(d.sessionId,r.sessionId);
     assert.equal(d.context.sourceRevision,r.origin.sourceRevision);assert.equal(d.context.configSha256,r.configSha256);assert.equal(d.context.intervention,r.intervention);
-    if(previous){assert.equal(d.imageSha256,previous.afterSha256);assert.deepEqual(d.executed.from,previous.executed.to);assert.deepEqual(d.desktopBefore,previous.desktopAfter);}
-    const calculated=await controller.observe(png,d.decision);
+    if(previous){assert.equal(d.modelStartStep,previous.modelEndStep);if(!d.sensoryProfile){assert.equal(d.imageSha256,previous.afterSha256);assert.deepEqual(d.executed.from,previous.executed.to);assert.deepEqual(d.desktopBefore,previous.desktopAfter);}}
+    if(d.sensoryProfile){assert.equal(d.sensoryProfile,OBSERVATION_RETINA.version);assert(r.observationConfig);assert(d.page?.id);}
+    const calculated=await controller.observe(png,d.decision,undefined,d.sensoryProfile);
     for(const key of ['input','motor','command','modelStartStep','modelEndStep'] as const)assert.deepEqual(calculated[key],d[key]);
     assert.equal(calculated.samples.length,d.samples.length);
     calculated.samples.forEach((s,i)=>{for(const key of ['activity','sensory','motor','pose','modelTime','seq'] as const)assert.deepEqual(s[key],d.samples[i][key]);samples++;});

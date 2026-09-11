@@ -88,3 +88,10 @@ Run `npm run trace` for the documented closed-loop trace, `npm run validate:scie
 ## Browser action experiment
 
 The browser mode replaces the scheduled light input with captured PNG information and uses a separate documented mouse decoder. The same neural engine drives both the graph and specimen presentation. Browser screenshots, actions and all sampled neurons share a run/decision/model-step identity. Its six-simulated-second integration windows, matched interventions, exact replay and record formats are documented in [BROWSER_CONTROLLER.md](BROWSER_CONTROLLER.md). This mode does not use the original continuous model scheduler or its restart checkpoint; every trial explicitly starts from zero state. Browser records are separate from bounded continuous light telemetry. One suite contains nine trials; repeated suites are opt-in and their evidence remains in runtime until deliberately archived or removed.
+
+
+## Windows observation profile
+
+The Windows station now has a separately identified `observation-contrast-v1` input profile. Exact visible-tab PNGs provide luminance contrast from upper and lower sampling bands. These numerical values drive photoreceptors in the unchanged published 47-cell circuit; 600 fixed steps generate the motor outputs used by the existing wheel decoder. The engineering band geometry, scaling, thresholds and limitations are documented in [Observation upgrade](OBSERVATION_UPGRADE.md). No DOM text, URL or scroll position enters the model. The original coloured-target benchmarks remain separate.
+
+The dashboard receives 38 of 48 decision windows, with two bounded five-window reference visits. Tab preparation, pinning, focus and pointer placement are recorded orchestration. Each accepted neural command retains exact frame IDs, drives, sampled states, decoder results, trusted browser events and actual scroll displacement. A boundary-blocked wheel attempt is distinct from successful movement. Activity is dimensionless 0–1, not spikes or millivolts. Inspection and replay are local to an observer and never execute commands.

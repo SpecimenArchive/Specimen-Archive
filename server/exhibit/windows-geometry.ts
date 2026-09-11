@@ -7,7 +7,7 @@ export function locateWindowsViewport(desktop:PNG,input:PNG,scale=2){
   assert((desktop.width===1600&&desktop.height===900&&scale===2)||(desktop.width===1280&&desktop.height===800&&scale===1.5),'Unconfigured Windows display geometry');
   const same=(x:number,y:number,px:number,py:number)=>[0,1,2].every(c=>desktop.data[(y*desktop.width+x)*4+c]===input.data[(py*input.width+px)*4+c]);
   let location:{x:number;y:number;scale:number}|undefined;
-  for(let y=60;y<=160&&!location;y++)for(let x=100;x<=200;x++){
+  for(let y=60;y<=160&&!location;y++)for(let x=0;x<=200;x++){
     if(![[0,0],[639,0],[0,359],[639,359],[318,178],[321,181]].every(([px,py])=>same(x+Math.floor(px*scale),y+Math.floor(py*scale),px,py)))continue;
     let exact=true;
     for(let dy=0;dy<360*scale&&exact;dy++)for(let dx=0;dx<640*scale;dx++)if(!same(x+dx,y+dy,Math.floor(dx/scale),Math.floor(dy/scale))){exact=false;break;}

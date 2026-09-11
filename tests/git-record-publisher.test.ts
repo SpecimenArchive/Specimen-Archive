@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import {resolve,join,sep} from 'node:path';import {execFileSync} from 'node:child_process';
+import {GitRecordPublisher} from '../server/git-record-publisher';import type {PublishableRecord} from '../server/experiment-store';
+test('Git recorder recovers the same remote commit after receipt loss and refuses conflicting bytes',async()=>{
+ const root=resolve(mkdtempSync(join(tmpdir(),'specimen-publisher-test-'))),remote=join(root,'remote.git'),source=join(root,'source');mkdirSync(source);
+ const git=(cwd:string,args:string[])=>execFileSync('git',['-c',`safe.directory=${cwd.replace(/\\/g,'/')}`,'-c','user.name=Specimen test','-c','user.email=test@example.invalid',...args],{cwd,encoding:'utf8',windowsHide:true,stdio:['ignore','pipe','pipe']}).trim();
+ try{git(root,['init','--bare','--initial-branch=master',remote]);git(source,['init','--initial-branch=master']);writeFileSync(join(source,'README.md'),'Synthetic publisher test only.\n');git(source,['add','README.md']);git(source,['commit','-m','Initial fixture']);const revision=git(source,['rev-parse','HEAD']);git(source,['push',remote,'master']);
+ const record:PublishableRecord={id:'exhibit_test_receipt',origin:{runId:'exhibit_test_receipt',sourceRevision:revision,sourceDirty:false,dataVersion:'fixture',dataSha256:'fixture',modelVersion:'fixture'},configSha256:'fixture',completedAt:'2026-01-01T00:00:00Z',outcome:'software-test'};
+ const first=new GitRecordPublisher(join(root,'publisher-a'),{localTestRemote:remote}),second=new GitRecordPublisher(join(root,'publisher-b'),{localTestRemote:remote});
+ const [a,b]=await Promise.all([first.publish(record,'fixture/recorder-test','specimen-records'),second.publish(record,'fixture/recorder-test','specimen-records')]);assert.equal(a.sha,b.sha);assert.equal(git(remote,['rev-list','--count','specimen-records']), '2');
+ const recovered=await new GitRecordPublisher(join(root,'publisher-recovery'),{localTestRemote:remote}).publish(record,'fixture/recorder-test','specimen-records');assert.equal(recovered.sha,a.sha);assert.equal(git(remote,['rev-list','--count','specimen-records']),'2');
+ await assert.rejects(()=>first.publish({...record,outcome:'changed'},'fixture/recorder-test','specimen-records'),/differs/);assert.equal(git(remote,['rev-list','--count','master']),'1');
+ }finally{assert(root.startsWith(resolve(tmpdir())+sep));assert(root.includes('specimen-publisher-test-'));rmSync(root,{recursive:true,force:true});}
+});

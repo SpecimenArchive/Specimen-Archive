@@ -1,5 +1,9 @@
 # Specimen Archive status
 
+## Observation upgrade checkpoint — 11 September 2026
+
+Implementation is ready for native VM acceptance: large 74% observation stage, actual command feed, richer neural instrumentation, local event replay, separately identified image-contrast observation profile, maximized/pinned Chrome support and independent execution/recording/publication statuses. Typecheck, build and 38 tests pass. Publication uses a prepared VM-local deploy key; registration is awaiting explicit operator approval, so automatic publication remains disabled. See [the upgrade report](docs/OBSERVATION_UPGRADE.md). Earlier entries below are historical checkpoints.
+
 ## Recovery and By-Hoster transition - 11 September 2026
 
 - Current checkpoint: `0b64125` was successfully pushed to public master, deployed to the VM and built there. Both VM tasks are running. The private preview is `http://127.0.0.1:4319/`; it now accepts the forwarded observer origin and serves genuine Windows capture. The new run `exhibit_1789162355974_4a841b36` has clean source and recorded wheel/move events with the corrected mapping. This is ongoing execution, not yet endurance or reboot acceptance.

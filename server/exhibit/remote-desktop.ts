@@ -13,6 +13,8 @@ export class RemoteDesktopSession {
   browser!:Browser;get width(){return this.info.width;}get height(){return this.info.height;}
   private sequence=0;private heartbeat?:ReturnType<typeof setInterval>;private failure?:Error;private closed=false;
   private viewport?:{x:number;y:number;scale:number};private bounds?:string;
+  get pageSize(){assert(this.viewport);return {width:this.width,height:this.height-48-this.viewport.y};}
+  async pinDashboard(){return this.request('pin');}
   private presentation?:{page:Page;scale:number};private pageSessions=new Map<Page,CDPSession>();
   private constructor(readonly endpoint:string,private token:string,readonly info:{leaseId:string;bootId:string;stationId:string;os:string;isolation:string;width:number;height:number;scale:number}){}
   static async open(){
@@ -36,7 +38,7 @@ export class RemoteDesktopSession {
   }
   private async request(method:string,ordered=true):Promise<any>{
     if(this.failure&&method!=='stop')throw this.failure;
-    const response=await fetch(`${this.endpoint}/${method}`,{method:'POST',headers:{Authorization:`Bearer ${this.token}`,'Content-Type':'application/json'},body:JSON.stringify({...this.info,sequence:ordered?++this.sequence:undefined}),signal:AbortSignal.timeout(10000)});
+    const response=await fetch(`${this.endpoint}/${method}`,{method:'POST',headers:{Authorization:`Bearer ${this.token}`,'Content-Type':'application/json'},body:JSON.stringify({...this.info,sequence:ordered?++this.sequence:undefined}),signal:AbortSignal.timeout(method==='pin'?35000:10000)});
     if(!response.ok)throw new Error(`Windows worker ${method} HTTP ${response.status}`);
     return response.json();
   }
@@ -83,7 +85,7 @@ export class RemoteDesktopSession {
     const bytes=Buffer.from(c.png,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,this.width);assert.equal(png.height,this.height);
     const uncertainty=Math.max(0,(roundTripMs-c.captureMs)/2),capturedAt=new Date(requestedAt+uncertainty).toISOString(),path=`desktop-${String(index).padStart(3,'0')}.png`;
     writeFileSync(join(directory,path),bytes);
-    return {path,pageFrame,pageCapturedAt,capturedAt,completedAt:new Date().toISOString(),width:this.width,height:this.height,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs:+roundTripMs.toFixed(2),pageLagMs:Date.parse(capturedAt)-Date.parse(pageCapturedAt),source:'windows-gdi',cursorSource:'recorded-page-pointer',sourceCapturedAt:new Date(c.sourceCapturedAt).toISOString(),timestampBasis:'backend-midpoint-estimate',clockUncertaintyMs:+uncertainty.toFixed(2),station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:this.viewport,window:c.window,taskbar:c.taskbar}};
+    return {path,pageFrame,pageCapturedAt,capturedAt,completedAt:new Date().toISOString(),width:this.width,height:this.height,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs:+roundTripMs.toFixed(2),pageLagMs:Date.parse(capturedAt)-Date.parse(pageCapturedAt),source:'windows-gdi',cursorSource:'recorded-page-pointer',sourceCapturedAt:new Date(c.sourceCapturedAt).toISOString(),timestampBasis:'backend-midpoint-estimate',clockUncertaintyMs:+uncertainty.toFixed(2),station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:{...this.viewport,scale:this.presentation.scale},window:c.window,taskbar:c.taskbar}};
   }
   async close(){if(this.closed)return;this.closed=true;clearInterval(this.heartbeat);await this.request('stop').catch(()=>{});await this.browser?.close().catch(()=>{});}
 }

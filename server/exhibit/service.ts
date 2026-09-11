@@ -10,23 +10,28 @@ import { SpecimenRecorder,GitHubCLI } from '../recorder';
 import { EXHIBIT_CONFIG as C } from './config';
 import { runEpisode } from './runner';
 import { replayEpisode } from './replay';
+import {ObservationJournal} from './journal';
+import {GitRecordPublisher} from '../git-record-publisher';
 export class ExhibitService {
   readonly sessionId=`session_${Date.now()}_${randomUUID().slice(0,8)}`;
+  readonly journal=new ObservationJournal(this.sessionId);
   readonly root:string;readonly store:ExperimentStore<ExhibitRecord>;readonly recorder:SpecimenRecorder;
-  live:ExhibitLive|null=null;readonly abort=new AbortController();private work?:Promise<void>;private sequence=0;private episodes=0;private failures=0;
+  live:ExhibitLive|null=null;readonly abort=new AbortController();private work?:Promise<void>;private publicationTimer?:ReturnType<typeof setInterval>;private sequence=0;private episodes=0;private failures=0;
   constructor(runtime:string,readonly circuit:Circuit,readonly emit:(live:ExhibitLive)=>void){
     this.root=resolve(runtime,'exhibit');mkdirSync(this.root,{recursive:true});this.store=new ExperimentStore<ExhibitRecord>(resolve(runtime,'exhibit-publications'));
-    this.recorder=new SpecimenRecorder(this.store,new GitHubCLI(this.store.root),process.env.RECORDER_REPOSITORY,process.env.RECORDER_ENABLED==='1');
+    const publisher=process.env.SPECIMEN_PUBLISHER_CONFIG?JSON.parse(readFileSync(process.env.SPECIMEN_PUBLISHER_CONFIG,'utf8')):null;
+    if(publisher&&(publisher.repository!=='SpecimenArchive/Specimen-Archive'||publisher.isolation!=='remote-vm'))throw new Error('Unexpected VM recorder configuration.');
+    this.recorder=new SpecimenRecorder(this.store,new GitHubCLI(this.store.root),publisher?.repository??process.env.RECORDER_REPOSITORY,publisher?publisher.enabled===true:process.env.RECORDER_ENABLED==='1',publisher?new GitRecordPublisher(publisher.objectDirectory,{sshCommand:publisher.sshCommand}):undefined);
   }
   private update(live:ExhibitLive){this.live={...live,packetSeq:++this.sequence,metrics:{...live.metrics,episodes:this.episodes,failures:this.failures,rssMB:Math.round(process.memoryUsage().rss/1048576)}};this.emit(this.live);}
-  start(){this.work=this.run();return this.work;}
-  async stop(){this.abort.abort(new Error('Operator shutdown'));await this.work;}
+  start(){this.publicationTimer=setInterval(()=>void this.recorder.tick(),30000);this.work=this.run();return this.work;}
+  async stop(){clearInterval(this.publicationTimer);this.abort.abort(new Error('Operator shutdown'));await this.work;}
   private async run(){
     while(!this.abort.signal.aborted){
       const episode=this.episodes,signal=AbortSignal.any([this.abort.signal,AbortSignal.timeout(process.env.EXHIBIT_DESKTOP==='windows'?540000:240000)]);
       try{
         const {record,directory}=await runEpisode(this.circuit,{root:this.root,sessionId:this.sessionId,episode,seed:C.continuousSeeds[episode%C.continuousSeeds.length],layout:'standard',intervention:'intact',signal,
-          faultAfter:episode===0&&process.env.EXHIBIT_FAULT_AFTER?Number(process.env.EXHIBIT_FAULT_AFTER):undefined,onUpdate:live=>this.update(live)});
+          faultAfter:episode===0&&process.env.EXHIBIT_FAULT_AFTER?Number(process.env.EXHIBIT_FAULT_AFTER):undefined,journal:this.journal,onUpdate:live=>this.update(live)});
         if(record.outcome!=='error')try{record.replay=await replayEpisode(directory,this.circuit);}catch(e){record.outcome='error';record.error=`Replay verification: ${(e as Error).message}`;}
         this.store.save(record);this.episodes++;if(record.outcome==='error')this.failures++;
         void this.recorder.tick();this.prune();
@@ -36,7 +41,7 @@ export class ExhibitService {
     }
   }
   file(id:string,name:string){
-    if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||!/^(?:(?:frame|desktop)-\d+\.png|browser\.webm|record\.json|trace\.json\.gz|decision-\d+\.json\.gz)$/.test(name))return null;
+    if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||!/^(?:(?:frame|desktop)-\d+\.png|(?:browser|reference|worksheet)\.webm|record\.json|trace\.json\.gz|decision-\d+\.json\.gz)$/.test(name))return null;
     const candidates=[join(this.root,id,name),resolve(this.root,'../exhibit-validation',id,name),resolve('docs/evidence/exhibit',id,name)];return candidates.find(p=>existsSync(p))??null;
   }
   records(){
