@@ -15,5 +15,5 @@ $env:RUNTIME_DIR=Join-Path $project 'runtime'
 $env:RECORDER_ENABLED='0'
 $env:PORT='4317'
 if (Test-Path -LiteralPath $env:EXHIBIT_STOP_FILE) { Remove-Item -LiteralPath $env:EXHIBIT_STOP_FILE }
-& node.exe --env-file-if-exists=.env --import tsx server/index.ts --production
+& "$PSScriptRoot/run-station-node.ps1" -Role backend -NodeArguments @('--env-file-if-exists=.env','--import','tsx','server/index.ts','--production')
 exit $LASTEXITCODE

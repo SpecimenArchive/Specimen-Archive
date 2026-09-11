@@ -9,7 +9,7 @@ export async function prepareStationTabs(context:BrowserContext,record:ExhibitRe
   const note=(action:string,tab:string,detail:string)=>events.push({actor:'supervisor',action,tab,detail,timestamp:new Date().toISOString()});
   const dashboard=await context.newPage();await dashboard.setViewportSize({width:1280,height:720});
   await dashboard.goto(STATION_SCHEDULE.dashboardUrl,{waitUntil:'domcontentloaded'});
-  note('open','dashboard','Same backend reached through the VM reverse SSH forward; recursive captures suppressed.');
+  note('open','dashboard','Same observation backend reached through VM loopback; recursive captures suppressed.');
   const reading=await context.newPage();await reading.setViewportSize({width:1280,height:720});
   try{await reading.goto(STATION_SCHEDULE.readingUrl,{waitUntil:'domcontentloaded',timeout:10000});note('open','primary-reference','Public reading page; no controller inputs are dispatched to this tab.');}
   catch{note('unavailable','primary-reference','Public source could not load; retained as a failed setup operation.');}

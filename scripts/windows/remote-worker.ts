@@ -88,7 +88,7 @@ const server=createServer(async(req,res)=>{
     lease.command(m.leaseId,m.bootId,m.sequence);requestBusy=true;
     try{const result=await nativeRequest(req.url!.slice(1));lease.verify(m.leaseId,m.bootId);send(200,{...result,bootId:lease.bootId,stationId:config.stationId});}
     finally{requestBusy=false;}
-  }catch{send(409,{error:'Station request failed; inspect the private worker receipt'});}
+  }catch(error){audit('request-failed',{operation:req.url,error:error instanceof Error?error.message:String(error)});send(409,{error:'Station request failed; inspect the private worker receipt'});}
 });
 const bridge=new WebSocketServer({noServer:true,maxPayload:24*1024*1024});
 server.on('upgrade',(req,socket,head)=>{

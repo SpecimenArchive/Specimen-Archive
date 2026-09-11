@@ -2,9 +2,9 @@
 
 ## Current state
 
-The remote worker and backend adapter are implemented but **not validated on a VM**. The user has confirmed that the By-Hoster Windows 11 VM is provisioned. Its endpoint and authentication are awaiting private connection setup; no remote login has yet been verified. The running local preview remains Linux/X11. Do not call its recordings Windows evidence. Do not start the recovered local Sandbox scripts as a substitute.
+SSH access to the By-Hoster Windows 11 VM is verified. The server host key matches the authenticated RDP console. Windows 11, Node 24, Git and genuine Google Chrome were verified remotely. The initial checkout, package installation, production build, video-encoder installation and private station preparation succeeded; **native capture and RDP continuity are not validated yet**. Exact capacity/installer receipts and connection metadata remain in private operator/runtime files. The running local preview remains Linux/X11; do not call its recordings Windows evidence or launch the preserved local Sandbox as a substitute.
 
-The missing step is authenticated access to the provisioned VM and verification of its persistent interactive display. Confirm the provider, reachable SSH endpoint and where its existing access credentials are configured. Do not put credentials in Git or chat. No VM service has been purchased, and no local VM has been installed.
+The next step is to finish deployment and verify the persistent interactive display, actual recorded neural actions, disconnection and startup recovery. Connection data and private keys stay outside Git. The user provisioned this VM; no local VM was installed.
 
 ## Minimum private connection setup
 
@@ -28,6 +28,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/windows/install-
 ```
 
 This prepares separate `SpecimenArchive-Worker` and `SpecimenArchive-Backend` scheduled tasks, with one instance each, logon startup and failure restart. Both run in the verified interactive account. A machine reboot still requires that account to log on: automatic login or stored login passwords have not been configured. Continuing after RDP disconnect must be tested on By-Hoster's actual display/session. Task registration alone is not proof.
+
+The launchers refresh their process PATH from the Windows environment and retain stdout/stderr logs in the private `runtime/remote-worker/logs` directory. The preceding invocation is retained as `.previous`. Worker request failures are recorded privately with their cause; observer responses remain bounded and do not expose private station data.
 
 Private preview from the home PC, using the saved connection (port 4319 avoids the preserved local preview):
 
