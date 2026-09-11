@@ -2,7 +2,7 @@
 
 An observation-only digital biology instrument for a synthetic **72 hpf Platynereis dumerilii** larva. Published structural connectivity feeds a deterministic rate model; sensory encoding, neuron activity, motor output, pose and events can be traced in source.
 
-**Primary demonstration:** captured browser pixels drive the published circuit, whose computed motor activity controls a real local browser button task. Use `npm run demo` and [the executable protocol](docs/BROWSER_CONTROLLER.md). Matched intact, motor-disabled and sensory-pathway-disconnected trials, PNGs, neural traces and browser recordings make the connection inspectable. See [STATUS.md](STATUS.md) for current validation.
+**Primary demonstration:** a continuous intact controller captures browser pixels, computes the published circuit, then moves the cursor, scrolls and activates real links/buttons across two controlled pages. The photographic specimen, exact input/neural signals, controlled browser and expandable apparatus share one backend session. Use `npm run dev` and [the executable protocol](docs/EXHIBIT_CONTROLLER.md). See [STATUS.md](STATUS.md), [the companion worksheet](docs/WORKSHEET.html) and the preserved [frozen baseline](docs/evidence/browser/README.md).
 
 ## Run locally
 
@@ -14,7 +14,7 @@ npx playwright install chromium
 npm run demo
 ```
 
-Open **http://127.0.0.1:4317**. That command starts the observation interface and one matched nine-trial browser suite. Use `npm run demo:loop` for repeated suites, or `npm run dev` for the original continuous microscopy/light experiment. No credentials, external database, wallet or paid service is needed. Compact processed research data, texture assets and fonts are local. Ctrl+C stops the server and saves a checkpoint; running the command again starts a new recorded session and resumes model state with the restart gap disclosed.
+Open **http://127.0.0.1:4317**. `demo`, `dev` and `start` default to the continuous intact exhibit; observers never start separate experiments. Each bounded episode has a recorded supervisor reset. `npm run demo:baseline` runs the preserved finite nine-trial suite; `npm run observe:light` runs the original checkpointed light-integral experiment. No credentials, external database, wallet or paid service is needed. Processed research data, texture assets and fonts are local. Ctrl+C saves the current partial episode with its interruption; restarting creates a new session. Windows defaults to installed Edge; set `PLAYWRIGHT_CHANNEL=chromium` to use the downloaded Chromium.
 
 For the built application:
 
@@ -39,9 +39,9 @@ Connectivity is measured structure; effective signs, gains, dynamics, optics and
 
 ## Browser demonstration
 
-The actual decision path is `page.screenshot()` ? `encodeViewport()` ? `Engine.step()` ? `RateNetwork.step()` ? `motorReadout()` ? `decodeBrowser()` ? `page.mouse.move/down/up()` ? next screenshot. Setup and post-trial evaluation are separate harness code. No target selectors or target coordinates enter the controller.
+The live path is `page.screenshot()` → `encodeExhibit()` → `Engine.step()` → `RateNetwork.step()` → `motorReadout()` → `decodeExhibit()` → `page.mouse.move/wheel/down/up()` → next screenshot. Setup and post-trial evaluation are separate harness code. No target selectors or target coordinates enter the controller. A fixed point/scroll phase multiplex is an explicit engineering mapping.
 
-The circuit mediates an engineered colour/lane policy; it does not learn or demonstrate general browser intelligence. Run `npm run browser:validate` for matched trials and `npm run browser:replay` for exported traces. [Recorded evidence](docs/evidence/browser/summary.json), [protocol](docs/BROWSER_CONTROLLER.md), [audit](docs/CONTROLLER_AUDIT.md) and [UI verification](docs/results/browser-ui-check.json) expose the actual connection and limits.
+The circuit mediates an engineered colour/lane policy; it does not learn or demonstrate general browser intelligence. Run `npm run exhibit:validate` for the fixed held-out layout/contrast matrix and matched interventions, `npm run exhibit:replay -- runtime/exhibit/<run-id>` for exact reconstruction, and `node scripts/exhibit-endurance.mjs` for the ten-minute two-observer check and 45-second integrated recording. New raw evidence stays under ignored bounded runtime storage. `npm run browser:validate` and `npm run browser:replay` preserve the old baseline protocol and evidence.
 
 ## Original microscopy architecture
 

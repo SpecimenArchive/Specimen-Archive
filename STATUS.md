@@ -1,7 +1,15 @@
 # Specimen Archive status
 
 ## Current priority
-Demonstrate verifiable pixels -> published neural wiring -> actual browser actions, with replay, matched interventions and public compact evidence. Preserve the accepted photographic rig and original light-selection experiment.
+Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRIEF.md). The user approved the generated apparatus direction and authorized independent decisions and self-assessment at the remaining checkpoints.
+
+## Connected milestone — implementation checkpoint
+- Default session now runs intact continuously, with fixed-budget episodes and documented supervisor reset/recovery. The original light experiment and frozen baseline remain available by explicit commands.
+- New PNG-only phase encoder uses the same 47-cell engine to drive horizontal cursor movement, genuine wheel scrolling, a real link and a real button across two controlled pages.
+- Development seed 101: activated after scrolling/navigation; 48 decisions and 2,880 all-cell samples replayed exactly. Initial guide-threshold failure retained locally. Held-out matrix not yet executed.
+- Three primary views now appear together; expandable fixed apparatus composites actual browser/telemetry. Exact input PNG, all-cell activity history, selected neuron traces, motor thresholds and causal event inspection are implemented.
+- Actual desktop/mobile inspection: no browser errors or 390px overflow. Monitor texture seams found and corrected. Accepted photographic rig unchanged.
+- 25 tests and production build pass. Pending: clean-source held-out suite, 45-second integrated review, ten-minute two-observer run, recovery test, compact public receipts and final release verification.
 
 ## Implemented and checked
 - Published 72 hpf Platynereis graph: 2,675 imported nodes, 14,066 edges; active 47-neuron/161-edge/711-synapse circuit. Traceable IDs and source checksums are retained.
@@ -23,9 +31,11 @@ Demonstrate verifiable pixels -> published neural wiring -> actual browser actio
 - Public source/evidence checkpoint e4c4c8e passed GitHub CI 34610356098, including exact replay of the Windows-recorded PNG/neural evidence on both Windows and Linux, plus independent Linux real-browser causality trials. A fresh-runtime regression also verifies bundled publication links and compressed traces. The requested executable browser-control acceptance criterion is met for the documented horizontal lane task.
 
 ## Commands
-- npm run dev: original continuous microscopy/light experiment on port 4317.
-- npm run demo: one nine-trial browser suite with synchronized observation on port 4317.
-- npm run demo:loop: repeated suites (optional).
+- npm run dev / demo: continuous intact connected exhibit on port 4317.
+- npm run observe:light: preserved microscopy/light experiment.
+- npm run demo:baseline: preserved finite nine-trial browser suite.
+- npm run exhibit:validate; npm run exhibit:replay -- runtime/exhibit/<run-id>.
+- node scripts/exhibit-endurance.mjs: ten-minute shared-session check and integrated preview.
 - npm run browser:validate -- --export: actual paced browser trials and bounded evidence export.
 - npm run browser:replay: reconstruct exported evidence from PNGs.
 - npm test; npm run typecheck; npm run build.

@@ -14,10 +14,12 @@ import { SpecimenRecorder, GitHubCLI } from './recorder';
 import { executionOrigin } from './provenance';
 import { replayExperiment } from './replay';
 import { BrowserService } from './browser/service';
+import { ExhibitService } from './exhibit/service';
 
 const ROOT=fileURLToPath(new URL('../',import.meta.url));
 const production=process.argv.includes('--production');
 const browserEnabled=process.argv.includes('--browser-demo');
+const exhibitEnabled=!browserEnabled&&!process.argv.includes('--light-demo');
 const port=Number(process.env.PORT||4317);
 if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be an integer from 1024 to 65535');
 const circuit=JSON.parse(readFileSync(resolve(ROOT,'data/processed/circuit.json'),'utf8')) as Circuit;
@@ -39,6 +41,11 @@ const browserService=new BrowserService(store.root,circuit,live=>{
   const packet=JSON.stringify({type:'snapshot',snapshot,browser:live});
   for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){ws.close(1013,'Slow observer');continue;}ws.send(packet);}
 });
+const exhibitService=new ExhibitService(store.root,circuit,live=>{
+  if(live.snapshot)snapshot=live.snapshot;
+  const packet=JSON.stringify({type:'snapshot',snapshot:live.snapshot,exhibit:live});
+  for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){droppedFrames++;ws.close(1013,'Slow observer');continue;}ws.send(packet);}
+});
 const server=createServer();
 const wss=new WebSocketServer({noServer:true,maxPayload:1024});
 let droppedFrames=0;
@@ -46,7 +53,7 @@ server.on('upgrade',(request,socket,head)=>{
   if(request.url?.split('?')[0]!=='/stream')return;
   const origin=request.headers.origin;
   if(origin&&!['http://127.0.0.1:'+port,'http://localhost:'+port].includes(origin)){socket.destroy();return;}
-  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot,browser:browserEnabled?browserService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
+  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot:exhibitEnabled?exhibitService.live?.snapshot:snapshot,browser:browserEnabled?browserService.live:null,exhibit:exhibitEnabled?exhibitService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
 });
 const vite=production?null:await (await import('vite')).createServer({root:ROOT,server:{middlewareMode:true,hmr:{server}},appType:'spa'});
 const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.webm':'video/webm','.md':'text/markdown; charset=utf-8'};
@@ -54,7 +61,16 @@ server.on('request',(req,res)=>{
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
-  if(url.pathname==='/api/health'){json({ok:true,runId:snapshot.runId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:browserEnabled?'accelerated windows':C.timeScale,mode:browserEnabled?'browser':'light'});return;}
+  if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null});return;}
+  if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
+  if(url.pathname==='/api/exhibit/publications'){json(exhibitService.store.publications().slice(0,50));return;}
+  if(url.pathname==='/api/exhibit/records'){json(exhibitService.store.records().slice(0,50).map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
+  if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.store.read(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}
+  if(url.pathname.startsWith('/api/exhibit/decision/')){const [id,index]=url.pathname.slice('/api/exhibit/decision/'.length).split('/');const d=/^\d+$/.test(index)?exhibitService.decision(id,Number(index)):null;json(d??{error:'Raw trace expired or decision not complete'},d?200:404);return;}
+  if(url.pathname.startsWith('/api/exhibit/artifacts/')){
+    const [id,name]=url.pathname.slice('/api/exhibit/artifacts/'.length).split('/');const path=exhibitService.file(id,name);
+    if(!path){json({error:'Raw artifact expired or not found'},404);return;}res.setHeader('Content-Type',mime[extname(path)]||'application/octet-stream');res.setHeader('Cache-Control','private, max-age=86400, immutable');res.end(readFileSync(path));return;
+  }
   if(url.pathname==='/api/browser/live'){json(browserService.live);return;}
   if(url.pathname==='/api/browser/records'){json(browserService.records().slice(0,50));return;}
   if(url.pathname==='/api/browser/publications'){json(browserService.publications().slice(0,50));return;}
@@ -93,7 +109,7 @@ server.on('request',(req,res)=>{
 });
 let stopped=false,last=performance.now(),accumulator=0,lastStream=last,lastRecord=last,lastSave=last;
 const interval=setInterval(()=>{
-  if(browserEnabled)return;
+  if(browserEnabled||exhibitEnabled)return;
   const now=performance.now(),elapsed=(now-last)/1000;last=now;
   if(elapsed>2)engine.event('session',`Scheduler gap ${elapsed.toFixed(1)} s; catch-up bounded`);
   accumulator+=Math.min(elapsed,.2)*C.timeScale;
@@ -108,8 +124,9 @@ const interval=setInterval(()=>{
   if(engine.time-segmentStart>=120){store.close();runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`;startedAt=new Date().toISOString();seq=0;store=new Storage(store.root,runId,startedAt);store.prune();segmentStart=engine.time;engine.event('session','New recorded observation segment');}
 },10);
 const heartbeat=setInterval(()=>{for(const ws of connections)if(ws.readyState===WebSocket.OPEN)ws.ping();},15000);
-const recorderPoll=setInterval(()=>{void recorder.tick();void browserService.recorder.tick();},10000);
-async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
+const recorderPoll=setInterval(()=>{void recorder.tick();void browserService.recorder.tick();void exhibitService.recorder.tick();},10000);
+async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled&&!exhibitEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();if(exhibitEnabled)await exhibitService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
 process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
-server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\n${browserEnabled?'Browser mode: six simulated seconds per image; minimum 600 ms per window.':`Model runs at ${C.timeScale}× wall time.`} Ctrl+C to stop.`));
+server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\n${exhibitEnabled?'Continuous intact exhibit: 6 model seconds per image / 3 wall seconds, 48 windows per episode.':browserEnabled?'Baseline browser mode: 6 model seconds per image / minimum 600 ms.':`Light model runs at ${C.timeScale}× wall time.`} Ctrl+C to stop.`));
 if(browserEnabled)void browserService.start(process.argv.includes('--repeat')).catch(e=>console.error('Browser demonstration failed:',e.message));
+if(exhibitEnabled)void exhibitService.start().catch(e=>console.error('Exhibit failed:',e.message));
