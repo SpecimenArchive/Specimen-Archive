@@ -7,13 +7,13 @@ import {sha256} from '../browser/evidence';
 import {WINDOWS_CALIBRATION,locateWindowsViewport} from './windows-geometry';
 import type {DesktopCapture} from '../../shared/exhibit';
 
-/** Loopback HTTP travels through an authenticated SSH forward to the remote VM.
+/** Authenticated loopback HTTP connects the backend and worker on the VM.
  * Connection failure aborts the episode. Commands are never retried. */
 export class RemoteDesktopSession {
-  browser!:Browser;readonly width=1600;readonly height=900;
+  browser!:Browser;get width(){return this.info.width;}get height(){return this.info.height;}
   private sequence=0;private heartbeat?:ReturnType<typeof setInterval>;private failure?:Error;private closed=false;
   private viewport?:{x:number;y:number;scale:number};private bounds?:string;
-  private constructor(readonly endpoint:string,private token:string,readonly info:{leaseId:string;bootId:string;stationId:string;os:string;isolation:string}){}
+  private constructor(readonly endpoint:string,private token:string,readonly info:{leaseId:string;bootId:string;stationId:string;os:string;isolation:string;width:number;height:number;scale:number}){}
   static async open(){
     const endpoint=process.env.EXHIBIT_WINDOWS_URL,tokenFile=process.env.EXHIBIT_WINDOWS_TOKEN_FILE;
     if(!endpoint||!tokenFile)throw new Error('Remote Windows VM access missing. Configure EXHIBIT_WINDOWS_URL and EXHIBIT_WINDOWS_TOKEN_FILE; see docs/WINDOWS_STATION.md.');
@@ -26,6 +26,7 @@ export class RemoteDesktopSession {
     const session=new RemoteDesktopSession(url.origin,token,info);
     try{
       assert.equal(info.os,'Windows 11');assert.equal(info.isolation,'remote-vm');
+      assert((info.width===1600&&info.height===900&&info.scale===2)||(info.width===1280&&info.height===800&&info.scale===1.5),'Unconfigured native display');
       assert(/^\/cdp\/[a-f0-9-]+$/.test(info.webSocketPath));
       session.heartbeat=setInterval(()=>{void session.request('heartbeat',false).catch(e=>{session.failure=e;void session.browser?.close().catch(()=>{});});},4000);
       session.browser=await chromium.connectOverCDP(`ws://${url.host}${info.webSocketPath}`,{headers:{Authorization:`Bearer ${token}`,'X-Specimen-Lease':info.leaseId,'X-Specimen-Boot':info.bootId},timeout:15000});
@@ -39,7 +40,7 @@ export class RemoteDesktopSession {
     return response.json();
   }
   private validate(c:any){
-    assert.equal(c.os,'Windows 11');assert.equal(c.width,1600);assert.equal(c.height,900);assert.equal(c.dpi,96);assert.equal(c.timeZone,'GMT Standard Time');
+    assert.equal(c.os,'Windows 11');assert.equal(c.width,this.width);assert.equal(c.height,this.height);assert.equal(c.dpi,96);assert.equal(c.timeZone,'GMT Standard Time');
     assert.equal(c.bootId,this.info.bootId);assert.equal(c.stationId,this.info.stationId);
     assert(Number.isFinite(c.captureMs)&&c.captureMs>=0);assert(Number.isFinite(c.sourceCapturedAt));
     if(this.bounds)assert.equal(JSON.stringify(c.window),this.bounds,'Windows browser moved after calibration');
@@ -48,19 +49,19 @@ export class RemoteDesktopSession {
     await page.bringToFront();await this.request('arrange');await page.setContent(WINDOWS_CALIBRATION);
     const before=PNG.sync.read(await page.screenshot());
     const cdp=await page.context().newCDPSession(page);
-    try{await cdp.send('Emulation.setDeviceMetricsOverride',{width:640,height:360,deviceScaleFactor:1,mobile:false,scale:2});
+    try{await cdp.send('Emulation.setDeviceMetricsOverride',{width:640,height:360,deviceScaleFactor:1,mobile:false,scale:this.info.scale});
       const after=PNG.sync.read(await page.screenshot());assert.equal(after.width,640);assert.equal(after.height,360);assert(before.data.equals(after.data),'Display scaling changed the sensory image');
       await page.waitForTimeout(150);const capture=await this.request('capture');this.validate(capture);
-      this.viewport=locateWindowsViewport(PNG.sync.read(Buffer.from(capture.png,'base64')),after);this.bounds=JSON.stringify(capture.window);
+      this.viewport=locateWindowsViewport(PNG.sync.read(Buffer.from(capture.png,'base64')),after,this.info.scale);this.bounds=JSON.stringify(capture.window);
     }finally{await cdp.detach();}
   }
   async capture(directory:string,index:number,pageFrame:string,pageCapturedAt:string,cursor:{x:number;y:number}):Promise<DesktopCapture>{
     assert(this.viewport,'Windows desktop must pass pixel calibration first');
     const requestedAt=Date.now(),started=performance.now(),c=await this.request('capture'),roundTripMs=performance.now()-started;this.validate(c);
-    const bytes=Buffer.from(c.png,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,1600);assert.equal(png.height,900);
+    const bytes=Buffer.from(c.png,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,this.width);assert.equal(png.height,this.height);
     const uncertainty=Math.max(0,(roundTripMs-c.captureMs)/2),capturedAt=new Date(requestedAt+uncertainty).toISOString(),path=`desktop-${String(index).padStart(3,'0')}.png`;
     writeFileSync(join(directory,path),bytes);
-    return {path,pageFrame,pageCapturedAt,capturedAt,completedAt:new Date().toISOString(),width:1600,height:900,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs:+roundTripMs.toFixed(2),pageLagMs:Date.parse(capturedAt)-Date.parse(pageCapturedAt),source:'windows-gdi',cursorSource:'recorded-page-pointer',sourceCapturedAt:new Date(c.sourceCapturedAt).toISOString(),timestampBasis:'backend-midpoint-estimate',clockUncertaintyMs:+uncertainty.toFixed(2),station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:this.viewport,window:c.window,taskbar:c.taskbar}};
+    return {path,pageFrame,pageCapturedAt,capturedAt,completedAt:new Date().toISOString(),width:this.width,height:this.height,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs:+roundTripMs.toFixed(2),pageLagMs:Date.parse(capturedAt)-Date.parse(pageCapturedAt),source:'windows-gdi',cursorSource:'recorded-page-pointer',sourceCapturedAt:new Date(c.sourceCapturedAt).toISOString(),timestampBasis:'backend-midpoint-estimate',clockUncertaintyMs:+uncertainty.toFixed(2),station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:this.viewport,window:c.window,taskbar:c.taskbar}};
   }
   async close(){if(this.closed)return;this.closed=true;clearInterval(this.heartbeat);await this.request('stop').catch(()=>{});await this.browser?.close().catch(()=>{});}
 }

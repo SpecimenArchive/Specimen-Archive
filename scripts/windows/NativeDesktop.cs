@@ -6,6 +6,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 public static class SpecimenDesktop {
+  public static int Width {get;private set;}
+  public static int Height {get;private set;}
+  public static double Scale {get;private set;}
   [StructLayout(LayoutKind.Sequential)] public struct Rect {public int Left,Top,Right,Bottom;}
   [StructLayout(LayoutKind.Sequential,CharSet=CharSet.Unicode)] public struct DevMode {
     [MarshalAs(UnmanagedType.ByValTStr,SizeConst=32)] public string device;
@@ -42,8 +45,14 @@ public static class SpecimenDesktop {
     SetProcessDpiAwarenessContext(new IntPtr(-4));
     var dm=new DevMode();dm.size=(short)Marshal.SizeOf(typeof(DevMode));
     if(!EnumDisplaySettings(null,-1,ref dm))throw new Exception("Cannot inspect guest display");
-    dm.width=1600;dm.height=900;dm.fields=0x80000|0x100000;
-    if(ChangeDisplaySettings(ref dm,0)!=0)throw new Exception("VM display cannot select 1600 x 900; configure its interactive display before capture");
+    // Prefer the original station layout where the actual adapter supports it.
+    // Some rented UEFI consoles expose only 1280x800. Keep that genuine full
+    // display and calibrate its presentation scale separately from sensory input.
+    for(int i=0;i<256;i++){var mode=new DevMode();mode.size=(short)Marshal.SizeOf(typeof(DevMode));if(!EnumDisplaySettings(null,i,ref mode))break;if(mode.width==1600&&mode.height==900&&mode.bits==32){if(ChangeDisplaySettings(ref mode,0)!=0)throw new Exception("Cannot select the advertised station display mode");break;}}
+    Width=GetSystemMetrics(0);Height=GetSystemMetrics(1);
+    if(Width==1600&&Height==900)Scale=2;
+    else if(Width==1280&&Height==800)Scale=1.5;
+    else throw new Exception("Unsupported VM console display: "+Width+" x "+Height+"; expected 1600x900 or 1280x800");
     SystemParametersInfo(20,0,"",3);SetSysColors(1,new int[]{1},new int[]{0x00363024});
   }
   public static Rect Bounds(int pid){Rect r;GetWindowRect(Browser(pid),out r);return r;}
@@ -56,7 +65,8 @@ public static class SpecimenDesktop {
     try{
       if(foreground!=0&&foreground!=current)joinedForeground=AttachThreadInput(current,foreground,true);
       if(target!=current&&target!=foreground)joinedTarget=AttachThreadInput(current,target,true);
-      ShowWindow(h,9);MoveWindow(h,144,18,1312,823,true);BringWindowToTop(h);SetForegroundWindow(h);
+      int width=(int)(640*Scale)+32,height=(int)(360*Scale)+103;
+      ShowWindow(h,9);MoveWindow(h,(Width-width)/2,18,width,height,true);BringWindowToTop(h);SetForegroundWindow(h);
     }finally{
       if(joinedTarget)AttachThreadInput(current,target,false);
       if(joinedForeground)AttachThreadInput(current,foreground,false);
@@ -68,13 +78,13 @@ public static class SpecimenDesktop {
     var h=Browser(pid);var bar=Taskbar();var r=Bounds(pid);
     var input=OpenInputDesktop(0,false,0x0100);if(input==IntPtr.Zero)throw new Exception("Interactive desktop is locked or disconnected");CloseDesktop(input);
     if(GetForegroundWindow()!=h)throw new Exception("Owned Chrome lost foreground focus; operator recovery required");
-    if(GetSystemMetrics(0)!=1600||GetSystemMetrics(1)!=900||GetSystemMetrics(80)!=1)throw new Exception("Guest display geometry changed; expected one 1600 x 900 display");
+    if(GetSystemMetrics(0)!=Width||GetSystemMetrics(1)!=Height||GetSystemMetrics(80)!=1)throw new Exception("Guest display geometry changed after setup");
     if(GetDpiForWindow(h)!=96)throw new Exception("Guest scaling must be 100% (96 DPI)");
-    if(bar.Bottom!=900||bar.Top<841||bar.Top>875||r.Bottom>bar.Top||r.Left<0||r.Right>1600)throw new Exception("Browser or native taskbar geometry changed");
-    using(var bitmap=new Bitmap(1600,900,PixelFormat.Format32bppArgb))using(var graphics=Graphics.FromImage(bitmap))using(var stream=new MemoryStream()){
+    if(bar.Bottom!=Height||bar.Top<Height-64||bar.Top>Height-25||r.Bottom>bar.Top||r.Left<0||r.Right>Width)throw new Exception("Browser or native taskbar geometry changed");
+    using(var bitmap=new Bitmap(Width,Height,PixelFormat.Format32bppArgb))using(var graphics=Graphics.FromImage(bitmap))using(var stream=new MemoryStream()){
       // This method is callable only from the guarded dedicated worker. GDI does
       // not add a hardware cursor: the existing recorded cyan page cursor is one.
-      graphics.CopyFromScreen(0,0,0,0,new Size(1600,900),CopyPixelOperation.SourceCopy);
+      graphics.CopyFromScreen(0,0,0,0,new Size(Width,Height),CopyPixelOperation.SourceCopy);
       bitmap.Save(stream,ImageFormat.Png);return Convert.ToBase64String(stream.ToArray());
     }
   }

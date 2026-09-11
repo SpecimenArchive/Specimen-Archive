@@ -64,17 +64,20 @@ function nativeRequest(method:string):Promise<any>{
 async function start(){
   active=true;
   try{
-    native=spawn('powershell.exe',['-NoProfile','-ExecutionPolicy','Bypass','-File',resolve('scripts/windows/native-worker.ps1')],{windowsHide:true,stdio:['pipe','pipe','pipe'],env:{...process.env,SPECIMEN_REMOTE_CONFIG:resolve(configPath!),SPECIMEN_REMOTE_GUEST:'1'}});
-    const lines=createInterface({input:native.stdout});
-    lines.on('line',line=>{try{const m=JSON.parse(line),p=pending.get(m.id);if(p){pending.delete(m.id);clearTimeout(p.timer);m.error?p.reject(new Error(m.error)):p.resolve(m.result);}}catch{requestStop('Invalid native response');}});
-    native.on('error',()=>requestStop('Native helper failed'));native.on('exit',()=>{if(active)requestStop('Native helper exited');});
+    const ownedNative=native=spawn('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',resolve('scripts/windows/native-worker.ps1')],{windowsHide:true,stdio:['pipe','pipe','pipe'],env:{...process.env,SPECIMEN_REMOTE_CONFIG:resolve(configPath!),SPECIMEN_REMOTE_GUEST:'1'}});
+    const lines=createInterface({input:ownedNative.stdout});
+    const nativeCurrent=()=>active&&native===ownedNative;
+    lines.on('line',line=>{if(!nativeCurrent())return;try{const m=JSON.parse(line),p=pending.get(m.id);if(p){pending.delete(m.id);clearTimeout(p.timer);m.error?p.reject(new Error(m.error)):p.resolve(m.result);}}catch{requestStop('Invalid native response');}});
+    ownedNative.on('error',()=>{if(nativeCurrent())requestStop('Native helper failed');});
+    ownedNative.on('exit',(code,signal)=>{if(nativeCurrent()){audit('native-exited',{code,signal});requestStop('Native helper exited');}});
+    ownedNative.stdin.on('error',()=>{if(nativeCurrent())requestStop('Native input pipe failed');});
     let nativeError='';const nativeLog=join(root,'native.stderr.log');writeFileSync(nativeLog,'');
-    native.stderr.on('data',bytes=>{nativeError=(nativeError+String(bytes)).slice(-8192);writeFileSync(nativeLog,nativeError);});
+    ownedNative.stderr.on('data',bytes=>{if(native!==ownedNative)return;nativeError=(nativeError+String(bytes)).slice(-8192);writeFileSync(nativeLog,nativeError);});
     const verified=await nativeRequest('info');
     if(verified.os!=='Windows 11'||verified.isolation!=='remote-vm')throw new Error('Native VM verification failed');
     const profile=ownedProfile=join(root,'profiles',randomUUID());mkdirSync(profile,{recursive:true});
-    chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
-    chrome.once('error',()=>requestStop('Chrome failed to start'));chrome.once('exit',()=>{if(active)requestStop('Chrome exited');});
+    const ownedChrome=chrome=spawn(config.chromePath,['--no-first-run','--no-default-browser-check','--disable-session-crashed-bubble','--force-device-scale-factor=1','--remote-debugging-address=127.0.0.1','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--window-position=144,18','--window-size=1312,823','about:blank'],{windowsHide:true,stdio:'ignore'});
+    ownedChrome.once('error',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome failed to start');});ownedChrome.once('exit',()=>{if(active&&chrome===ownedChrome)requestStop('Chrome exited');});
     const deadline=Date.now()+30000;
     while(!existsSync(join(profile,'DevToolsActivePort'))){if(!active||Date.now()>deadline||chrome.exitCode!==null)throw new Error('Chrome startup timed out');await new Promise(r=>setTimeout(r,100));}
     const [port,path]=readFileSync(join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/);
@@ -83,7 +86,7 @@ async function start(){
     // Cold Windows module/C# initialization precedes the backend lease. Once
     // handed to the backend, the existing 20-second heartbeat deadline applies.
     const ownership=lease.acquire();
-    audit('leased');return {...ownership,stationId:config.stationId,os:verified.os,isolation:'remote-vm',webSocketPath:`/cdp/${ownership.leaseId}`};
+    audit('leased');return {...ownership,stationId:config.stationId,os:verified.os,isolation:'remote-vm',width:verified.width,height:verified.height,scale:verified.scale,webSocketPath:`/cdp/${ownership.leaseId}`};
   }catch(error){await stop('Startup failed');throw error;}
 }
 const server=createServer(async(req,res)=>{
@@ -113,17 +116,19 @@ server.on('upgrade',(req,socket,head)=>{
     const id=String(req.headers['x-specimen-lease']),boot=String(req.headers['x-specimen-boot']);lease.verify(id,boot);
     if(req.url!==`/cdp/${id}`||!cdpURL||peers.size)throw new Error('Invalid CDP ownership');
     bridge.handleUpgrade(req,socket,head,downstream=>{
-      const upstream=new WebSocket(cdpURL,{maxPayload:24*1024*1024});peers.add(downstream);peers.add(upstream);
+      const endpoint=cdpURL;
+      const stopOwned=(reason:string)=>{if(active&&cdpURL===endpoint)requestStop(reason);};
+      const upstream=new WebSocket(endpoint,{maxPayload:24*1024*1024});peers.add(downstream);peers.add(upstream);
       // Playwright can send immediately after handshake. Queue only while the
       // local upstream opens, bounded at 1 MB; never reconnect this channel.
       let queue:Buffer[]=[];let queued=0;
       downstream.on('message',(bytes,binary)=>{
         try{lease.verify(id,boot);const data=Buffer.from(bytes as Buffer);if(upstream.readyState===WebSocket.OPEN){if(upstream.bufferedAmount>4*1024*1024)throw new Error('Backpressure');upstream.send(data,{binary});}else if(upstream.readyState===WebSocket.CONNECTING){queued+=data.length;if(queued>1024*1024)throw new Error('Backpressure');queue.push(data);}else throw new Error('Disconnected');}
-        catch{requestStop('CDP connection lost');}
+        catch{stopOwned('CDP connection lost');}
       });
       upstream.on('open',()=>{for(const bytes of queue)upstream.send(bytes,{binary:false});queue=[];});
-      upstream.on('message',(bytes,binary)=>{if(downstream.readyState===WebSocket.OPEN&&downstream.bufferedAmount<4*1024*1024)downstream.send(bytes,{binary});else requestStop('CDP backpressure');});
-      for(const peer of [downstream,upstream]){peer.on('error',()=>requestStop('CDP failure'));peer.on('close',()=>{if(active)requestStop('CDP disconnected');});}
+      upstream.on('message',(bytes,binary)=>{if(downstream.readyState===WebSocket.OPEN&&downstream.bufferedAmount<4*1024*1024)downstream.send(bytes,{binary});else stopOwned('CDP backpressure');});
+      for(const peer of [downstream,upstream]){peer.on('error',()=>stopOwned('CDP failure'));peer.on('close',()=>stopOwned('CDP disconnected'));}
     });
   }catch{socket.end('HTTP/1.1 401 Unauthorized\r\nConnection: close\r\n\r\n');}
 });

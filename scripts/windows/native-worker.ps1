@@ -17,13 +17,13 @@ while ($line=[Console]::ReadLine()) {
   try {
     $request=$line | ConvertFrom-Json
     switch ($request.method) {
-      'info' { $result=@{os='Windows 11';isolation=$isolation;osBuild="$($os.CurrentBuild).$($os.UBR)"} }
+      'info' { $result=@{os='Windows 11';isolation=$isolation;osBuild="$($os.CurrentBuild).$($os.UBR)";width=[SpecimenDesktop]::Width;height=[SpecimenDesktop]::Height;scale=[SpecimenDesktop]::Scale} }
       'arrange' { [SpecimenDesktop]::Arrange([int]$request.pid); $result=@{ok=$true} }
       'capture' {
         $start=[DateTimeOffset]::UtcNow; $watch=[Diagnostics.Stopwatch]::StartNew()
         $png=[SpecimenDesktop]::Capture([int]$request.pid)
         $watch.Stop(); $window=[SpecimenDesktop]::Bounds([int]$request.pid); $taskbar=[SpecimenDesktop]::Taskbar()
-        $result=@{png=$png;sourceCapturedAt=$start.ToUnixTimeMilliseconds();captureMs=$watch.Elapsed.TotalMilliseconds;width=1600;height=900;dpi=96;os='Windows 11';osBuild="$($os.CurrentBuild).$($os.UBR)";timeZone=(Get-TimeZone).Id;window=$window;taskbar=$taskbar}
+        $result=@{png=$png;sourceCapturedAt=$start.ToUnixTimeMilliseconds();captureMs=$watch.Elapsed.TotalMilliseconds;width=[SpecimenDesktop]::Width;height=[SpecimenDesktop]::Height;dpi=96;os='Windows 11';osBuild="$($os.CurrentBuild).$($os.UBR)";timeZone=(Get-TimeZone).Id;window=$window;taskbar=$taskbar}
       }
       default { throw 'Unknown native station operation' }
     }

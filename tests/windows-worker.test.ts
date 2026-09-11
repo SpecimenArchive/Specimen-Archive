@@ -25,3 +25,15 @@ test('Windows calibration checks every scaled pixel and rejects clipped or shift
   desktop.data[((100+350*2)*1600+150+630*2)*4]=0;
   assert.throws(()=>locateWindowsViewport(desktop,input),/complete/);
 });
+test('persistent 1280x800 console uses calibrated 1.5x presentation without changing sensory dimensions',()=>{
+  const input=new PNG({width:640,height:360}),desktop=new PNG({width:1280,height:800});
+  for(let y=0;y<360;y++)for(let x=0;x<640;x++)input.data.set([x<320?211:29,y<180?31:197,x<320?53:73,255],(y*640+x)*4);
+  for(let y=0;y<540;y++)for(let x=0;x<960;x++){
+    const p=(Math.floor(y/1.5)*640+Math.floor(x/1.5))*4;
+    desktop.data.set(input.data.subarray(p,p+4),((100+y)*1280+150+x)*4);
+  }
+  assert.deepEqual(locateWindowsViewport(desktop,input,1.5),{x:150,y:100,scale:1.5});
+  assert.throws(()=>locateWindowsViewport(desktop,input,2),/Unconfigured/);
+  desktop.data[((100+539)*1280+150+959)*4]=0;
+  assert.throws(()=>locateWindowsViewport(desktop,input,1.5),/complete/);
+});
