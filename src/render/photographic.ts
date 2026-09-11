@@ -4,7 +4,7 @@ import type { Circuit, Snapshot } from '../../shared/types';
 /** Fixed-view photographic rig. Hand-registered artistic regions of the
  * synthetic asset are neither measured anatomy nor neuron positions. */
 export const PHOTO_RIG = {
-  version: 'photo-rig-v2-head-stable', asset: '/assets/specimen-photographic-base-v2.png',
+  version: 'photo-rig-v3-root-stable', asset: '/assets/specimen-photographic-base-v2.png',
   scale: .84, viewport: [1002, 470], bendGain: 2.1,
   maximumViewAngle: .035, referenceHeading: -.18,
 } as const;
@@ -39,6 +39,16 @@ float region(vec2 p, vec2 c, vec2 r) {
   float d=dot((p-c)/r,(p-c)/r);
   return pow(max(0.0,1.0-d),3.0);
 }
+float rootProtection(vec2 p) {
+  // Six registered chaetal attachments. Roots are tissue, not beating cilia.
+  float a=ellipse(p,vec2(.445,.371),vec2(.025,.043));
+  a=max(a,ellipse(p,vec2(.565,.331),vec2(.025,.043)));
+  a=max(a,ellipse(p,vec2(.461,.533),vec2(.025,.043)));
+  a=max(a,ellipse(p,vec2(.580,.512),vec2(.025,.043)));
+  a=max(a,ellipse(p,vec2(.487,.707),vec2(.025,.043)));
+  a=max(a,ellipse(p,vec2(.586,.690),vec2(.025,.043)));
+  return a;
+}
 vec3 tex(vec2 p) { return texture2D(photograph, vec2(p.x,1.0-p.y)).rgb; }
 // Low-frequency transmitted-light plate fitted to clear water in the asset.
 // Analytic interpolation avoids stretching source-camera grain into stripes.
@@ -69,6 +79,7 @@ vec2 unbend(vec2 p) {
 }
 vec2 appendages(vec2 p) {
   vec2 q=p;
+  float freeRoot=1.0-rootProtection(p);
   // Root-fixed passive chaetal splay driven by local bending, not a gait.
   for(int i=0;i<3;i++) {
     float y=.34+float(i)*.185;
@@ -76,8 +87,8 @@ vec2 appendages(vec2 p) {
     float side=sign(p.x-centre);
     float distal=smoothstep(.052,.13,abs(p.x-centre));
     float fan=exp(-pow((p.y-y-.064)/.115,4.0))*distal;
-    q.y-=fan*bend*side*.022*(1.0+float(i)*.13);
-    q.x-=fan*bend*.017;
+    q.y-=freeRoot*fan*bend*side*.022*(1.0+float(i)*.13);
+    q.x-=freeRoot*fan*bend*.017;
   }
   // Local fields share the unwrapped authoritative oscillator. Phase gradients
   // illustrate metachronal waves; they are not additional neural telemetry.
@@ -96,8 +107,8 @@ vec2 appendages(vec2 p) {
     float y=.39+float(i)*.186,off=float(i)*1.71;
     float a=ellipse(p,vec2(.456+float(i)*.011,y),vec2(.014,.044));
     float b=ellipse(p,vec2(.579+float(i)*.008,y-.008),vec2(.014,.044));
-    q.y-=a*.0023*sin(phase+off+p.y*150.0)*(.3+trunkLeft);
-    q.y-=b*.0023*sin(phase+off+2.1+p.y*150.0)*(.3+trunkRight);
+    q.y-=freeRoot*a*.0013*sin(phase+off+p.y*150.0)*(.3+trunkLeft);
+    q.y-=freeRoot*b*.0013*sin(phase+off+2.1+p.y*150.0)*(.3+trunkRight);
   }
   return q;
 }

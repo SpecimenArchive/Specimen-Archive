@@ -34,7 +34,9 @@ First optical-refinement review is in docs/previews/index.html (before/after ide
 
 HEAD-MOTION REVIEW: User reported jelly-like distortion at full speed. Reproduced from checkpoint 766afbd: changing only oscillator phase altered 2,585 head ROI pixels with maximum channel delta 147. Ciliary masks overlapped tissue. Registered head exclusion plus restrained peripheral displacement reduces phase-dependent changes in head ROI to zero while preserving 2,878 moving appendage pixels. `scripts/head-motion-check.mjs` preserves the original before clip and saves the diagnostic. Normal-speed 19.5-second after clip recaptured: 1,169 frames, median 16.7 ms / p95 16.8 ms, no browser errors. Before/after page: /docs/previews/head-motion-review.html. Integration remains paused for user review.
 
-REPOSITORY: user supplied https://github.com/SpecimenArchive/Specimen-Archive. Read-only gh connection checks return HTTP 401; login not yet usable. Local loop implementation continues. No remote writes performed.
+REPOSITORY: user supplied https://github.com/SpecimenArchive/Specimen-Archive. HTTP 401 was reproduced inside the sandbox. Outside it, the existing login is SpecimenArchive with ADMIN permission on the public, empty repository. No authentication changes are needed. No local remote was configured. Known-secret scan: 99 working text files and 113 historical text blobs, no findings. Connecting the local remote and pushing preserved checkpoints is the next step.
+
+ROOT-MOTION REVIEW: user confirmed the head fix, then spotted subtle distortion at six bristle attachments. Reproduced each from 2a18bd2; root guards exclude phase warping and splay at the bases. Twelve-phase checks show zero changes in all six root ROIs; head remains zero and 1,804 peripheral pixels still move. Updated 19.5-second clip: 1,169 frames, median 16.7 ms / p95 16.8 ms. User confirmed "Roots look stable now". Proceed with photographic integration while preserving the console composition.
 - `npm run dev`: one process, localhost 4317, retained exec session 16372.
 - `npm run typecheck`: passed.
 - `npm run validate:science`: passed; actual controlled results saved.
