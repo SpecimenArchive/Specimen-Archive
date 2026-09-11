@@ -23,6 +23,7 @@ export class GitHubCLI implements RepositoryAPI {
 }
 export class SpecimenRecorder {
   private busy=false;
+  lastError:string|null=null;
   readonly branch='specimen-records';
   constructor(readonly store:ExperimentStore<PublishableRecord>,readonly api:RepositoryAPI,readonly repository:string|undefined,readonly enabled:boolean) {
     if(repository&&!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository))throw new Error('RECORDER_REPOSITORY must be owner/repository');
@@ -68,16 +69,20 @@ export class SpecimenRecorder {
     }
   }
   async tick(){
-    if(this.busy)return;this.busy=true;
+    if(this.busy)return;this.busy=true;this.lastError=null;
     try{for(const record of this.store.records().reverse()){
       const current=this.store.publication(record.id);if(current?.state==='published')continue;
       const pendingReason=!this.repository?'Repository destination not configured':!this.enabled?'Public recorder not enabled':record.origin.sourceDirty?'Executed source has uncommitted model changes':!/^[a-f0-9]{40}$/.test(record.origin.sourceRevision)?'Executed source revision is unavailable':undefined;
       const receipt:Publication={id:record.id,state:'pending',updatedAt:new Date().toISOString(),attempts:current?.attempts??0,recordSha256:recordHash(record),repository:this.repository};
-      if(pendingReason){this.store.setPublication({...receipt,reason:pendingReason});continue;}
+      if(pendingReason){if(current?.state!=='pending'||current.reason!==pendingReason||current.recordSha256!==receipt.recordSha256||current.repository!==receipt.repository)this.store.setPublication({...receipt,reason:pendingReason});continue;}
       if(current?.state==='failed'&&Date.now()-Date.parse(current.updatedAt)<60000)continue;
       this.store.setPublication({...receipt,state:'publishing',attempts:receipt.attempts+1});
       try{const remote=await this.publish(record);this.store.setPublication({...receipt,state:'published',attempts:receipt.attempts+1,updatedAt:new Date().toISOString(),commit:remote.sha,url:remote.url,path:remote.path});}
       catch(e){this.store.setPublication({...receipt,state:'failed',attempts:receipt.attempts+1,updatedAt:new Date().toISOString(),reason:(e as Error).message});}
-    }}finally{this.busy=false;}
+    }}catch(e){
+      // Receipt storage is auxiliary. A locked historical receipt must never
+      // terminate the neural session or imply that publication succeeded.
+      this.lastError=(e as Error).message;
+    }finally{this.busy=false;}
   }
 }

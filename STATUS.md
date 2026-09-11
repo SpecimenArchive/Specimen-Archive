@@ -1,5 +1,15 @@
 # Specimen Archive status
 
+## Workstation reconstruction - 11 September 2026
+- Replaced the page-only apparatus capture with a real isolated 960 x 540 Linux desktop: Chrome, Openbox window decorations and tint2 taskbar. The 640 x 360 sensory PNG and neural decision pathway remain separate.
+- Added decoded page/desktop pairing, desktop hashes, cursor linkage, capture duration and bounded cross-clock timestamps. Replay verifies these alongside the unchanged neural computation.
+- Dashboard and expanded views checked at 390, 1024, 1440 and 1920 px; no overflow or browser errors. Light/dark optical calibration matches every sensory pixel and changes no scene pixels outside the screen. Native Chrome link status remains visible only in the desktop.
+- Reviewed a 55.109-second actual movement/navigation/scroll sequence. Five completed desktop episodes replayed 14,400 neural samples exactly. One seed remained navigated-only; failures are preserved.
+- All 29 tests, production build and nine frozen baseline replays pass. Repeated nine-case causal suite: all exact replays, zero actions in the six interventions. Forced desktop-browser close recovered under the same session and retained its recording, with no partial-window action.
+- A legacy inactive-recorder receipt lock was found during endurance. Polling now targets only the active mode; receipt storage failures are reported without terminating observation. A regression test covers the failure.
+- Final ten-minute production run passed: 602.065 seconds, 11,033 matching packets, three complete episodes plus the fourth in progress, zero browser errors/dropped frames/recorder errors, exact offline canvas freeze and successful reconnect. An 800 ms delayed-desktop test also passed with no neural-step rewind across all four views.
+- Publication to the existing public repository's master branch is explicitly authorized. The checked-in workstation reviews describe the development build; a fresh post-publication recording records the exact executed commit and video SHA256 in ignored runtime storage.
+
 ## Current priority
 Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRIEF.md). The user approved the generated apparatus direction and authorized independent decisions and self-assessment at the remaining checkpoints.
 

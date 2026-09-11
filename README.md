@@ -14,7 +14,21 @@ npx playwright install chromium
 npm run demo
 ```
 
-Open **http://127.0.0.1:4317**. `demo`, `dev` and `start` default to the continuous intact exhibit; observers never start separate experiments. Each bounded episode has a recorded supervisor reset. `npm run demo:baseline` runs the preserved finite nine-trial suite; `npm run observe:light` runs the original checkpointed light-integral experiment. No credentials, external database, wallet or paid service is needed. Processed research data, texture assets and fonts are local. Ctrl+C saves the current partial episode with its interruption; restarting creates a new session. Windows defaults to installed Edge; set `PLAYWRIGHT_CHANNEL=chromium` to use the downloaded Chromium.
+For the workstation's real desktop, prepare Ubuntu (WSL Ubuntu on Windows) once:
+
+```sh
+bash scripts/setup-desktop.sh
+```
+
+On Windows, WSL 2 with Ubuntu is required for desktop presentation. Run
+`wsl.exe -d Ubuntu -u root -- bash /mnt/c/path/to/SpecimenArchive/scripts/setup-desktop.sh`
+for this checkout (adjust the path for another location). Node and
+`npm run dev` run in PowerShell. This installs a private virtual display,
+Openbox, tint2 and Chrome. `npm run desktop:check` verifies the capture. Set
+`EXHIBIT_DESKTOP=0` only for explicit headless controller operation. See the
+[exact production startup, shutdown and review commands](docs/WORKSTATION_CAPTURE.md#run-and-verify).
+
+Open **http://127.0.0.1:4317**. `demo`, `dev` and `start` default to the continuous intact exhibit; observers never start separate experiments. Each bounded episode has a recorded supervisor reset. `npm run demo:baseline` runs the preserved finite nine-trial suite; `npm run observe:light` runs the original checkpointed light-integral experiment. No credentials, external database, wallet or paid service is needed. Processed research data, texture assets and fonts are local. Ctrl+C saves the current partial episode with its interruption; restarting creates a new session. Desktop presentation uses isolated Linux Chrome. Headless Windows checks default to installed Edge; set `PLAYWRIGHT_CHANNEL=chromium` to use the downloaded Chromium for those checks.
 
 For the built application:
 

@@ -14,13 +14,14 @@ import { MODEL_CONFIG } from '../model/config';
 import { EXHIBIT_CONFIG as C,type TaskLayout } from './config';
 import { ExhibitController } from './controller';
 import { exhibitTask } from './task';
+import { DesktopSession } from './desktop';
 const ORIGIN=executionOrigin('exhibit-process');
 export interface EpisodeOptions {root:string;sessionId:string;episode:number;seed:number;layout:TaskLayout;intervention:BrowserIntervention;fast?:boolean;signal?:AbortSignal;faultAfter?:number;onUpdate?:(state:ExhibitLive)=>void}
 export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   const startedAt=new Date().toISOString(),runId=`exhibit_${Date.now()}_${randomUUID().slice(0,8)}`,directory=resolve(o.root,runId);
   mkdirSync(directory,{recursive:true});
   const decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],origin={...ORIGIN,runId};
-  let currentCommandId:string|null=null,browser:Browser|undefined,context:BrowserContext|undefined,video:Video|null=null;
+  let currentCommandId:string|null=null,browser:Browser|undefined,context:BrowserContext|undefined,video:Video|null=null,desktop:DesktopSession|undefined;
   const record:ExhibitRecord={schemaVersion:1,kind:'continuous-browser-episode',recorder:'Specimen Recorder',id:runId,sessionId:o.sessionId,origin,
     config:C,configSha256:sha256(JSON.stringify(C)),model:MODEL_CONFIG,execution:{paced:!o.fast,minimumWindowWallMs:o.fast?0:C.windowWallMs,nodeVersion:process.version,faultAfterWindow:o.faultAfter},startedAt,completedAt:'',seed:o.seed,layout:o.layout,intervention:o.intervention,browserVersion:'',
     coverage:{neuronIds:circuit.nodes.map(n=>n.id),edges:circuit.edges.length,synapses:circuit.edges.reduce((s,e)=>s+e.weight,0)},
@@ -33,9 +34,17 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   await new Promise<void>(r=>fixture.listen(0,'127.0.0.1',r));
   const port=(fixture.address() as {port:number}).port;
   try{
-    browser=await chromium.launch({headless:true,channel:process.env.PLAYWRIGHT_CHANNEL||(process.platform==='win32'?'msedge':undefined)});record.browserVersion=browser.version();
+    if(!o.fast&&process.env.EXHIBIT_DESKTOP!=='0'){desktop=await DesktopSession.open();browser=desktop.browser;}
+    else browser=await chromium.launch({headless:true,channel:process.env.PLAYWRIGHT_CHANNEL||(process.platform==='win32'?'msedge':undefined)});
+    record.browserVersion=browser.version();
     context=await browser.newContext({viewport:{width:C.width,height:C.height},deviceScaleFactor:1,recordVideo:{dir:directory,size:{width:C.width,height:C.height}}});
     context.setDefaultTimeout(5000);
+    // Forward only the local fixture through the established backend. The
+    // desktop may be in WSL; no public listener or privileged task input is used.
+    if(desktop)await context.route(`http://127.0.0.1:${port}/**`,async route=>{
+      const response=await fetch(route.request().url());
+      await route.fulfill({status:response.status,contentType:'text/html; charset=utf-8',body:await response.text()});
+    });
     await context.exposeBinding('__recordEvent',(_,event)=>{events.push({...event,commandId:currentCommandId});});
     await context.addInitScript(()=>{
       for(const type of ['mousemove','mousedown','mouseup','click','wheel'])addEventListener(type,e=>{
@@ -44,10 +53,12 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       },true);
     });
     const page=await context.newPage();video=page.video();
+    if(desktop){for(const c of browser.contexts())if(c!==context)for(const p of c.pages())await p.close();await desktop.arrange(page);}
     page.on('framenavigated',frame=>{if(frame===page.mainFrame())events.push({type:'navigation',timestamp:new Date().toISOString(),pageTimeMs:0,url:new URL(frame.url()).pathname,commandId:currentCommandId});});
     await page.goto(`http://127.0.0.1:${port}/`);await page.mouse.move(C.cursor.x,C.cursor.y);await delay(60);record.setup.events=events.slice();
     const controller=new ExhibitController(circuit,runId,startedAt,o.intervention);let cursor={...C.cursor},png=await page.screenshot({animations:'disabled'}),capturedAt=new Date().toISOString();
     writeFileSync(join(directory,'frame-000.png'),png);
+    let presentation=await desktop?.capture(directory,0,'frame-000.png',capturedAt,cursor);
     for(let decision=0;decision<C.decisions;decision++){
       o.signal?.throwIfAborted();
       if(o.faultAfter===decision)await browser.close(); // Explicit operator fault injection for recovery validation only.
@@ -55,7 +66,7 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       const calculation=await controller.observe(png,decision,async(snapshot,input)=>{
         o.signal?.throwIfAborted();
         if(!o.fast)await delay(Math.max(0,windowStart+(snapshot.seq-decision*C.modelSteps)/C.modelSteps*C.windowWallMs-performance.now()),undefined,{signal:o.signal});
-        emit({state:'integrating',decision,inputFrame:`${runId}/${imageBefore}`,browserFrame:`${runId}/${imageBefore}`,capturedAt,snapshot,input,motor:null,command:null,commandId:null,notice:'Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states.'});
+        emit({state:'integrating',decision,inputFrame:`${runId}/${imageBefore}`,browserFrame:`${runId}/${imageBefore}`,desktop:presentation??null,capturedAt,snapshot,input,motor:null,command:null,commandId:null,notice:'Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states.'});
       });
       const commandId=`${runId}:c${String(decision).padStart(3,'0')}`;currentCommandId=commandId;
       const from={...cursor},actionStarted=new Date().toISOString(),command=calculation.command;
@@ -66,11 +77,13 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       await delay(100,undefined,{signal:o.signal});await page.waitForLoadState('load');
       const actionCompleted=new Date().toISOString(),after=await page.screenshot({animations:'disabled'}),afterCaptured=new Date().toISOString(),imageAfter=`frame-${String(decision+1).padStart(3,'0')}.png`;
       writeFileSync(join(directory,imageAfter),after);
+      const desktopAfter=await desktop?.capture(directory,decision+1,imageAfter,afterCaptured,cursor);
       const d:ExhibitDecision={context:{sourceRevision:origin.sourceRevision,sourceDirty:origin.sourceDirty,configSha256:record.configSha256,dataVersion:origin.dataVersion,intervention:o.intervention,episode:o.episode,seed:o.seed,layout:o.layout},sessionId:o.sessionId,runId,commandId,decision,imageBefore,imageAfter,imageSha256:sha256(png),afterSha256:sha256(after),capturedAt,completedAt:afterCaptured,...calculation,
+        desktopBefore:presentation,desktopAfter,
         executed:{startedAt:actionStarted,completedAt:actionCompleted,from,to:{...cursor},events:events.filter(e=>e.commandId===commandId)}};
       decisions.push(d);writeFileSync(join(directory,`decision-${decision}.json.gz`),gzipSync(JSON.stringify(d)));
-      png=after;capturedAt=afterCaptured;
-      emit({state:'executed',browserFrame:`${runId}/${imageAfter}`,motor:d.motor,command:d.command,commandId,history:[...live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:`${command.dx||command.wheelY||0} px · ${d.executed.events.map(e=>e.type).join(' → ')||'gate closed'}`,timestamp:actionCompleted}].slice(-24),notice:command.reason});
+      png=after;capturedAt=afterCaptured;presentation=desktopAfter;
+      emit({state:'executed',browserFrame:`${runId}/${imageAfter}`,desktop:presentation??null,motor:d.motor,command:d.command,commandId,history:[...live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:`${command.dx||command.wheelY||0} px · ${d.executed.events.map(e=>e.type).join(' → ')||'gate closed'}`,timestamp:actionCompleted}].slice(-24),notice:command.reason});
     }
     // Evaluator runs after the fixed budget, and never feeds the encoder/decoder.
     record.evaluator={...await page.evaluate(()=>(window as any).__outcome),navigated:events.some(e=>e.type==='navigation'&&e.url==='/ledger'&&e.commandId!==null)};
@@ -85,7 +98,7 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       if(finalized)copyFileSync(finalized,join(directory,'browser.webm'));
       else{record.error=[record.error,`Video: ${(e as Error).message}`].filter(Boolean).join('; ');record.outcome='error';}
     }
-    await browser?.close();await new Promise<void>(r=>fixture.close(()=>r()));
+    await browser?.close().catch(()=>{});await desktop?.close();await new Promise<void>(r=>fixture.close(()=>r()));
   }
   writeFileSync(join(directory,'trace.json.gz'),gzipSync(JSON.stringify(decisions)));
   record.completedAt=new Date().toISOString();record.decisions=decisions.map(({samples,...d})=>d);record.artifacts=artifactManifest(directory);

@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { homography,invert3,project,screenPlacement as P } from '../src/render/screen-placement';
+test('measured display corners and interior survive inverse mapping at all display scales',()=>{
+  const unit=[[0,0],[1,0],[1,1],[0,1]],h=homography(P.corners),inverse=invert3(h);
+  unit.forEach((p,i)=>project(h,...p as [number,number]).forEach((v,k)=>assert(Math.abs(v-P.corners[i][k])<1e-8)));
+  for(const scale of [.24,.5,1,2])for(const [u,v] of [...unit,[.25,.8],[.7,.3]]){
+    const scaled=homography(P.corners.map(p=>p.map(n=>n*scale))),point=project(scaled,u,v),roundtrip=project(inverse,point[0]/scale,point[1]/scale);
+    assert(Math.abs(roundtrip[0]-u)<1e-8);assert(Math.abs(roundtrip[1]-v)<1e-8);
+  }
+});

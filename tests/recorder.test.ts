@@ -38,3 +38,11 @@ test('mock GitHub: concurrent recorder workers create only one immutable record'
 test('disabled publishing and authentication failure are never shown as completed',async()=>{
   const {root,store,id}=fixture();try{const api=new MockGitHub();await new SpecimenRecorder(store,api,'fixture/recorder-test',false).tick();assert.equal(store.publication(id)!.state,'pending');assert.equal(api.puts,0);api.authenticationError=true;await new SpecimenRecorder(store,api,'fixture/recorder-test',true).tick();assert.equal(store.publication(id)!.state,'failed');assert.equal(store.publication(id)!.url,undefined);}finally{rmSync(root,{recursive:true,force:true});}
 });
+test('locked receipt storage cannot reject the background recorder tick or publish falsely',async()=>{
+  const {root,store,id}=fixture();try{
+    const api=new MockGitHub(),recorder=new SpecimenRecorder(store,api,'fixture/recorder-test',false),save=store.setPublication.bind(store);
+    store.setPublication=()=>{throw new Error('EPERM: historical receipt is locked');};
+    await assert.doesNotReject(()=>recorder.tick());assert.match(recorder.lastError!,/EPERM/);assert.equal(api.puts,0);assert.equal(store.publication(id)!.state,'pending');
+    store.setPublication=save;await recorder.tick();assert.equal(recorder.lastError,null);assert.equal(store.publication(id)!.reason,'Public recorder not enabled');
+  }finally{rmSync(root,{recursive:true,force:true});}
+});

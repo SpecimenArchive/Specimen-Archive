@@ -6,11 +6,18 @@ import type { PublishableRecord } from '../server/experiment-store';
 import type { EXHIBIT_CONFIG,TaskLayout } from '../server/exhibit/config';
 import type { MODEL_CONFIG } from '../server/model/config';
 export interface ExecutedEvent {type:string;timestamp:string;pageTimeMs:number;url:string;x?:number;y?:number;deltaY?:number;trusted?:boolean;commandId:string|null}
+export interface DesktopCapture {
+  path:string;pageFrame:string;pageCapturedAt:string;capturedAt:string;completedAt:string;
+  width:number;height:number;sha256:string;cursor:{x:number;y:number};captureMs:number;roundTripMs:number;pageLagMs:number;
+  source:'x11-root';cursorSource:'recorded-page-pointer';
+  sourceCapturedAt?:string;timestampBasis?:'backend-midpoint-estimate';clockUncertaintyMs?:number;
+}
 export interface ExhibitDecision {
   context:Pick<ExhibitLive,'sourceRevision'|'sourceDirty'|'configSha256'|'dataVersion'|'intervention'|'episode'|'seed'|'layout'>;
   sessionId:string;runId:string;commandId:string;decision:number;modelStartStep:number;modelEndStep:number;
   imageBefore:string;imageAfter:string;imageSha256:string;afterSha256:string;capturedAt:string;completedAt:string;
   input:ExhibitInput;motor:MotorReadout;command:ExhibitCommand;samples:Snapshot[];
+  desktopBefore?:DesktopCapture;desktopAfter?:DesktopCapture;
   executed:{startedAt:string;completedAt:string;from:{x:number;y:number};to:{x:number;y:number};events:ExecutedEvent[]};
 }
 export interface ExhibitRecord extends PublishableRecord {
@@ -26,6 +33,7 @@ export interface ExhibitLive {
   episode:number;decision:number;intervention:BrowserIntervention;layout:TaskLayout;seed:number;
   sourceRevision:string;sourceDirty:boolean;configSha256:string;dataVersion:string;
   inputFrame:string|null;browserFrame:string|null;capturedAt:string|null;snapshot:Snapshot|null;
+  desktop?:DesktopCapture|null;
   input:ExhibitInput|null;motor:MotorReadout|null;command:ExhibitCommand|null;commandId:string|null;
   history:{commandId:string;runId:string;decision:number;modelStep:number;kind:string;detail:string;timestamp:string}[];
   notice:string;outcome?:string;metrics:{episodes:number;failures:number;rssMB:number;windowWallMs:number;modelSecondsPerWindow:number};

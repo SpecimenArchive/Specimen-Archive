@@ -15,17 +15,17 @@ async function observer(record=false){
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(base);await page.waitForSelector('.session-line[data-model-step]');return {context,page};
 }
 let a=await observer(true),b=await observer();const video=a.page.video();const healthStart=await (await fetch(base+'/api/health')).json(),sessionId=healthStart.sessionId;
-await a.page.locator('.apparatus-panel>summary').click();await a.page.locator('.apparatus-panel').scrollIntoViewIfNeeded();
+await a.page.locator('.apparatus-heading button').click();await a.page.locator('.apparatus-panel').scrollIntoViewIfNeeded();
 let previewClosed=false,inspected=false,returned=false,lastCompared=0,freeze=null;
 while((performance.now()-start)/1000<duration){
   const elapsed=(performance.now()-start)/1000;
-  if(elapsed>7&&!previewClosed){await a.page.locator('.apparatus-panel').screenshot({path:'runtime/integrated-preview/apparatus.png'});await a.page.locator('.apparatus-panel>summary').click();await a.page.evaluate(()=>scrollTo(0,0));previewClosed=true;}
+  if(elapsed>7&&!previewClosed){await a.page.locator('.apparatus-panel').screenshot({path:'runtime/integrated-preview/apparatus.png'});await a.page.locator('.apparatus-heading button').click();await a.page.evaluate(()=>scrollTo(0,0));previewClosed=true;}
   if(elapsed>30&&!inspected){const actions=a.page.locator('.action-feed>button');if(await actions.count()){await actions.first().click();await a.page.waitForSelector('.causal-chain');await a.page.screenshot({path:'runtime/integrated-preview/causal-chain.png',fullPage:true});inspected=true;}}
   if(elapsed>37&&inspected&&!returned){await a.page.getByRole('button',{name:'Return to current session'}).click();await a.page.evaluate(()=>scrollTo(0,0));returned=true;}
   if(elapsed>45&&!previewSaved){await a.page.screenshot({path:'runtime/integrated-preview/connected-views.png',fullPage:true});await a.context.close();await video.saveAs('runtime/integrated-preview/integrated-45s.webm');await video.delete();a=await observer();previewSaved=true;}
-  if(elapsed>90&&!reconnected){
+  if(elapsed>Number(process.env.EXHIBIT_DISCONNECT_AT||90)&&!reconnected){
     await b.context.setOffline(true);await b.page.evaluate(()=>window.__sockets.forEach(s=>s.close()));await b.page.waitForTimeout(1000);
-    const before=await b.page.locator('.specimen-canvas').screenshot();await b.page.waitForTimeout(1500);const after=await b.page.locator('.specimen-canvas').screenshot();freeze=before.equals(after);assert(freeze,'Specimen must freeze on lost signal');
+    const before=await b.page.locator('.specimen-canvas').evaluate(c=>({png:c.toDataURL(),step:document.querySelector('.session-line').dataset.modelStep,sockets:window.__sockets.map(s=>s.readyState)}));await b.page.waitForTimeout(1500);const after=await b.page.locator('.specimen-canvas').evaluate(c=>({png:c.toDataURL(),step:document.querySelector('.session-line').dataset.modelStep,sockets:window.__sockets.map(s=>s.readyState)}));freeze=before.png===after.png;writeFileSync('runtime/disconnect-diagnostic.json',JSON.stringify({before:{...before,png:undefined},after:{...after,png:undefined},freeze}));assert(freeze,'Specimen must freeze on lost signal');
     await b.context.setOffline(false);await b.page.waitForFunction(()=>document.querySelector('.exhibit-status')?.textContent==='LIVE',null,{timeout:15000});reconnected=true;
   }
   const [aa,bb]=await Promise.all([a.page,b.page].map(p=>p.evaluate(()=>window.__audit)));
@@ -38,5 +38,5 @@ while((performance.now()-start)/1000<duration){
 }
 const frames=await b.page.evaluate(()=>window.__frameTimes);frames.sort((a,b)=>a-b);
 const healthEnd=await (await fetch(base+'/api/health')).json(),result={startedAt,completedAt:new Date().toISOString(),durationSeconds:(performance.now()-start)/1000,sessionId,matchingPackets,reconnected,offlineSpecimenExact:freeze,previewSaved,inspected,errors,animationFrameCallbackIntervalMs:{definition:'requestAnimationFrame scheduling interval; not actual specimen draw cadence, which is capped at 60 Hz',median:frames[Math.floor(frames.length*.5)],p95:frames[Math.floor(frames.length*.95)],sampleCount:frames.length},healthStart,healthEnd,observations};
-writeFileSync('docs/results/exhibit-endurance.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({...result,observations:observations.length},null,2));
+writeFileSync(process.env.EXHIBIT_CHECK_REPORT||'docs/results/exhibit-endurance.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({...result,observations:observations.length},null,2));
 await browser.close();assert.equal(errors.length,0);if(duration>=600){assert(matchingPackets>1000);assert(reconnected);assert(healthEnd.exhibit.episodes>=3);}

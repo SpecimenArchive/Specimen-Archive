@@ -1,0 +1,278 @@
+{
+  "createdAt": "2026-09-11T16:58:00.443Z",
+  "sessionId": "validation_1789145790648",
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "protocol": "Frozen profile evaluated once on three previously unused cases; same cases under both interventions. Failures retained.",
+  "rows": [
+    {
+      "id": "exhibit_1789145790650_d47b5a57",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 503,
+      "layout": "standard",
+      "intervention": "intact",
+      "outcome": "activated",
+      "events": 28,
+      "actions": {
+        "move": 12,
+        "scroll": 9,
+        "click": 2,
+        "wait": 25
+      },
+      "evaluator": {
+        "activated": true,
+        "activationCount": 1,
+        "navigated": true
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145801478_7438ce95",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 607,
+      "layout": "offset",
+      "intervention": "intact",
+      "outcome": "navigated-only",
+      "events": 28,
+      "actions": {
+        "move": 11,
+        "scroll": 13,
+        "click": 1,
+        "wait": 23
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": true
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145812588_0078433a",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 809,
+      "layout": "low-contrast",
+      "intervention": "intact",
+      "outcome": "not-activated",
+      "events": 2,
+      "actions": {
+        "move": 0,
+        "scroll": 2,
+        "click": 0,
+        "wait": 46
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145823817_f26ec7b0",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 503,
+      "layout": "standard",
+      "intervention": "clamp-all-motors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145833773_508668ca",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 607,
+      "layout": "offset",
+      "intervention": "clamp-all-motors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145843041_cc7ba300",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 809,
+      "layout": "low-contrast",
+      "intervention": "clamp-all-motors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145852382_687c64a5",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 503,
+      "layout": "standard",
+      "intervention": "disconnect-photoreceptors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145861765_c6e938e8",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 607,
+      "layout": "offset",
+      "intervention": "disconnect-photoreceptors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    },
+    {
+      "id": "exhibit_1789145871245_29d071a2",
+      "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+      "sourceDirty": true,
+      "seed": 809,
+      "layout": "low-contrast",
+      "intervention": "disconnect-photoreceptors",
+      "outcome": "not-activated",
+      "events": 0,
+      "actions": {
+        "move": 0,
+        "scroll": 0,
+        "click": 0,
+        "wait": 48
+      },
+      "evaluator": {
+        "activated": false,
+        "activationCount": 0,
+        "navigated": false
+      },
+      "replay": {
+        "exact": true,
+        "samples": 2880,
+        "decisions": 48
+      }
+    }
+  ]
+}

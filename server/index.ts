@@ -15,6 +15,7 @@ import { executionOrigin } from './provenance';
 import { replayExperiment } from './replay';
 import { BrowserService } from './browser/service';
 import { ExhibitService } from './exhibit/service';
+import { serveVideo } from './media';
 
 const ROOT=fileURLToPath(new URL('../',import.meta.url));
 const production=process.argv.includes('--production');
@@ -61,18 +62,21 @@ server.on('request',(req,res)=>{
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
-  if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null});return;}
+  if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null,recorderError:(exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).lastError});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
   if(url.pathname==='/api/exhibit/publications'){json(exhibitService.publications().slice(0,50));return;}
   if(url.pathname==='/api/exhibit/records'){json(exhibitService.records().slice(0,50).map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
   if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.record(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}
   if(url.pathname==='/api/exhibit/preview'){
-    const path=resolve(ROOT,'runtime/integrated-preview/integrated-45s.webm');if(!existsSync(path)){json({error:'Download the evidence release to restore the local preview'},404);return;}res.setHeader('Content-Type','video/webm');res.end(readFileSync(path));return;
+    const path=resolve(ROOT,'runtime/integrated-preview/integrated-45s.webm');if(!existsSync(path)){json({error:'Download the evidence release to restore the local preview'},404);return;}serveVideo(req,res,path);return;
+  }
+  if(url.pathname==='/api/exhibit/workstation-preview'){
+    const path=resolve(ROOT,'runtime/workstation-review/workstation-55s.webm');if(!existsSync(path)){json({error:'Local workstation review recording is not installed'},404);return;}serveVideo(req,res,path);return;
   }
   if(url.pathname.startsWith('/api/exhibit/decision/')){const [id,index]=url.pathname.slice('/api/exhibit/decision/'.length).split('/');const d=/^\d+$/.test(index)?exhibitService.decision(id,Number(index)):null;json(d??{error:'Raw trace expired or decision not complete'},d?200:404);return;}
   if(url.pathname.startsWith('/api/exhibit/artifacts/')){
     const [id,name]=url.pathname.slice('/api/exhibit/artifacts/'.length).split('/');const path=exhibitService.file(id,name);
-    if(!path){json({error:'Raw artifact expired or not found'},404);return;}res.setHeader('Content-Type',mime[extname(path)]||'application/octet-stream');res.setHeader('Cache-Control','private, max-age=86400, immutable');res.end(readFileSync(path));return;
+    if(!path){json({error:'Raw artifact expired or not found'},404);return;}res.setHeader('Cache-Control','private, max-age=86400, immutable');if(extname(path)==='.webm'){serveVideo(req,res,path);return;}res.setHeader('Content-Type',mime[extname(path)]||'application/octet-stream');res.end(readFileSync(path));return;
   }
   if(url.pathname==='/api/browser/live'){json(browserService.live);return;}
   if(url.pathname==='/api/browser/records'){json(browserService.records().slice(0,50));return;}
@@ -127,7 +131,7 @@ const interval=setInterval(()=>{
   if(engine.time-segmentStart>=120){store.close();runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`;startedAt=new Date().toISOString();seq=0;store=new Storage(store.root,runId,startedAt);store.prune();segmentStart=engine.time;engine.event('session','New recorded observation segment');}
 },10);
 const heartbeat=setInterval(()=>{for(const ws of connections)if(ws.readyState===WebSocket.OPEN)ws.ping();},15000);
-const recorderPoll=setInterval(()=>{void recorder.tick();void browserService.recorder.tick();void exhibitService.recorder.tick();},10000);
+const recorderPoll=setInterval(()=>{void (exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).tick();},10000);
 async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled&&!exhibitEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();if(exhibitEnabled)await exhibitService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
 process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
 server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\n${exhibitEnabled?'Continuous intact exhibit: 6 model seconds per image / 3 wall seconds, 48 windows per episode.':browserEnabled?'Baseline browser mode: 6 model seconds per image / minimum 600 ms.':`Light model runs at ${C.timeScale}× wall time.`} Ctrl+C to stop.`));

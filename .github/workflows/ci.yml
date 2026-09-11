@@ -46,3 +46,21 @@ jobs:
             runtime/browser/
             runtime/exhibit-validation/
           retention-days: 14
+  desktop-presentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: sudo bash scripts/setup-desktop.sh
+      - run: npm run desktop:check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: desktop-calibration
+          path: runtime/desktop-optics/
+          retention-days: 14

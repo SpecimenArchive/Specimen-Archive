@@ -1,0 +1,121 @@
+{
+  "startedAt": "2026-09-11T16:58:35.059Z",
+  "completedAt": "2026-09-11T16:58:49.438Z",
+  "sessionId": "session_1789145915060_95c3ee12",
+  "explicitFault": "Close controlled browser before decision 2; publication disabled",
+  "recovered": true,
+  "noPartialWindowAction": true,
+  "states": [
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "starting",
+      "step": 0,
+      "notice": "Supervisor opens a new bounded episode."
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "integrating",
+      "step": 10,
+      "notice": "Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states."
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "executed",
+      "step": 600,
+      "notice": "M < 0.500: motor gate closed"
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "integrating",
+      "step": 610,
+      "notice": "Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states."
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "executed",
+      "step": 1200,
+      "notice": "Scroll phase: motor contrast selects wheel direction"
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "integrating",
+      "step": 1210,
+      "notice": "Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states."
+    },
+    {
+      "runId": "exhibit_1789145915063_e1fae1da",
+      "episode": 0,
+      "state": "recovering",
+      "step": 1800,
+      "notice": "page.waitForLoadState: Target page, context or browser has been closed"
+    },
+    {
+      "runId": "exhibit_1789145927937_3f4dd74d",
+      "episode": 1,
+      "state": "starting",
+      "step": 0,
+      "notice": "Supervisor opens a new bounded episode."
+    },
+    {
+      "runId": "exhibit_1789145927937_3f4dd74d",
+      "episode": 1,
+      "state": "integrating",
+      "step": 10,
+      "notice": "Captured pixels held constant for six model seconds. 2× model time; display interpolates only received states."
+    },
+    {
+      "runId": "exhibit_1789145927937_3f4dd74d",
+      "episode": 1,
+      "state": "recovering",
+      "step": 30,
+      "notice": "Recovery verifier completed after observing the next intact episode"
+    }
+  ],
+  "records": [
+    {
+      "id": "exhibit_1789145915063_e1fae1da",
+      "origin": {
+        "runId": "exhibit_1789145915063_e1fae1da",
+        "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+        "sourceDirty": true,
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+        "modelVersion": "rate-v1"
+      },
+      "outcome": "error",
+      "error": "page.waitForLoadState: Target page, context or browser has been closed",
+      "decisions": 2,
+      "execution": {
+        "paced": true,
+        "minimumWindowWallMs": 3000,
+        "nodeVersion": "v24.11.1",
+        "faultAfterWindow": 2
+      }
+    },
+    {
+      "id": "exhibit_1789145927937_3f4dd74d",
+      "origin": {
+        "runId": "exhibit_1789145927937_3f4dd74d",
+        "sourceRevision": "2d61a4aabf4b1d4ad6e184c68398e8ed075590d6",
+        "sourceDirty": true,
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+        "modelVersion": "rate-v1"
+      },
+      "outcome": "error",
+      "error": "Recovery verifier completed after observing the next intact episode",
+      "decisions": 0,
+      "execution": {
+        "paced": true,
+        "minimumWindowWallMs": 3000,
+        "nodeVersion": "v24.11.1"
+      }
+    }
+  ]
+}

@@ -41,3 +41,7 @@ Raw PNGs, per-window compressed neural states and videos live under ignored `run
 The extended held-out matrix is fixed before execution: seed 503 standard layout, seed 607 offset layout, seed 809 low contrast. Each is run intact, with all motor outputs clamped, and with PRC input disconnected. The predeclared expectation is that the two interventions abolish actions; low contrast can defeat the fixed colour mask. Report the observed outcomes, including any timeout, without tuning on this matrix. New tuning requires a version increment and fresh held-out cases.
 
 The [flycoinrh README](https://github.com/fruitflydev/flycoinrh) informs the architectural separation of a persistent neural/browser process from observers and failure recovery. No fly neurons, spike dynamics, learning rules, transaction scripts or language-model journal were imported. [Playwright input](https://playwright.dev/docs/input) specifies the genuine mouse API. Published 72 hpf imaging references are [eLife 02730](https://elifesciences.org/articles/02730), [26000](https://elifesciences.org/articles/26000) and [97964](https://elifesciences.org/articles/97964), with the [source atlas](https://jekelylab.github.io/Platynereis_connectome/).
+
+## Workstation presentation correction
+
+The continuous exhibit now runs its controlled browser visibly in an isolated Linux desktop. The exact page PNG remains the sole sensory input; a separately captured desktop supplies the apparatus. Fast causal validation remains headless.

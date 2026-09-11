@@ -18,9 +18,15 @@ export async function replayEpisode(directory:string,circuit:Circuit){
   const controller=new ExhibitController(circuit,r.id,r.startedAt,r.intervention);let samples=0,previous:ExhibitDecision|undefined;
   for(const d of trace){
     const png=readFileSync(join(directory,d.imageBefore));assert.equal(sha256(png),d.imageSha256);assert.equal(sha256(readFileSync(join(directory,d.imageAfter))),d.afterSha256);
+    for(const [capture,pageFrame,cursor] of [[d.desktopBefore,d.imageBefore,d.executed.from],[d.desktopAfter,d.imageAfter,d.executed.to]] as const){
+      if(!capture)continue;
+      assert.equal(capture.source,'x11-root');assert.equal(capture.pageFrame,pageFrame);assert.deepEqual(capture.cursor,cursor);
+      assert.equal(sha256(readFileSync(join(directory,capture.path))),capture.sha256);
+      assert.equal(capture.pageLagMs,Date.parse(capture.capturedAt)-Date.parse(capture.pageCapturedAt));assert(capture.pageLagMs>=0);
+    }
     assert.equal(d.commandId,`${r.id}:c${String(d.decision).padStart(3,'0')}`);assert.equal(d.sessionId,r.sessionId);
     assert.equal(d.context.sourceRevision,r.origin.sourceRevision);assert.equal(d.context.configSha256,r.configSha256);assert.equal(d.context.intervention,r.intervention);
-    if(previous){assert.equal(d.imageSha256,previous.afterSha256);assert.deepEqual(d.executed.from,previous.executed.to);}
+    if(previous){assert.equal(d.imageSha256,previous.afterSha256);assert.deepEqual(d.executed.from,previous.executed.to);assert.deepEqual(d.desktopBefore,previous.desktopAfter);}
     const calculated=await controller.observe(png,d.decision);
     for(const key of ['input','motor','command','modelStartStep','modelEndStep'] as const)assert.deepEqual(calculated[key],d[key]);
     assert.equal(calculated.samples.length,d.samples.length);
