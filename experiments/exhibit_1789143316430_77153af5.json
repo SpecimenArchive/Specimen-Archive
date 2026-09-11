@@ -1,0 +1,6017 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789143316430_77153af5",
+  "sessionId": "session_1789142848957_7c10ab60",
+  "origin": {
+    "runId": "exhibit_1789143316430_77153af5",
+    "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 3000,
+    "nodeVersion": "v24.11.1"
+  },
+  "startedAt": "2026-09-11T16:15:16.430Z",
+  "completedAt": "2026-09-11T16:17:49.224Z",
+  "seed": 101,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "152.0.4191.66",
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Supervisor: new isolated browser, local task placement and navigation, cursor at (320,216), zero neural state. Fixed 48-window budget. Evaluator excluded from controller.",
+    "events": [
+      {
+        "type": "navigation",
+        "timestamp": "2026-09-11T16:15:17.811Z",
+        "pageTimeMs": 0,
+        "url": "/",
+        "commandId": null
+      },
+      {
+        "type": "mousemove",
+        "timestamp": "2026-09-11T16:15:17.846Z",
+        "pageTimeMs": 906.3999999985099,
+        "url": "/",
+        "x": 320,
+        "y": 216,
+        "trusted": true,
+        "commandId": null
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c000",
+      "decision": 0,
+      "imageBefore": "frame-000.png",
+      "imageAfter": "frame-001.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T16:15:17.936Z",
+      "completedAt": "2026-09-11T16:15:21.070Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:20.939Z",
+        "completedAt": "2026-09-11T16:15:21.048Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c001",
+      "decision": 1,
+      "imageBefore": "frame-001.png",
+      "imageAfter": "frame-002.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "capturedAt": "2026-09-11T16:15:21.070Z",
+      "completedAt": "2026-09-11T16:15:24.209Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5616422111317891
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5522096870953361
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5628081016153804
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5659952394583783
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5609754650355214
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5598075795780554
+          }
+        ],
+        "mean": 0.5605730473190768,
+        "contrast": 0.01378555236304213
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5605730473190768,
+        "motorContrast": 0.01378555236304213,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 600,
+      "modelEndStep": 1200,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:24.078Z",
+        "completedAt": "2026-09-11T16:15:24.186Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:15:24.082Z",
+            "pageTimeMs": 7141.599999997765,
+            "url": "/",
+            "x": 320,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c001"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c002",
+      "decision": 2,
+      "imageBefore": "frame-002.png",
+      "imageAfter": "frame-003.png",
+      "imageSha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "afterSha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "capturedAt": "2026-09-11T16:15:24.209Z",
+      "completedAt": "2026-09-11T16:15:27.356Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 4092,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 177.05009775171067,
+          "y": 336.9797165200391
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.44990224828933,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 121.47971652003912,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4754702899881208
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2786065883366403
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4661934629848286
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45608878887910775
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46925471181829537
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4274728959799577
+          }
+        ],
+        "mean": 0.4288477896644917,
+        "contrast": 0.17748220054246744
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4288477896644917,
+        "motorContrast": 0.17748220054246744,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 1200,
+      "modelEndStep": 1800,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:27.227Z",
+        "completedAt": "2026-09-11T16:15:27.337Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c003",
+      "decision": 3,
+      "imageBefore": "frame-003.png",
+      "imageAfter": "frame-004.png",
+      "imageSha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "afterSha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "capturedAt": "2026-09-11T16:15:27.356Z",
+      "completedAt": "2026-09-11T16:15:30.503Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 4092,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 177.05009775171067,
+          "y": 336.9797165200391
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.44990224828933,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 121.47971652003912,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.579571486432109
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633402753763109
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807745875877338
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810956701954074
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781718616681337
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761009485677632
+          }
+        ],
+        "mean": 0.5765091383045764,
+        "contrast": 0.017755394819096493
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765091383045764,
+        "motorContrast": 0.017755394819096493,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 1800,
+      "modelEndStep": 2400,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:30.371Z",
+        "completedAt": "2026-09-11T16:15:30.482Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:15:30.376Z",
+            "pageTimeMs": 13436,
+            "url": "/",
+            "x": 320,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c003"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c004",
+      "decision": 4,
+      "imageBefore": "frame-004.png",
+      "imageAfter": "frame-005.png",
+      "imageSha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "afterSha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "capturedAt": "2026-09-11T16:15:30.503Z",
+      "completedAt": "2026-09-11T16:15:33.645Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 300.4050551911694
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.6516557350824,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 84.90505519116942,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513188320349
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788635588467989
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657352880978314
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564502663946482
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696314621601775
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42783084740896027
+          }
+        ],
+        "mean": 0.4292001637420671,
+        "contrast": 0.17758670754784928
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292001637420671,
+        "motorContrast": 0.17758670754784928,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 2400,
+      "modelEndStep": 3000,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:33.514Z",
+        "completedAt": "2026-09-11T16:15:33.623Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c005",
+      "decision": 5,
+      "imageBefore": "frame-005.png",
+      "imageAfter": "frame-006.png",
+      "imageSha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "afterSha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "capturedAt": "2026-09-11T16:15:33.645Z",
+      "completedAt": "2026-09-11T16:15:36.783Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 300.4050551911694
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.6516557350824,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 84.90505519116942,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746542631257
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.563342284173288
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777600615979
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983082527174
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748919738167
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038395763429
+          }
+        ],
+        "mean": 0.5765119563834814,
+        "contrast": 0.017756024079429333
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765119563834814,
+        "motorContrast": 0.017756024079429333,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 3000,
+      "modelEndStep": 3600,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:36.651Z",
+        "completedAt": "2026-09-11T16:15:36.760Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:15:36.654Z",
+            "pageTimeMs": 19713.699999999255,
+            "url": "/",
+            "x": 320,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c005"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c006",
+      "decision": 6,
+      "imageBefore": "frame-006.png",
+      "imageAfter": "frame-007.png",
+      "imageSha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "afterSha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "capturedAt": "2026-09-11T16:15:36.783Z",
+      "completedAt": "2026-09-11T16:15:39.922Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 252.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.6516557350824,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 36.905055191169424,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47585138355321077
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788636025084705
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.466573593365589
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503277898148
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46963152615351084
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42783090821395214
+          }
+        ],
+        "mean": 0.42920022359742466,
+        "contrast": 0.17758672528134434
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42920022359742466,
+        "motorContrast": 0.17758672528134434,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 3600,
+      "modelEndStep": 4200,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:39.789Z",
+        "completedAt": "2026-09-11T16:15:39.900Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c007",
+      "decision": 7,
+      "imageBefore": "frame-007.png",
+      "imageAfter": "frame-008.png",
+      "imageSha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "afterSha256": "d7e9433e6bc98637eb6bc8b97559228bf7b4f0608ea00843fd9b82405fce7f52",
+      "capturedAt": "2026-09-11T16:15:39.922Z",
+      "completedAt": "2026-09-11T16:15:43.060Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 252.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.6516557350824,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 36.905055191169424,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548007693
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.563342284514223
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606000288
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087004469
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924881194
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670052
+          }
+        ],
+        "mean": 0.5765119568617654,
+        "contrast": 0.017756024186223907
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765119568617654,
+        "motorContrast": 0.017756024186223907,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 4200,
+      "modelEndStep": 4800,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:42.927Z",
+        "completedAt": "2026-09-11T16:15:43.038Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:15:42.932Z",
+            "pageTimeMs": 25992,
+            "url": "/",
+            "x": 320,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c007"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c008",
+      "decision": 8,
+      "imageBefore": "frame-008.png",
+      "imageAfter": "frame-009.png",
+      "imageSha256": "d7e9433e6bc98637eb6bc8b97559228bf7b4f0608ea00843fd9b82405fce7f52",
+      "afterSha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "capturedAt": "2026-09-11T16:15:43.060Z",
+      "completedAt": "2026-09-11T16:15:46.196Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -142.6516557350824,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5815886508040434
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5721061196567422
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5792939472137192
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5753402896495674
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5810596405753323
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5781819603633339
+          }
+        ],
+        "mean": 0.5779284347104564,
+        "contrast": 0.00323416999282522
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5779284347104564,
+        "motorContrast": 0.00323416999282522,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 4800,
+      "modelEndStep": 5400,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:46.072Z",
+        "completedAt": "2026-09-11T16:15:46.184Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 296,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:15:46.074Z",
+            "pageTimeMs": 29133.199999999255,
+            "url": "/",
+            "x": 296,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c008"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c009",
+      "decision": 9,
+      "imageBefore": "frame-009.png",
+      "imageAfter": "frame-010.png",
+      "imageSha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "afterSha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "capturedAt": "2026-09-11T16:15:46.196Z",
+      "completedAt": "2026-09-11T16:15:49.324Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 295.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -118.65165573508239,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4756288885162603
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788505542769738
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46633871523611276
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4562190386128644
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4694036296613646
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42764700305746933
+          }
+        ],
+        "mean": 0.4290146382268409,
+        "contrast": 0.17736848433589059
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4290146382268409,
+        "motorContrast": 0.17736848433589059,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 5400,
+      "modelEndStep": 6000,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:49.204Z",
+        "completedAt": "2026-09-11T16:15:49.313Z",
+        "from": {
+          "x": 296,
+          "y": 216
+        },
+        "to": {
+          "x": 296,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c010",
+      "decision": 10,
+      "imageBefore": "frame-010.png",
+      "imageAfter": "frame-011.png",
+      "imageSha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "afterSha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "capturedAt": "2026-09-11T16:15:49.324Z",
+      "completedAt": "2026-09-11T16:15:52.463Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 295.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -118.65165573508239,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5798823195939833
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5709656875593458
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5775588618439951
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.573899129740318
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5794407592755838
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5766046254016202
+          }
+        ],
+        "mean": 0.5763918972358076,
+        "contrast": 0.0029334421809721345
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5763918972358076,
+        "motorContrast": 0.0029334421809721345,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 6000,
+      "modelEndStep": 6600,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:52.331Z",
+        "completedAt": "2026-09-11T16:15:52.441Z",
+        "from": {
+          "x": 296,
+          "y": 216
+        },
+        "to": {
+          "x": 272,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:15:52.332Z",
+            "pageTimeMs": 35392,
+            "url": "/",
+            "x": 272,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c010"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c011",
+      "decision": 11,
+      "imageBefore": "frame-011.png",
+      "imageAfter": "frame-012.png",
+      "imageSha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "afterSha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "capturedAt": "2026-09-11T16:15:52.463Z",
+      "completedAt": "2026-09-11T16:15:55.608Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 271.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -94.65165573508239,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4755932769071867
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788265274179653
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4663031907702006
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45618525271388066
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46936841773662147
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4276135464381351
+          }
+        ],
+        "mean": 0.42898170199733165,
+        "contrast": 0.17735872529591534
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42898170199733165,
+        "motorContrast": 0.17735872529591534,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 6600,
+      "modelEndStep": 7200,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:55.478Z",
+        "completedAt": "2026-09-11T16:15:55.586Z",
+        "from": {
+          "x": 272,
+          "y": 216
+        },
+        "to": {
+          "x": 272,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c012",
+      "decision": 12,
+      "imageBefore": "frame-012.png",
+      "imageAfter": "frame-013.png",
+      "imageSha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "afterSha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "capturedAt": "2026-09-11T16:15:55.608Z",
+      "completedAt": "2026-09-11T16:15:58.753Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 271.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -94.65165573508239,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5798820160922109
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5709654968767988
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5775585510177517
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5738988708558742
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.57944047025935
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5766043471305444
+          }
+        ],
+        "mean": 0.5763916253720883,
+        "contrast": 0.0029333739790754487
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5763916253720883,
+        "motorContrast": 0.0029333739790754487,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 7200,
+      "modelEndStep": 7800,
+      "executed": {
+        "startedAt": "2026-09-11T16:15:58.621Z",
+        "completedAt": "2026-09-11T16:15:58.732Z",
+        "from": {
+          "x": 272,
+          "y": 216
+        },
+        "to": {
+          "x": 248,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:15:58.623Z",
+            "pageTimeMs": 41682.300000000745,
+            "url": "/",
+            "x": 248,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c012"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c013",
+      "decision": 13,
+      "imageBefore": "frame-013.png",
+      "imageAfter": "frame-014.png",
+      "imageSha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "afterSha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "capturedAt": "2026-09-11T16:15:58.753Z",
+      "completedAt": "2026-09-11T16:16:01.901Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 247.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -70.65165573508239,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4755932705011809
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27882652309918193
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46630318437939666
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4561852466356603
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4693684114022843
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42761354042035554
+          }
+        ],
+        "mean": 0.42898169607300995,
+        "contrast": 0.17735872353647836
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42898169607300995,
+        "motorContrast": 0.17735872353647836,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 7800,
+      "modelEndStep": 8400,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:01.771Z",
+        "completedAt": "2026-09-11T16:16:01.880Z",
+        "from": {
+          "x": 248,
+          "y": 216
+        },
+        "to": {
+          "x": 248,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c014",
+      "decision": 14,
+      "imageBefore": "frame-014.png",
+      "imageAfter": "frame-015.png",
+      "imageSha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "afterSha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "capturedAt": "2026-09-11T16:16:01.901Z",
+      "completedAt": "2026-09-11T16:16:05.037Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6251,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.8483442649176,
+          "y": 204.40505519116942
+        },
+        "cursorCentroid": {
+          "x": 247.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -70.65165573508239,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.094944808830576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5798820160376068
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5709654968424928
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5775585509618292
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5738988708092969
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.579440470207352
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5766043470804798
+          }
+        ],
+        "mean": 0.5763916253231763,
+        "contrast": 0.0029333739668041536
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5763916253231763,
+        "motorContrast": 0.0029333739668041536,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 8400,
+      "modelEndStep": 9000,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:04.911Z",
+        "completedAt": "2026-09-11T16:16:05.021Z",
+        "from": {
+          "x": 248,
+          "y": 216
+        },
+        "to": {
+          "x": 224,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:16:04.912Z",
+            "pageTimeMs": 47972,
+            "url": "/",
+            "x": 224,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c014"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c015",
+      "decision": 15,
+      "imageBefore": "frame-015.png",
+      "imageAfter": "frame-016.png",
+      "imageSha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "afterSha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "capturedAt": "2026-09-11T16:16:05.037Z",
+      "completedAt": "2026-09-11T16:16:08.172Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6139,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.03583645544876,
+          "y": 204.20068415051313
+        },
+        "cursorCentroid": {
+          "x": 223.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -47.46416354455124,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.299315849486874,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47559327050002825
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.278826523098405
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46630318437824714
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45618524663456683
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4693684114011448
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42761354041927274
+          }
+        ],
+        "mean": 0.42898169607194414,
+        "contrast": 0.17735872353616183
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42898169607194414,
+        "motorContrast": 0.17735872353616183,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 9000,
+      "modelEndStep": 9600,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:08.052Z",
+        "completedAt": "2026-09-11T16:16:08.160Z",
+        "from": {
+          "x": 224,
+          "y": 216
+        },
+        "to": {
+          "x": 224,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c016",
+      "decision": 16,
+      "imageBefore": "frame-016.png",
+      "imageAfter": "frame-017.png",
+      "imageSha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "afterSha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "capturedAt": "2026-09-11T16:16:08.172Z",
+      "completedAt": "2026-09-11T16:16:11.317Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6139,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.03583645544876,
+          "y": 204.20068415051313
+        },
+        "cursorCentroid": {
+          "x": 223.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -47.46416354455124,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.299315849486874,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5798820160375969
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5709654968424865
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5775585509618191
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5738988708092887
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5794404702073427
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5766043470804705
+          }
+        ],
+        "mean": 0.5763916253231675,
+        "contrast": 0.0029333739668021552
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5763916253231675,
+        "motorContrast": 0.0029333739668021552,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 9600,
+      "modelEndStep": 10200,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:11.186Z",
+        "completedAt": "2026-09-11T16:16:11.295Z",
+        "from": {
+          "x": 224,
+          "y": 216
+        },
+        "to": {
+          "x": 200,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:16:11.188Z",
+            "pageTimeMs": 54247.099999997765,
+            "url": "/",
+            "x": 200,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c016"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c017",
+      "decision": 17,
+      "imageBefore": "frame-017.png",
+      "imageAfter": "frame-018.png",
+      "imageSha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "afterSha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "capturedAt": "2026-09-11T16:16:11.317Z",
+      "completedAt": "2026-09-11T16:16:14.464Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6117,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.35098904691841,
+          "y": 204.14500572175902
+        },
+        "cursorCentroid": {
+          "x": 199.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -23.149010953081586,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.35499427824098,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47559327050002803
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27882652309840483
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46630318437824686
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45618524663456667
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46936841140114466
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4276135404192726
+          }
+        ],
+        "mean": 0.4289816960719439,
+        "contrast": 0.17735872353616183
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4289816960719439,
+        "motorContrast": 0.17735872353616183,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 10200,
+      "modelEndStep": 10800,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:14.334Z",
+        "completedAt": "2026-09-11T16:16:14.443Z",
+        "from": {
+          "x": 200,
+          "y": 216
+        },
+        "to": {
+          "x": 200,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c018",
+      "decision": 18,
+      "imageBefore": "frame-018.png",
+      "imageAfter": "frame-019.png",
+      "imageSha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "afterSha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "capturedAt": "2026-09-11T16:16:14.464Z",
+      "completedAt": "2026-09-11T16:16:17.603Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6117,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.35098904691841,
+          "y": 204.14500572175902
+        },
+        "cursorCentroid": {
+          "x": 199.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": -23.149010953081586,
+        "encoding": "left",
+        "left": 0.65,
+        "right": 0.15,
+        "phase": "point",
+        "verticalError": -11.35499427824098,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5798820160375969
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5709654968424865
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5775585509618191
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5738988708092887
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5794404702073427
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5766043470804705
+          }
+        ],
+        "mean": 0.5763916253231675,
+        "contrast": 0.0029333739668021552
+      },
+      "command": {
+        "dx": -24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5763916253231675,
+        "motorContrast": 0.0029333739668021552,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 10800,
+      "modelEndStep": 11400,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:17.472Z",
+        "completedAt": "2026-09-11T16:16:17.583Z",
+        "from": {
+          "x": 200,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:16:17.473Z",
+            "pageTimeMs": 60532.89999999851,
+            "url": "/",
+            "x": 176,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c018"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c019",
+      "decision": 19,
+      "imageBefore": "frame-019.png",
+      "imageAfter": "frame-020.png",
+      "imageSha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "afterSha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "capturedAt": "2026-09-11T16:16:17.603Z",
+      "completedAt": "2026-09-11T16:16:20.737Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6124,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.87606139777924,
+          "y": 204.14973873285433
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 1.3760613977792389,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": -11.350261267145669,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47559327050002803
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27882652309840483
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46630318437824686
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45618524663456667
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46936841140114466
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4276135404192726
+          }
+        ],
+        "mean": 0.4289816960719439,
+        "contrast": 0.17735872353616183
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4289816960719439,
+        "motorContrast": 0.17735872353616183,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 11400,
+      "modelEndStep": 12000,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:20.614Z",
+        "completedAt": "2026-09-11T16:16:20.724Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c020",
+      "decision": 20,
+      "imageBefore": "frame-020.png",
+      "imageAfter": "frame-021.png",
+      "imageSha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "afterSha256": "b3f739d774807fbfd7212a29ff7f37ade8f1739317363d9fde7706d6ccb78ce0",
+      "capturedAt": "2026-09-11T16:16:20.737Z",
+      "completedAt": "2026-09-11T16:16:23.873Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6124,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 176.87606139777924,
+          "y": 204.14973873285433
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 1.3760613977792389,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85,
+        "phase": "point",
+        "verticalError": -11.350261267145669,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6024133707858371
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6140592604932842
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6025774655489493
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6051455674856565
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.60370337660235
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6055820647181049
+          }
+        ],
+        "mean": 0.6055801842723637,
+        "contrast": -0.008913693007627677
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.6055801842723637,
+        "motorContrast": -0.008913693007627677,
+        "phase": "point",
+        "kind": "click",
+        "reason": "Point phase: M ≥ 0.593 activates at current cursor"
+      },
+      "modelStartStep": 12000,
+      "modelEndStep": 12600,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:23.741Z",
+        "completedAt": "2026-09-11T16:16:23.851Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousedown",
+            "timestamp": "2026-09-11T16:16:23.742Z",
+            "pageTimeMs": 66801.80000000075,
+            "url": "/",
+            "x": 176,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c020"
+          },
+          {
+            "type": "mouseup",
+            "timestamp": "2026-09-11T16:16:23.744Z",
+            "pageTimeMs": 66803.5,
+            "url": "/",
+            "x": 176,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c020"
+          },
+          {
+            "type": "click",
+            "timestamp": "2026-09-11T16:16:23.744Z",
+            "pageTimeMs": 66803.69999999925,
+            "url": "/",
+            "x": 176,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c020"
+          },
+          {
+            "type": "navigation",
+            "timestamp": "2026-09-11T16:16:23.759Z",
+            "pageTimeMs": 0,
+            "url": "/ledger",
+            "commandId": "exhibit_1789143316430_77153af5:c020"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c021",
+      "decision": 21,
+      "imageBefore": "frame-021.png",
+      "imageAfter": "frame-022.png",
+      "imageSha256": "b3f739d774807fbfd7212a29ff7f37ade8f1739317363d9fde7706d6ccb78ce0",
+      "afterSha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "capturedAt": "2026-09-11T16:16:23.873Z",
+      "completedAt": "2026-09-11T16:16:27.025Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 175.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5814961788614403
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5646762252835628
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5826829224395187
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5826756868147961
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5800033755940862
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5778791572984407
+          }
+        ],
+        "mean": 0.5782355910486409,
+        "contrast": 0.01799946153123333
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5782355910486409,
+        "motorContrast": 0.01799946153123333,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 12600,
+      "modelEndStep": 13200,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:26.892Z",
+        "completedAt": "2026-09-11T16:16:27.003Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:16:26.895Z",
+            "pageTimeMs": 3150.300000000745,
+            "url": "/ledger",
+            "x": 176,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c021"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c022",
+      "decision": 22,
+      "imageBefore": "frame-022.png",
+      "imageAfter": "frame-023.png",
+      "imageSha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "afterSha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "capturedAt": "2026-09-11T16:16:27.025Z",
+      "completedAt": "2026-09-11T16:16:30.155Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 1,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 272,
+          "y": 29
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758900470365139
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.278889721657891
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46661215307048687
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564869976524955
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696697523655781
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42786723855935394
+          }
+        ],
+        "mean": 0.42923598505705324,
+        "contrast": 0.1775972759946045
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42923598505705324,
+        "motorContrast": 0.1775972759946045,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 13200,
+      "modelEndStep": 13800,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:30.028Z",
+        "completedAt": "2026-09-11T16:16:30.138Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c023",
+      "decision": 23,
+      "imageBefore": "frame-023.png",
+      "imageAfter": "frame-024.png",
+      "imageSha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "afterSha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "capturedAt": "2026-09-11T16:16:30.155Z",
+      "completedAt": "2026-09-11T16:16:33.298Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 1,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 272,
+          "y": 29
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795749759076579
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633424881395157
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.580778082176029
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810985761048713
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781751996541026
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761041331143688
+          }
+        ],
+        "mean": 0.5765122425160909,
+        "contrast": 0.01775608796535555
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765122425160909,
+        "motorContrast": 0.01775608796535555,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 13800,
+      "modelEndStep": 14400,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:33.166Z",
+        "completedAt": "2026-09-11T16:16:33.277Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:16:33.171Z",
+            "pageTimeMs": 9426.300000000745,
+            "url": "/ledger",
+            "x": 176,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c023"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c024",
+      "decision": 24,
+      "imageBefore": "frame-024.png",
+      "imageAfter": "frame-025.png",
+      "imageSha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "afterSha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "capturedAt": "2026-09-11T16:16:33.298Z",
+      "completedAt": "2026-09-11T16:16:36.435Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 2056,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.5,
+          "y": 349.5972762645914
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 134.09727626459141,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47585139012457145
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788636069415893
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4665735999201592
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503340234741
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46963153265097124
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309143876897
+          }
+        ],
+        "mean": 0.42920022967474253,
+        "contrast": 0.17758672708188483
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42920022967474253,
+        "motorContrast": 0.17758672708188483,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 14400,
+      "modelEndStep": 15000,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:36.304Z",
+        "completedAt": "2026-09-11T16:16:36.414Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c025",
+      "decision": 25,
+      "imageBefore": "frame-025.png",
+      "imageAfter": "frame-026.png",
+      "imageSha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "afterSha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "capturedAt": "2026-09-11T16:16:36.435Z",
+      "completedAt": "2026-09-11T16:16:39.676Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 2056,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.5,
+          "y": 349.5972762645914
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 134.09727626459141,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548553584
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845488392
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606546974
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087459057
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.578174892540338
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038401168234
+          }
+        ],
+        "mean": 0.5765119569103271,
+        "contrast": 0.017756024197066567
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765119569103271,
+        "motorContrast": 0.017756024197066567,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 15000,
+      "modelEndStep": 15600,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:39.544Z",
+        "completedAt": "2026-09-11T16:16:39.654Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:16:39.547Z",
+            "pageTimeMs": 15802.099999997765,
+            "url": "/ledger",
+            "x": 176,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c025"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c026",
+      "decision": 26,
+      "imageBefore": "frame-026.png",
+      "imageAfter": "frame-027.png",
+      "imageSha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "afterSha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "capturedAt": "2026-09-11T16:16:39.676Z",
+      "completedAt": "2026-09-11T16:16:42.807Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 323.43783275916064
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 107.93783275916064,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513835653104
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251663295
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4665735933776578
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45645032780129235
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261654743
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082253196
+          }
+        ],
+        "mean": 0.42920022360861454,
+        "contrast": 0.1775867252846594
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42920022360861454,
+        "motorContrast": 0.1775867252846594,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 15600,
+      "modelEndStep": 16200,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:42.680Z",
+        "completedAt": "2026-09-11T16:16:42.791Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c027",
+      "decision": 27,
+      "imageBefore": "frame-027.png",
+      "imageAfter": "frame-028.png",
+      "imageSha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "afterSha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "capturedAt": "2026-09-11T16:16:42.807Z",
+      "completedAt": "2026-09-11T16:16:45.956Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 323.43783275916064
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174.01644221735046,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 107.93783275916064,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.57957465480087
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142867
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001294
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005304
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882156
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670969
+          }
+        ],
+        "mean": 0.5765119568618549,
+        "contrast": 0.01775602418624367
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765119568618549,
+        "motorContrast": 0.01775602418624367,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 16200,
+      "modelEndStep": 16800,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:45.825Z",
+        "completedAt": "2026-09-11T16:16:45.934Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:16:45.827Z",
+            "pageTimeMs": 22083.099999997765,
+            "url": "/ledger",
+            "x": 176,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c027"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c028",
+      "decision": 28,
+      "imageBefore": "frame-028.png",
+      "imageAfter": "frame-029.png",
+      "imageSha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "afterSha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "capturedAt": "2026-09-11T16:16:45.956Z",
+      "completedAt": "2026-09-11T16:16:49.096Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 275.43783275916064
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": 59.93783275916064,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47585138356419715
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251588216
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657359337654736
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503278002364
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261643737
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42783090822427383
+          }
+        ],
+        "mean": 0.4292002236075851,
+        "contrast": 0.17758672528435426
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292002236075851,
+        "motorContrast": 0.17758672528435426,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 16800,
+      "modelEndStep": 17400,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:48.963Z",
+        "completedAt": "2026-09-11T16:16:49.075Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c029",
+      "decision": 29,
+      "imageBefore": "frame-029.png",
+      "imageAfter": "frame-030.png",
+      "imageSha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "afterSha256": "5c936527453eda541495c45d79ccf5f95a9cb7ab42a2807805a43a78f3fe39b5",
+      "capturedAt": "2026-09-11T16:16:49.096Z",
+      "completedAt": "2026-09-11T16:16:52.222Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 275.43783275916064
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174.01644221735046,
+        "encoding": "down",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": 59.93783275916064,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548008608
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142806
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001204
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005225
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882069
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670886
+          }
+        ],
+        "mean": 0.5765119568618466,
+        "contrast": 0.017756024186241892
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5765119568618466,
+        "motorContrast": 0.017756024186241892,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 17400,
+      "modelEndStep": 18000,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:52.100Z",
+        "completedAt": "2026-09-11T16:16:52.210Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 176,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-11T16:16:52.102Z",
+            "pageTimeMs": 28358,
+            "url": "/ledger",
+            "x": 176,
+            "y": 216,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c029"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c030",
+      "decision": 30,
+      "imageBefore": "frame-030.png",
+      "imageAfter": "frame-031.png",
+      "imageSha256": "5c936527453eda541495c45d79ccf5f95a9cb7ab42a2807805a43a78f3fe39b5",
+      "afterSha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "capturedAt": "2026-09-11T16:16:52.222Z",
+      "completedAt": "2026-09-11T16:16:55.359Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 175.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 174.01644221735046,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5811970410828614
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644608858247289
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823865310493429
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824308017501684
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797190163919228
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776010478226795
+          }
+        ],
+        "mean": 0.577965887320284,
+        "contrast": 0.017969915925439506
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.577965887320284,
+        "motorContrast": 0.017969915925439506,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 18000,
+      "modelEndStep": 18600,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:55.230Z",
+        "completedAt": "2026-09-11T16:16:55.341Z",
+        "from": {
+          "x": 176,
+          "y": 216
+        },
+        "to": {
+          "x": 200,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:16:55.231Z",
+            "pageTimeMs": 31486.89999999851,
+            "url": "/ledger",
+            "x": 200,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c030"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c031",
+      "decision": 31,
+      "imageBefore": "frame-031.png",
+      "imageAfter": "frame-032.png",
+      "imageSha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "afterSha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "capturedAt": "2026-09-11T16:16:55.359Z",
+      "completedAt": "2026-09-11T16:16:58.489Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 199.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 150.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758840562959235
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788856715961169
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46660617878888033
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564813163598118
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46966382957978436
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278616087895084
+          }
+        ],
+        "mean": 0.4292304435683376,
+        "contrast": 0.17759564476369494
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292304435683376,
+        "motorContrast": 0.17759564476369494,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 18600,
+      "modelEndStep": 19200,
+      "executed": {
+        "startedAt": "2026-09-11T16:16:58.366Z",
+        "completedAt": "2026-09-11T16:16:58.475Z",
+        "from": {
+          "x": 200,
+          "y": 216
+        },
+        "to": {
+          "x": 200,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c032",
+      "decision": 32,
+      "imageBefore": "frame-032.png",
+      "imageAfter": "frame-033.png",
+      "imageSha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "afterSha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "capturedAt": "2026-09-11T16:16:58.489Z",
+      "completedAt": "2026-09-11T16:17:01.631Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 199.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 150.01644221735046,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.579574926160746
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633424565930173
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807780323565309
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.581098534677803
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781751520669914
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761040877145022
+          }
+        ],
+        "mean": 0.5765121982615985,
+        "contrast": 0.017756078084785742
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765121982615985,
+        "motorContrast": 0.017756078084785742,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 19200,
+      "modelEndStep": 19800,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:01.505Z",
+        "completedAt": "2026-09-11T16:17:01.613Z",
+        "from": {
+          "x": 200,
+          "y": 216
+        },
+        "to": {
+          "x": 224,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:01.506Z",
+            "pageTimeMs": 37761.699999999255,
+            "url": "/ledger",
+            "x": 224,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c032"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c033",
+      "decision": 33,
+      "imageBefore": "frame-033.png",
+      "imageAfter": "frame-034.png",
+      "imageSha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "afterSha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "capturedAt": "2026-09-11T16:17:01.631Z",
+      "completedAt": "2026-09-11T16:17:04.769Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 223.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 126.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513891082191
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788636062559457
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4665735989064036
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503330593521
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315316460487
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309134328353
+          }
+        ],
+        "mean": 0.42920022873480074,
+        "contrast": 0.17758672680340643
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42920022873480074,
+        "motorContrast": 0.17758672680340643,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 19800,
+      "modelEndStep": 20400,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:04.639Z",
+        "completedAt": "2026-09-11T16:17:04.749Z",
+        "from": {
+          "x": 224,
+          "y": 216
+        },
+        "to": {
+          "x": 224,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c034",
+      "decision": 34,
+      "imageBefore": "frame-034.png",
+      "imageAfter": "frame-035.png",
+      "imageSha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "afterSha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "capturedAt": "2026-09-11T16:17:04.769Z",
+      "completedAt": "2026-09-11T16:17:07.907Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 223.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 126.01644221735046,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548469153
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845434852
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606462424
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.581098308738875
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748925322617
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038401091189
+          }
+        ],
+        "mean": 0.5765119569028164,
+        "contrast": 0.017756024195389797
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765119569028164,
+        "motorContrast": 0.017756024195389797,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 20400,
+      "modelEndStep": 21000,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:07.777Z",
+        "completedAt": "2026-09-11T16:17:07.886Z",
+        "from": {
+          "x": 224,
+          "y": 216
+        },
+        "to": {
+          "x": 248,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:07.779Z",
+            "pageTimeMs": 44034.300000000745,
+            "url": "/ledger",
+            "x": 248,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c034"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c035",
+      "decision": 35,
+      "imageBefore": "frame-035.png",
+      "imageAfter": "frame-036.png",
+      "imageSha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "afterSha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "capturedAt": "2026-09-11T16:17:07.907Z",
+      "completedAt": "2026-09-11T16:17:11.044Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 247.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 102.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47585138356513784
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2788636025165168
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4665735933774858
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.456450327801129
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261653039
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082251578
+          }
+        ],
+        "mean": 0.42920022360845517,
+        "contrast": 0.17758672528461217
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.42920022360845517,
+        "motorContrast": 0.17758672528461217,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 21000,
+      "modelEndStep": 21600,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:10.913Z",
+        "completedAt": "2026-09-11T16:17:11.023Z",
+        "from": {
+          "x": 248,
+          "y": 216
+        },
+        "to": {
+          "x": 248,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c036",
+      "decision": 36,
+      "imageBefore": "frame-036.png",
+      "imageAfter": "frame-037.png",
+      "imageSha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "afterSha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "capturedAt": "2026-09-11T16:17:11.044Z",
+      "completedAt": "2026-09-11T16:17:14.192Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 247.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 102.01644221735046,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548008687
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142858
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001281
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005293
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882139
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670954
+          }
+        ],
+        "mean": 0.5765119568618535,
+        "contrast": 0.017756024186243446
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765119568618535,
+        "motorContrast": 0.017756024186243446,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 21600,
+      "modelEndStep": 22200,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:14.062Z",
+        "completedAt": "2026-09-11T16:17:14.172Z",
+        "from": {
+          "x": 248,
+          "y": 216
+        },
+        "to": {
+          "x": 272,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:14.063Z",
+            "pageTimeMs": 50318.800000000745,
+            "url": "/ledger",
+            "x": 272,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c036"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c037",
+      "decision": 37,
+      "imageBefore": "frame-037.png",
+      "imageAfter": "frame-038.png",
+      "imageSha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "afterSha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "capturedAt": "2026-09-11T16:17:14.192Z",
+      "completedAt": "2026-09-11T16:17:17.335Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 271.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 78.01644221735046,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47585138356419704
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251588216
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657359337654725
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503278002363
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46963152616437354
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082242737
+          }
+        ],
+        "mean": 0.429200223607585,
+        "contrast": 0.17758672528435415
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.429200223607585,
+        "motorContrast": 0.17758672528435415,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 22200,
+      "modelEndStep": 22800,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:17.211Z",
+        "completedAt": "2026-09-11T16:17:17.319Z",
+        "from": {
+          "x": 272,
+          "y": 216
+        },
+        "to": {
+          "x": 272,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c038",
+      "decision": 38,
+      "imageBefore": "frame-038.png",
+      "imageAfter": "frame-039.png",
+      "imageSha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "afterSha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "capturedAt": "2026-09-11T16:17:17.335Z",
+      "completedAt": "2026-09-11T16:17:20.478Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6386,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.51644221735046,
+          "y": 227.43783275916067
+        },
+        "cursorCentroid": {
+          "x": 271.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 78.01644221735046,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 11.93783275916067,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548008608
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142806
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001204
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005225
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882069
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670886
+          }
+        ],
+        "mean": 0.5765119568618466,
+        "contrast": 0.017756024186241892
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765119568618466,
+        "motorContrast": 0.017756024186241892,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 22800,
+      "modelEndStep": 23400,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:20.353Z",
+        "completedAt": "2026-09-11T16:17:20.463Z",
+        "from": {
+          "x": 272,
+          "y": 216
+        },
+        "to": {
+          "x": 296,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:20.354Z",
+            "pageTimeMs": 56609.800000000745,
+            "url": "/ledger",
+            "x": 296,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c038"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c039",
+      "decision": 39,
+      "imageBefore": "frame-039.png",
+      "imageAfter": "frame-040.png",
+      "imageSha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "afterSha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "capturedAt": "2026-09-11T16:17:20.478Z",
+      "completedAt": "2026-09-11T16:17:23.621Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6326,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.9769206449573,
+          "y": 227.55105912108758
+        },
+        "cursorCentroid": {
+          "x": 295.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 54.47692064495732,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 12.051059121087576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513835641969
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251588216
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657359337654714
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503278002362
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261643735
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082242736
+          }
+        ],
+        "mean": 0.4292002236075849,
+        "contrast": 0.17758672528435404
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292002236075849,
+        "motorContrast": 0.17758672528435404,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 23400,
+      "modelEndStep": 24000,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:23.492Z",
+        "completedAt": "2026-09-11T16:17:23.600Z",
+        "from": {
+          "x": 296,
+          "y": 216
+        },
+        "to": {
+          "x": 296,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c040",
+      "decision": 40,
+      "imageBefore": "frame-040.png",
+      "imageAfter": "frame-041.png",
+      "imageSha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "afterSha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "capturedAt": "2026-09-11T16:17:23.621Z",
+      "completedAt": "2026-09-11T16:17:26.760Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6326,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.9769206449573,
+          "y": 227.55105912108758
+        },
+        "cursorCentroid": {
+          "x": 295.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 54.47692064495732,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 12.051059121087576,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548008608
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142806
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001204
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005225
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882069
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670886
+          }
+        ],
+        "mean": 0.5765119568618466,
+        "contrast": 0.017756024186241892
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765119568618466,
+        "motorContrast": 0.017756024186241892,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 24000,
+      "modelEndStep": 24600,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:26.628Z",
+        "completedAt": "2026-09-11T16:17:26.739Z",
+        "from": {
+          "x": 296,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:26.629Z",
+            "pageTimeMs": 62884.599999997765,
+            "url": "/ledger",
+            "x": 320,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c040"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c041",
+      "decision": 41,
+      "imageBefore": "frame-041.png",
+      "imageAfter": "frame-042.png",
+      "imageSha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "afterSha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "capturedAt": "2026-09-11T16:17:26.760Z",
+      "completedAt": "2026-09-11T16:17:29.896Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6234,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 350.2483156881617,
+          "y": 227.72890599935835
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 30.74831568816171,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 12.228905999358346,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513835641969
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251588216
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657359337654714
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503278002362
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261643735
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082242736
+          }
+        ],
+        "mean": 0.4292002236075849,
+        "contrast": 0.17758672528435404
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292002236075849,
+        "motorContrast": 0.17758672528435404,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 24600,
+      "modelEndStep": 25200,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:29.765Z",
+        "completedAt": "2026-09-11T16:17:29.875Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c042",
+      "decision": 42,
+      "imageBefore": "frame-042.png",
+      "imageAfter": "frame-043.png",
+      "imageSha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "afterSha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "capturedAt": "2026-09-11T16:17:29.896Z",
+      "completedAt": "2026-09-11T16:17:33.026Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6234,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 350.2483156881617,
+          "y": 227.72890599935835
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 30.74831568816171,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "point",
+        "verticalError": 12.228905999358346,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5795746548008608
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5633422845142806
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5807777606001204
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5810983087005225
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5781748924882069
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5761038400670886
+          }
+        ],
+        "mean": 0.5765119568618466,
+        "contrast": 0.017756024186241892
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.5765119568618466,
+        "motorContrast": 0.017756024186241892,
+        "phase": "point",
+        "kind": "move",
+        "reason": "Point phase: motor contrast selects horizontal direction"
+      },
+      "modelStartStep": 25200,
+      "modelEndStep": 25800,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:32.903Z",
+        "completedAt": "2026-09-11T16:17:33.011Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousemove",
+            "timestamp": "2026-09-11T16:17:32.905Z",
+            "pageTimeMs": 69160.09999999776,
+            "url": "/ledger",
+            "x": 344,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c042"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c043",
+      "decision": 43,
+      "imageBefore": "frame-043.png",
+      "imageAfter": "frame-044.png",
+      "imageSha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "afterSha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "capturedAt": "2026-09-11T16:17:33.026Z",
+      "completedAt": "2026-09-11T16:17:36.163Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6234,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.66313763233876,
+          "y": 227.72890599935835
+        },
+        "cursorCentroid": {
+          "x": 343.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 6.16313763233876,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": 12.228905999358346,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4758513835641969
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.27886360251588216
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.46657359337654714
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4564503278002362
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4696315261643735
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.4278309082242736
+          }
+        ],
+        "mean": 0.4292002236075849,
+        "contrast": 0.17758672528435404
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4292002236075849,
+        "motorContrast": 0.17758672528435404,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 25800,
+      "modelEndStep": 26400,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:36.035Z",
+        "completedAt": "2026-09-11T16:17:36.143Z",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c044",
+      "decision": 44,
+      "imageBefore": "frame-044.png",
+      "imageAfter": "frame-045.png",
+      "imageSha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "afterSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "capturedAt": "2026-09-11T16:17:36.163Z",
+      "completedAt": "2026-09-11T16:17:39.307Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 6234,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 349.66313763233876,
+          "y": 227.72890599935835
+        },
+        "cursorCentroid": {
+          "x": 343.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 6.16313763233876,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85,
+        "phase": "point",
+        "verticalError": 12.228905999358346,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.602414494116607
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6140599741185331
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6025786028372958
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6051464513691736
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6037044236291229
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6055830892517478
+          }
+        ],
+        "mean": 0.6055811725537467,
+        "contrast": -0.008913522749359526
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.6055811725537467,
+        "motorContrast": -0.008913522749359526,
+        "phase": "point",
+        "kind": "click",
+        "reason": "Point phase: M ≥ 0.593 activates at current cursor"
+      },
+      "modelStartStep": 26400,
+      "modelEndStep": 27000,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:39.178Z",
+        "completedAt": "2026-09-11T16:17:39.286Z",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": [
+          {
+            "type": "mousedown",
+            "timestamp": "2026-09-11T16:17:39.179Z",
+            "pageTimeMs": 75434.59999999776,
+            "url": "/ledger",
+            "x": 344,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c044"
+          },
+          {
+            "type": "mouseup",
+            "timestamp": "2026-09-11T16:17:39.181Z",
+            "pageTimeMs": 75436.30000000075,
+            "url": "/ledger",
+            "x": 344,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c044"
+          },
+          {
+            "type": "click",
+            "timestamp": "2026-09-11T16:17:39.181Z",
+            "pageTimeMs": 75436.39999999851,
+            "url": "/ledger",
+            "x": 344,
+            "y": 216,
+            "trusted": true,
+            "commandId": "exhibit_1789143316430_77153af5:c044"
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c045",
+      "decision": 45,
+      "imageBefore": "frame-045.png",
+      "imageAfter": "frame-046.png",
+      "imageSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "afterSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "capturedAt": "2026-09-11T16:17:39.307Z",
+      "completedAt": "2026-09-11T16:17:42.447Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 0,
+        "cursorPixels": 96,
+        "targetCentroid": null,
+        "cursorCentroid": {
+          "x": 343.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.47852099412110016
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.28125724291355936
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4691975244654938
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.45890827623000235
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.47224048649598005
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.43045233213719
+          }
+        ],
+        "mean": 0.4317628093938876,
+        "contrast": 0.177651033316443
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4317628093938876,
+        "motorContrast": 0.177651033316443,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 27000,
+      "modelEndStep": 27600,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:42.315Z",
+        "completedAt": "2026-09-11T16:17:42.426Z",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c046",
+      "decision": 46,
+      "imageBefore": "frame-046.png",
+      "imageAfter": "frame-047.png",
+      "imageSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "afterSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "capturedAt": "2026-09-11T16:17:42.447Z",
+      "completedAt": "2026-09-11T16:17:45.583Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 0,
+        "cursorPixels": 96,
+        "targetCentroid": null,
+        "cursorCentroid": {
+          "x": 343.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.46048407200094177
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2668827808103925
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4514099759567275
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.44210210455324284
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.4545363009813885
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.41311145402888955
+          }
+        ],
+        "mean": 0.4147544480552637,
+        "contrast": 0.17521932374285032
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4147544480552637,
+        "motorContrast": 0.17521932374285032,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 27600,
+      "modelEndStep": 28200,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:45.457Z",
+        "completedAt": "2026-09-11T16:17:45.567Z",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "65f5cc8d523d10ab6564f134322a7e90dc2074f1",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 3,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789142848957_7c10ab60",
+      "runId": "exhibit_1789143316430_77153af5",
+      "commandId": "exhibit_1789143316430_77153af5:c047",
+      "decision": 47,
+      "imageBefore": "frame-047.png",
+      "imageAfter": "frame-048.png",
+      "imageSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "afterSha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "capturedAt": "2026-09-11T16:17:45.583Z",
+      "completedAt": "2026-09-11T16:17:48.719Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 0,
+        "cursorPixels": 96,
+        "targetCentroid": null,
+        "cursorCentroid": {
+          "x": 343.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4589508073931281
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2658632905945313
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.44988497698017654
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4406454268497681
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.45302063915839175
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.41167774149593006
+          }
+        ],
+        "mean": 0.4133404804119876,
+        "contrast": 0.1747821362552368
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4133404804119876,
+        "motorContrast": 0.1747821362552368,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 28200,
+      "modelEndStep": 28800,
+      "executed": {
+        "startedAt": "2026-09-11T16:17:48.597Z",
+        "completedAt": "2026-09-11T16:17:48.706Z",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "events": []
+      }
+    }
+  ],
+  "evaluator": {
+    "activated": true,
+    "activationCount": 1,
+    "navigated": true
+  },
+  "outcome": "activated",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "7b283e6221587c5283b567d9daa542fb9863ee88be4c8dd749a612e4f33c03fd",
+      "bytes": 927355
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "12d1e45d7afa183ee3d5c35580967ce2cf15e3c4955ebdc58493979cb0beb0f9",
+      "bytes": 4964
+    },
+    {
+      "path": "decision-1.json.gz",
+      "sha256": "57ac57326558bef159f984deeedfdc7e800d53fb744017fddc8661fea6b3af98",
+      "bytes": 27746
+    },
+    {
+      "path": "decision-10.json.gz",
+      "sha256": "c6f9b9cc09586b5ea4636502f6052f8ef93854d3cbca8ce78fe49165438efe62",
+      "bytes": 27851
+    },
+    {
+      "path": "decision-11.json.gz",
+      "sha256": "fdb06a8ed1075df407117c60648fbfebbf695988389570f747b348a177a42a5e",
+      "bytes": 28630
+    },
+    {
+      "path": "decision-12.json.gz",
+      "sha256": "28342f40309ad769fe056533d2f972d31416f2c96cef5b2a87b95838604a1127",
+      "bytes": 27907
+    },
+    {
+      "path": "decision-13.json.gz",
+      "sha256": "7041d1d0af7d8568746f5f22fb66adf475e91eef264dbb9ce60b95ef58813877",
+      "bytes": 28646
+    },
+    {
+      "path": "decision-14.json.gz",
+      "sha256": "45d0ee8bfb62a766d24ac44981588356ad098f319374fe6c273633b079cfc223",
+      "bytes": 27847
+    },
+    {
+      "path": "decision-15.json.gz",
+      "sha256": "95697e8637654929bf2ee6f024866376e54b6bfa104cb481adb94f630093fc68",
+      "bytes": 28545
+    },
+    {
+      "path": "decision-16.json.gz",
+      "sha256": "99aea31ac846e97bce27393536874b5bb7805728932a8fe6d8e2a05ce5d1faaf",
+      "bytes": 27868
+    },
+    {
+      "path": "decision-17.json.gz",
+      "sha256": "738b67e47aada416e82f2d4dfd94fb7f6a6042c41e773d7951cc52daef95c355",
+      "bytes": 28617
+    },
+    {
+      "path": "decision-18.json.gz",
+      "sha256": "df71e0c95fea1b73afea19c7292c28f8813808b2b00ec6b453f94989a5a347a6",
+      "bytes": 27912
+    },
+    {
+      "path": "decision-19.json.gz",
+      "sha256": "dcde4d7527861d4b98563651c02d9b92ef299aa89b312d6dea2e476b6c354391",
+      "bytes": 28586
+    },
+    {
+      "path": "decision-2.json.gz",
+      "sha256": "4ddb3e03f94c02504785b73d56cb45e4b5f6dfd5a0d975e26ab4dcb4d17b2888",
+      "bytes": 28204
+    },
+    {
+      "path": "decision-20.json.gz",
+      "sha256": "35b42448cc88a3e2cabb3a281c6eb5b86eaa38d0692970350b379cb8ad8e4852",
+      "bytes": 27503
+    },
+    {
+      "path": "decision-21.json.gz",
+      "sha256": "4eff9e5a9fe35d5ba587abb6ab0adb55c5dc57a6b98c99ba2d1827b806a2e7ff",
+      "bytes": 27475
+    },
+    {
+      "path": "decision-22.json.gz",
+      "sha256": "530ecb5b2cfaa8a494def7f8721bb9eb189f5645b9664b913f96284785d5b5c7",
+      "bytes": 28576
+    },
+    {
+      "path": "decision-23.json.gz",
+      "sha256": "9ad4db3b4e2410a33c5ab52a1599d0a6cf5a94b87dd6642031f88d08cb77c1ba",
+      "bytes": 27853
+    },
+    {
+      "path": "decision-24.json.gz",
+      "sha256": "4940902eae529e097ecd98b9c997a1ebe7a54946c5fb4124de765b79f282ca69",
+      "bytes": 28562
+    },
+    {
+      "path": "decision-25.json.gz",
+      "sha256": "f1e027daeee2e779c81c2b5d2d24d413fb05824553eae343d5b4353ac4eb6857",
+      "bytes": 27897
+    },
+    {
+      "path": "decision-26.json.gz",
+      "sha256": "cec9615817288debf76bec84de6c966182687975f2a087401e00578888ba6e54",
+      "bytes": 28505
+    },
+    {
+      "path": "decision-27.json.gz",
+      "sha256": "101351ac312ed45894c346e61480e4ca444d0093d7b7a08b4cf40ede17c45918",
+      "bytes": 27935
+    },
+    {
+      "path": "decision-28.json.gz",
+      "sha256": "bf623677dac442cb10a1feaaee1178c02cf0615adb2396ba5e57bd06c99f0885",
+      "bytes": 28482
+    },
+    {
+      "path": "decision-29.json.gz",
+      "sha256": "5b35a1a10aa25dbf1dd08cd8dd4b2b16456f39d36563b8aedbedbf384e285266",
+      "bytes": 27851
+    },
+    {
+      "path": "decision-3.json.gz",
+      "sha256": "30fd24ab8470dc828cece25a30a86ef94bbdd7ab6d1e6aa400da56b750b021ae",
+      "bytes": 27489
+    },
+    {
+      "path": "decision-30.json.gz",
+      "sha256": "ca63631f90917196fa102c32be791f237600315453662a6da28ea12b739fb2b5",
+      "bytes": 23937
+    },
+    {
+      "path": "decision-31.json.gz",
+      "sha256": "c5a4f01256e474fe2999a53ef0ad0654d885dda3356b5c1ded94fb0e7e914819",
+      "bytes": 28549
+    },
+    {
+      "path": "decision-32.json.gz",
+      "sha256": "fdfc507d5c5ea8bea9bbe5c31121093271675ae1b4f042c7a4d5f370e5dad417",
+      "bytes": 27860
+    },
+    {
+      "path": "decision-33.json.gz",
+      "sha256": "24e25e6fa16fef619e58c98a5e510778e12f19298538b1c8437725a0c1cf9538",
+      "bytes": 28561
+    },
+    {
+      "path": "decision-34.json.gz",
+      "sha256": "fe5f2c90672d94eb114769f1e9db43eda424c5d43c4a7550c07674a8f06e1335",
+      "bytes": 27906
+    },
+    {
+      "path": "decision-35.json.gz",
+      "sha256": "7954e68991da8c7683eac9178756a9bb2d936fc653b073443c0c27569cc32a07",
+      "bytes": 28578
+    },
+    {
+      "path": "decision-36.json.gz",
+      "sha256": "296c9540962bd6035a81d530d038655860f6c61f9323e75d8d21a5c6c7026c5b",
+      "bytes": 27937
+    },
+    {
+      "path": "decision-37.json.gz",
+      "sha256": "94859aa1e00422332657869646cc0c98788dd5c44fdad9799744ee2b32132b2a",
+      "bytes": 28574
+    },
+    {
+      "path": "decision-38.json.gz",
+      "sha256": "1d5f509841b465e62060c9a468dc153270040ec04e7c80861aa9047854dc665c",
+      "bytes": 27823
+    },
+    {
+      "path": "decision-39.json.gz",
+      "sha256": "b8c5b29e7d67a7110a5b502193debc59858c4f5a443377f4997b6528d0f2cbef",
+      "bytes": 28549
+    },
+    {
+      "path": "decision-4.json.gz",
+      "sha256": "88b30d7b29d50b7b1a324654637559b49c0acc6d5bd614cba835be250ecdc63b",
+      "bytes": 28369
+    },
+    {
+      "path": "decision-40.json.gz",
+      "sha256": "4b2c7eac53ebd81a6a2a2f7aa4df3dcadb4db0a6a22bc98d8cd887434fcbb91b",
+      "bytes": 27767
+    },
+    {
+      "path": "decision-41.json.gz",
+      "sha256": "65db028126d0db80096a1cb8564ecc506e20a5394c3c69114d9a5aaf8b78a46b",
+      "bytes": 28507
+    },
+    {
+      "path": "decision-42.json.gz",
+      "sha256": "ee2981a7076cdbf48286ddd4177656bdb04e3fdc4cdb4f98bdea3c6ddbd88ead",
+      "bytes": 27817
+    },
+    {
+      "path": "decision-43.json.gz",
+      "sha256": "7692bdda24cab44bfc8d8229c920a7b06066578608615e5f1f5596effb8e1461",
+      "bytes": 28534
+    },
+    {
+      "path": "decision-44.json.gz",
+      "sha256": "4a73eb006274293137342926be02b695e568b43d9c3c0e07220e81687be85ba0",
+      "bytes": 27423
+    },
+    {
+      "path": "decision-45.json.gz",
+      "sha256": "0719ecf8851588cca1d364bfc3f429f12afb3b04867b72d3dbf90225851d039e",
+      "bytes": 27775
+    },
+    {
+      "path": "decision-46.json.gz",
+      "sha256": "ee875653e8ae7c1958bd2bb3a0ea6b93cfb7e3de52449bff5e1b702970c830b9",
+      "bytes": 27952
+    },
+    {
+      "path": "decision-47.json.gz",
+      "sha256": "3cf3cb7b4107591659e500b65d61e051d7dc3751d5411390e0c2c8688ddb944c",
+      "bytes": 27485
+    },
+    {
+      "path": "decision-5.json.gz",
+      "sha256": "4e6fa4438d1bb670c806806c96832ff240f0be990f3d7a55044ac173bcecede8",
+      "bytes": 27737
+    },
+    {
+      "path": "decision-6.json.gz",
+      "sha256": "cc07e8a4e585c73d1ba2ca40dd15e42dbe174933feeadc5d7010c763bc42d3d4",
+      "bytes": 28431
+    },
+    {
+      "path": "decision-7.json.gz",
+      "sha256": "f1e898e2de1fec01ed2f85ac398ee5c541c1c457d6a17c1f356721f66c587ed4",
+      "bytes": 27920
+    },
+    {
+      "path": "decision-8.json.gz",
+      "sha256": "074018f5baa70a7abcb546cf3f54a3384e238612e8584a64beb0743cad747a60",
+      "bytes": 27048
+    },
+    {
+      "path": "decision-9.json.gz",
+      "sha256": "c786b75d87a51f0ac0ccb1a64e0943b214e3ada65d6238506e53a9a3fda8b933",
+      "bytes": 28628
+    },
+    {
+      "path": "frame-000.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-001.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-002.png",
+      "sha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "bytes": 11091
+    },
+    {
+      "path": "frame-003.png",
+      "sha256": "8ceacc576adaac6dfb837e36718f7c543dcd9ddcaf3eee6525c9f47f8d0b7945",
+      "bytes": 11091
+    },
+    {
+      "path": "frame-004.png",
+      "sha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "bytes": 7381
+    },
+    {
+      "path": "frame-005.png",
+      "sha256": "375800689857dbd4a725c720ac77612dda6ff0ffceba44539a72cb5b03168bcc",
+      "bytes": 7381
+    },
+    {
+      "path": "frame-006.png",
+      "sha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "bytes": 7374
+    },
+    {
+      "path": "frame-007.png",
+      "sha256": "37ae06165040197d3fd548f1d8c3c92fc0723170d059007d2c16679da1ce4e5c",
+      "bytes": 7374
+    },
+    {
+      "path": "frame-008.png",
+      "sha256": "d7e9433e6bc98637eb6bc8b97559228bf7b4f0608ea00843fd9b82405fce7f52",
+      "bytes": 5165
+    },
+    {
+      "path": "frame-009.png",
+      "sha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "bytes": 5164
+    },
+    {
+      "path": "frame-010.png",
+      "sha256": "f63d06a3d9071f39e01658465acb6aeb6936ad7309970a80d2432554c0f91eb9",
+      "bytes": 5164
+    },
+    {
+      "path": "frame-011.png",
+      "sha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "bytes": 5159
+    },
+    {
+      "path": "frame-012.png",
+      "sha256": "11615ae8ca11fb9eb809f0727821d4bcf21f959cfc9c7b2fe8456fd6a5606889",
+      "bytes": 5159
+    },
+    {
+      "path": "frame-013.png",
+      "sha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "bytes": 5156
+    },
+    {
+      "path": "frame-014.png",
+      "sha256": "a9ca8b837ab0c35bdf0afd0115f7db96cd07782d22188480975967ab80eda4b4",
+      "bytes": 5156
+    },
+    {
+      "path": "frame-015.png",
+      "sha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "bytes": 5176
+    },
+    {
+      "path": "frame-016.png",
+      "sha256": "89dc5966fd1c3dcf6b696828ed5124e4da27d28f37e1cface41b3b0c8e77718a",
+      "bytes": 5176
+    },
+    {
+      "path": "frame-017.png",
+      "sha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "bytes": 5156
+    },
+    {
+      "path": "frame-018.png",
+      "sha256": "dd9bd8cf5be7546fd7a6cd2c843616f5dcb39e08567acb333b11148e3638da24",
+      "bytes": 5156
+    },
+    {
+      "path": "frame-019.png",
+      "sha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "bytes": 5149
+    },
+    {
+      "path": "frame-020.png",
+      "sha256": "22dd899730ccb795dd0cb5b8706b8bfa1455a3c2ee5c7e2536716e1331dbbe3f",
+      "bytes": 5149
+    },
+    {
+      "path": "frame-021.png",
+      "sha256": "b3f739d774807fbfd7212a29ff7f37ade8f1739317363d9fde7706d6ccb78ce0",
+      "bytes": 13345
+    },
+    {
+      "path": "frame-022.png",
+      "sha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "bytes": 11680
+    },
+    {
+      "path": "frame-023.png",
+      "sha256": "f4c0caab9201c44fe8326201487a3567fddfcd7cb4d521ca887ec71a7f792081",
+      "bytes": 11680
+    },
+    {
+      "path": "frame-024.png",
+      "sha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "bytes": 6590
+    },
+    {
+      "path": "frame-025.png",
+      "sha256": "f8db858278b2b94425e8309669366daa1f661bc2c966e1a7a45faaaa80bdfd29",
+      "bytes": 6590
+    },
+    {
+      "path": "frame-026.png",
+      "sha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "bytes": 7436
+    },
+    {
+      "path": "frame-027.png",
+      "sha256": "376a1ab4f140d0508e330ad3f9e90e46d52cfd83a2222a8b7f0d410c4cc71f67",
+      "bytes": 7436
+    },
+    {
+      "path": "frame-028.png",
+      "sha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "bytes": 5016
+    },
+    {
+      "path": "frame-029.png",
+      "sha256": "dfbfd028fbb7da6619201622bcc99988e5550d228482a078b47c2b67ddff0a74",
+      "bytes": 5016
+    },
+    {
+      "path": "frame-030.png",
+      "sha256": "5c936527453eda541495c45d79ccf5f95a9cb7ab42a2807805a43a78f3fe39b5",
+      "bytes": 2985
+    },
+    {
+      "path": "frame-031.png",
+      "sha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "bytes": 2977
+    },
+    {
+      "path": "frame-032.png",
+      "sha256": "a2b8458489311cea52765c16de3f72a5d4f817fe41ce0cbff156bc0ad47b9200",
+      "bytes": 2977
+    },
+    {
+      "path": "frame-033.png",
+      "sha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "bytes": 2981
+    },
+    {
+      "path": "frame-034.png",
+      "sha256": "e1d76d324dadbf66f10410288e179823da0ac1ab25e054eb1f07d2f348213ba3",
+      "bytes": 2981
+    },
+    {
+      "path": "frame-035.png",
+      "sha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "bytes": 2976
+    },
+    {
+      "path": "frame-036.png",
+      "sha256": "28bbd78888eac8e5de7130848b2817a14d5307d9beb8e593ae11dbbbab7f9ce8",
+      "bytes": 2976
+    },
+    {
+      "path": "frame-037.png",
+      "sha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "bytes": 2981
+    },
+    {
+      "path": "frame-038.png",
+      "sha256": "4c3e411aa85800d9fa3fddd5fcd6ed7a992d4ac2273531a1fd047ccab3d5d4c8",
+      "bytes": 2981
+    },
+    {
+      "path": "frame-039.png",
+      "sha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "bytes": 3070
+    },
+    {
+      "path": "frame-040.png",
+      "sha256": "bf34acc859466359dfb08810900215374284a8bd1400ee8720a6b94608076b55",
+      "bytes": 3070
+    },
+    {
+      "path": "frame-041.png",
+      "sha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "bytes": 2972
+    },
+    {
+      "path": "frame-042.png",
+      "sha256": "2a59ab61b0147394ab4b55b35665d0528a670f7b356406991bf4c9ba133f673b",
+      "bytes": 2972
+    },
+    {
+      "path": "frame-043.png",
+      "sha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "bytes": 2961
+    },
+    {
+      "path": "frame-044.png",
+      "sha256": "b6be12c0db8cf9fd51c4d9105586a6c7bd69310e23f0e0841778ed3d6382e0a6",
+      "bytes": 2961
+    },
+    {
+      "path": "frame-045.png",
+      "sha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "bytes": 7574
+    },
+    {
+      "path": "frame-046.png",
+      "sha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "bytes": 7574
+    },
+    {
+      "path": "frame-047.png",
+      "sha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "bytes": 7574
+    },
+    {
+      "path": "frame-048.png",
+      "sha256": "f6e1340e47325ec679dab644347a9eac42b6c676805efbd5d2706ba58c8a266c",
+      "bytes": 7574
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "69c2fdc2f3c266be9d1ce76e6505bb6f0d00f134912a1a4f5b933ac753b94fbe",
+      "bytes": 1290641
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 2880,
+    "decisions": 48
+  }
+}
