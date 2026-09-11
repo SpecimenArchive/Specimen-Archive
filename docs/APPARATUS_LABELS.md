@@ -6,7 +6,7 @@
 
 The final 1659 x 948 asset changes 4,581 pixels, all within two inset face regions. Every pixel outside those regions is identical to v3, including the microscope outline, scene and entire monitor. [Preservation receipt](results/apparatus-marker-preservation.json). Original v1, v2 and v3 remain intact. Renderer, chamber crop, worksheet and apparatus study now reference v4.
 
-The enlarged [housing crop](screenshots/apparatus-marker-v4-close.png) was inspected for old lettering, paint seams, spelling, perspective and clearance. The responsive dashboard review is recorded separately; VM runtime acceptance remains a separate check.
+The enlarged [housing crop](screenshots/apparatus-marker-v4-close.png) was inspected for old lettering, paint seams, spelling, perspective and clearance. The [actual VM dashboard](screenshots/apparatus-marker-v4-dashboard.png) and expanded apparatus were reviewed at 1440, 1024 and 390 px; no overflow or browser errors occurred, and expand/Escape worked. The served v4 asset returned HTTP 200. [UI receipt](results/apparatus-marker-ui.json). This verifies the image integration; ten-minute VM continuity remains a separate check.
 
 ## Historical v3 edit
 

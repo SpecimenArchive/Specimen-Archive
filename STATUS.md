@@ -2,6 +2,8 @@
 
 ## Recovery and By-Hoster transition - 11 September 2026
 
+- Current checkpoint: `0b64125` was successfully pushed to public master, deployed to the VM and built there. Both VM tasks are running. The private preview is `http://127.0.0.1:4319/`; it now accepts the forwarded observer origin and serves genuine Windows capture. The new run `exhibit_1789162355974_4a841b36` has clean source and recorded wheel/move events with the corrected mapping. This is ongoing execution, not yet endurance or reboot acceptance.
+
 - Latest image refinement: v4 uses smaller ImageGen felt-tip handwriting, with distinct front/side rhythms. The original lettering was removed locally; 4,581 pixels changed only within inset face regions. Every pixel outside these regions, including the entire monitor, remains identical to v3. Close-crop review passed; responsive dashboard review follows deployment. All original assets are preserved. Production build/typecheck and 33 tests pass.
 - Windows wheel displacement and observer-origin corrections are ready for deployment. The old local preview on port 4317 was found unavailable during the image review; do not advertise it as currently live. The remote backend is paused for update; SSH remains available.
 
