@@ -12,7 +12,7 @@ import {WorkerLease} from '../../server/exhibit/worker-lease';
 const configPath=process.env.SPECIMEN_REMOTE_CONFIG;
 if(process.platform!=='win32'||!configPath)throw new Error('Run start-worker.ps1 inside the dedicated Windows 11 VM');
 const config=JSON.parse(readFileSync(configPath,'utf8'));
-if(config.isolation!=='remote-vm'||config.dedicated!==true||userInfo().username!==config.userName)throw new Error('This account is not the configured dedicated remote station');
+if(config.isolation!=='remote-vm'||config.dedicated!==true||typeof config.userName!=='string'||userInfo().username.toLowerCase()!==config.userName.toLowerCase())throw new Error('This account is not the configured dedicated remote station');
 const root=resolve(config.root),token=readFileSync(join(root,'worker-token.txt'),'utf8').trim(),lease=new WorkerLease(token);
 const pending=new Map<number,{resolve:(v:any)=>void;reject:(e:Error)=>void;timer:ReturnType<typeof setTimeout>}>();
 let native:ChildProcessWithoutNullStreams|undefined,nativeSequence=0,chrome:ReturnType<typeof spawn>|undefined,cdpURL='',stopping:Promise<void>|undefined;

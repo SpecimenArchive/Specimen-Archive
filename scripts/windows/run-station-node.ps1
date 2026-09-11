@@ -19,6 +19,10 @@ foreach($log in @($stdout,$stderr)){
   if(Test-Path -LiteralPath $log){Move-Item -LiteralPath $log -Destination ($log+'.previous') -Force}
 }
 $child=Start-Process -FilePath $node -ArgumentList $NodeArguments -WorkingDirectory $project -WindowStyle Hidden -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
+# Retain the handle while the process is alive. With redirected streams,
+# Windows PowerShell otherwise returns a null ExitCode after a fast failure.
+$null=$child.Handle
 $child.WaitForExit()
 $child.Refresh()
+if($null -eq $child.ExitCode){throw 'Unable to read station process exit status.'}
 exit $child.ExitCode
