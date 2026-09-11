@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { circuit, probe } from './science';
+const intact=probe('intact'),repeat=probe('intact'),disconnected=probe('disconnect-photoreceptors'),inton=probe('disconnect-inton'),dark=probe('intact','dark'),right=probe('intact','right'),shuffled=probe('shuffled');
+assert.deepEqual(intact,repeat,'Seed/config must reproduce exactly');
+assert(intact.motor.left+intact.motor.right>.1,'Sensory-to-motor propagation missing');
+assert.equal(disconnected.motor.left+disconnected.motor.right,0,'Disconnected sensory path must not drive motors');
+assert.equal(dark.motor.left+dark.motor.right,0,'Dark model must remain at zero without baseline drive');
+assert(Math.abs(intact.motor.turn-right.motor.turn)>.001,'Changing input must change motor output');
+const results={recordedAt:new Date().toISOString(),modelNeurons:circuit.nodes.length,modelEdges:circuit.edges.length,protocol:'2 s dark then 12 s fixed unilateral input, dt=0.01; pose feedback bypassed only for controlled probe.',intact,disconnected,inton,dark,right,shuffled,deterministic:true,interpretation:'A causal response in an assumed rate model. This does not validate animal behaviour or biological transmitter signs.'};
+mkdirSync('docs/results',{recursive:true});writeFileSync('docs/results/validation.json',JSON.stringify(results,null,2)+'\n');
+console.log(JSON.stringify(Object.fromEntries(Object.entries({intact,disconnected,inton,dark,right,shuffled}).map(([k,v])=>[k,{motor:v.motor,responseTime:v.responseTime}])),null,2));

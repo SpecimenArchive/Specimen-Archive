@@ -1,0 +1,12 @@
+import { chromium } from '@playwright/test';
+import { mkdirSync } from 'node:fs';
+const browser=await chromium.launch({channel:'msedge',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto('http://127.0.0.1:4317',{waitUntil:'networkidle'});
+await page.waitForFunction(()=>document.querySelector('.live-label')?.textContent?.includes('LIVE'));
+mkdirSync('docs/screenshots',{recursive:true});
+await page.screenshot({path:'docs/screenshots/initial-observation.png',fullPage:true});
+await page.locator('.microscope').screenshot({path:'docs/screenshots/initial-specimen.png'});
+console.log(JSON.stringify({errors,title:await page.title(),canvas:await page.locator('canvas').boundingBox()}));
+await browser.close();
