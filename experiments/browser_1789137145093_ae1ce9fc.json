@@ -1,0 +1,1717 @@
+{
+  "schemaVersion": 1,
+  "kind": "browser-controller",
+  "id": "browser_1789137145093_ae1ce9fc",
+  "recorder": "Specimen Recorder",
+  "origin": {
+    "runId": "browser_1789137145093_ae1ce9fc",
+    "sourceRevision": "657b5131249b88d510dafadaa35c2ea445289ae4",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-motor-v2",
+    "width": 640,
+    "height": 360,
+    "cursorStart": {
+      "x": 320,
+      "y": 216
+    },
+    "decisions": 16,
+    "modelStepsPerDecision": 600,
+    "neuralSampleEvery": 10,
+    "minimumWindowWallMs": 600,
+    "targetSeeds": [
+      11,
+      29,
+      47
+    ],
+    "interventions": [
+      "intact",
+      "clamp-all-motors",
+      "disconnect-photoreceptors"
+    ],
+    "encoder": {
+      "version": "colour-retina-v2",
+      "centreTolerancePx": 18,
+      "minimumTargetPixels": 400,
+      "minimumCursorPixels": 20,
+      "targetGreenMin": 145,
+      "targetRedMax": 120,
+      "targetBlueMax": 150,
+      "targetGreenRedRatio": 1.4,
+      "cursorBlueMin": 235,
+      "cursorGreenMin": 210,
+      "cursorRedMax": 70,
+      "lowDrive": 0.15,
+      "highDrive": 0.65,
+      "alignedDrive": 0.85
+    },
+    "decoder": {
+      "version": "mn-contrast-v1",
+      "motorMeanGate": 0.5,
+      "activationMean": 0.593,
+      "rightContrastThreshold": 0.008,
+      "movePixels": 24,
+      "contrastPositiveId": "1732111",
+      "contrastNegativeId": "359142"
+    }
+  },
+  "configSha256": "06c824e3f04f630c53bf38a17664462fc424e37ea026ade4443bc669f03ddf7b",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "intervention": "clamp-all-motors",
+  "startedAt": "2026-09-11T14:32:25.093Z",
+  "completedAt": "2026-09-11T14:32:41.542Z",
+  "seed": 11,
+  "browserVersion": "152.0.4191.66",
+  "nodeVersion": "v24.11.1",
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "motorIds": [
+      "826675",
+      "359142",
+      "344239",
+      "1732111",
+      "140828",
+      "108826"
+    ],
+    "neurons": 47,
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "targetX": 414,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "note": "Harness-only seeded target placement, navigation and initial cursor positioning. Excluded from controller decisions.",
+    "events": [
+      {
+        "type": "mousemove",
+        "x": 320,
+        "y": 216,
+        "button": 0,
+        "trusted": true,
+        "pageTimeMs": 902.5999999996275,
+        "timestamp": "2026-09-11T14:32:26.448Z"
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 0,
+      "imageBefore": "frame-000.png",
+      "imageAfter": "frame-001.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:26.487Z",
+      "completedAt": "2026-09-11T14:32:27.394Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:27.376Z",
+        "completedAt": "2026-09-11T14:32:27.379Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 1,
+      "imageBefore": "frame-001.png",
+      "imageAfter": "frame-002.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:27.397Z",
+      "completedAt": "2026-09-11T14:32:28.281Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 600,
+      "modelEndStep": 1200,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:28.255Z",
+        "completedAt": "2026-09-11T14:32:28.259Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 2,
+      "imageBefore": "frame-002.png",
+      "imageAfter": "frame-003.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:28.286Z",
+      "completedAt": "2026-09-11T14:32:29.242Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 1200,
+      "modelEndStep": 1800,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:29.202Z",
+        "completedAt": "2026-09-11T14:32:29.206Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 3,
+      "imageBefore": "frame-003.png",
+      "imageAfter": "frame-004.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:29.249Z",
+      "completedAt": "2026-09-11T14:32:29.994Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 1800,
+      "modelEndStep": 2400,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:29.962Z",
+        "completedAt": "2026-09-11T14:32:29.965Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 4,
+      "imageBefore": "frame-004.png",
+      "imageAfter": "frame-005.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:30.001Z",
+      "completedAt": "2026-09-11T14:32:30.721Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 2400,
+      "modelEndStep": 3000,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:30.695Z",
+        "completedAt": "2026-09-11T14:32:30.699Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 5,
+      "imageBefore": "frame-005.png",
+      "imageAfter": "frame-006.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:30.730Z",
+      "completedAt": "2026-09-11T14:32:31.657Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 3000,
+      "modelEndStep": 3600,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:31.634Z",
+        "completedAt": "2026-09-11T14:32:31.637Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 6,
+      "imageBefore": "frame-006.png",
+      "imageAfter": "frame-007.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:31.668Z",
+      "completedAt": "2026-09-11T14:32:32.594Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 3600,
+      "modelEndStep": 4200,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:32.570Z",
+        "completedAt": "2026-09-11T14:32:32.574Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 7,
+      "imageBefore": "frame-007.png",
+      "imageAfter": "frame-008.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:32.608Z",
+      "completedAt": "2026-09-11T14:32:33.527Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 4200,
+      "modelEndStep": 4800,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:33.502Z",
+        "completedAt": "2026-09-11T14:32:33.504Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 8,
+      "imageBefore": "frame-008.png",
+      "imageAfter": "frame-009.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:33.539Z",
+      "completedAt": "2026-09-11T14:32:34.494Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 4800,
+      "modelEndStep": 5400,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:34.470Z",
+        "completedAt": "2026-09-11T14:32:34.474Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 9,
+      "imageBefore": "frame-009.png",
+      "imageAfter": "frame-010.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:34.506Z",
+      "completedAt": "2026-09-11T14:32:35.419Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 5400,
+      "modelEndStep": 6000,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:35.394Z",
+        "completedAt": "2026-09-11T14:32:35.398Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 10,
+      "imageBefore": "frame-010.png",
+      "imageAfter": "frame-011.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:35.432Z",
+      "completedAt": "2026-09-11T14:32:36.368Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 6000,
+      "modelEndStep": 6600,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:36.344Z",
+        "completedAt": "2026-09-11T14:32:36.348Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 11,
+      "imageBefore": "frame-011.png",
+      "imageAfter": "frame-012.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:36.384Z",
+      "completedAt": "2026-09-11T14:32:37.332Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 6600,
+      "modelEndStep": 7200,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:37.311Z",
+        "completedAt": "2026-09-11T14:32:37.314Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 12,
+      "imageBefore": "frame-012.png",
+      "imageAfter": "frame-013.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:37.349Z",
+      "completedAt": "2026-09-11T14:32:38.331Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 7200,
+      "modelEndStep": 7800,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:38.309Z",
+        "completedAt": "2026-09-11T14:32:38.311Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 13,
+      "imageBefore": "frame-013.png",
+      "imageAfter": "frame-014.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:38.349Z",
+      "completedAt": "2026-09-11T14:32:39.299Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 7800,
+      "modelEndStep": 8400,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:39.276Z",
+        "completedAt": "2026-09-11T14:32:39.280Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 14,
+      "imageBefore": "frame-014.png",
+      "imageAfter": "frame-015.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:39.318Z",
+      "completedAt": "2026-09-11T14:32:40.257Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 8400,
+      "modelEndStep": 9000,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:40.240Z",
+        "completedAt": "2026-09-11T14:32:40.242Z",
+        "events": []
+      }
+    },
+    {
+      "runId": "browser_1789137145093_ae1ce9fc",
+      "decision": 15,
+      "imageBefore": "frame-015.png",
+      "imageAfter": "frame-016.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "capturedAt": "2026-09-11T14:32:40.278Z",
+      "completedAt": "2026-09-11T14:32:41.230Z",
+      "input": {
+        "version": "colour-retina-v2",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 108,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": 93.29526825633383,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "activation": false,
+        "kind": "wait",
+        "reason": "Motor population below movement gate"
+      },
+      "modelStartStep": 9000,
+      "modelEndStep": 9600,
+      "executed": {
+        "kind": "wait",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T14:32:41.206Z",
+        "completedAt": "2026-09-11T14:32:41.209Z",
+        "events": []
+      }
+    }
+  ],
+  "outcome": "not-activated",
+  "evaluator": {
+    "activated": false,
+    "activationCount": 0
+  },
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "a65780726c9d210f016ebe5f0fec961a7ac83b68ba5e1d67cf2412b59b2cb080",
+      "bytes": 150854
+    },
+    {
+      "path": "frame-000.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-001.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-002.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-003.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-004.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-005.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-006.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-007.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-008.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-009.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-010.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-011.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-012.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-013.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-014.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-015.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-016.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "69a9e5361042cef74909990176c8c64e6a21744c556d03b93c3e01ecb3fd163f",
+      "bytes": 132538
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "decisions": 16,
+    "states": 960,
+    "events": 0
+  }
+}
