@@ -5,4 +5,4 @@ export const MODEL_CONFIG = Object.freeze({
   basalSpeed: 7, motorSpeedGain: 48, turnGain: 2.4,
   chamberSize: 2000, streamHz: 20,
 });
-export type Intervention = 'intact' | 'disconnect-photoreceptors' | 'disconnect-inton' | 'shuffled';
+export type Intervention = 'intact' | 'disconnect-photoreceptors' | 'disconnect-inton' | 'shuffled' | 'clamp-left-motors' | 'clamp-right-motors' | 'clamp-all-motors';

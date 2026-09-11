@@ -1,0 +1,765 @@
+{
+  "measuredAt": "2026-09-11T13:08:09.385Z",
+  "protocol": "Same initial 47-neuron state and probe environment. Clamp listed motor neurons to zero after every synchronous update; all other rules unchanged. Pose-dependent sensory feedback remains active.",
+  "model": "rate-v1",
+  "replay": {
+    "exactIntegration": true,
+    "exactSelection": true,
+    "exactResponse": true
+  },
+  "trials": [
+    {
+      "intervention": "intact",
+      "record": {
+        "schemaVersion": 1,
+        "id": "controlled-feedback-validation_t0",
+        "recorder": "Specimen Recorder",
+        "origin": {
+          "runId": "controlled-feedback-validation",
+          "sourceRevision": "2a18bd2c21497e4549cea7ac9e9b7da1e509edda",
+          "sourceDirty": true,
+          "dataVersion": "elife-97964-fig2-data1-v1",
+          "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+          "modelVersion": "rate-v1"
+        },
+        "config": {
+          "version": "motor-integral-v1",
+          "recoverySeconds": 16,
+          "integrationSeconds": 8,
+          "responseSeconds": 8,
+          "cycleSeconds": 120,
+          "threshold": 0.05,
+          "units": "dimensionless activity × simulated seconds",
+          "rule": "D = integral(R - L) dt. D >= 0.05 selects right; D <= -0.05 selects left; otherwise no threshold reached, execute dark.",
+          "integrationMethod": "right-rectangle sum of post-step motor outputs, fixed dt=0.01 s",
+          "probe": {
+            "key": "probe-left",
+            "label": "Selection probe · left",
+            "angle": -1.5707963267948966,
+            "intensity": 0.85
+          },
+          "conditions": {
+            "left": {
+              "key": "left",
+              "label": "Selected light · left",
+              "angle": -1.5707963267948966,
+              "intensity": 0.85
+            },
+            "right": {
+              "key": "right",
+              "label": "Selected light · right",
+              "angle": 1.5707963267948966,
+              "intensity": 0.85
+            },
+            "dark": {
+              "key": "dark",
+              "label": "No threshold · dark",
+              "angle": 0,
+              "intensity": 0
+            }
+          }
+        },
+        "configSha256": "921a9de3e2052f92dd497afa02091a01be498c5a29cff58de940de887e434af6",
+        "startedAt": "2026-09-11T13:08:09.321Z",
+        "completedAt": "2026-09-11T13:08:09.343Z",
+        "initial": {
+          "ticks": 0,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "heading": -0.18,
+            "roll": 0.23,
+            "bend": 0,
+            "ciliaPhase": 0,
+            "distance": 0
+          },
+          "activity": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "motorCells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "side": "L"
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "side": "R"
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "side": "L"
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "side": "R"
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "side": "R"
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "side": "L"
+          }
+        ],
+        "integration": {
+          "modelStart": 16,
+          "modelEnd": 24,
+          "sampleCount": 800,
+          "leftIntegral": 2.842010355211456,
+          "rightIntegral": 2.9506491226721487,
+          "neuronIntegrals": [
+            2.8307472041819386,
+            3.1177015152712735,
+            2.802403530490961,
+            2.8700606118096803,
+            2.8641852409354938,
+            2.8928803309614817
+          ]
+        },
+        "selection": {
+          "difference": 0.10863876746069279,
+          "thresholdReached": true,
+          "condition": {
+            "key": "right",
+            "label": "Selected light · right",
+            "angle": 1.5707963267948966,
+            "intensity": 0.85
+          }
+        },
+        "response": {
+          "modelStart": 24,
+          "modelEnd": 32,
+          "sampleCount": 800,
+          "leftMean": 0.578231683875062,
+          "rightMean": 0.5730460408400572,
+          "neuronMeans": [
+            0.5793241560772232,
+            0.5617670705353596,
+            0.5800256470878505,
+            0.5796255217576237,
+            0.5777455302271897,
+            0.5753452484601148
+          ],
+          "forwardMean": 34.63066539316285,
+          "turnMean": -0.01244554328401163,
+          "distance": 277.0453231453027,
+          "finalActivity": [
+            0.5767277862511277,
+            0.1551303395454946,
+            0.5792200050369887,
+            0.3838327929917988,
+            0.5393143625378601,
+            0.5889712907974491,
+            0.1551303395454946,
+            0.7788288497669514,
+            0.5762126347656551,
+            0.1551303395454946,
+            0.1551303395454946,
+            0.1551303395454946,
+            0.5532767749262683,
+            0.3947433546133538,
+            0.3949187560738275,
+            0.514219380802661,
+            0.5724257204919119,
+            0.5732846547718097,
+            0.5584689118514258,
+            0.36931816658424943,
+            0.5690724436693221,
+            0.5015999627635547,
+            0.5533341707751237,
+            0.577895115581072,
+            0.3401879533003483,
+            0.5200538554334273,
+            0.4375266716238566,
+            0.5559955871803038,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.5699793461338163,
+            0.7788288497669514,
+            0.578141804750727,
+            0.7788288497669514,
+            0.7788288497669514,
+            0.1551303395454946,
+            0.1551303395454946,
+            0.574936469146754,
+            0.1551303395454946,
+            0.1551303395454946,
+            0.5716023910869049,
+            0.1551303395454946
+          ],
+          "finalPose": {
+            "x": 14.027900839198992,
+            "y": -577.3393289697378,
+            "heading": -0.018831304366442096,
+            "roll": 11.241008446461514,
+            "bend": -0.013341598891867906,
+            "ciliaPhase": 2092.355018056433,
+            "distance": 584.0691506145047
+          }
+        },
+        "outcome": "condition-executed"
+      }
+    },
+    {
+      "intervention": "clamp-right-motors",
+      "record": {
+        "schemaVersion": 1,
+        "id": "controlled-feedback-validation_t0",
+        "recorder": "Specimen Recorder",
+        "origin": {
+          "runId": "controlled-feedback-validation",
+          "sourceRevision": "2a18bd2c21497e4549cea7ac9e9b7da1e509edda",
+          "sourceDirty": true,
+          "dataVersion": "elife-97964-fig2-data1-v1",
+          "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+          "modelVersion": "rate-v1"
+        },
+        "config": {
+          "version": "motor-integral-v1",
+          "recoverySeconds": 16,
+          "integrationSeconds": 8,
+          "responseSeconds": 8,
+          "cycleSeconds": 120,
+          "threshold": 0.05,
+          "units": "dimensionless activity × simulated seconds",
+          "rule": "D = integral(R - L) dt. D >= 0.05 selects right; D <= -0.05 selects left; otherwise no threshold reached, execute dark.",
+          "integrationMethod": "right-rectangle sum of post-step motor outputs, fixed dt=0.01 s",
+          "probe": {
+            "key": "probe-left",
+            "label": "Selection probe · left",
+            "angle": -1.5707963267948966,
+            "intensity": 0.85
+          },
+          "conditions": {
+            "left": {
+              "key": "left",
+              "label": "Selected light · left",
+              "angle": -1.5707963267948966,
+              "intensity": 0.85
+            },
+            "right": {
+              "key": "right",
+              "label": "Selected light · right",
+              "angle": 1.5707963267948966,
+              "intensity": 0.85
+            },
+            "dark": {
+              "key": "dark",
+              "label": "No threshold · dark",
+              "angle": 0,
+              "intensity": 0
+            }
+          }
+        },
+        "configSha256": "921a9de3e2052f92dd497afa02091a01be498c5a29cff58de940de887e434af6",
+        "startedAt": "2026-09-11T13:08:09.344Z",
+        "completedAt": "2026-09-11T13:08:09.361Z",
+        "initial": {
+          "ticks": 0,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "heading": -0.18,
+            "roll": 0.23,
+            "bend": 0,
+            "ciliaPhase": 0,
+            "distance": 0
+          },
+          "activity": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "motorCells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "side": "L"
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "side": "R"
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "side": "L"
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "side": "R"
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "side": "R"
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "side": "L"
+          }
+        ],
+        "integration": {
+          "modelStart": 16,
+          "modelEnd": 24,
+          "sampleCount": 800,
+          "leftIntegral": 1.1240526434527982,
+          "rightIntegral": 0,
+          "neuronIntegrals": [
+            1.5501646255728219,
+            0,
+            0.4115082319964481,
+            0,
+            0,
+            1.4104850727891274
+          ]
+        },
+        "selection": {
+          "difference": -1.1240526434527982,
+          "thresholdReached": true,
+          "condition": {
+            "key": "left",
+            "label": "Selected light · left",
+            "angle": -1.5707963267948966,
+            "intensity": 0.85
+          }
+        },
+        "response": {
+          "modelStart": 24,
+          "modelEnd": 32,
+          "sampleCount": 800,
+          "leftMean": 0.22647866122462287,
+          "rightMean": 0,
+          "neuronMeans": [
+            0.3224208975710401,
+            0,
+            0.07994512801648741,
+            0,
+            0,
+            0.2770699580863423
+          ],
+          "forwardMean": 12.435487869390947,
+          "turnMean": -0.5435487869390953,
+          "distance": 99.48390295512752,
+          "finalActivity": [
+            0.33997782641907615,
+            0.6615110876599497,
+            0.45548138238588715,
+            0.5861648794417742,
+            0.48359114511004153,
+            0.4164834505113497,
+            0.6615110876599497,
+            0.1704511594392758,
+            0.32671022881612866,
+            0.6615110876599497,
+            0.6615110876599497,
+            0.6615110876599497,
+            0.48746411096373315,
+            0.592424308617328,
+            0.5878341061166943,
+            0.5446012821575638,
+            0.39077380931602224,
+            0.47049054918020855,
+            0.4547977268604976,
+            0.5658531661161601,
+            0.437688002848786,
+            0.5658998738486153,
+            0,
+            0.0863732362824487,
+            0.5924094371968203,
+            0.4910955973840004,
+            0.5609378650006991,
+            0.4086278380161492,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.39727921832751445,
+            0.1704511594392758,
+            0,
+            0.1704511594392758,
+            0.1704511594392758,
+            0.6615110876599497,
+            0.6615110876599497,
+            0,
+            0.6615110876599497,
+            0.6615110876599497,
+            0.2963879600547049,
+            0.6615110876599497
+          ],
+          "finalPose": {
+            "x": -22.630977744451684,
+            "y": -135.88947086880125,
+            "heading": -7.226116639799487,
+            "roll": 7.017558676637308,
+            "bend": -0.4296402631860964,
+            "ciliaPhase": 1864.89743914755,
+            "distance": 294.46116639799016
+          }
+        },
+        "outcome": "condition-executed"
+      }
+    },
+    {
+      "intervention": "clamp-all-motors",
+      "record": {
+        "schemaVersion": 1,
+        "id": "controlled-feedback-validation_t0",
+        "recorder": "Specimen Recorder",
+        "origin": {
+          "runId": "controlled-feedback-validation",
+          "sourceRevision": "2a18bd2c21497e4549cea7ac9e9b7da1e509edda",
+          "sourceDirty": true,
+          "dataVersion": "elife-97964-fig2-data1-v1",
+          "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+          "modelVersion": "rate-v1"
+        },
+        "config": {
+          "version": "motor-integral-v1",
+          "recoverySeconds": 16,
+          "integrationSeconds": 8,
+          "responseSeconds": 8,
+          "cycleSeconds": 120,
+          "threshold": 0.05,
+          "units": "dimensionless activity × simulated seconds",
+          "rule": "D = integral(R - L) dt. D >= 0.05 selects right; D <= -0.05 selects left; otherwise no threshold reached, execute dark.",
+          "integrationMethod": "right-rectangle sum of post-step motor outputs, fixed dt=0.01 s",
+          "probe": {
+            "key": "probe-left",
+            "label": "Selection probe · left",
+            "angle": -1.5707963267948966,
+            "intensity": 0.85
+          },
+          "conditions": {
+            "left": {
+              "key": "left",
+              "label": "Selected light · left",
+              "angle": -1.5707963267948966,
+              "intensity": 0.85
+            },
+            "right": {
+              "key": "right",
+              "label": "Selected light · right",
+              "angle": 1.5707963267948966,
+              "intensity": 0.85
+            },
+            "dark": {
+              "key": "dark",
+              "label": "No threshold · dark",
+              "angle": 0,
+              "intensity": 0
+            }
+          }
+        },
+        "configSha256": "921a9de3e2052f92dd497afa02091a01be498c5a29cff58de940de887e434af6",
+        "startedAt": "2026-09-11T13:08:09.361Z",
+        "completedAt": "2026-09-11T13:08:09.372Z",
+        "initial": {
+          "ticks": 0,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "heading": -0.18,
+            "roll": 0.23,
+            "bend": 0,
+            "ciliaPhase": 0,
+            "distance": 0
+          },
+          "activity": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "motorCells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "side": "L"
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "side": "R"
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "side": "L"
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "side": "R"
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "side": "R"
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "side": "L"
+          }
+        ],
+        "integration": {
+          "modelStart": 16,
+          "modelEnd": 24,
+          "sampleCount": 800,
+          "leftIntegral": 0,
+          "rightIntegral": 0,
+          "neuronIntegrals": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "selection": {
+          "difference": 0,
+          "thresholdReached": false,
+          "condition": {
+            "key": "dark",
+            "label": "No threshold · dark",
+            "angle": 0,
+            "intensity": 0
+          }
+        },
+        "response": {
+          "modelStart": 24,
+          "modelEnd": 32,
+          "sampleCount": 800,
+          "leftMean": 0,
+          "rightMean": 0,
+          "neuronMeans": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forwardMean": 7.000000000000026,
+          "turnMean": 0,
+          "distance": 55.99999999999454,
+          "finalActivity": [
+            0,
+            4.387973452949009e-31,
+            0.12511749819490986,
+            0.0000018619141381515776,
+            4.1321591437829327e-7,
+            3.786423429414092e-7,
+            4.387973452949009e-31,
+            8.566840262708016e-32,
+            0,
+            4.387973452949009e-31,
+            4.387973452949009e-31,
+            4.387973452949009e-31,
+            0.1366496114821839,
+            0.000001834187826414462,
+            1.1318459625553272e-7,
+            0.0001367485776619855,
+            0.1286337353727115,
+            0.15349371248725122,
+            0.0000013081298860622925,
+            6.304991531170173e-8,
+            0.13984847576474474,
+            0.00015745482572345813,
+            0,
+            0,
+            9.554511482170639e-7,
+            0.00000315557688907582,
+            0.0000017910931767952118,
+            0.0000020972779498310386,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            2.1679964742392885e-7,
+            8.566840262708016e-32,
+            0,
+            8.566840262708016e-32,
+            8.566840262708016e-32,
+            4.387973452949009e-31,
+            4.387973452949009e-31,
+            0,
+            4.387973452949009e-31,
+            4.387973452949009e-31,
+            0,
+            4.387973452949009e-31
+          ],
+          "finalPose": {
+            "x": -25.702624447876588,
+            "y": -216.54098718427122,
+            "heading": -0.18,
+            "roll": 5.990000000000075,
+            "bend": 0,
+            "ciliaPhase": 1809.557368467564,
+            "distance": 223.99999999998465
+          }
+        },
+        "outcome": "no-threshold-dark-executed"
+      }
+    }
+  ]
+}

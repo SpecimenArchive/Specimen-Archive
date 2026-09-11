@@ -8,19 +8,37 @@ import type { Circuit } from '../shared/types';
 import { Engine } from './model/engine';
 import { MODEL_CONFIG as C } from './model/config';
 import { Storage } from './storage';
+import { Experiment, EXPERIMENT_CONFIG } from './experiment';
+import { ExperimentStore } from './experiment-store';
+import { SpecimenRecorder, GitHubCLI } from './recorder';
+import { executionOrigin } from './provenance';
+import { replayExperiment } from './replay';
+import { BrowserService } from './browser/service';
 
 const ROOT=fileURLToPath(new URL('../',import.meta.url));
 const production=process.argv.includes('--production');
+const browserEnabled=process.argv.includes('--browser-demo');
 const port=Number(process.env.PORT||4317);
 if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be an integer from 1024 to 65535');
 const circuit=JSON.parse(readFileSync(resolve(ROOT,'data/processed/circuit.json'),'utf8')) as Circuit;
 const engine=new Engine(circuit);
 let runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`,startedAt=new Date().toISOString(),seq=0;
-let store=new Storage(process.env.RUNTIME_DIR||resolve(ROOT,'runtime'),runId,startedAt);store.markInterrupted();store.restore(engine);store.prune();
+let store=new Storage(process.env.RUNTIME_DIR||resolve(ROOT,'runtime'),runId,startedAt);store.markInterrupted();const recoveredTrial=store.restore(engine);store.prune();
+const executedOrigin=executionOrigin(runId);
+const resumable=recoveredTrial&&recoveredTrial.origin.sourceRevision===executedOrigin.sourceRevision&&recoveredTrial.origin.sourceDirty===executedOrigin.sourceDirty&&recoveredTrial.version===EXPERIMENT_CONFIG.version?recoveredTrial:undefined;
+let experiment=new Experiment(engine,executedOrigin,resumable);
+const experimentStore=new ExperimentStore(store.root);
+const recorder=new SpecimenRecorder(experimentStore,new GitHubCLI(experimentStore.root),process.env.RECORDER_REPOSITORY,process.env.RECORDER_ENABLED==='1');
+if(resumable?.completed)experimentStore.save(resumable.completed);
 engine.event('session','Observation session opened');
 let segmentStart=engine.time;
 let snapshot=engine.snapshot(runId,seq,startedAt,0);
 const connections=new Set<WebSocket>();
+const browserService=new BrowserService(store.root,circuit,live=>{
+  if(!live.snapshot)return;snapshot=live.snapshot;
+  const packet=JSON.stringify({type:'snapshot',snapshot,browser:live});
+  for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){ws.close(1013,'Slow observer');continue;}ws.send(packet);}
+});
 const server=createServer();
 const wss=new WebSocketServer({noServer:true,maxPayload:1024});
 let droppedFrames=0;
@@ -28,17 +46,34 @@ server.on('upgrade',(request,socket,head)=>{
   if(request.url?.split('?')[0]!=='/stream')return;
   const origin=request.headers.origin;
   if(origin&&!['http://127.0.0.1:'+port,'http://localhost:'+port].includes(origin)){socket.destroy();return;}
-  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
+  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot,browser:browserEnabled?browserService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
 });
 const vite=production?null:await (await import('vite')).createServer({root:ROOT,server:{middlewareMode:true,hmr:{server}},appType:'spa'});
-const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.md':'text/markdown; charset=utf-8'};
+const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.webm':'video/webm','.md':'text/markdown; charset=utf-8'};
 server.on('request',(req,res)=>{
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
-  if(url.pathname==='/api/health'){json({ok:true,runId,seq,modelTime:engine.time,clients:connections.size,droppedFrames,timeScale:C.timeScale});return;}
+  if(url.pathname==='/api/health'){json({ok:true,runId:snapshot.runId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:browserEnabled?'accelerated windows':C.timeScale,mode:browserEnabled?'browser':'light'});return;}
+  if(url.pathname==='/api/browser/live'){json(browserService.live);return;}
+  if(url.pathname==='/api/browser/records'){json(browserService.records().slice(0,50));return;}
+  if(url.pathname==='/api/browser/publications'){json(browserService.store.publications().slice(0,50));return;}
+  if(url.pathname.startsWith('/api/browser/artifacts/')){
+    const [id,name]=url.pathname.slice('/api/browser/artifacts/'.length).split('/');const path=browserService.file(id,name);
+    if(!path){json({error:'Artifact not found'},404);return;}res.setHeader('Content-Type',mime[extname(path)]||'application/octet-stream');res.end(readFileSync(path));return;
+  }
+  if(url.pathname.startsWith('/api/browser/replay/')){const frames=browserService.trace(url.pathname.slice('/api/browser/replay/'.length));json(frames??{error:'Recorded trace not found'},frames?200:404);return;}
   if(url.pathname==='/api/state'){json(snapshot);return;}
   if(url.pathname==='/api/circuit'){json(circuit);return;}
+  if(url.pathname==='/api/experiment'){json(experiment.summary());return;}
+  if(url.pathname==='/api/publications'){json(experimentStore.publications().slice(0,50));return;}
+  if(url.pathname==='/api/experiments'){json(experimentStore.records().slice(0,50));return;}
+  if(url.pathname.startsWith('/api/experiments/')){
+    const [id,view]=url.pathname.slice('/api/experiments/'.length).split('/');const record=experimentStore.read(id);
+    if(!record){json({error:'Experiment not found'},404);return;}
+    if(view==='replay'){try{json(replayExperiment(record,circuit));}catch(e){json({error:(e as Error).message},409);}return;}
+    json(record);return;
+  }
   if(url.pathname==='/api/manifest'){json(JSON.parse(readFileSync(resolve(ROOT,'data/processed/manifest.json'),'utf8')));return;}
   if(url.pathname==='/api/connectome'){json(JSON.parse(readFileSync(resolve(ROOT,'data/processed/connectome.json'),'utf8')));return;}
   if(url.pathname==='/api/sessions'){store.writeMeta();json(store.list());return;}
@@ -58,16 +93,23 @@ server.on('request',(req,res)=>{
 });
 let stopped=false,last=performance.now(),accumulator=0,lastStream=last,lastRecord=last,lastSave=last;
 const interval=setInterval(()=>{
+  if(browserEnabled)return;
   const now=performance.now(),elapsed=(now-last)/1000;last=now;
   if(elapsed>2)engine.event('session',`Scheduler gap ${elapsed.toFixed(1)} s; catch-up bounded`);
   accumulator+=Math.min(elapsed,.2)*C.timeScale;
-  let steps=0;while(accumulator>=C.dt&&steps<20){engine.step();accumulator-=C.dt;steps++;}
-  if(now-lastStream>=1000/C.streamHz){lastStream=now;snapshot=engine.snapshot(runId,++seq,startedAt,(Date.now()-Date.parse(startedAt))/1000);const packet=JSON.stringify({type:'snapshot',snapshot});for(const ws of connections){if(ws.readyState!==WebSocket.OPEN)continue;if(ws.bufferedAmount>64*1024){droppedFrames++;ws.close(1013,'Slow observer; reconnect for resync');continue;}ws.send(packet);}}
+  let steps=0;while(accumulator>=C.dt&&steps<20){
+    if(experiment.elapsed>=EXPERIMENT_CONFIG.cycleSeconds)experiment=new Experiment(engine,{...executedOrigin,runId});
+    const completed=experiment.step();if(completed){experimentStore.save(completed);void recorder.tick();}
+    accumulator-=C.dt;steps++;
+  }
+  if(now-lastStream>=1000/C.streamHz){const period=1000/C.streamHz;lastStream+=Math.floor((now-lastStream)/period)*period;snapshot=engine.snapshot(runId,++seq,startedAt,(Date.now()-Date.parse(startedAt))/1000);const packet=JSON.stringify({type:'snapshot',snapshot});for(const ws of connections){if(ws.readyState!==WebSocket.OPEN)continue;if(ws.bufferedAmount>64*1024){droppedFrames++;ws.close(1013,'Slow observer; reconnect for resync');continue;}ws.send(packet);}}
   if(now-lastRecord>=200){lastRecord=now;store.record(snapshot);}
-  if(now-lastSave>=5000){lastSave=now;store.checkpoint(engine);}
+  if(now-lastSave>=5000){lastSave=now;store.checkpoint(engine,experiment.state);}
   if(engine.time-segmentStart>=120){store.close();runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`;startedAt=new Date().toISOString();seq=0;store=new Storage(store.root,runId,startedAt);store.prune();segmentStart=engine.time;engine.event('session','New recorded observation segment');}
 },10);
 const heartbeat=setInterval(()=>{for(const ws of connections)if(ws.readyState===WebSocket.OPEN)ws.ping();},15000);
-async function shutdown(){if(stopped)return;stopped=true;clearInterval(interval);clearInterval(heartbeat);store.checkpoint(engine);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
+const recorderPoll=setInterval(()=>{void recorder.tick();void browserService.recorder.tick();},10000);
+async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
 process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
 server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\nModel runs at ${C.timeScale}× wall time. Ctrl+C to stop.`));
+if(browserEnabled)void browserService.start(process.argv.includes('--repeat')).catch(e=>console.error('Browser demonstration failed:',e.message));

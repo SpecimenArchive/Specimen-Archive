@@ -6,9 +6,11 @@ export class RateNetwork {
   private next: Float64Array;
   readonly edges: { source: number; target: number; gain: number }[];
   readonly index: Map<string, number>;
+  readonly clamped: number[];
   constructor(readonly circuit: Circuit, intervention: Intervention = 'intact') {
     this.activity = new Float64Array(circuit.nodes.length); this.next = new Float64Array(circuit.nodes.length);
     this.index = new Map(circuit.nodes.map((n,i)=>[n.id,i]));
+    this.clamped=circuit.nodes.flatMap((n,i)=>n.category==='motor'&&(intervention==='clamp-all-motors'||intervention==='clamp-left-motors'&&n.side==='L'||intervention==='clamp-right-motors'&&n.side==='R')?[i]:[]);
     const totals = new Float64Array(circuit.nodes.length);
     let seed=C.seed;
     const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
@@ -32,6 +34,7 @@ export class RateNetwork {
       // bounded non-spiking activity model, not measured membrane voltage.
       this.next[i]=this.activity[i]+C.dt/tau*(Math.tanh(input)-this.activity[i]);
     }
+    for(const i of this.clamped)this.next[i]=0;
     [this.activity,this.next]=[this.next,this.activity];
   }
 }

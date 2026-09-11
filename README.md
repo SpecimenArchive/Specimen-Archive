@@ -2,7 +2,7 @@
 
 An observation-only digital biology instrument for a synthetic **72 hpf Platynereis dumerilii** larva. Published structural connectivity feeds a deterministic rate model; sensory encoding, neuron activity, motor output, pose and events can be traced in source.
 
-**Build status:** the continuous scientific pipeline works. A refined photographic specimen and 19.5-second model-driven motion study are ready at `/photographic-study.html` in the dev server; integration awaits visual review. A public development trail and one traceable motor-dependent experiment/recorder loop are the next authorized increment. See [STATUS.md](STATUS.md). This is not yet the final accepted application.
+**Primary demonstration:** captured browser pixels drive the published circuit, whose computed motor activity controls a real local browser button task. Use `npm run demo` and [the executable protocol](docs/BROWSER_CONTROLLER.md). Matched intact, motor-disabled and sensory-pathway-disconnected trials, PNGs, neural traces and browser recordings make the connection inspectable. See [STATUS.md](STATUS.md) for current validation.
 
 ## Run locally
 
@@ -10,10 +10,11 @@ Prerequisites: **Node.js 24 LTS** (tested with 24.11.1) and npm (tested with 11.
 
 ```powershell
 npm ci
-npm run dev
+npx playwright install chromium
+npm run demo
 ```
 
-Open **http://127.0.0.1:4317**. That one command starts both the React/Vite interface and the independent continuous engine. No credentials, external database, wallet or paid service is needed. Compact processed research data, texture assets and fonts are local. Ctrl+C stops the server and saves a checkpoint; running the command again starts a new recorded session and resumes model state with the restart gap disclosed.
+Open **http://127.0.0.1:4317**. That command starts the observation interface and one matched nine-trial browser suite. Use `npm run demo:loop` for repeated suites, or `npm run dev` for the original continuous microscopy/light experiment. No credentials, external database, wallet or paid service is needed. Compact processed research data, texture assets and fonts are local. Ctrl+C stops the server and saves a checkpoint; running the command again starts a new recorded session and resumes model state with the restart gap disclosed.
 
 For the built application:
 

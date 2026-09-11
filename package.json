@@ -9,8 +9,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "tsx server/index.ts",
-    "start": "tsx server/index.ts --production",
+    "dev": "node --env-file-if-exists=.env --import tsx server/index.ts",
+    "start": "node --env-file-if-exists=.env --import tsx server/index.ts --production",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
@@ -18,9 +18,16 @@
     "validate:science": "tsx scripts/validate.ts",
     "benchmark": "tsx scripts/benchmark.ts",
     "trace": "tsx scripts/trace.ts",
-    "verify": "npm run typecheck && npm test && npm run validate:science && npm run build"
+    "validate:feedback": "tsx scripts/feedback-validation.ts",
+    "verify": "npm run typecheck && npm test && npm run validate:science && npm run build",
+    "demo": "node --env-file-if-exists=.env --import tsx server/index.ts --browser-demo",
+    "demo:loop": "npm run demo -- --repeat",
+    "browser:validate": "node --env-file-if-exists=.env --import tsx scripts/browser-demo.ts --suite",
+    "browser:replay": "tsx scripts/browser-replay.ts",
+    "browser:calibrate": "tsx scripts/browser-calibration.ts"
   },
   "dependencies": {
+    "pngjs": "7.0.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "three": "^0.186.0",
@@ -29,6 +36,7 @@
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.20.2",
+    "@types/pngjs": "6.0.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.185.4",

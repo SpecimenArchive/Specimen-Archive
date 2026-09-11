@@ -30,6 +30,7 @@ precision highp float;
 uniform sampler2D photograph;
 uniform float bend, viewAngle, phase, headLeft, headRight, trunkLeft, trunkRight, left, right;
 uniform float subjectScale;
+uniform float viewportAspect;
 varying vec2 vUv;
 const float aspect = 1832.0 / 859.0;
 float ellipse(vec2 p, vec2 c, vec2 r) {
@@ -138,6 +139,7 @@ void main() {
   // No time uniform: illumination and water never follow the deformation.
   vec3 bg=water(uv);
   vec2 p=(uv-.5)/subjectScale;
+  p.x*=viewportAspect/aspect;
   p.x*=aspect;
   float co=cos(viewAngle),si=sin(viewAngle);
   p=mat2(co,-si,si,co)*p;
@@ -158,7 +160,7 @@ export class PhotographicRenderer {
     this.renderer = new THREE.WebGLRenderer({canvas, antialias: false, preserveDrawingBuffer: true});
     this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     this.renderer.setSize(PHOTO_RIG.viewport[0], PHOTO_RIG.viewport[1], false);
-    const uniforms: Record<string, THREE.IUniform> = {photograph: {value: null}, subjectScale: {value: PHOTO_RIG.scale}};
+    const uniforms: Record<string, THREE.IUniform> = {photograph: {value: null}, subjectScale: {value: PHOTO_RIG.scale},viewportAspect:{value:1002/470}};
     for (const name of ['bend','viewAngle','phase','headLeft','headRight','trunkLeft','trunkRight','left','right']) uniforms[name]={value:0};
     this.material = new THREE.ShaderMaterial({uniforms, vertexShader:'varying vec2 vUv; void main(){vUv=uv;gl_Position=vec4(position,1.0);}', fragmentShader:fragment});
     this.scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), this.material));
@@ -174,6 +176,11 @@ export class PhotographicRenderer {
     for(const [key,value] of Object.entries(controls)) this.material.uniforms[key].value=value;
     this.renderer.render(this.scene,this.camera);
     return controls;
+  }
+  resize(width:number,height:number){
+    if(width<1||height<1)return;
+    this.renderer.setSize(Math.round(width),Math.round(height),false);
+    this.material.uniforms.viewportAspect.value=width/height;
   }
   dispose(){this.material.uniforms.photograph.value?.dispose();this.material.dispose();this.renderer.dispose();}
 }

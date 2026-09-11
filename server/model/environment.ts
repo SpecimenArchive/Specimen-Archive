@@ -1,4 +1,4 @@
-import type { Environment, Pose } from '../../shared/types';
+import type { Environment, Pose, LightCondition } from '../../shared/types';
 import { MODEL_CONFIG as C } from './config';
 export const SCHEDULE = [
   { label: 'Dark adaptation', angle: -Math.PI / 2, intensity: 0 },
@@ -8,9 +8,9 @@ export const SCHEDULE = [
   { label: 'Oblique light', angle: -Math.PI / 4, intensity: .72 },
   { label: 'Dark recovery', angle: -Math.PI / 4, intensity: 0 },
 ];
-export function environmentAt(time: number, pose: Pose): Environment {
-  const epoch = Math.floor((time + 1e-8) / C.epochSeconds);
-  const env = SCHEDULE[epoch % SCHEDULE.length];
+export function environmentAt(time: number, pose: Pose, override?: LightCondition & {epoch:number}): Environment {
+  const epoch = override?.epoch ?? Math.floor((time + 1e-8) / C.epochSeconds);
+  const env = override ?? SCHEDULE[epoch % SCHEDULE.length];
   // Directional eye shading is an assumed encoder. Pose changes alter the next
   // input; a smooth spatial illumination field makes position relevant too.
   const spatial = .85 + .15 * Math.cos((pose.x * Math.sin(env.angle) - pose.y * Math.cos(env.angle)) / 600);
