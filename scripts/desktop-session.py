@@ -14,6 +14,7 @@ import socket
 import base64
 import threading
 import time
+import signal
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from PIL import ImageGrab
 
@@ -22,6 +23,16 @@ children = []
 session = tempfile.TemporaryDirectory(prefix="specimen-desktop-")
 root = Path(session.name)
 log = open(root / "session.log", "w")
+
+
+def stop_session(signum, _frame):
+    # WSL can send HUP/TERM when its Windows launcher closes. Python's defaults
+    # skip finally for these signals, leaving the X server orphaned.
+    raise SystemExit(128 + signum)
+
+
+signal.signal(signal.SIGHUP, stop_session)
+signal.signal(signal.SIGTERM, stop_session)
 
 
 def launch(args, env=None):
@@ -175,6 +186,10 @@ clock_padding = 8 0
             except OSError:
                 pass
 finally:
+    # A second launcher signal must not interrupt owned-child cleanup.
+    signal.signal(signal.SIGHUP, signal.SIG_IGN)
+    signal.signal(signal.SIGTERM, signal.SIG_IGN)
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
     for child in reversed(children):
         if child.poll() is None:
             child.terminate()

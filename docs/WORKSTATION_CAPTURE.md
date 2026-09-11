@@ -85,6 +85,11 @@ prepared Windows distro. The Python helper uses process pipes to tunnel the priv
 and framebuffer requests, avoiding WSL forwarding and external listeners.
 Closing the pipe tears down only the session's children and temporary profile.
 Chrome's normal sandbox remains enabled.
+The helper also cleans up on WSL launcher HUP/TERM signals. Run
+`wsl.exe -d Ubuntu -- python3 /mnt/c/path/to/SpecimenArchive/scripts/desktop-shutdown-check.py`
+to verify that both signals remove all owned direct child processes; Linux CI
+runs the same regression check. Normal Ctrl+C still goes through the backend's
+recording shutdown first.
 The temporary profile explicitly selects the native Openbox frame and X11.
 Chrome's environment-dependent custom frame clipped the right edge on the first
 Linux CI run; native framing keeps the same complete 640 x 360 page rectangle
