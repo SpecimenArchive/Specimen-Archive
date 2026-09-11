@@ -47,6 +47,6 @@ function loop(now:number){
 renderAt(8);requestAnimationFrame(loop);
 // Read-only deterministic capture API. No mutation of the running engine.
 Object.assign(window,{photoStudy:{ready:true,canvas,frames,circuit,duration,start,timings,
-  renderAt, controls:()=>photographicControls(lastState,circuit),
+  renderAt, diagnosticDraw:(state:Snapshot)=>renderer.draw(state), controls:()=>photographicControls(lastState,circuit),
   play:()=>{elapsed=0;playing=true;button.textContent='Pause study';},
   pause:()=>{playing=false;button.textContent='Play motion study';}}});

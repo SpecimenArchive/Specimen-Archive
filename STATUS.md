@@ -31,6 +31,10 @@ NEXT: one motor-integral → predefined light selection → response loop, expli
 First optical-refinement review is in docs/previews/index.html (before/after identical actual state + 12s live clip). User explicitly found it insufficient; do not treat this as accepted visual completion.
 
 ## Exact commands and running processes
+
+HEAD-MOTION REVIEW: User reported jelly-like distortion at full speed. Reproduced from checkpoint 766afbd: changing only oscillator phase altered 2,585 head ROI pixels with maximum channel delta 147. Ciliary masks overlapped tissue. Registered head exclusion plus restrained peripheral displacement reduces phase-dependent changes in head ROI to zero while preserving 2,878 moving appendage pixels. `scripts/head-motion-check.mjs` preserves the original before clip and saves the diagnostic. Normal-speed 19.5-second after clip recaptured: 1,169 frames, median 16.7 ms / p95 16.8 ms, no browser errors. Before/after page: /docs/previews/head-motion-review.html. Integration remains paused for user review.
+
+REPOSITORY: user supplied https://github.com/SpecimenArchive/Specimen-Archive. Read-only gh connection checks return HTTP 401; login not yet usable. Local loop implementation continues. No remote writes performed.
 - `npm run dev`: one process, localhost 4317, retained exec session 16372.
 - `npm run typecheck`: passed.
 - `npm run validate:science`: passed; actual controlled results saved.

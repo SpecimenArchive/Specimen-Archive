@@ -4,7 +4,7 @@ import type { Circuit, Snapshot } from '../../shared/types';
 /** Fixed-view photographic rig. Hand-registered artistic regions of the
  * synthetic asset are neither measured anatomy nor neuron positions. */
 export const PHOTO_RIG = {
-  version: 'photo-rig-v1', asset: '/assets/specimen-photographic-base-v2.png',
+  version: 'photo-rig-v2-head-stable', asset: '/assets/specimen-photographic-base-v2.png',
   scale: .84, viewport: [1002, 470], bendGain: 2.1,
   maximumViewAngle: .035, referenceHeading: -.18,
 } as const;
@@ -81,13 +81,17 @@ vec2 appendages(vec2 p) {
   }
   // Local fields share the unwrapped authoritative oscillator. Phase gradients
   // illustrate metachronal waves; they are not additional neural telemetry.
-  float crown=ellipse(p,vec2(.502,.103),vec2(.088,.053));
-  float flankL=ellipse(p,vec2(.425,.236),vec2(.027,.097));
-  float flankR=ellipse(p,vec2(.578,.210),vec2(.025,.09));
-  q.x-=crown*.0016*sin(phase+p.x*125.0)*(.35+headLeft+headRight);
-  q.y-=crown*.0017*cos(phase+p.x*125.0)*(.35+headLeft+headRight);
-  q.y-=flankL*.003*sin(phase+p.y*98.0)*(.35+headLeft);
-  q.y-=flankR*.003*sin(phase+p.y*98.0+1.7)*(.35+headRight);
+  // The old broad ciliary masks crossed the cephalic tissue and pigment cups,
+  // making the head ripple at beat frequency. This registered head exclusion
+  // is independent of phase: only fine structure outside the tissue hull moves.
+  float headExterior=smoothstep(1.04,1.13,length((p-vec2(.500,.211))/vec2(.091,.153)));
+  float crown=ellipse(p,vec2(.502,.064),vec2(.080,.032))*headExterior;
+  float flankL=ellipse(p,vec2(.414,.236),vec2(.018,.080))*headExterior;
+  float flankR=ellipse(p,vec2(.587,.210),vec2(.018,.080))*headExterior;
+  q.x-=crown*.0007*sin(phase+p.x*125.0)*(.35+headLeft+headRight);
+  q.y-=crown*.0010*cos(phase+p.x*125.0)*(.35+headLeft+headRight);
+  q.y-=flankL*.0017*sin(phase+p.y*98.0)*(.35+headLeft);
+  q.y-=flankR*.0017*sin(phase+p.y*98.0+1.7)*(.35+headRight);
   for(int i=0;i<3;i++) {
     float y=.39+float(i)*.186,off=float(i)*1.71;
     float a=ellipse(p,vec2(.456+float(i)*.011,y),vec2(.014,.044));
