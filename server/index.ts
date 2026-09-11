@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync,unlinkSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve, extname } from 'node:path';
 import { randomUUID } from 'node:crypto';
@@ -65,7 +65,7 @@ server.on('request',(req,res)=>{
   if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null,recorderError:(exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).lastError});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
   if(url.pathname==='/api/exhibit/publications'){json(exhibitService.publications().slice(0,50));return;}
-  if(url.pathname==='/api/exhibit/records'){json(exhibitService.records().slice(0,50).map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
+  if(url.pathname==='/api/exhibit/records'){const records=exhibitService.records();const selected=[...new Map([...records.slice(0,50),...records.filter(r=>r.config.heldOutSeeds.includes(r.seed))].map(r=>[r.id,r])).values()];json(selected.map(({decisions,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));return;}
   if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.record(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}
   if(url.pathname==='/api/exhibit/preview'){
     const path=resolve(ROOT,'runtime/integrated-preview/integrated-45s.webm');if(!existsSync(path)){json({error:'Download the evidence release to restore the local preview'},404);return;}serveVideo(req,res,path);return;
@@ -132,7 +132,8 @@ const interval=setInterval(()=>{
 },10);
 const heartbeat=setInterval(()=>{for(const ws of connections)if(ws.readyState===WebSocket.OPEN)ws.ping();},15000);
 const recorderPoll=setInterval(()=>{void (exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).tick();},10000);
-async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled&&!exhibitEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();if(exhibitEnabled)await exhibitService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
+async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);clearInterval(privateStopPoll);if(!browserEnabled&&!exhibitEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();if(exhibitEnabled)await exhibitService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
+const privateStopPoll=setInterval(()=>{const path=process.env.EXHIBIT_STOP_FILE;if(path&&existsSync(path)){unlinkSync(path);void shutdown();}},1000);
 process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
 server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\n${exhibitEnabled?'Continuous intact exhibit: 6 model seconds per image / 3 wall seconds, 48 windows per episode.':browserEnabled?'Baseline browser mode: 6 model seconds per image / minimum 600 ms.':`Light model runs at ${C.timeScale}× wall time.`} Ctrl+C to stop.`));
 if(browserEnabled)void browserService.start(process.argv.includes('--repeat')).catch(e=>console.error('Browser demonstration failed:',e.message));

@@ -20,7 +20,8 @@ export async function replayEpisode(directory:string,circuit:Circuit){
     const png=readFileSync(join(directory,d.imageBefore));assert.equal(sha256(png),d.imageSha256);assert.equal(sha256(readFileSync(join(directory,d.imageAfter))),d.afterSha256);
     for(const [capture,pageFrame,cursor] of [[d.desktopBefore,d.imageBefore,d.executed.from],[d.desktopAfter,d.imageAfter,d.executed.to]] as const){
       if(!capture)continue;
-      assert.equal(capture.source,'x11-root');assert.equal(capture.pageFrame,pageFrame);assert.deepEqual(capture.cursor,cursor);
+      assert(['x11-root','windows-gdi'].includes(capture.source));assert.equal(capture.pageFrame,pageFrame);assert.deepEqual(capture.cursor,cursor);
+      if(capture.source==='windows-gdi'){assert.equal(capture.station?.os,'Windows 11');assert.equal(capture.width,1600);assert.equal(capture.height,900);assert.equal(capture.station.dpi,96);assert.equal(capture.station.viewport.scale,2);assert(capture.station.id);}
       assert.equal(sha256(readFileSync(join(directory,capture.path))),capture.sha256);
       assert.equal(capture.pageLagMs,Date.parse(capture.capturedAt)-Date.parse(capture.pageCapturedAt));assert(capture.pageLagMs>=0);
     }

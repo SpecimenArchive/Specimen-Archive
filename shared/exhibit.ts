@@ -9,8 +9,9 @@ export interface ExecutedEvent {type:string;timestamp:string;pageTimeMs:number;u
 export interface DesktopCapture {
   path:string;pageFrame:string;pageCapturedAt:string;capturedAt:string;completedAt:string;
   width:number;height:number;sha256:string;cursor:{x:number;y:number};captureMs:number;roundTripMs:number;pageLagMs:number;
-  source:'x11-root';cursorSource:'recorded-page-pointer';
+  source:'x11-root'|'windows-gdi';cursorSource:'recorded-page-pointer'|'not-present';
   sourceCapturedAt?:string;timestampBasis?:'backend-midpoint-estimate';clockUncertaintyMs?:number;
+  station?:{os:'Windows 11';osBuild:string;isolation:'windows-sandbox'|'remote-vm';id:string;bootId?:string;timeZone:string;dpi:number;viewport:{x:number;y:number;scale:number};window:unknown;taskbar:unknown};
 }
 export interface ExhibitDecision {
   context:Pick<ExhibitLive,'sourceRevision'|'sourceDirty'|'configSha256'|'dataVersion'|'intervention'|'episode'|'seed'|'layout'>;
@@ -27,6 +28,8 @@ export interface ExhibitRecord extends PublishableRecord {
   coverage:{neuronIds:string[];edges:number;synapses:number};setup:{note:string;events:ExecutedEvent[]};browserVersion:string;
   decisions:Omit<ExhibitDecision,'samples'>[];evaluator:{navigated:boolean;activated:boolean;activationCount:number};
   artifacts:{path:string;bytes:number;sha256:string}[];error?:string;replay?:{exact:boolean;samples:number;decisions:number};
+  orchestration?:{actor:'supervisor';action:string;tab:string;timestamp:string;detail:string}[];
+  stationSchedule?:{version:string;dashboardUrl:string;dashboardSeconds:number;readingUrl:string};
 }
 export interface ExhibitLive {
   sessionId:string;runId:string;packetSeq:number;timestamp:string;state:'starting'|'integrating'|'executed'|'complete'|'recovering'|'idle';

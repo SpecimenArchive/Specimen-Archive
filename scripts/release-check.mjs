@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
 const root=resolve('.'),git=args=>execFileSync('git',['-c',`safe.directory=${root.replace(/\\/g,'/')}`,...args],{encoding:'utf8',maxBuffer:32*1024*1024});
-const textExtensions=new Set(['.ts','.tsx','.js','.mjs','.json','.md','.txt','.html','.css','.py','.yml','.yaml','.toml','.example']);
+const textExtensions=new Set(['.ts','.tsx','.js','.mjs','.json','.md','.txt','.html','.css','.py','.yml','.yaml','.toml','.example','.ps1','.cs','.mts']);
 const textPath=p=>textExtensions.has(extname(p))||['LICENSE','.gitignore','.gitattributes'].includes(p);
 const rules=[
  ['private-key',/-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----/g],

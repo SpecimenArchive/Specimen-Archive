@@ -2,7 +2,7 @@ import { useEffect,useLayoutEffect,useRef,useState } from 'react';
 import type { ExhibitLive } from '../shared/exhibit';
 import { createApparatusRenderer } from './render/apparatus';
 import { screenPlacement } from './render/screen-placement';
-export function Apparatus({live,desktopImage}:{live:ExhibitLive|null;desktopImage:HTMLImageElement|null}){
+export function Apparatus({live,desktopImage,health}:{live:ExhibitLive|null;desktopImage:HTMLImageElement|null;health?:string}){
   const canvas=useRef<HTMLCanvasElement>(null),renderer=useRef<ReturnType<typeof createApparatusRenderer>|null>(null),latest=useRef(desktopImage),[ready,setReady]=useState(false),[expanded,setExpanded]=useState(false),[error,setError]=useState('');
   latest.current=desktopImage;
   useEffect(()=>{
@@ -16,6 +16,6 @@ export function Apparatus({live,desktopImage}:{live:ExhibitLive|null;desktopImag
   return <section className={`apparatus-panel ${expanded?'station-expanded':''}`} data-run-id={live?.runId} data-model-step={live?.snapshot?.seq} data-desktop-frame={live?.desktop?.path}>
     <div className="apparatus-heading"><span><b>A</b> APPARATUS CONTEXT</span><button aria-expanded={expanded} onClick={()=>setExpanded(v=>!v)}>{expanded?'Close station ×':'Expand station ↗'}</button></div>
     <div className="apparatus-body"><div className="apparatus-image"><canvas width={screenPlacement.width} height={screenPlacement.height} ref={canvas} aria-label="Laboratory workstation with the actual isolated desktop captured inside its photographed monitor"/>{error&&<p role="alert">{error}</p>}</div>
-    <div className="apparatus-note"><div className="stage-crop" role="img" aria-label="Detail of the same microscope stage"/><div><label>CAMERA / CHAMBER / WORKSTATION</label><p>One bench.<br/> One shared observation.</p><small>{live?.desktop?'Live desktop · same controlled browser':live?.browserFrame?'Desktop capture unavailable for this recording':'Opening the workstation session'}</small>{expanded&&live?.desktop&&<small>Capture {live.desktop.roundTripMs.toFixed(0)} ms · page offset {live.desktop.pageLagMs} ms</small>}</div><a href="/docs/WORKSHEET.html" target="_blank" rel="noreferrer">Companion worksheet ↗</a></div></div>
+    <div className="apparatus-note"><div className="stage-crop" role="img" aria-label="Detail of the same microscope stage"/><div><label>CAMERA / CHAMBER / WORKSTATION</label><p>One bench.<br/> One shared observation.</p><small>{live?.desktop?`${health==='replay'?'Recorded':health==='live'&&live.state!=='complete'&&live.state!=='recovering'?'Captured':'Held'} ${live.desktop.source==='windows-gdi'?'Windows 11':'Linux'} desktop`:live?.browserFrame?'Desktop capture unavailable for this recording':'Opening the workstation session'}</small>{expanded&&live?.desktop&&<small>Capture {live.desktop.roundTripMs.toFixed(0)} ms · page offset {live.desktop.pageLagMs} ms</small>}</div><a href="/docs/WORKSHEET.html" target="_blank" rel="noreferrer">Companion worksheet ↗</a></div></div>
   </section>;
 }

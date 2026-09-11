@@ -4,7 +4,17 @@ An observation-only digital biology instrument for a synthetic **72 hpf Platyner
 
 **Primary demonstration:** a continuous intact controller captures browser pixels, computes the published circuit, then moves the cursor, scrolls and activates real links/buttons across two controlled pages. The photographic specimen, exact input/neural signals, controlled browser and expandable apparatus share one backend session. Use `npm run dev` and [the executable protocol](docs/EXHIBIT_CONTROLLER.md). See [STATUS.md](STATUS.md), [the companion worksheet](docs/WORKSHEET.html) and the preserved [frozen baseline](docs/evidence/browser/README.md).
 
-## Run locally
+## Current Windows milestone
+
+The latest requirements are in [the recovery brief](docs/RECOVERY_BRIEF.md). The recovered live preview still executes the validated **Linux/X11** workstation. The new **remote Windows 11** worker is prepared in source, with authenticated SSH forwarding, a single worker lease, native capture guards and exact viewport calibration. The By-Hoster Windows 11 VM is provisioned per the user; private SSH setup and remote verification are pending. The intended deployment runs the backend, Chrome worker and recordings together on By-Hoster so operation does not depend on the home PC. Windows capture, tab pinning, RDP-disconnect continuity and restart/endurance acceptance are **pending**; the earlier Linux results do not establish them.
+
+Follow [WINDOWS_STATION.md](docs/WINDOWS_STATION.md) for remote prerequisites, setup, startup, emergency stop and the remaining acceptance checks. The worker must run in a dedicated logged-on VM account. It never captures the operator's everyday desktop. The recovered local Sandbox prototype remains experimental and is not used by the current remote path.
+
+The same website at **http://127.0.0.1:4317/?display=workstation** suppresses embedded captures while keeping live signals and events. External observers retain all four views. Remote scheduling prepares a dashboard and primary-reference tab, executes the unchanged seeded task in its own tab, then returns to the dashboard for 180 wall seconds with model state held. These focus operations are recorded as supervisor assistance. Public reference tabs are reading-only; general-web neural control is not claimed.
+
+The original and indoor apparatus source assets are preserved. The current photograph has closed blinds and separate `$LARVA` / `Specimen 01` marker inscriptions. [Asset provenance](docs/APPARATUS_LABELS.md) records the edit and calibration.
+
+## Run the preserved local Linux preview
 
 Prerequisites: **Node.js 24 LTS** (tested with 24.11.1) and npm (tested with 11.7.0). Windows PowerShell is supported; use `npm.cmd` if the machine's script execution policy blocks `npm.ps1`.
 

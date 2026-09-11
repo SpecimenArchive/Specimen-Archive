@@ -22,10 +22,10 @@ for(const record of calibration.records){
     const {createApparatusRenderer}=await import('/src/render/apparatus.ts');
     const canvas=document.createElement('canvas');canvas.width=1659;canvas.height=948;const renderer=createApparatusRenderer(canvas);
     const load=src=>new Promise(r=>{const image=new Image();image.onload=()=>r(image);image.src=src;});
-    renderer.bench(await load('/assets/apparatus-master-v1.png'));renderer.draw(await load(data));const png=canvas.toDataURL();renderer.dispose();return png;
+    renderer.bench(await load('/assets/apparatus-master-v3-labelled.png'));renderer.draw(await load(data));const png=canvas.toDataURL();renderer.dispose();return png;
   },data);
   const bytes=Buffer.from(result.split(',')[1],'base64');writeFileSync(`${out}/composite-${record.theme}.png`,bytes);
-  const composed=PNG.sync.read(bytes),source=PNG.sync.read(readFileSync('public/assets/apparatus-master-v1.png'));let changedOutside=0;
+  const composed=PNG.sync.read(bytes),source=PNG.sync.read(readFileSync('public/assets/apparatus-master-v3-labelled.png'));let changedOutside=0;
   const {homography,invert3,project,screenPlacement:P}=await import('../src/render/screen-placement.ts');const inverse=invert3(homography(P.corners));
   for(let y=0;y<948;y++)for(let x=0;x<1659;x++){
     const [u,v]=project(inverse,x+.5,y+.5);if(u>=-.003&&u<=1.003&&v>=-.003&&v<=1.003)continue;

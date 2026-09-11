@@ -23,7 +23,7 @@ export class ExhibitService {
   async stop(){this.abort.abort(new Error('Operator shutdown'));await this.work;}
   private async run(){
     while(!this.abort.signal.aborted){
-      const episode=this.episodes,signal=AbortSignal.any([this.abort.signal,AbortSignal.timeout(240000)]);
+      const episode=this.episodes,signal=AbortSignal.any([this.abort.signal,AbortSignal.timeout(process.env.EXHIBIT_DESKTOP==='windows'?540000:240000)]);
       try{
         const {record,directory}=await runEpisode(this.circuit,{root:this.root,sessionId:this.sessionId,episode,seed:C.continuousSeeds[episode%C.continuousSeeds.length],layout:'standard',intervention:'intact',signal,
           faultAfter:episode===0&&process.env.EXHIBIT_FAULT_AFTER?Number(process.env.EXHIBIT_FAULT_AFTER):undefined,onUpdate:live=>this.update(live)});

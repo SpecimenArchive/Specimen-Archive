@@ -15,13 +15,15 @@ import { EXHIBIT_CONFIG as C,type TaskLayout } from './config';
 import { ExhibitController } from './controller';
 import { exhibitTask } from './task';
 import { DesktopSession } from './desktop';
+import { RemoteDesktopSession } from './remote-desktop';
+import {prepareStationTabs,STATION_SCHEDULE} from './station-tabs';
 const ORIGIN=executionOrigin('exhibit-process');
 export interface EpisodeOptions {root:string;sessionId:string;episode:number;seed:number;layout:TaskLayout;intervention:BrowserIntervention;fast?:boolean;signal?:AbortSignal;faultAfter?:number;onUpdate?:(state:ExhibitLive)=>void}
 export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   const startedAt=new Date().toISOString(),runId=`exhibit_${Date.now()}_${randomUUID().slice(0,8)}`,directory=resolve(o.root,runId);
   mkdirSync(directory,{recursive:true});
   const decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],origin={...ORIGIN,runId};
-  let currentCommandId:string|null=null,browser:Browser|undefined,context:BrowserContext|undefined,video:Video|null=null,desktop:DesktopSession|undefined;
+  let currentCommandId:string|null=null,browser:Browser|undefined,context:BrowserContext|undefined,video:Video|null=null,desktop:DesktopSession|RemoteDesktopSession|undefined;
   const record:ExhibitRecord={schemaVersion:1,kind:'continuous-browser-episode',recorder:'Specimen Recorder',id:runId,sessionId:o.sessionId,origin,
     config:C,configSha256:sha256(JSON.stringify(C)),model:MODEL_CONFIG,execution:{paced:!o.fast,minimumWindowWallMs:o.fast?0:C.windowWallMs,nodeVersion:process.version,faultAfterWindow:o.faultAfter},startedAt,completedAt:'',seed:o.seed,layout:o.layout,intervention:o.intervention,browserVersion:'',
     coverage:{neuronIds:circuit.nodes.map(n=>n.id),edges:circuit.edges.length,synapses:circuit.edges.reduce((s,e)=>s+e.weight,0)},
@@ -34,11 +36,17 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   await new Promise<void>(r=>fixture.listen(0,'127.0.0.1',r));
   const port=(fixture.address() as {port:number}).port;
   try{
-    if(!o.fast&&process.env.EXHIBIT_DESKTOP!=='0'){desktop=await DesktopSession.open();browser=desktop.browser;}
+    if(!o.fast&&process.env.EXHIBIT_DESKTOP!=='0'){desktop=process.env.EXHIBIT_DESKTOP==='windows'?await RemoteDesktopSession.open():await DesktopSession.open();browser=desktop.browser;}
     else browser=await chromium.launch({headless:true,channel:process.env.PLAYWRIGHT_CHANNEL||(process.platform==='win32'?'msedge':undefined)});
     record.browserVersion=browser.version();
-    context=await browser.newContext({viewport:{width:C.width,height:C.height},deviceScaleFactor:1,recordVideo:{dir:directory,size:{width:C.width,height:C.height}}});
+    context=await browser.newContext({viewport:{width:C.width,height:C.height},deviceScaleFactor:1,acceptDownloads:false,serviceWorkers:'block',recordVideo:{dir:directory,size:{width:C.width,height:C.height}}});
     context.setDefaultTimeout(5000);
+    const stationEnabled=desktop instanceof RemoteDesktopSession;
+    if(stationEnabled)await context.route('**/*',async route=>{
+      const request=route.request(),url=new URL(request.url());
+      const allowed=url.origin===`http://127.0.0.1:${port}`||url.origin==='http://127.0.0.1:4317'||url.protocol==='https:'&&(url.hostname==='elifesciences.org'||url.hostname.endsWith('.elifesciences.org'));
+      if(!allowed||!['GET','HEAD'].includes(request.method())){await route.abort('blockedbyclient');return;}await route.continue();
+    });
     // Forward only the local fixture through the established backend. The
     // desktop may be in WSL; no public listener or privileged task input is used.
     if(desktop)await context.route(`http://127.0.0.1:${port}/**`,async route=>{
@@ -52,10 +60,12 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
         void (window as any).__recordEvent({type,timestamp:new Date().toISOString(),pageTimeMs:performance.now(),url:location.pathname,x:m.clientX,y:m.clientY,deltaY:type==='wheel'?w.deltaY:undefined,trusted:e.isTrusted});
       },true);
     });
+    const station=stationEnabled?await prepareStationTabs(context,record):undefined;
     const page=await context.newPage();video=page.video();
     if(desktop){for(const c of browser.contexts())if(c!==context)for(const p of c.pages())await p.close();await desktop.arrange(page);}
     page.on('framenavigated',frame=>{if(frame===page.mainFrame())events.push({type:'navigation',timestamp:new Date().toISOString(),pageTimeMs:0,url:new URL(frame.url()).pathname,commandId:currentCommandId});});
     await page.goto(`http://127.0.0.1:${port}/`);await page.mouse.move(C.cursor.x,C.cursor.y);await delay(60);record.setup.events=events.slice();
+    if(station)await station.focus(page,'seeded-task');
     const controller=new ExhibitController(circuit,runId,startedAt,o.intervention);let cursor={...C.cursor},png=await page.screenshot({animations:'disabled'}),capturedAt=new Date().toISOString();
     writeFileSync(join(directory,'frame-000.png'),png);
     let presentation=await desktop?.capture(directory,0,'frame-000.png',capturedAt,cursor);
@@ -88,6 +98,19 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
     // Evaluator runs after the fixed budget, and never feeds the encoder/decoder.
     record.evaluator={...await page.evaluate(()=>(window as any).__outcome),navigated:events.some(e=>e.type==='navigation'&&e.url==='/ledger'&&e.commandId!==null)};
     record.outcome=record.evaluator.activated?'activated':record.evaluator.navigated?'navigated-only':'not-activated';
+    if(station&&desktop){
+      currentCommandId=null;await station.focus(station.dashboard,'dashboard');
+      // More dashboard time than a typical 48-window excursion. No neural
+      // integration or input executes during the explicitly idle dwell.
+      const until=Date.now()+STATION_SCHEDULE.dashboardSeconds*1000;let frame=C.decisions+1;
+      while(Date.now()<until){
+        o.signal?.throwIfAborted();const image=`frame-${String(frame).padStart(3,'0')}.png`,bytes=await station.dashboard.screenshot(),at=new Date().toISOString();
+        writeFileSync(join(directory,image),bytes);const capture=await desktop.capture(directory,frame++,image,at,{x:0,y:0});capture.cursorSource='not-present';
+        emit({state:'idle',browserFrame:`${runId}/${image}`,desktop:capture,command:null,commandId:null,notice:'Supervisor returned to the live dashboard. Neural state is held between excursions; tab focus is orchestration.'});
+        await delay(2000,undefined,{signal:o.signal});
+      }
+      station.note('dwell-complete','dashboard',`${STATION_SCHEDULE.dashboardSeconds} wall seconds; model state preserved without integration.`);
+    }
   }catch(e){record.error=(e as Error).message;record.outcome='error';}
   finally{
     try{await context?.close();}catch{/* Browser may have been closed by the explicit fault test. */}
