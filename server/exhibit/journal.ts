@@ -22,6 +22,6 @@ export class ObservationJournal {
   runEvents(runId:string){return [...this.entries,...this.pending.values()].filter(e=>e.runId===runId);}
   state(page:ObservationPage,operation:string,sensory:ObservationState['sensory']):ObservationState{
     const rate=(times:number[])=>times.length>1?(times.length-1)*1000/(times.at(-1)!-times[0]):null;
-    return {profile:'observation-contrast-v1',sessionStartedAt:this.startedAt,activePage:page,operation,sensory,events:[...this.entries],queue:[...this.pending.values()],metrics:{executedActions:this.executed,attemptedActions:this.attempted,actionsPerMinute:this.actionTimes.filter(t=>Date.now()-t<=60000).length,captureFPS:rate(this.captureTimes),decisionIntervalMs:this.decisionTimes.length>1?(this.decisionTimes.at(-1)!-this.decisionTimes[0])/(this.decisionTimes.length-1):null,captureToActionMs:this.latency,modelWallRatio:this.ratio}};
+    return {profile:'observation-contrast-v2',sessionStartedAt:this.startedAt,activePage:page,operation,sensory,events:[...this.entries],queue:[...this.pending.values()],metrics:{executedActions:this.executed,attemptedActions:this.attempted,actionsPerMinute:this.actionTimes.filter(t=>Date.now()-t<=60000).length,captureFPS:rate(this.captureTimes),decisionIntervalMs:this.decisionTimes.length>1?(this.decisionTimes.at(-1)!-this.decisionTimes[0])/(this.decisionTimes.length-1):null,captureToActionMs:this.latency,modelWallRatio:this.ratio}};
   }
 }

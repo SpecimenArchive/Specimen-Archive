@@ -44,4 +44,4 @@ The [flycoinrh README](https://github.com/fruitflydev/flycoinrh) informs the arc
 
 ## Workstation presentation correction
 
-The continuous exhibit now runs its controlled browser visibly in an isolated Linux desktop. The exact page PNG remains the sole sensory input; a separately captured desktop supplies the apparatus. Fast causal validation remains headless.
+The earlier workstation checkpoint ran its controlled browser visibly in an isolated Linux desktop. The configured remote Windows observation profile is documented separately in [the upgrade report](OBSERVATION_UPGRADE.md). The exact page PNG remains the sole sensory input; a separately captured desktop supplies the apparatus. Fast causal validation remains headless.

@@ -1,3 +1,5 @@
+> Current checkpoint: the VM was provisioned and native capture verified before this upgrade. The new observation profile is awaiting Windows Update/SSH recovery and native acceptance. See [STATUS](../STATUS.md), [upgrade report](OBSERVATION_UPGRADE.md) and [isolated publisher](RECORD_SERVICE.md). The original provisioning notes below describe earlier checkpoints.
+
 # Remote Windows 11 station
 
 ## Current state
@@ -144,6 +146,6 @@ Pending acceptance on the actual VM:
 - Stop/restart the worker, interrupt SSH, close Chrome and restart the VM separately. Verify interrupted records, new leases/boot IDs and no stale action replay. Record any required login/display assistance.
 - Run `npm.cmd run exhibit:validate` for the preserved held-out suite and matched interventions, then `npm.cmd run exhibit:replay -- runtime/exhibit/<run-id>` on actual Windows records. Report failed trials as well as successes.
 
-No Windows desktop, RDP-continuity result or Windows action recording has been produced in this recovery turn. Local compile/unit tests are not a substitute for those checks.
+That original recovery checkpoint preceded actual native Windows execution at 0b64125. Its evidence is preserved. The new observation profile has not yet passed continuity acceptance; local compile/unit tests do not establish it.
 
 Primary implementation references: [Playwright CDP attachment](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp), [Playwright input](https://playwright.dev/docs/input), [Microsoft screen copying](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.copyfromscreen), [Windows interactive remote sessions](https://learn.microsoft.com/en-us/windows/win32/termserv/terminal-services-sessions), [Windows OpenSSH setup](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).

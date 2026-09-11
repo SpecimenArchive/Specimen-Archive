@@ -2,7 +2,11 @@
 
 ## Observation upgrade checkpoint — 11 September 2026
 
-Implementation is ready for native VM acceptance: large 74% observation stage, actual command feed, richer neural instrumentation, local event replay, separately identified image-contrast observation profile, maximized/pinned Chrome support and independent execution/recording/publication statuses. Typecheck, build and 38 tests pass. Publication uses a prepared VM-local deploy key; registration is awaiting explicit operator approval, so automatic publication remains disabled. See [the upgrade report](docs/OBSERVATION_UPGRADE.md). Earlier entries below are historical checkpoints.
+Source milestones f2a17d5 and 374d379 are published. The VM last deployed f2a17d5; later recorder separation and covered-frame guards are ready for deployment. The dashboard redesign, neural instrumentation, command feed and historical inspection are implemented. Typecheck/build and 39 tests pass.
+
+The separately installed SYSTEM publisher has verified real evidence commits on specimen-records. Its private key and bundled executable use a SYSTEM-only ACL; the station account's key-read attempt was denied. [Publication verification](docs/RECORD_SERVICE.md).
+
+Native maximization was verified, but a Windows Update restart dialog prevented pixel calibration. The controller stopped before sending neural input. The VM subsequently stopped answering SSH; a private connectivity check at 22:51:54 UTC found RDP reachable and SSH timing out. The operator has been asked to reconnect to RDP and start sshd. The previous preview http://127.0.0.1:4319/ is not currently verified live. Pinning, scrolling, terminal cleanup, the new ten-minute two-observer test and post-update capture continuity remain open. No unattended login after reboot is configured. [Full upgrade report](docs/OBSERVATION_UPGRADE.md). Earlier entries below are historical checkpoints.
 
 ## Recovery and By-Hoster transition - 11 September 2026
 

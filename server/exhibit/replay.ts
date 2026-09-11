@@ -8,12 +8,12 @@ import { ExhibitController } from './controller';
 import { EXHIBIT_CONFIG as C } from './config';
 import { MODEL_CONFIG } from '../model/config';
 import { sha256 } from '../browser/evidence';
-import {OBSERVATION_RETINA} from './observation-encoder';
+import {OBSERVATION_RETINA,OBSERVATION_RETINA_V1} from './observation-encoder';
 import {OBSERVATION_SCHEDULE} from './observation-runner';
 export async function replayEpisode(directory:string,circuit:Circuit){
   const r=JSON.parse(readFileSync(join(directory,'record.json'),'utf8')) as ExhibitRecord;
   assert.deepEqual(r.config,C);assert.equal(r.configSha256,sha256(JSON.stringify(C)));assert.deepEqual(r.model,MODEL_CONFIG);
-  if(r.observationConfig){assert.deepEqual(r.observationConfig.retina,OBSERVATION_RETINA);assert.deepEqual(r.observationConfig.schedule,OBSERVATION_SCHEDULE);}
+  if(r.observationConfig){assert.deepEqual(r.observationConfig.retina,r.observationConfig.retina.version===OBSERVATION_RETINA_V1.version?OBSERVATION_RETINA_V1:OBSERVATION_RETINA);assert.deepEqual(r.observationConfig.schedule,OBSERVATION_SCHEDULE);}
   assert.equal(r.origin.dataSha256,sha256(readFileSync('data/processed/circuit.json')));
   for(const a of r.artifacts){const b=readFileSync(join(directory,a.path));assert.equal(b.length,a.bytes);assert.equal(sha256(b),a.sha256);}
   const trace=JSON.parse(gunzipSync(readFileSync(join(directory,'trace.json.gz'))).toString()) as ExhibitDecision[];

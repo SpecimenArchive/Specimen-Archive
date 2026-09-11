@@ -9,5 +9,7 @@ test('Git recorder recovers the same remote commit after receipt loss and refuse
  const [a,b]=await Promise.all([first.publish(record,'fixture/recorder-test','specimen-records'),second.publish(record,'fixture/recorder-test','specimen-records')]);assert.equal(a.sha,b.sha);assert.equal(git(remote,['rev-list','--count','specimen-records']), '2');
  const recovered=await new GitRecordPublisher(join(root,'publisher-recovery'),{localTestRemote:remote}).publish(record,'fixture/recorder-test','specimen-records');assert.equal(recovered.sha,a.sha);assert.equal(git(remote,['rev-list','--count','specimen-records']),'2');
  await assert.rejects(()=>first.publish({...record,outcome:'changed'},'fixture/recorder-test','specimen-records'),/differs/);assert.equal(git(remote,['rev-list','--count','master']),'1');
+ const lock=join(first.directory,'publisher.lock'),owner=join(lock,'owner-2147483647-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.json');mkdirSync(lock);writeFileSync(owner,JSON.stringify({pid:process.pid}));await assert.rejects(()=>first.publish(record,'fixture/recorder-test','specimen-records'),/busy/);
+ writeFileSync(owner,JSON.stringify({pid:2147483647}));const afterCrash=await first.publish(record,'fixture/recorder-test','specimen-records');assert.equal(afterCrash.sha,a.sha);assert.equal(git(remote,['rev-list','--count','specimen-records']),'2');
  }finally{assert(root.startsWith(resolve(tmpdir())+sep));assert(root.includes('specimen-publisher-test-'));rmSync(root,{recursive:true,force:true});}
 });

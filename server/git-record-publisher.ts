@@ -1,4 +1,4 @@
-import {execFile} from 'node:child_process';import {promisify} from 'node:util';import {mkdirSync,writeFileSync,existsSync,unlinkSync,rmdirSync} from 'node:fs';import {resolve,join} from 'node:path';import {randomUUID} from 'node:crypto';
+import {execFile} from 'node:child_process';import {promisify} from 'node:util';import {mkdirSync,readdirSync,readFileSync,writeFileSync,existsSync,unlinkSync,rmdirSync} from 'node:fs';import {resolve,join} from 'node:path';import {randomUUID} from 'node:crypto';
 import {recordBytes,type PublishableRecord} from './experiment-store';
 const exec=promisify(execFile);
 export interface RecordPublisher {publish(record:PublishableRecord,repository:string,branch:string):Promise<{sha:string;url:string;path:string}>}
@@ -10,7 +10,17 @@ export class GitRecordPublisher implements RecordPublisher {
  async publish(record:PublishableRecord,repository:string,branch:string){
   if(!/^[\w.-]+\/[\w.-]+$/.test(repository)||branch!=='specimen-records'||!/^exhibit_[\w-]+$/.test(record.id))throw new Error('Invalid recorder repository, branch or record ID');
   const remote=this.options.localTestRemote??`git@github.com:${repository}.git`,path=`experiments/${record.id}.json`,lock=join(this.directory,'publisher.lock');
-  try{mkdirSync(lock);}catch{throw new Error('Recorder object store is busy; bounded retry will follow.');}
+  const ownerPath=join(lock,`owner-${process.pid}-${randomUUID()}.json`);
+  try{mkdirSync(lock);}catch{
+   // Recover only a recorded owner that the OS confirms is gone. An active,
+   // unreadable or incompletely-created lock is never broken on a timeout.
+   let departed=false,previousOwner='';try{const names=readdirSync(lock).filter(n=>/^owner-[\d]+-[a-f0-9-]+\.json$/.test(n));if(names.length!==1)throw new Error('Unverifiable lock');previousOwner=join(lock,names[0]);const owner=JSON.parse(readFileSync(previousOwner,'utf8'));if(Number.isInteger(owner.pid)&&owner.pid>0)try{process.kill(owner.pid,0);}catch(e){departed=(e as NodeJS.ErrnoException).code==='ESRCH';}}catch{}
+   if(!departed)throw new Error('Recorder object store is busy; bounded retry will follow.');
+   // Unlink only that unique departed owner's file. A concurrent reclaimer
+   // cannot accidentally remove the next process's differently-named lock.
+   try{unlinkSync(previousOwner);rmdirSync(lock);mkdirSync(lock);}catch{throw new Error('Recorder lock recovery raced another owner; retry later.');}
+  }
+  writeFileSync(ownerPath,JSON.stringify({pid:process.pid,at:new Date().toISOString()}),{flag:'wx'});
   const temporary=[join(this.directory,`record-${randomUUID()}.json`),join(this.directory,`message-${randomUUID()}.txt`),join(this.directory,`index-${randomUUID()}`)];
   const env={...process.env,GIT_TERMINAL_PROMPT:'0',GIT_SSH_COMMAND:this.options.sshCommand,GIT_AUTHOR_NAME:'Specimen Archive',GIT_COMMITTER_NAME:'Specimen Archive',GIT_AUTHOR_EMAIL:'327975184+SpecimenArchive@users.noreply.github.com',GIT_COMMITTER_EMAIL:'327975184+SpecimenArchive@users.noreply.github.com'};
   const git=async(args:string[],index=false)=>{try{return (await exec('git',['-c',`safe.directory=${this.directory.replace(/\\/g,'/')}`,...args],{cwd:this.directory,env:index?{...env,GIT_INDEX_FILE:temporary[2]}:env,windowsHide:true,timeout:45000,maxBuffer:4*1024*1024})).stdout.trimEnd();}catch(error){throw Object.assign(new Error('Recorder Git operation failed; check the repository-scoped SSH access or concurrent branch update.'),{code:(error as any).code});}};
@@ -28,6 +38,6 @@ export class GitRecordPublisher implements RecordPublisher {
     const verified=await existing(await fetchHead());if(!verified)throw new Error('Pushed record could not be read back.');return verified;
    }
    throw new Error('Concurrent publication retry limit reached.');
-  }finally{for(const file of temporary)if(existsSync(file))unlinkSync(file);rmdirSync(lock);}
+  }finally{for(const file of temporary)if(existsSync(file))unlinkSync(file);unlinkSync(ownerPath);rmdirSync(lock);}
  }
 }

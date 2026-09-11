@@ -1,8 +1,14 @@
 $ErrorActionPreference='Stop'
 $root='C:\ProgramData\SpecimenArchivePublisher'
 $source='C:\SpecimenArchive\runtime\remote-worker'
+if((Get-ScheduledTask -TaskName SpecimenArchive-Publisher -ErrorAction SilentlyContinue).State -eq 'Running'){
+  [IO.File]::WriteAllText("$root\stop-publisher",[DateTimeOffset]::UtcNow.ToString('o'))
+  $deadline=(Get-Date).AddMinutes(3)
+  while((Get-ScheduledTask SpecimenArchive-Publisher).State -eq 'Running' -and (Get-Date) -lt $deadline){Start-Sleep -Milliseconds 500}
+  if((Get-ScheduledTask SpecimenArchive-Publisher).State -eq 'Running'){throw 'Publisher has not finalized; do not replace its files during publication.'}
+}
 Copy-Item -LiteralPath "$source\record-service.mjs" -Destination "$root\record-service.mjs" -Force
-Copy-Item -LiteralPath "$source\start-publisher.ps1" -Destination "$root\start-publisher.ps1" -Force
+Copy-Item -LiteralPath "$source\start-record-service.ps1" -Destination "$root\start-publisher.ps1" -Force
 $c=Get-Content -LiteralPath "$root\publisher.json" -Raw | ConvertFrom-Json
 $c.enabled=$true
 $c | Add-Member -NotePropertyName branch -NotePropertyValue 'specimen-records' -Force
