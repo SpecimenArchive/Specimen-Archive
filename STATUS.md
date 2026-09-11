@@ -12,7 +12,10 @@ Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRI
 - 26 tests and production build pass. Clean-source f2e3f2a is public; Windows/Linux CI 34618653790 independently repeated all outcomes. The original baseline still replays exactly.
 - 600.966-second production check: 11,066 matching packets, four completed episodes, no browser errors or dropped stream frames, exact disconnected specimen freeze and successful reconnection. Actual 46.4-second integrated preview reviewed. Renderer cadence is checked separately from rAF callbacks.
 - Nine held-out records published with verified actual commits; receipt loss recovered the original commit without duplication. Isolated forced-browser-close test recovered under the same session and retained video; no partial-window action.
-- Compact comparison archive and downloadable raw evidence are prepared. Remaining: final current-build UI check, clean public checkpoint/release upload and final licence/secret scan.
+- Final current-build UI check passed: 59.94 actual specimen draws/s over 10.01 s, six archived controls, 15 verified publication links at check time, working neural-window replay, no mobile overflow, HTTP 405 / WebSocket 1008 for attempted mutation, and successful 46.4-second preview playback. No page errors.
+- [Public release](https://github.com/SpecimenArchive/Specimen-Archive/releases/tag/exhibit-v1) contains the 44,372,030-byte raw trace/video bundle outside normal Git. GitHub's SHA256 matches the local archive. Latest implementation/evidence checkpoint 65f5cc8 passed independent CI 34620157049.
+- Release scan checked 219 working text files and 313 historical text blobs: no known credential-pattern findings or suspicious tracked credential filenames. MIT code, attributed CC BY research/asset material and OFL fonts are documented; generated apparatus provenance is explicit.
+- Milestone complete within the documented controlled-task limits. Running preview: http://127.0.0.1:4317/; integrated recording: /docs/previews/integrated-review.html. No general-web competence is claimed; offset-budget and low-contrast failures remain visible.
 
 ## Implemented and checked
 - Published 72 hpf Platynereis graph: 2,675 imported nodes, 14,066 edges; active 47-neuron/161-edge/711-synapse circuit. Traceable IDs and source checksums are retained.

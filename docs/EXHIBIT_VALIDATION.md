@@ -24,6 +24,8 @@ Node RSS ranged from approximately 145 MB at the first measurement to 337 MB at 
 
 The integrated preview is an unedited **46.4-second, 1440 × 1050, 25 fps** recording of the real observation browser. That video frame rate is separate from both neural sampling and specimen render cadence. [Preview review](INTEGRATED_REVIEW.md).
 
+The final production UI check measured **59.94 actual specimen draws/s over 10.01 seconds**, using an explicit presentation-only draw counter. Six archived control records and 15 published receipts were visible at check time. Archive neural replay, mobile overflow checks, HTTP 405 and WebSocket 1008 mutation rejection, and video playback all passed with no page errors. [Final UI results](results/exhibit-final-ui.json).
+
 ## Recovery, publication and limits
 
 An isolated test deliberately closed the controlled browser before decision 2. The service recorded the failure, preserved completed commands and the finalized local video, then opened a new intact episode under the same session ID. Operator abort during the next partial integration window issued no action. See [recovery evidence](results/exhibit-recovery.json).
@@ -31,3 +33,5 @@ An isolated test deliberately closed the controlled browser before decision 2. T
 All nine held-out records have actual verified public Specimen Recorder commits. A real receipt-loss test returned the original commit, with one commit before and after and no duplicate: [receipt recovery](results/exhibit-recorder-recovery.json). Continuous episodes publish through the same recorder at completed experiment boundaries. Generated apparatus/tissue licences and data attribution are listed in [third-party notices](../THIRD_PARTY_NOTICES.md).
 
 Only the controlled colour-assisted lane/scroll task is demonstrated. Public websites, expanded circuitry, learning and a language-model journal remain deferred, with prerequisites in [the milestone](EXHIBIT_MILESTONE.md). The accepted photographic rig is unchanged; local deformation and optics remain explicitly documented presentation mappings.
+
+The [public evidence release](https://github.com/SpecimenArchive/Specimen-Archive/releases/tag/exhibit-v1) supplies the raw traces/videos without placing continuous media in normal Git. Its 44,372,030-byte ZIP was checked locally for corrupt entries and GitHub returned the same SHA256. [Asset receipt](results/exhibit-release-asset.json). The archive integration/recovery checkpoint also passed [CI 34620157049](https://github.com/SpecimenArchive/Specimen-Archive/actions/runs/34620157049).

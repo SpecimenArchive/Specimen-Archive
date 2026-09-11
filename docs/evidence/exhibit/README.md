@@ -16,4 +16,6 @@ The offset failure is an action-budget limitation: the final target was in the c
 
 New raw PNGs, compressed all-neuron traces and browser recordings are distributed as a GitHub release asset, outside ordinary Git history. Restore the archive into `runtime/exhibit-validation/` to replay or inspect full windows locally. Compact records and verified commit links remain useful in a fresh clone without raw media. The frozen original baseline remains under `docs/evidence/browser`.
 
+[Download the evidence bundle](https://github.com/SpecimenArchive/Specimen-Archive/releases/download/exhibit-v1/specimen-exhibit-evidence.zip) and extract at the repository root; the archive already contains the `runtime/` path prefixes. Verify SHA256 `2b5f07ddb786de4f969a3eb6c80ecd2b4d8b4c6b5fcda207409d79ab7ffcc72f` before extracting. [Release notes](https://github.com/SpecimenArchive/Specimen-Archive/releases/tag/exhibit-v1).
+
 Commands: `npm run exhibit:validate`; `npm run exhibit:replay -- runtime/exhibit-validation/<run-id>`; `node scripts/exhibit-endurance.mjs`. See [controller methods](../../EXHIBIT_CONTROLLER.md) and the [companion worksheet](../../WORKSHEET.html).

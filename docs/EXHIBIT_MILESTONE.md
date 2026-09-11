@@ -18,7 +18,7 @@ The `pixel-motor-v2` controller, encoder and task in `server/browser` remain unc
 - [x] Freeze extended controller before testing held-out positions, layouts and contrast; save failures and matched interventions.
 - [x] Verify at least ten minutes with two observers, matching events and reconnection.
 - [x] Companion worksheet, compact archive, reproducible commands and public publication receipts.
-- [ ] Meaningful development checkpoints, release audit, clean public push and running final exhibit.
+- [x] Meaningful development checkpoints, release audit, public push and running final exhibit. Evidence release: `exhibit-v1`; final UI and release records are linked from STATUS.md.
 
 ## Deferred scope
 
