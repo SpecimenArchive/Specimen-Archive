@@ -10,7 +10,7 @@ Demonstrate verifiable pixels -> published neural wiring -> actual browser actio
 - PNG-only retinal encoder, persistent neural computation, fixed six-motor decoder, Playwright mouse executor and isolated HTML button task.
 - Initial browser test failed because the cursor colour mask included antialiased text. The captured screenshot is now a regression fixture; corrected encoder v2 passes.
 - Development suite: three intact seeded trials activated the real button; three motor-clamped and three photoreceptor-disconnected trials did not, with zero controller events. All nine reconstructed 960 sampled neural states and 16 decisions exactly. The final paced suite is exported under docs/evidence/browser from clean source e9c1c04. It independently reproduced the same outcomes, with exact replay for all 8,640 recorded states and 144 decisions.
-- 20 automated tests and production build pass. Production UI verification passed: 12 browser/neural packet alignments, exact offline freeze, reconnect, recorded replay, narrow layout and HTTP 405 for mutations.
+- 21 automated tests and production build pass. Production UI verification passed: 12 browser/neural packet alignments, exact offline freeze, reconnect, recorded replay, narrow layout and HTTP 405 for mutations.
 - Public repository is https://github.com/SpecimenArchive/Specimen-Archive. Project-local Git author and committer are Specimen Archive. Six earlier checkpoints are published. Recorder messages and record contents identify Specimen Recorder automation.
 
 ## Current acceptance evidence
@@ -20,7 +20,7 @@ Demonstrate verifiable pixels -> published neural wiring -> actual browser actio
 - Production UI: 12 synchronized packet checks, exact offline freeze, reconnect, recorded replay, no 390px overflow, HTTP 405 for mutations.
 - Interrupted trial closes its browser, saves video, records the interruption and executes no partial-window action. Tampered commands are rejected by replay.
 - Original microscopy fixed-background/freeze checks pass; original stream measured 19.78 snapshots/s with two identical observers.
-- Final repository evidence/documentation checkpoint and cross-platform exported-trace replay are being verified.
+- Public source/evidence checkpoint e4c4c8e passed GitHub CI 34610356098, including exact replay of the Windows-recorded PNG/neural evidence on both Windows and Linux, plus independent Linux real-browser causality trials. A fresh-runtime regression also verifies bundled publication links and compressed traces. The requested executable browser-control acceptance criterion is met for the documented horizontal lane task.
 
 ## Commands
 - npm run dev: original continuous microscopy/light experiment on port 4317.

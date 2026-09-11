@@ -57,7 +57,7 @@ server.on('request',(req,res)=>{
   if(url.pathname==='/api/health'){json({ok:true,runId:snapshot.runId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:browserEnabled?'accelerated windows':C.timeScale,mode:browserEnabled?'browser':'light'});return;}
   if(url.pathname==='/api/browser/live'){json(browserService.live);return;}
   if(url.pathname==='/api/browser/records'){json(browserService.records().slice(0,50));return;}
-  if(url.pathname==='/api/browser/publications'){json(browserService.store.publications().slice(0,50));return;}
+  if(url.pathname==='/api/browser/publications'){json(browserService.publications().slice(0,50));return;}
   if(url.pathname.startsWith('/api/browser/artifacts/')){
     const [id,name]=url.pathname.slice('/api/browser/artifacts/'.length).split('/');const path=browserService.file(id,name);
     if(!path){json({error:'Artifact not found'},404);return;}res.setHeader('Content-Type',mime[extname(path)]||'application/octet-stream');res.end(readFileSync(path));return;

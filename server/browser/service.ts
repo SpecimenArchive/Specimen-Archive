@@ -6,7 +6,7 @@ import type { BrowserLive,BrowserDecision } from '../../shared/browser';
 import { runBrowserTrial } from './runner';
 import { BROWSER_CONFIG as C } from './config';
 import type { BrowserRecord } from './evidence';
-import { ExperimentStore } from '../experiment-store';
+import { ExperimentStore,recordHash,type Publication } from '../experiment-store';
 import { SpecimenRecorder,GitHubCLI } from '../recorder';
 export class BrowserService {
   readonly root:string;readonly store:ExperimentStore<BrowserRecord>;readonly recorder:SpecimenRecorder;
@@ -45,5 +45,17 @@ export class BrowserService {
     const records=this.store.records(),exported=resolve('docs/evidence/browser');
     if(existsSync(exported))for(const id of readdirSync(exported)){const path=this.file(id,'record.json');if(path&&!records.some(r=>r.id===id))records.push(JSON.parse(readFileSync(path,'utf8')));}
     return records.sort((a,b)=>b.completedAt.localeCompare(a.completedAt));
+  }
+  publications(){
+    const receipts=this.store.publications();
+    for(const record of this.records()){
+      if(receipts.some(p=>p.id===record.id))continue;
+      const path=this.file(record.id,'publication.json');if(!path)continue;
+      const p=JSON.parse(readFileSync(path,'utf8')) as Publication;
+      // A fresh clone has no private runtime receipts. Bundled receipts may
+      // still identify actual publications when their record bytes match.
+      if(p.id===record.id&&p.state==='published'&&p.recordSha256===recordHash(record)&&p.url===`https://github.com/${p.repository}/commit/${p.commit}`)receipts.push(p);
+    }
+    return receipts;
   }
 }
