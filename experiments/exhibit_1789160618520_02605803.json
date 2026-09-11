@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789160618520_02605803",
+  "sessionId": "session_1789160264166_1d9e68b8",
+  "origin": {
+    "runId": "exhibit_1789160618520_02605803",
+    "sourceRevision": "79e5a9380c2d81a8c55d8a100359b2bc9d45418b",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 3000,
+    "nodeVersion": "v24.21.0"
+  },
+  "startedAt": "2026-09-11T21:03:38.520Z",
+  "completedAt": "2026-09-11T21:04:01.901Z",
+  "seed": 203,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Supervisor: new isolated browser, local task placement and navigation, cursor at (320,216), zero neural state. Fixed 48-window budget. Evaluator excluded from controller.",
+    "events": [
+      {
+        "type": "mousemove",
+        "timestamp": "2026-09-11T21:03:53.248Z",
+        "pageTimeMs": 819.7999999988824,
+        "url": "blank",
+        "x": 488,
+        "y": 295,
+        "trusted": true,
+        "commandId": null
+      },
+      {
+        "type": "navigation",
+        "timestamp": "2026-09-11T21:03:54.856Z",
+        "pageTimeMs": 0,
+        "url": "/",
+        "commandId": null
+      },
+      {
+        "type": "mousemove",
+        "timestamp": "2026-09-11T21:03:54.926Z",
+        "pageTimeMs": 107.20000000111759,
+        "url": "/",
+        "x": 320,
+        "y": 216,
+        "trusted": true,
+        "commandId": null
+      }
+    ]
+  },
+  "decisions": [],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "desktop-000.png",
+      "sha256": "aed57a5ada573eaa1ea52689efb7c62f0ef023b3cb76de08ca4b88517945dd65",
+      "bytes": 84103
+    },
+    {
+      "path": "frame-000.png",
+      "sha256": "a4b580c2481aa35942f772debe8aaf605c07727a102622c0cd1e0d049f8f88e2",
+      "bytes": 12154
+    },
+    {
+      "path": "page@192904d8c14e6b5689bb4b074e977ddb.webm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "page@b7fa413bb20e145092076d9d594e1136.webm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "page@c214202c249564229713ebc6bae61065.webm",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    }
+  ],
+  "orchestration": [
+    {
+      "actor": "supervisor",
+      "action": "open",
+      "tab": "dashboard",
+      "detail": "Same observation backend reached through VM loopback; recursive captures suppressed.",
+      "timestamp": "2026-09-11T21:03:49.561Z"
+    },
+    {
+      "actor": "supervisor",
+      "action": "open",
+      "tab": "primary-reference",
+      "detail": "Public reading page; no controller inputs are dispatched to this tab.",
+      "timestamp": "2026-09-11T21:03:52.335Z"
+    },
+    {
+      "actor": "supervisor",
+      "action": "focus",
+      "tab": "seeded-task",
+      "detail": "Orchestration, not a decoded neural action.",
+      "timestamp": "2026-09-11T21:03:55.010Z"
+    }
+  ],
+  "stationSchedule": {
+    "version": "station-tabs-v1",
+    "dashboardUrl": "http://127.0.0.1:4317/?display=workstation",
+    "dashboardSeconds": 180,
+    "readingUrl": "https://elifesciences.org/articles/97964"
+  },
+  "error": "The operation was aborted; Video: video.saveAs: Target page, context or browser has been closed"
+}
