@@ -60,13 +60,15 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
         void (window as any).__recordEvent({type,timestamp:new Date().toISOString(),pageTimeMs:performance.now(),url:location.pathname,x:m.clientX,y:m.clientY,deltaY:type==='wheel'?w.deltaY:undefined,trusted:e.isTrusted});
       },true);
     });
-    const station=stationEnabled?await prepareStationTabs(context,record):undefined;
+    const station=desktop instanceof RemoteDesktopSession?await prepareStationTabs(context,record,{width:640*desktop.info.scale,height:360*desktop.info.scale}):undefined;
     const page=await context.newPage();video=page.video();
     if(desktop){for(const c of browser.contexts())if(c!==context)for(const p of c.pages())await p.close();await desktop.arrange(page);}
     page.on('framenavigated',frame=>{if(frame===page.mainFrame())events.push({type:'navigation',timestamp:new Date().toISOString(),pageTimeMs:0,url:new URL(frame.url()).pathname,commandId:currentCommandId});});
-    await page.goto(`http://127.0.0.1:${port}/`);await page.mouse.move(C.cursor.x,C.cursor.y);await delay(60);record.setup.events=events.slice();
+    const inputScale=desktop instanceof RemoteDesktopSession?desktop.info.scale:1;
+    const screenshot=()=>desktop instanceof RemoteDesktopSession?desktop.screenshot(page):page.screenshot({animations:'disabled'});
+    await page.goto(`http://127.0.0.1:${port}/`);await page.mouse.move(C.cursor.x*inputScale,C.cursor.y*inputScale);await delay(60);record.setup.events=events.slice();
     if(station)await station.focus(page,'seeded-task');
-    const controller=new ExhibitController(circuit,runId,startedAt,o.intervention);let cursor={...C.cursor},png=await page.screenshot({animations:'disabled'}),capturedAt=new Date().toISOString();
+    const controller=new ExhibitController(circuit,runId,startedAt,o.intervention);let cursor={...C.cursor},png=await screenshot(),capturedAt=new Date().toISOString();
     writeFileSync(join(directory,'frame-000.png'),png);
     let presentation=await desktop?.capture(directory,0,'frame-000.png',capturedAt,cursor);
     for(let decision=0;decision<C.decisions;decision++){
@@ -80,12 +82,17 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
       });
       const commandId=`${runId}:c${String(decision).padStart(3,'0')}`;currentCommandId=commandId;
       const from={...cursor},actionStarted=new Date().toISOString(),command=calculation.command;
-      if(command.kind==='move'){cursor={x:Math.max(10,Math.min(C.width-10,cursor.x+command.dx)),y:cursor.y};await page.mouse.move(cursor.x,cursor.y);}
-      if(command.kind==='scroll')await page.mouse.wheel(0,command.wheelY);
+      if(command.kind==='move'){cursor={x:Math.max(10,Math.min(C.width-10,cursor.x+command.dx)),y:cursor.y};await page.mouse.move(cursor.x*inputScale,cursor.y*inputScale);}
+      if(command.kind==='scroll')await page.mouse.wheel(0,command.wheelY*inputScale);
       if(command.kind==='click'){await page.mouse.down();await page.mouse.up();}
       // Passive settling for the real input event/navigation before recapture; no locator or scrolling helper.
       await delay(100,undefined,{signal:o.signal});await page.waitForLoadState('load');
-      const actionCompleted=new Date().toISOString(),after=await page.screenshot({animations:'disabled'}),afterCaptured=new Date().toISOString(),imageAfter=`frame-${String(decision+1).padStart(3,'0')}.png`;
+      const actionCompleted=new Date().toISOString(),after=await screenshot(),afterCaptured=new Date().toISOString(),imageAfter=`frame-${String(decision+1).padStart(3,'0')}.png`;
+      if(desktop instanceof RemoteDesktopSession){
+        for(const event of events.filter(e=>e.commandId===commandId&&['mousemove','mousedown','mouseup','click','wheel'].includes(e.type))){
+          if(!event.trusted||event.x!==cursor.x||event.y!==cursor.y||event.type==='wheel'&&event.deltaY!==command.wheelY)throw new Error('Native presentation/input mapping changed; actual browser event disagrees with the decoded command');
+        }
+      }
       writeFileSync(join(directory,imageAfter),after);
       const desktopAfter=await desktop?.capture(directory,decision+1,imageAfter,afterCaptured,cursor);
       const d:ExhibitDecision={context:{sourceRevision:origin.sourceRevision,sourceDirty:origin.sourceDirty,configSha256:record.configSha256,dataVersion:origin.dataVersion,intervention:o.intervention,episode:o.episode,seed:o.seed,layout:o.layout},sessionId:o.sessionId,runId,commandId,decision,imageBefore,imageAfter,imageSha256:sha256(png),afterSha256:sha256(after),capturedAt,completedAt:afterCaptured,...calculation,
@@ -100,11 +107,12 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
     record.outcome=record.evaluator.activated?'activated':record.evaluator.navigated?'navigated-only':'not-activated';
     if(station&&desktop){
       currentCommandId=null;await station.focus(station.dashboard,'dashboard');
+      if(desktop instanceof RemoteDesktopSession)await desktop.present(station.dashboard);
       // More dashboard time than a typical 48-window excursion. No neural
       // integration or input executes during the explicitly idle dwell.
       const until=Date.now()+STATION_SCHEDULE.dashboardSeconds*1000;let frame=C.decisions+1;
       while(Date.now()<until){
-        o.signal?.throwIfAborted();const image=`frame-${String(frame).padStart(3,'0')}.png`,bytes=await station.dashboard.screenshot(),at=new Date().toISOString();
+        o.signal?.throwIfAborted();const image=`frame-${String(frame).padStart(3,'0')}.png`,bytes=desktop instanceof RemoteDesktopSession?await desktop.screenshot(station.dashboard):await station.dashboard.screenshot(),at=new Date().toISOString();
         writeFileSync(join(directory,image),bytes);const capture=await desktop.capture(directory,frame++,image,at,{x:0,y:0});capture.cursorSource='not-present';
         emit({state:'idle',browserFrame:`${runId}/${image}`,desktop:capture,command:null,commandId:null,notice:'Supervisor returned to the live dashboard. Neural state is held between excursions; tab focus is orchestration.'});
         await delay(2000,undefined,{signal:o.signal});

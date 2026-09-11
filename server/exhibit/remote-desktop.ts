@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 import assert from 'node:assert/strict';
-import {chromium,type Browser,type Page} from '@playwright/test';
+import {chromium,type Browser,type Page,type CDPSession} from '@playwright/test';
 import {PNG} from 'pngjs';
 import {sha256} from '../browser/evidence';
 import {WINDOWS_CALIBRATION,locateWindowsViewport} from './windows-geometry';
@@ -13,6 +13,7 @@ export class RemoteDesktopSession {
   browser!:Browser;get width(){return this.info.width;}get height(){return this.info.height;}
   private sequence=0;private heartbeat?:ReturnType<typeof setInterval>;private failure?:Error;private closed=false;
   private viewport?:{x:number;y:number;scale:number};private bounds?:string;
+  private presentation?:{page:Page;scale:number};private pageSessions=new Map<Page,CDPSession>();
   private constructor(readonly endpoint:string,private token:string,readonly info:{leaseId:string;bootId:string;stationId:string;os:string;isolation:string;width:number;height:number;scale:number}){}
   static async open(){
     const endpoint=process.env.EXHIBIT_WINDOWS_URL,tokenFile=process.env.EXHIBIT_WINDOWS_TOKEN_FILE;
@@ -48,15 +49,36 @@ export class RemoteDesktopSession {
   async arrange(page:Page){
     await page.bringToFront();await this.request('arrange');await page.setContent(WINDOWS_CALIBRATION);
     const before=PNG.sync.read(await page.screenshot());
-    const cdp=await page.context().newCDPSession(page);
-    try{await cdp.send('Emulation.setDeviceMetricsOverride',{width:640,height:360,deviceScaleFactor:1,mobile:false,scale:this.info.scale});
-      const after=PNG.sync.read(await page.screenshot());assert.equal(after.width,640);assert.equal(after.height,360);assert(before.data.equals(after.data),'Display scaling changed the sensory image');
-      await page.waitForTimeout(150);const capture=await this.request('capture');this.validate(capture);
-      this.viewport=locateWindowsViewport(PNG.sync.read(Buffer.from(capture.png,'base64')),after,this.info.scale);this.bounds=JSON.stringify(capture.window);
-    }finally{await cdp.detach();}
+    await this.present(page,this.info.scale);
+    const after=PNG.sync.read(await this.screenshot(page));assert.equal(after.width,640);assert.equal(after.height,360);assert(before.data.equals(after.data),'Display scaling changed the sensory image');
+    await this.paint(page);const capture=await this.request('capture');this.validate(capture);
+    this.viewport=locateWindowsViewport(PNG.sync.read(Buffer.from(capture.png,'base64')),after,this.info.scale);this.bounds=JSON.stringify(capture.window);
+  }
+  async present(page:Page,scale=1){
+    this.presentation={page,scale};let cdp=this.pageSessions.get(page);
+    if(!cdp){cdp=await page.context().newCDPSession(page);this.pageSessions.set(page,cdp);}
+    const size=page.viewportSize();assert(size,'Station page requires an explicit sensory/layout viewport');
+    // Another protocol session can restore its cached metrics. Clear first so
+    // Chromium applies these parameters even when our own values repeat.
+    await cdp.send('Emulation.clearDeviceMetricsOverride');
+    await cdp.send('Emulation.setDeviceMetricsOverride',{...size,deviceScaleFactor:1,mobile:false,scale,dontSetVisibleSize:true});
+    await cdp.send('Emulation.setVisibleSize',{width:Math.round(size.width*scale),height:Math.round(size.height*scale)});
+    await this.paint(page);
+  }
+  private async paint(page:Page){await page.evaluate(()=>new Promise<void>(r=>requestAnimationFrame(()=>requestAnimationFrame(()=>r()))));}
+  async screenshot(page:Page){
+    const cdp=this.pageSessions.get(page);assert(cdp,'Present the station page before capture');
+    const size=page.viewportSize();assert(size);
+    // The presentation session must also capture the sensory image. A separate
+    // session restores its own metrics and silently changes on-screen scale.
+    // Only viewport/scroll geometry is read; no DOM target is consulted.
+    const {cssVisualViewport}=await cdp.send('Page.getLayoutMetrics');
+    const shot=await cdp.send('Page.captureScreenshot',{format:'png',clip:{x:cssVisualViewport.pageX,y:cssVisualViewport.pageY,...size,scale:1},captureBeyondViewport:true});
+    const bytes=Buffer.from(shot.data,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,size.width);assert.equal(png.height,size.height);return bytes;
   }
   async capture(directory:string,index:number,pageFrame:string,pageCapturedAt:string,cursor:{x:number;y:number}):Promise<DesktopCapture>{
     assert(this.viewport,'Windows desktop must pass pixel calibration first');
+    assert(this.presentation);await this.paint(this.presentation.page);
     const requestedAt=Date.now(),started=performance.now(),c=await this.request('capture'),roundTripMs=performance.now()-started;this.validate(c);
     const bytes=Buffer.from(c.png,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,this.width);assert.equal(png.height,this.height);
     const uncertainty=Math.max(0,(roundTripMs-c.captureMs)/2),capturedAt=new Date(requestedAt+uncertainty).toISOString(),path=`desktop-${String(index).padStart(3,'0')}.png`;

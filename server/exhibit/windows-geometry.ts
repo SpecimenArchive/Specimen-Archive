@@ -13,5 +13,10 @@ export function locateWindowsViewport(desktop:PNG,input:PNG,scale=2){
     for(let dy=0;dy<360*scale&&exact;dy++)for(let dx=0;dx<640*scale;dx++)if(!same(x+dx,y+dy,Math.floor(dx/scale),Math.floor(dy/scale))){exact=false;break;}
     if(exact){location={x,y,scale};break;}
   }
-  assert(location,`Windows desktop must contain the complete 640 x 360 viewport at exactly ${scale}x presentation scale`);return location;
+  if(!location){
+    const colors=[[0,0],[639,0],[0,359],[639,359]].map(([px,py])=>Array.from(input.data.subarray((py*640+px)*4,(py*640+px)*4+3)));
+    const regions=colors.map(color=>{let left=desktop.width,top=desktop.height,right=-1,bottom=-1,count=0;for(let y=0;y<desktop.height;y++)for(let x=0;x<desktop.width;x++){const i=(y*desktop.width+x)*4;if(color.every((v,c)=>desktop.data[i+c]===v)){left=Math.min(left,x);top=Math.min(top,y);right=Math.max(right,x);bottom=Math.max(bottom,y);count++;}}return {left,top,right,bottom,count};});
+    assert.fail(`Windows desktop must contain the complete 640 x 360 viewport at exactly ${scale}x presentation scale; calibration regions ${JSON.stringify(regions)}`);
+  }
+  return location;
 }
