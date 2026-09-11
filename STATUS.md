@@ -16,6 +16,7 @@ Complete the connected continuous exhibit in [UPDATED_BRIEF.md](docs/UPDATED_BRI
 - [Public release](https://github.com/SpecimenArchive/Specimen-Archive/releases/tag/exhibit-v1) contains the 44,372,030-byte raw trace/video bundle outside normal Git. GitHub's SHA256 matches the local archive. Latest implementation/evidence checkpoint 65f5cc8 passed independent CI 34620157049.
 - Release scan checked 219 working text files and 313 historical text blobs: no known credential-pattern findings or suspicious tracked credential filenames. MIT code, attributed CC BY research/asset material and OFL fonts are documented; generated apparatus provenance is explicit.
 - Milestone complete within the documented controlled-task limits. Running preview: http://127.0.0.1:4317/; integrated recording: /docs/previews/integrated-review.html. No general-web competence is claimed; offset-budget and low-contrast failures remain visible.
+- Fresh public clone at 9ac83be independently installed from the lockfile, passed all 26 tests and production build, and exactly reconstructed the published standard trial's 2,880 neural samples and 48 decisions. See [reproduction receipt](docs/results/exhibit-reproduction.json).
 
 ## Implemented and checked
 - Published 72 hpf Platynereis graph: 2,675 imported nodes, 14,066 edges; active 47-neuron/161-edge/711-synapse circuit. Traceable IDs and source checksums are retained.
