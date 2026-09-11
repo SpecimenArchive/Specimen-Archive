@@ -37,6 +37,6 @@ while((performance.now()-start)/1000<duration){
   await a.page.waitForTimeout(2000);
 }
 const frames=await b.page.evaluate(()=>window.__frameTimes);frames.sort((a,b)=>a-b);
-const healthEnd=await (await fetch(base+'/api/health')).json(),result={startedAt,completedAt:new Date().toISOString(),durationSeconds:(performance.now()-start)/1000,sessionId,matchingPackets,reconnected,offlineSpecimenExact:freeze,previewSaved,inspected,errors,displayFrameIntervalMs:{median:frames[Math.floor(frames.length*.5)],p95:frames[Math.floor(frames.length*.95)],sampleCount:frames.length},healthStart,healthEnd,observations};
+const healthEnd=await (await fetch(base+'/api/health')).json(),result={startedAt,completedAt:new Date().toISOString(),durationSeconds:(performance.now()-start)/1000,sessionId,matchingPackets,reconnected,offlineSpecimenExact:freeze,previewSaved,inspected,errors,animationFrameCallbackIntervalMs:{definition:'requestAnimationFrame scheduling interval; not actual specimen draw cadence, which is capped at 60 Hz',median:frames[Math.floor(frames.length*.5)],p95:frames[Math.floor(frames.length*.95)],sampleCount:frames.length},healthStart,healthEnd,observations};
 writeFileSync('docs/results/exhibit-endurance.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({...result,observations:observations.length},null,2));
 await browser.close();assert.equal(errors.length,0);if(duration>=600){assert(matchingPackets>1000);assert(reconnected);assert(healthEnd.exhibit.episodes>=3);}

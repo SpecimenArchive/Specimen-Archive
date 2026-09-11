@@ -26,6 +26,7 @@
     "observe:light": "node --env-file-if-exists=.env --import tsx server/index.ts --light-demo",
     "exhibit:validate": "tsx scripts/exhibit-suite.ts",
     "exhibit:replay": "tsx scripts/exhibit-replay.ts",
+    "exhibit:recovery": "tsx scripts/exhibit-recovery.ts",
     "browser:validate": "node --env-file-if-exists=.env --import tsx scripts/browser-demo.ts --suite",
     "browser:replay": "tsx scripts/browser-replay.ts",
     "browser:calibrate": "tsx scripts/browser-calibration.ts",

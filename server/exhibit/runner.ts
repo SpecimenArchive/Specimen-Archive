@@ -1,6 +1,6 @@
 import { chromium,type Browser,type BrowserContext,type Video } from '@playwright/test';
 import { createServer } from 'node:http';
-import { mkdirSync,writeFileSync } from 'node:fs';
+import { mkdirSync,writeFileSync,readdirSync,statSync,copyFileSync } from 'node:fs';
 import { resolve,join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { randomUUID } from 'node:crypto';
@@ -22,7 +22,7 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   const decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],origin={...ORIGIN,runId};
   let currentCommandId:string|null=null,browser:Browser|undefined,context:BrowserContext|undefined,video:Video|null=null;
   const record:ExhibitRecord={schemaVersion:1,kind:'continuous-browser-episode',recorder:'Specimen Recorder',id:runId,sessionId:o.sessionId,origin,
-    config:C,configSha256:sha256(JSON.stringify(C)),model:MODEL_CONFIG,startedAt,completedAt:'',seed:o.seed,layout:o.layout,intervention:o.intervention,browserVersion:'',
+    config:C,configSha256:sha256(JSON.stringify(C)),model:MODEL_CONFIG,execution:{paced:!o.fast,minimumWindowWallMs:o.fast?0:C.windowWallMs,nodeVersion:process.version,faultAfterWindow:o.faultAfter},startedAt,completedAt:'',seed:o.seed,layout:o.layout,intervention:o.intervention,browserVersion:'',
     coverage:{neuronIds:circuit.nodes.map(n=>n.id),edges:circuit.edges.length,synapses:circuit.edges.reduce((s,e)=>s+e.weight,0)},
     setup:{note:'Supervisor: new isolated browser, local task placement and navigation, cursor at (320,216), zero neural state. Fixed 48-window budget. Evaluator excluded from controller.',events:[]},decisions:[],evaluator:{navigated:false,activated:false,activationCount:0},outcome:'error',artifacts:[]};
   let live:ExhibitLive={sessionId:o.sessionId,runId,packetSeq:0,timestamp:startedAt,state:'starting',episode:o.episode,decision:0,intervention:o.intervention,layout:o.layout,seed:o.seed,
@@ -78,7 +78,13 @@ export async function runEpisode(circuit:Circuit,o:EpisodeOptions){
   }catch(e){record.error=(e as Error).message;record.outcome='error';}
   finally{
     try{await context?.close();}catch{/* Browser may have been closed by the explicit fault test. */}
-    try{await video?.saveAs(join(directory,'browser.webm'));await video?.delete();}catch(e){record.error=[record.error,`Video: ${(e as Error).message}`].filter(Boolean).join('; ');record.outcome='error';}
+    try{await video?.saveAs(join(directory,'browser.webm'));await video?.delete();}catch(e){
+      // A killed browser invalidates its RPC connection, but local Playwright
+      // may already have finalized its original recording during close.
+      const finalized=readdirSync(directory).filter(n=>n.endsWith('.webm')&&n!=='browser.webm').map(n=>join(directory,n)).find(p=>statSync(p).size>0);
+      if(finalized)copyFileSync(finalized,join(directory,'browser.webm'));
+      else{record.error=[record.error,`Video: ${(e as Error).message}`].filter(Boolean).join('; ');record.outcome='error';}
+    }
     await browser?.close();await new Promise<void>(r=>fixture.close(()=>r()));
   }
   writeFileSync(join(directory,'trace.json.gz'),gzipSync(JSON.stringify(decisions)));

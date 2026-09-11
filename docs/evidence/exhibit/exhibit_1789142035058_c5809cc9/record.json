@@ -1,0 +1,5701 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789142035058_c5809cc9",
+  "sessionId": "validation_1789141958519",
+  "origin": {
+    "runId": "exhibit_1789142035058_c5809cc9",
+    "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "startedAt": "2026-09-11T15:53:55.058Z",
+  "completedAt": "2026-09-11T15:54:03.454Z",
+  "seed": 809,
+  "layout": "low-contrast",
+  "intervention": "disconnect-photoreceptors",
+  "browserVersion": "152.0.4191.66",
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Supervisor: new isolated browser, local task placement and navigation, cursor at (320,216), zero neural state. Fixed 48-window budget. Evaluator excluded from controller.",
+    "events": [
+      {
+        "type": "navigation",
+        "timestamp": "2026-09-11T15:53:56.293Z",
+        "pageTimeMs": 0,
+        "url": "/",
+        "commandId": null
+      },
+      {
+        "type": "mousemove",
+        "timestamp": "2026-09-11T15:53:56.324Z",
+        "pageTimeMs": 911.4000000022352,
+        "url": "/",
+        "x": 320,
+        "y": 216,
+        "trusted": true,
+        "commandId": null
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c000",
+      "decision": 0,
+      "imageBefore": "frame-000.png",
+      "imageAfter": "frame-001.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:56.416Z",
+      "completedAt": "2026-09-11T15:53:56.547Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:56.424Z",
+        "completedAt": "2026-09-11T15:53:56.531Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c001",
+      "decision": 1,
+      "imageBefore": "frame-001.png",
+      "imageAfter": "frame-002.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:56.547Z",
+      "completedAt": "2026-09-11T15:53:56.694Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 600,
+      "modelEndStep": 1200,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:56.561Z",
+        "completedAt": "2026-09-11T15:53:56.672Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c002",
+      "decision": 2,
+      "imageBefore": "frame-002.png",
+      "imageAfter": "frame-003.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:56.694Z",
+      "completedAt": "2026-09-11T15:53:56.828Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 1200,
+      "modelEndStep": 1800,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:56.702Z",
+        "completedAt": "2026-09-11T15:53:56.811Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c003",
+      "decision": 3,
+      "imageBefore": "frame-003.png",
+      "imageAfter": "frame-004.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:56.828Z",
+      "completedAt": "2026-09-11T15:53:56.974Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 1800,
+      "modelEndStep": 2400,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:56.840Z",
+        "completedAt": "2026-09-11T15:53:56.952Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c004",
+      "decision": 4,
+      "imageBefore": "frame-004.png",
+      "imageAfter": "frame-005.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:56.974Z",
+      "completedAt": "2026-09-11T15:53:57.114Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 2400,
+      "modelEndStep": 3000,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:56.982Z",
+        "completedAt": "2026-09-11T15:53:57.093Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c005",
+      "decision": 5,
+      "imageBefore": "frame-005.png",
+      "imageAfter": "frame-006.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.114Z",
+      "completedAt": "2026-09-11T15:53:57.252Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 3000,
+      "modelEndStep": 3600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.125Z",
+        "completedAt": "2026-09-11T15:53:57.234Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c006",
+      "decision": 6,
+      "imageBefore": "frame-006.png",
+      "imageAfter": "frame-007.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.252Z",
+      "completedAt": "2026-09-11T15:53:57.399Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 3600,
+      "modelEndStep": 4200,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.262Z",
+        "completedAt": "2026-09-11T15:53:57.376Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c007",
+      "decision": 7,
+      "imageBefore": "frame-007.png",
+      "imageAfter": "frame-008.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.399Z",
+      "completedAt": "2026-09-11T15:53:57.540Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 4200,
+      "modelEndStep": 4800,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.411Z",
+        "completedAt": "2026-09-11T15:53:57.516Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c008",
+      "decision": 8,
+      "imageBefore": "frame-008.png",
+      "imageAfter": "frame-009.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.540Z",
+      "completedAt": "2026-09-11T15:53:57.687Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 4800,
+      "modelEndStep": 5400,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.551Z",
+        "completedAt": "2026-09-11T15:53:57.657Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c009",
+      "decision": 9,
+      "imageBefore": "frame-009.png",
+      "imageAfter": "frame-010.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.687Z",
+      "completedAt": "2026-09-11T15:53:57.836Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 5400,
+      "modelEndStep": 6000,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.703Z",
+        "completedAt": "2026-09-11T15:53:57.813Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c010",
+      "decision": 10,
+      "imageBefore": "frame-010.png",
+      "imageAfter": "frame-011.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:57.836Z",
+      "completedAt": "2026-09-11T15:53:58.002Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 6000,
+      "modelEndStep": 6600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:57.865Z",
+        "completedAt": "2026-09-11T15:53:57.983Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c011",
+      "decision": 11,
+      "imageBefore": "frame-011.png",
+      "imageAfter": "frame-012.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.002Z",
+      "completedAt": "2026-09-11T15:53:58.141Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 6600,
+      "modelEndStep": 7200,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.016Z",
+        "completedAt": "2026-09-11T15:53:58.121Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c012",
+      "decision": 12,
+      "imageBefore": "frame-012.png",
+      "imageAfter": "frame-013.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.141Z",
+      "completedAt": "2026-09-11T15:53:58.283Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 7200,
+      "modelEndStep": 7800,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.151Z",
+        "completedAt": "2026-09-11T15:53:58.261Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c013",
+      "decision": 13,
+      "imageBefore": "frame-013.png",
+      "imageAfter": "frame-014.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.283Z",
+      "completedAt": "2026-09-11T15:53:58.424Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 7800,
+      "modelEndStep": 8400,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.298Z",
+        "completedAt": "2026-09-11T15:53:58.403Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c014",
+      "decision": 14,
+      "imageBefore": "frame-014.png",
+      "imageAfter": "frame-015.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.424Z",
+      "completedAt": "2026-09-11T15:53:58.561Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 8400,
+      "modelEndStep": 9000,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.433Z",
+        "completedAt": "2026-09-11T15:53:58.541Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c015",
+      "decision": 15,
+      "imageBefore": "frame-015.png",
+      "imageAfter": "frame-016.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.561Z",
+      "completedAt": "2026-09-11T15:53:58.694Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 9000,
+      "modelEndStep": 9600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.576Z",
+        "completedAt": "2026-09-11T15:53:58.681Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c016",
+      "decision": 16,
+      "imageBefore": "frame-016.png",
+      "imageAfter": "frame-017.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.694Z",
+      "completedAt": "2026-09-11T15:53:58.828Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 9600,
+      "modelEndStep": 10200,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.703Z",
+        "completedAt": "2026-09-11T15:53:58.806Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c017",
+      "decision": 17,
+      "imageBefore": "frame-017.png",
+      "imageAfter": "frame-018.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.828Z",
+      "completedAt": "2026-09-11T15:53:58.965Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 10200,
+      "modelEndStep": 10800,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.845Z",
+        "completedAt": "2026-09-11T15:53:58.946Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c018",
+      "decision": 18,
+      "imageBefore": "frame-018.png",
+      "imageAfter": "frame-019.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:58.965Z",
+      "completedAt": "2026-09-11T15:53:59.108Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 10800,
+      "modelEndStep": 11400,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:58.974Z",
+        "completedAt": "2026-09-11T15:53:59.086Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c019",
+      "decision": 19,
+      "imageBefore": "frame-019.png",
+      "imageAfter": "frame-020.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.108Z",
+      "completedAt": "2026-09-11T15:53:59.248Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 11400,
+      "modelEndStep": 12000,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.120Z",
+        "completedAt": "2026-09-11T15:53:59.227Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c020",
+      "decision": 20,
+      "imageBefore": "frame-020.png",
+      "imageAfter": "frame-021.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.248Z",
+      "completedAt": "2026-09-11T15:53:59.383Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 12000,
+      "modelEndStep": 12600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.258Z",
+        "completedAt": "2026-09-11T15:53:59.366Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c021",
+      "decision": 21,
+      "imageBefore": "frame-021.png",
+      "imageAfter": "frame-022.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.383Z",
+      "completedAt": "2026-09-11T15:53:59.529Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 12600,
+      "modelEndStep": 13200,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.395Z",
+        "completedAt": "2026-09-11T15:53:59.507Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c022",
+      "decision": 22,
+      "imageBefore": "frame-022.png",
+      "imageAfter": "frame-023.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.529Z",
+      "completedAt": "2026-09-11T15:53:59.667Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 13200,
+      "modelEndStep": 13800,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.537Z",
+        "completedAt": "2026-09-11T15:53:59.645Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c023",
+      "decision": 23,
+      "imageBefore": "frame-023.png",
+      "imageAfter": "frame-024.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.667Z",
+      "completedAt": "2026-09-11T15:53:59.808Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 13800,
+      "modelEndStep": 14400,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.679Z",
+        "completedAt": "2026-09-11T15:53:59.785Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c024",
+      "decision": 24,
+      "imageBefore": "frame-024.png",
+      "imageAfter": "frame-025.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.808Z",
+      "completedAt": "2026-09-11T15:53:59.937Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 14400,
+      "modelEndStep": 15000,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.817Z",
+        "completedAt": "2026-09-11T15:53:59.924Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c025",
+      "decision": 25,
+      "imageBefore": "frame-025.png",
+      "imageAfter": "frame-026.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:53:59.937Z",
+      "completedAt": "2026-09-11T15:54:00.082Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 15000,
+      "modelEndStep": 15600,
+      "executed": {
+        "startedAt": "2026-09-11T15:53:59.950Z",
+        "completedAt": "2026-09-11T15:54:00.066Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c026",
+      "decision": 26,
+      "imageBefore": "frame-026.png",
+      "imageAfter": "frame-027.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.082Z",
+      "completedAt": "2026-09-11T15:54:00.225Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 15600,
+      "modelEndStep": 16200,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.091Z",
+        "completedAt": "2026-09-11T15:54:00.206Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c027",
+      "decision": 27,
+      "imageBefore": "frame-027.png",
+      "imageAfter": "frame-028.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.225Z",
+      "completedAt": "2026-09-11T15:54:00.361Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 16200,
+      "modelEndStep": 16800,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.237Z",
+        "completedAt": "2026-09-11T15:54:00.347Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c028",
+      "decision": 28,
+      "imageBefore": "frame-028.png",
+      "imageAfter": "frame-029.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.361Z",
+      "completedAt": "2026-09-11T15:54:00.496Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 16800,
+      "modelEndStep": 17400,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.369Z",
+        "completedAt": "2026-09-11T15:54:00.473Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c029",
+      "decision": 29,
+      "imageBefore": "frame-029.png",
+      "imageAfter": "frame-030.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.496Z",
+      "completedAt": "2026-09-11T15:54:00.638Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 17400,
+      "modelEndStep": 18000,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.514Z",
+        "completedAt": "2026-09-11T15:54:00.615Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c030",
+      "decision": 30,
+      "imageBefore": "frame-030.png",
+      "imageAfter": "frame-031.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.638Z",
+      "completedAt": "2026-09-11T15:54:00.779Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 18000,
+      "modelEndStep": 18600,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.647Z",
+        "completedAt": "2026-09-11T15:54:00.757Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c031",
+      "decision": 31,
+      "imageBefore": "frame-031.png",
+      "imageAfter": "frame-032.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.779Z",
+      "completedAt": "2026-09-11T15:54:00.918Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 18600,
+      "modelEndStep": 19200,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.794Z",
+        "completedAt": "2026-09-11T15:54:00.896Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c032",
+      "decision": 32,
+      "imageBefore": "frame-032.png",
+      "imageAfter": "frame-033.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:00.918Z",
+      "completedAt": "2026-09-11T15:54:01.063Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 19200,
+      "modelEndStep": 19800,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:00.926Z",
+        "completedAt": "2026-09-11T15:54:01.038Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c033",
+      "decision": 33,
+      "imageBefore": "frame-033.png",
+      "imageAfter": "frame-034.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.063Z",
+      "completedAt": "2026-09-11T15:54:01.194Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 19800,
+      "modelEndStep": 20400,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.075Z",
+        "completedAt": "2026-09-11T15:54:01.178Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c034",
+      "decision": 34,
+      "imageBefore": "frame-034.png",
+      "imageAfter": "frame-035.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.194Z",
+      "completedAt": "2026-09-11T15:54:01.334Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 20400,
+      "modelEndStep": 21000,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.202Z",
+        "completedAt": "2026-09-11T15:54:01.317Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c035",
+      "decision": 35,
+      "imageBefore": "frame-035.png",
+      "imageAfter": "frame-036.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.334Z",
+      "completedAt": "2026-09-11T15:54:01.475Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 21000,
+      "modelEndStep": 21600,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.346Z",
+        "completedAt": "2026-09-11T15:54:01.456Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c036",
+      "decision": 36,
+      "imageBefore": "frame-036.png",
+      "imageAfter": "frame-037.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.475Z",
+      "completedAt": "2026-09-11T15:54:01.611Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 21600,
+      "modelEndStep": 22200,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.482Z",
+        "completedAt": "2026-09-11T15:54:01.595Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c037",
+      "decision": 37,
+      "imageBefore": "frame-037.png",
+      "imageAfter": "frame-038.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.611Z",
+      "completedAt": "2026-09-11T15:54:01.750Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 22200,
+      "modelEndStep": 22800,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.622Z",
+        "completedAt": "2026-09-11T15:54:01.737Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c038",
+      "decision": 38,
+      "imageBefore": "frame-038.png",
+      "imageAfter": "frame-039.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.750Z",
+      "completedAt": "2026-09-11T15:54:01.885Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 22800,
+      "modelEndStep": 23400,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.758Z",
+        "completedAt": "2026-09-11T15:54:01.862Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c039",
+      "decision": 39,
+      "imageBefore": "frame-039.png",
+      "imageAfter": "frame-040.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:01.885Z",
+      "completedAt": "2026-09-11T15:54:02.018Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 23400,
+      "modelEndStep": 24000,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:01.897Z",
+        "completedAt": "2026-09-11T15:54:02.003Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c040",
+      "decision": 40,
+      "imageBefore": "frame-040.png",
+      "imageAfter": "frame-041.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.018Z",
+      "completedAt": "2026-09-11T15:54:02.166Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 24000,
+      "modelEndStep": 24600,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.028Z",
+        "completedAt": "2026-09-11T15:54:02.144Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c041",
+      "decision": 41,
+      "imageBefore": "frame-041.png",
+      "imageAfter": "frame-042.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.166Z",
+      "completedAt": "2026-09-11T15:54:02.300Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 24600,
+      "modelEndStep": 25200,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.178Z",
+        "completedAt": "2026-09-11T15:54:02.284Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c042",
+      "decision": 42,
+      "imageBefore": "frame-042.png",
+      "imageAfter": "frame-043.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.300Z",
+      "completedAt": "2026-09-11T15:54:02.446Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 25200,
+      "modelEndStep": 25800,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.308Z",
+        "completedAt": "2026-09-11T15:54:02.423Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c043",
+      "decision": 43,
+      "imageBefore": "frame-043.png",
+      "imageAfter": "frame-044.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.446Z",
+      "completedAt": "2026-09-11T15:54:02.578Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 25800,
+      "modelEndStep": 26400,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.457Z",
+        "completedAt": "2026-09-11T15:54:02.561Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c044",
+      "decision": 44,
+      "imageBefore": "frame-044.png",
+      "imageAfter": "frame-045.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.578Z",
+      "completedAt": "2026-09-11T15:54:02.723Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 26400,
+      "modelEndStep": 27000,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.587Z",
+        "completedAt": "2026-09-11T15:54:02.701Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c045",
+      "decision": 45,
+      "imageBefore": "frame-045.png",
+      "imageAfter": "frame-046.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.723Z",
+      "completedAt": "2026-09-11T15:54:02.865Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 27000,
+      "modelEndStep": 27600,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.735Z",
+        "completedAt": "2026-09-11T15:54:02.843Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c046",
+      "decision": 46,
+      "imageBefore": "frame-046.png",
+      "imageAfter": "frame-047.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:02.865Z",
+      "completedAt": "2026-09-11T15:54:03.007Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "no-signal",
+        "left": 0,
+        "right": 0,
+        "phase": "point",
+        "verticalError": null,
+        "guidePixels": 0
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "point",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 27600,
+      "modelEndStep": 28200,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:02.873Z",
+        "completedAt": "2026-09-11T15:54:02.984Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    },
+    {
+      "context": {
+        "sourceRevision": "f2e3f2afc81e1aa37e0cc2c9bd9d360fa3ec8b59",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "disconnect-photoreceptors",
+        "episode": 2,
+        "seed": 809,
+        "layout": "low-contrast"
+      },
+      "sessionId": "validation_1789141958519",
+      "runId": "exhibit_1789142035058_c5809cc9",
+      "commandId": "exhibit_1789142035058_c5809cc9:c047",
+      "decision": 47,
+      "imageBefore": "frame-047.png",
+      "imageAfter": "frame-048.png",
+      "imageSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "afterSha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "capturedAt": "2026-09-11T15:54:03.007Z",
+      "completedAt": "2026-09-11T15:54:03.138Z",
+      "input": {
+        "version": "pixel-lane-scroll-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 3,
+        "cursorPixels": 96,
+        "targetCentroid": {
+          "x": 212.66666666666666,
+          "y": 107.66666666666667
+        },
+        "cursorCentroid": {
+          "x": 319.5,
+          "y": 215.5
+        },
+        "horizontalErrorPx": null,
+        "encoding": "down-guide",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 44
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0
+          }
+        ],
+        "mean": 0,
+        "contrast": 0
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0,
+        "motorContrast": 0,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 28200,
+      "modelEndStep": 28800,
+      "executed": {
+        "startedAt": "2026-09-11T15:54:03.020Z",
+        "completedAt": "2026-09-11T15:54:03.123Z",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 320,
+          "y": 216
+        },
+        "events": []
+      }
+    }
+  ],
+  "evaluator": {
+    "activated": false,
+    "activationCount": 0,
+    "navigated": false
+  },
+  "outcome": "not-activated",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "bfd8269cb517356e8122e271a6760f468ab6ef213d63f7b3c75edc45c2ace843",
+      "bytes": 84331
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "9c80f86c1a070dc5092481f1eb6088ecc29f57211e27da2df4a0317aa380a34f",
+      "bytes": 4607
+    },
+    {
+      "path": "decision-1.json.gz",
+      "sha256": "bce390aab2849a3489fbbdd6bd5d8da4cebb0380a39f94c6d0d9d1a592ac49ad",
+      "bytes": 7684
+    },
+    {
+      "path": "decision-10.json.gz",
+      "sha256": "4dfe86a458ec5a5424587cf1d520dab1cf819235b732f3edfc07331e60f3aeb3",
+      "bytes": 8006
+    },
+    {
+      "path": "decision-11.json.gz",
+      "sha256": "4559e9333c27fe7df0e617abec955483954aa5fe31ae6368439a5e39be05009a",
+      "bytes": 7959
+    },
+    {
+      "path": "decision-12.json.gz",
+      "sha256": "04446bc1f7c27034b4827c4638ea6d94ddd49c8a612b8b17269471c5b9676951",
+      "bytes": 8125
+    },
+    {
+      "path": "decision-13.json.gz",
+      "sha256": "4e86f3201c417af246ffb20f12a537748b7ac7e19adeb73a77373344cf3ad606",
+      "bytes": 8213
+    },
+    {
+      "path": "decision-14.json.gz",
+      "sha256": "a6964fd70371b37be120341a9e0837209a93b531ab21f7d262b2a4bd987eb302",
+      "bytes": 8216
+    },
+    {
+      "path": "decision-15.json.gz",
+      "sha256": "84233a3f1234869fa750fba920f372546470d6c64dc750290cc494ac7aebbe5e",
+      "bytes": 8199
+    },
+    {
+      "path": "decision-16.json.gz",
+      "sha256": "38d0531e9dceee42f67de0041a0f0f6cad8348928c932719d615ced9b01f8057",
+      "bytes": 8208
+    },
+    {
+      "path": "decision-17.json.gz",
+      "sha256": "97e8a671c2560c24e052a66d87a5048b686d2643f464579dfd94736ba4784354",
+      "bytes": 8184
+    },
+    {
+      "path": "decision-18.json.gz",
+      "sha256": "5a6bf2fa7368d1bee17c26c1d90adc313c16053176b0752a89c3ee03bd570bf9",
+      "bytes": 8156
+    },
+    {
+      "path": "decision-19.json.gz",
+      "sha256": "ad3f2839af00ca1ec3b9a661641cf937bceddf1d66c16b964d243ac5217650ca",
+      "bytes": 8216
+    },
+    {
+      "path": "decision-2.json.gz",
+      "sha256": "60068e0b37a302607db0c78f85007c205d5e131f5cb3ce395171aeaf10e6335f",
+      "bytes": 7772
+    },
+    {
+      "path": "decision-20.json.gz",
+      "sha256": "a4dea0e3b1fc207bacde579574b359175233f828554398d80b35e8780ba18a1b",
+      "bytes": 8278
+    },
+    {
+      "path": "decision-21.json.gz",
+      "sha256": "2038a743a71e6356ff96eeccb2f91d5f1c8b64f380e4169c5d9ba69e62360592",
+      "bytes": 8227
+    },
+    {
+      "path": "decision-22.json.gz",
+      "sha256": "5a4ba9266de29df68a648871c1fabc13f202a11ee61a237bdf338a6f19812505",
+      "bytes": 8241
+    },
+    {
+      "path": "decision-23.json.gz",
+      "sha256": "5c69974df99be0e5fb5c9b90ad176843096c83160f9a3334bcafba1876fe9afa",
+      "bytes": 8233
+    },
+    {
+      "path": "decision-24.json.gz",
+      "sha256": "5b51f93b12930029cbffad1fac96cd3663ab38e925a75071943dd51b2e51abf2",
+      "bytes": 8285
+    },
+    {
+      "path": "decision-25.json.gz",
+      "sha256": "68365a5fbaf28b69de395dd19ae80cf3a25972e9c5156988c57c8170e798fa86",
+      "bytes": 8246
+    },
+    {
+      "path": "decision-26.json.gz",
+      "sha256": "87f4146c617b762155166c0dd1b943b6290a47cdc633626c525c597017febe85",
+      "bytes": 8289
+    },
+    {
+      "path": "decision-27.json.gz",
+      "sha256": "34c6e016434c8776526e672529e86eb551612667c947182492cd0793368d2c7c",
+      "bytes": 8251
+    },
+    {
+      "path": "decision-28.json.gz",
+      "sha256": "f7d1e92704fef0818c243407686e925c6a2799a357174c23cad898615c67b6c3",
+      "bytes": 8294
+    },
+    {
+      "path": "decision-29.json.gz",
+      "sha256": "588688abc8da29a78561e575bd688cf42c8408010adb3778205fea786eef53c2",
+      "bytes": 8313
+    },
+    {
+      "path": "decision-3.json.gz",
+      "sha256": "04e25d33cf2adeef19c9f81cec23a450c7de8ccdc447f49460b92813a4fd81e0",
+      "bytes": 7756
+    },
+    {
+      "path": "decision-30.json.gz",
+      "sha256": "7f5712980ea84b07ef4bebd3fed6bf9f9cb8f8fde8b1b7ff3b107b2e3b01561a",
+      "bytes": 8313
+    },
+    {
+      "path": "decision-31.json.gz",
+      "sha256": "85cd60bcb4f9daa751c70e87e9557b0b62a342f94f5af7284e634e473c8b9568",
+      "bytes": 8252
+    },
+    {
+      "path": "decision-32.json.gz",
+      "sha256": "3f7c1a26b4b482d4f1e4f5ac604d31405e4650fd42914dbdaf2f68cfd18f245a",
+      "bytes": 8299
+    },
+    {
+      "path": "decision-33.json.gz",
+      "sha256": "03ee651ebddcff90acc24066bedefd2045f89a1aeeee29dbab6a81646a785f05",
+      "bytes": 8274
+    },
+    {
+      "path": "decision-34.json.gz",
+      "sha256": "fc4f376d743757608041a1035a0415cb2a5349e54d439c482fc6788425babcf5",
+      "bytes": 8278
+    },
+    {
+      "path": "decision-35.json.gz",
+      "sha256": "41707dcb10079ed6977b15e45c38e84beb5e71f99e3431164345b8d0e6a54242",
+      "bytes": 8275
+    },
+    {
+      "path": "decision-36.json.gz",
+      "sha256": "fe3bfaddd25823268a496fa52cebaebf51f6c6f7609e59e0a8c4f2d033c1641d",
+      "bytes": 8314
+    },
+    {
+      "path": "decision-37.json.gz",
+      "sha256": "e2eedc20c26b5d80cf88712d992ef39d064a83175a1345256e8b0fb3dff28a5e",
+      "bytes": 8207
+    },
+    {
+      "path": "decision-38.json.gz",
+      "sha256": "c82565320b006f641509b57afd7709076b7bbac9f0e76044357dbe1654da3cb3",
+      "bytes": 8324
+    },
+    {
+      "path": "decision-39.json.gz",
+      "sha256": "961083f911ac91d89c9236dd6cc69c4d85d62e2f78e3ae4e5793fd5a352612a3",
+      "bytes": 8285
+    },
+    {
+      "path": "decision-4.json.gz",
+      "sha256": "8c1b03c9579d576faf51a29308d1fa695902af82d5a7c1fb029ff6a81bc3d26a",
+      "bytes": 7736
+    },
+    {
+      "path": "decision-40.json.gz",
+      "sha256": "7879c07146564c416b35883aa5545b98ffc3a5e97c4b949d428037fc38fa4d74",
+      "bytes": 8304
+    },
+    {
+      "path": "decision-41.json.gz",
+      "sha256": "7255fc4063a0d9692b4360cabe949f8a5e01d47e3b94a9fa618ca174e88073d0",
+      "bytes": 8310
+    },
+    {
+      "path": "decision-42.json.gz",
+      "sha256": "0c3365a1ae9cd89bede51b43552c688c64542688d389d6a85a5d23a540513b68",
+      "bytes": 8296
+    },
+    {
+      "path": "decision-43.json.gz",
+      "sha256": "e6c3647a7174e89f9c9b2f776a7d32b994f26903bbed7da3abc622626cf49742",
+      "bytes": 8240
+    },
+    {
+      "path": "decision-44.json.gz",
+      "sha256": "25124b6a6d87b61bea3f1bbec5201b80f205e8a3f5c53bc7cde079fca6b50780",
+      "bytes": 8306
+    },
+    {
+      "path": "decision-45.json.gz",
+      "sha256": "554ea35c12b01ec6e701afa5dcdb486d3a53030b9ebd9de51d2734d524948ffb",
+      "bytes": 8298
+    },
+    {
+      "path": "decision-46.json.gz",
+      "sha256": "92a9071b616ed06a628294601aaf753961e65a01b9e7ce34e08598c570fcd428",
+      "bytes": 8323
+    },
+    {
+      "path": "decision-47.json.gz",
+      "sha256": "94a07082e002d3c77a2fe114c3ef3656b4b7b1664cceaf209bec670d492ca7b0",
+      "bytes": 8320
+    },
+    {
+      "path": "decision-5.json.gz",
+      "sha256": "ed24a032812ab1431322f404dde9f84828e82170cdc065f4bd1af629eac1ff54",
+      "bytes": 7780
+    },
+    {
+      "path": "decision-6.json.gz",
+      "sha256": "de6741008286923c049ba9aec00b7101484fe839c4cd3deea4145f098cfb2ca5",
+      "bytes": 7908
+    },
+    {
+      "path": "decision-7.json.gz",
+      "sha256": "59b7d46aa811077c35f99cc54d14c050c23ca973ba34f800d9e8e142567916b4",
+      "bytes": 7868
+    },
+    {
+      "path": "decision-8.json.gz",
+      "sha256": "316d595810476ec247ded0dfb7d8d9d8a8fc816c9e8bd02e308505ea01f89c12",
+      "bytes": 7972
+    },
+    {
+      "path": "decision-9.json.gz",
+      "sha256": "ffd6acb5a9ce327a9c6cc555787f27447100387d316d563985aa19b0f38f2a7c",
+      "bytes": 8010
+    },
+    {
+      "path": "frame-000.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-001.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-002.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-003.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-004.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-005.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-006.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-007.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-008.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-009.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-010.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-011.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-012.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-013.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-014.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-015.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-016.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-017.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-018.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-019.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-020.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-021.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-022.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-023.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-024.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-025.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-026.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-027.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-028.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-029.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-030.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-031.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-032.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-033.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-034.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-035.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-036.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-037.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-038.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-039.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-040.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-041.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-042.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-043.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-044.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-045.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-046.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-047.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "frame-048.png",
+      "sha256": "da652405b2a29b3ca709a246f147f56c5c06234983621ae614b6af54c530771c",
+      "bytes": 12000
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "866361fdc54339c0de13dbcf1b084c7aeed4b7e56eaf423246d5cabd41bee89a",
+      "bytes": 367500
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 2880,
+    "decisions": 48
+  }
+}

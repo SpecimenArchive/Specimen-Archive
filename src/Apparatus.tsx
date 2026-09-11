@@ -20,7 +20,7 @@ export function Apparatus({live}:{live:ExhibitLive|null}){
   useEffect(()=>{
     const bench=new Image(),frame=new Image(),screen=document.createElement('canvas');screen.width=640;screen.height=360;bench.src='/assets/apparatus-master-v1.png';let path='',disposed=false;
     const draw=()=>{
-      if(disposed||!bench.complete||!bench.naturalWidth)return;
+      if(disposed||!bench.complete||!bench.naturalWidth||!canvas.current?.closest('details')?.open)return;
       const l=latest.current,ctx=canvas.current?.getContext('2d'),s=screen.getContext('2d');if(!ctx||!s)return;
       if(l?.browserFrame&&path!==l.browserFrame){path=l.browserFrame;frame.src='/api/exhibit/artifacts/'+path;}
       s.fillStyle='#152328';s.fillRect(0,0,640,360);if(frame.complete&&frame.naturalWidth)s.drawImage(frame,0,36,640,324);

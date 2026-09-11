@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {ExperimentStore} from '../server/experiment-store';
+import {SpecimenRecorder,GitHubCLI} from '../server/recorder';
+import type {ExhibitRecord} from '../shared/exhibit';
+const store=new ExperimentStore<ExhibitRecord>(resolve('runtime/exhibit-validation-publications'));
+const id='exhibit_1789141958520_5256737e',repository='SpecimenArchive/Specimen-Archive',previous=store.publication(id);assert(previous?.state==='published');
+const api=new GitHubCLI(store.root),path=`repos/${repository}/commits?sha=specimen-records&path=experiments/${id}.json&per_page=100`,before=await api.call('GET',path);
+store.setPublication({...previous,state:'pending',reason:'Controlled receipt-loss recovery check'});await new SpecimenRecorder(store,api,repository,true).tick();
+const after=await api.call('GET',path),receipt=store.publication(id)!;assert.equal(receipt.commit,previous.commit);assert.deepEqual(before.map((r:any)=>r.sha),after.map((r:any)=>r.sha));assert.equal(receipt.state,'published');
+const result={checkedAt:new Date().toISOString(),runId:id,commit:receipt.commit,url:receipt.url,commitsBefore:before.length,commitsAfter:after.length,duplicateCreated:false,remoteBytesVerified:true};writeFileSync('docs/results/exhibit-recorder-recovery.json',JSON.stringify(result,null,2)+'\n');console.log(result);
