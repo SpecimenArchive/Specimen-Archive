@@ -1,0 +1,2032 @@
+{
+  "schemaVersion": 1,
+  "kind": "browser-controller",
+  "id": "browser_1789134923784_f80d0e81",
+  "recorder": "Specimen Recorder",
+  "origin": {
+    "runId": "browser_1789134923784_f80d0e81",
+    "sourceRevision": "d2537b756fd5a81f5c924e95579e012bf841c1d6",
+    "sourceDirty": true,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-motor-v1",
+    "width": 640,
+    "height": 360,
+    "cursorStart": {
+      "x": 320,
+      "y": 216
+    },
+    "decisions": 16,
+    "modelStepsPerDecision": 600,
+    "neuralSampleEvery": 10,
+    "minimumWindowWallMs": 600,
+    "targetSeeds": [
+      11,
+      29,
+      47
+    ],
+    "interventions": [
+      "intact",
+      "clamp-all-motors",
+      "disconnect-photoreceptors"
+    ],
+    "encoder": {
+      "version": "colour-retina-v1",
+      "centreTolerancePx": 18,
+      "minimumTargetPixels": 400,
+      "minimumCursorPixels": 20,
+      "lowDrive": 0.15,
+      "highDrive": 0.65,
+      "alignedDrive": 0.85
+    },
+    "decoder": {
+      "version": "mn-contrast-v1",
+      "motorMeanGate": 0.5,
+      "activationMean": 0.593,
+      "rightContrastThreshold": 0.008,
+      "movePixels": 24,
+      "contrastPositiveId": "1732111",
+      "contrastNegativeId": "359142"
+    }
+  },
+  "configSha256": "b19484f384e15c2d710e91985967d49712aedd5dc1021e43fbf926d86295f01d",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "intervention": "intact",
+  "startedAt": "2026-09-11T13:55:23.783Z",
+  "completedAt": "2026-09-11T13:55:26.360Z",
+  "seed": 11,
+  "browserVersion": "152.0.4191.66",
+  "nodeVersion": "v24.11.1",
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "motorIds": [
+      "826675",
+      "359142",
+      "344239",
+      "1732111",
+      "140828",
+      "108826"
+    ],
+    "neurons": 47,
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "targetX": 414,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "note": "Harness-only seeded target placement, navigation and initial cursor positioning. Excluded from controller decisions.",
+    "events": [
+      {
+        "type": "mousemove",
+        "x": 320,
+        "y": 216,
+        "button": 0,
+        "trusted": true,
+        "pageTimeMs": 905.5,
+        "timestamp": "2026-09-11T13:55:25.313Z"
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 0,
+      "imageBefore": "frame-000.png",
+      "imageAfter": "frame-001.png",
+      "imageSha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "afterSha256": "54b679979063cf5f62b5a0d2b2fa10a697c41336101251ee01e74e11ae884e55",
+      "capturedAt": "2026-09-11T13:55:25.340Z",
+      "completedAt": "2026-09-11T13:55:25.386Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 283.16766467065867,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 129.62760358567516,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5616422111317891
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5522096870953361
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5628081016153804
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5659952394583783
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5609754650355214
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5598075795780554
+          }
+        ],
+        "mean": 0.5605730473190768,
+        "contrast": 0.01378555236304213
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5605730473190768,
+        "motorContrast": 0.01378555236304213,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 320,
+          "y": 216
+        },
+        "to": {
+          "x": 344,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.363Z",
+        "completedAt": "2026-09-11T13:55:25.369Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 344,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 959.5,
+            "timestamp": "2026-09-11T13:55:25.367Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 1,
+      "imageBefore": "frame-001.png",
+      "imageAfter": "frame-002.png",
+      "imageSha256": "54b679979063cf5f62b5a0d2b2fa10a697c41336101251ee01e74e11ae884e55",
+      "afterSha256": "97fae59b4b744905f55423607e4c9213c0cf4ec8b78c7c35b8f9d0040d2149fb",
+      "capturedAt": "2026-09-11T13:55:25.389Z",
+      "completedAt": "2026-09-11T13:55:25.424Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 301.562874251497,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 111.2323940048368,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5811447584038364
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644275269587872
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823342678465533
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5823874627569244
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5796690612739589
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5775533020029153
+          }
+        ],
+        "mean": 0.577919396540496,
+        "contrast": 0.01795993579813726
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.577919396540496,
+        "motorContrast": 0.01795993579813726,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 600,
+      "modelEndStep": 1200,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 344,
+          "y": 216
+        },
+        "to": {
+          "x": 368,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.400Z",
+        "completedAt": "2026-09-11T13:55:25.404Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 368,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 995.1000000014901,
+            "timestamp": "2026-09-11T13:55:25.403Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 2,
+      "imageBefore": "frame-002.png",
+      "imageAfter": "frame-003.png",
+      "imageSha256": "97fae59b4b744905f55423607e4c9213c0cf4ec8b78c7c35b8f9d0040d2149fb",
+      "afterSha256": "44bb25e813fd031ba5dce90b6a4c8c2413d9b94f081ce5893325e5c6e3c09337",
+      "capturedAt": "2026-09-11T13:55:25.429Z",
+      "completedAt": "2026-09-11T13:55:25.456Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5302,
+        "cursorPixels": 171,
+        "targetCentroid": {
+          "x": 413.2887589588834,
+          "y": 214.9594492644285
+        },
+        "cursorCentroid": {
+          "x": 321.19883040935673,
+          "y": 179.92397660818713
+        },
+        "horizontalErrorPx": 92.08992854952669,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812013980004098
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644636684437933
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.582390884510513
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824344117519091
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797231788073325
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776050268355453
+          }
+        ],
+        "mean": 0.5779697613915838,
+        "contrast": 0.017970743308115877
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5779697613915838,
+        "motorContrast": 0.017970743308115877,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 1200,
+      "modelEndStep": 1800,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 368,
+          "y": 216
+        },
+        "to": {
+          "x": 392,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.438Z",
+        "completedAt": "2026-09-11T13:55:25.442Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 392,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1032.800000000745,
+            "timestamp": "2026-09-11T13:55:25.441Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 3,
+      "imageBefore": "frame-003.png",
+      "imageAfter": "frame-004.png",
+      "imageSha256": "44bb25e813fd031ba5dce90b6a4c8c2413d9b94f081ce5893325e5c6e3c09337",
+      "afterSha256": "3f7beca52349200b9bad6cd92e9745b0428b29f506ceef3d8e0adb9b3626848f",
+      "capturedAt": "2026-09-11T13:55:25.462Z",
+      "completedAt": "2026-09-11T13:55:25.492Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5225,
+        "cursorPixels": 175,
+        "targetCentroid": {
+          "x": 413.39483253588514,
+          "y": 214.95177033492823
+        },
+        "cursorCentroid": {
+          "x": 340.78285714285715,
+          "y": 180.73714285714286
+        },
+        "horizontalErrorPx": 72.61197539302799,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015560676103
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637693310035
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910424855215
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345427471126
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233298274596
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051711861836
+          }
+        ],
+        "mean": 0.5779699019408152,
+        "contrast": 0.017970773416109087
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5779699019408152,
+        "motorContrast": 0.017970773416109087,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 1800,
+      "modelEndStep": 2400,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 392,
+          "y": 216
+        },
+        "to": {
+          "x": 416,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.472Z",
+        "completedAt": "2026-09-11T13:55:25.476Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 416,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1066.4000000003725,
+            "timestamp": "2026-09-11T13:55:25.474Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 4,
+      "imageBefore": "frame-004.png",
+      "imageAfter": "frame-005.png",
+      "imageSha256": "3f7beca52349200b9bad6cd92e9745b0428b29f506ceef3d8e0adb9b3626848f",
+      "afterSha256": "cb4a1b5152576e0cb68c3fcdf0b095ad2e44300504ef094de4322c1bf3a95fe7",
+      "capturedAt": "2026-09-11T13:55:25.501Z",
+      "completedAt": "2026-09-11T13:55:25.527Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5236,
+        "cursorPixels": 174,
+        "targetCentroid": {
+          "x": 412.74560733384266,
+          "y": 214.95530939648586
+        },
+        "cursorCentroid": {
+          "x": 359.0632183908046,
+          "y": 180.55172413793105
+        },
+        "horizontalErrorPx": 53.68238894303806,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565086254
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.564463769612484
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429262791
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431125948
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.579723330248813
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715889284
+          }
+        ],
+        "mean": 0.5779699023329542,
+        "contrast": 0.01797077350011078
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5779699023329542,
+        "motorContrast": 0.01797077350011078,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 2400,
+      "modelEndStep": 3000,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 416,
+          "y": 216
+        },
+        "to": {
+          "x": 440,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.509Z",
+        "completedAt": "2026-09-11T13:55:25.513Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 440,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1103.5,
+            "timestamp": "2026-09-11T13:55:25.511Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 5,
+      "imageBefore": "frame-005.png",
+      "imageAfter": "frame-006.png",
+      "imageSha256": "cb4a1b5152576e0cb68c3fcdf0b095ad2e44300504ef094de4322c1bf3a95fe7",
+      "afterSha256": "c53197313fe3900f80638c50264e1fc4924c6b21b33caa14fbf76981c787588f",
+      "capturedAt": "2026-09-11T13:55:25.538Z",
+      "completedAt": "2026-09-11T13:55:25.565Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5224,
+        "cursorPixels": 175,
+        "targetCentroid": {
+          "x": 412.0409647779479,
+          "y": 214.95156967840734
+        },
+        "cursorCentroid": {
+          "x": 378.0857142857143,
+          "y": 180.73714285714286
+        },
+        "horizontalErrorPx": 33.95525049223363,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565098523
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637696132664
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429275054
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431136111
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233302499849
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715900488
+          }
+        ],
+        "mean": 0.5779699023340449,
+        "contrast": 0.017970773500344706
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5779699023340449,
+        "motorContrast": 0.017970773500344706,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 3000,
+      "modelEndStep": 3600,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 440,
+          "y": 216
+        },
+        "to": {
+          "x": 464,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.546Z",
+        "completedAt": "2026-09-11T13:55:25.550Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 464,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1140.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.549Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 6,
+      "imageBefore": "frame-006.png",
+      "imageAfter": "frame-007.png",
+      "imageSha256": "c53197313fe3900f80638c50264e1fc4924c6b21b33caa14fbf76981c787588f",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.578Z",
+      "completedAt": "2026-09-11T13:55:25.599Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5336,
+        "cursorPixels": 169,
+        "targetCentroid": {
+          "x": 412.53504497751123,
+          "y": 214.96289355322338
+        },
+        "cursorCentroid": {
+          "x": 394.26627218934914,
+          "y": 179.50295857988166
+        },
+        "horizontalErrorPx": 18.268772788162096,
+        "encoding": "right",
+        "left": 0.15,
+        "right": 0.65
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565098523
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637696132664
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429275054
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431136111
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233302499849
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715900488
+          }
+        ],
+        "mean": 0.5779699023340449,
+        "contrast": 0.017970773500344706
+      },
+      "command": {
+        "dx": 24,
+        "dy": 0,
+        "motorMean": 0.5779699023340449,
+        "motorContrast": 0.017970773500344706,
+        "activation": false,
+        "kind": "move",
+        "reason": "MN3_r minus MN2_r contrast selects direction"
+      },
+      "modelStartStep": 3600,
+      "modelEndStep": 4200,
+      "executed": {
+        "kind": "move",
+        "from": {
+          "x": 464,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.585Z",
+        "completedAt": "2026-09-11T13:55:25.588Z",
+        "events": [
+          {
+            "type": "mousemove",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1179.1000000014901,
+            "timestamp": "2026-09-11T13:55:25.587Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 7,
+      "imageBefore": "frame-007.png",
+      "imageAfter": "frame-008.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.613Z",
+      "completedAt": "2026-09-11T13:55:25.643Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6032019260306488
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6145841060929703
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6033683781022843
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6057594058720479
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6044355956371756
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6063050535450629
+          }
+        ],
+        "mean": 0.6062757442133649,
+        "contrast": -0.00882470022092241
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.6062757442133649,
+        "motorContrast": -0.00882470022092241,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 4200,
+      "modelEndStep": 4800,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.620Z",
+        "completedAt": "2026-09-11T13:55:25.625Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1214.800000000745,
+            "timestamp": "2026-09-11T13:55:25.623Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1216.300000000745,
+            "timestamp": "2026-09-11T13:55:25.624Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1216.300000000745,
+            "timestamp": "2026-09-11T13:55:25.624Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 8,
+      "imageBefore": "frame-008.png",
+      "imageAfter": "frame-009.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.660Z",
+      "completedAt": "2026-09-11T13:55:25.690Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033447764831326
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146805312282707
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035118727159163
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058707199365334
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045682959460145
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064364096928172
+          }
+        ],
+        "mean": 0.6064021010004476,
+        "contrast": -0.008809811291737302
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.6064021010004476,
+        "motorContrast": -0.008809811291737302,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 4800,
+      "modelEndStep": 5400,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.669Z",
+        "completedAt": "2026-09-11T13:55:25.673Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1262.9000000003725,
+            "timestamp": "2026-09-11T13:55:25.671Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1263.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.672Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1263.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.672Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 9,
+      "imageBefore": "frame-009.png",
+      "imageAfter": "frame-010.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.712Z",
+      "completedAt": "2026-09-11T13:55:25.753Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449357332892
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806339933454
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120324864118
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708437204976
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684438839
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365549732992
+          }
+        ],
+        "mean": 0.6064022407984572,
+        "contrast": -0.008809790272847784
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.6064022407984572,
+        "motorContrast": -0.008809790272847784,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 5400,
+      "modelEndStep": 6000,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.719Z",
+        "completedAt": "2026-09-11T13:55:25.724Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1313.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.722Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1314.5,
+            "timestamp": "2026-09-11T13:55:25.722Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1314.5,
+            "timestamp": "2026-09-11T13:55:25.722Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 10,
+      "imageBefore": "frame-010.png",
+      "imageAfter": "frame-011.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.774Z",
+      "completedAt": "2026-09-11T13:55:25.797Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359103842
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341075982
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326641066
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.605870843858168
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440484214
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551348581
+          }
+        ],
+        "mean": 0.6064022409539228,
+        "contrast": -0.008809790249430183
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.6064022409539228,
+        "motorContrast": -0.008809790249430183,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 6000,
+      "modelEndStep": 6600,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.780Z",
+        "completedAt": "2026-09-11T13:55:25.784Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1374.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.783Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1375.4000000003725,
+            "timestamp": "2026-09-11T13:55:25.783Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1375.4000000003725,
+            "timestamp": "2026-09-11T13:55:25.783Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 11,
+      "imageBefore": "frame-011.png",
+      "imageAfter": "frame-012.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.821Z",
+      "completedAt": "2026-09-11T13:55:25.861Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359105751
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341077211
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326642982
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708438583154
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440485981
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551350319
+          }
+        ],
+        "mean": 0.60640224095409,
+        "contrast": -0.008809790249405758
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.60640224095409,
+        "motorContrast": -0.008809790249405758,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 6600,
+      "modelEndStep": 7200,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.830Z",
+        "completedAt": "2026-09-11T13:55:25.834Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1424.1000000014901,
+            "timestamp": "2026-09-11T13:55:25.832Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1424.6000000014901,
+            "timestamp": "2026-09-11T13:55:25.833Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1424.7000000011176,
+            "timestamp": "2026-09-11T13:55:25.833Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 12,
+      "imageBefore": "frame-012.png",
+      "imageAfter": "frame-013.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.885Z",
+      "completedAt": "2026-09-11T13:55:25.923Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359105751
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341077211
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326642982
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708438583154
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440485981
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551350319
+          }
+        ],
+        "mean": 0.60640224095409,
+        "contrast": -0.008809790249405758
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.60640224095409,
+        "motorContrast": -0.008809790249405758,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 7200,
+      "modelEndStep": 7800,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.892Z",
+        "completedAt": "2026-09-11T13:55:25.897Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1486.9000000003725,
+            "timestamp": "2026-09-11T13:55:25.895Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1487.9000000003725,
+            "timestamp": "2026-09-11T13:55:25.896Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1487.9000000003725,
+            "timestamp": "2026-09-11T13:55:25.896Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 13,
+      "imageBefore": "frame-013.png",
+      "imageAfter": "frame-014.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:25.950Z",
+      "completedAt": "2026-09-11T13:55:25.982Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359105751
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341077211
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326642982
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708438583154
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440485981
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551350319
+          }
+        ],
+        "mean": 0.60640224095409,
+        "contrast": -0.008809790249405758
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.60640224095409,
+        "motorContrast": -0.008809790249405758,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 7800,
+      "modelEndStep": 8400,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:25.957Z",
+        "completedAt": "2026-09-11T13:55:25.965Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1553.6000000014901,
+            "timestamp": "2026-09-11T13:55:25.961Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1555.1000000014901,
+            "timestamp": "2026-09-11T13:55:25.963Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1555.2000000011176,
+            "timestamp": "2026-09-11T13:55:25.963Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 14,
+      "imageBefore": "frame-014.png",
+      "imageAfter": "frame-015.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:26.013Z",
+      "completedAt": "2026-09-11T13:55:26.044Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359105751
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341077211
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326642982
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708438583154
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440485981
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551350319
+          }
+        ],
+        "mean": 0.60640224095409,
+        "contrast": -0.008809790249405758
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.60640224095409,
+        "motorContrast": -0.008809790249405758,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 8400,
+      "modelEndStep": 9000,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:26.020Z",
+        "completedAt": "2026-09-11T13:55:26.025Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1614.6000000014901,
+            "timestamp": "2026-09-11T13:55:26.022Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1615.7000000011176,
+            "timestamp": "2026-09-11T13:55:26.023Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1615.7000000011176,
+            "timestamp": "2026-09-11T13:55:26.023Z"
+          }
+        ]
+      }
+    },
+    {
+      "runId": "browser_1789134923784_f80d0e81",
+      "decision": 15,
+      "imageBefore": "frame-015.png",
+      "imageAfter": "frame-016.png",
+      "imageSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "afterSha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "capturedAt": "2026-09-11T13:55:26.073Z",
+      "completedAt": "2026-09-11T13:55:26.100Z",
+      "input": {
+        "version": "colour-retina-v1",
+        "width": 640,
+        "height": 360,
+        "targetPixels": 5368,
+        "cursorPixels": 167,
+        "targetCentroid": {
+          "x": 412.7952682563338,
+          "y": 214.9660953800298
+        },
+        "cursorCentroid": {
+          "x": 411.9341317365269,
+          "y": 179.07185628742516
+        },
+        "horizontalErrorPx": 0.8611365198069052,
+        "encoding": "aligned",
+        "left": 0.85,
+        "right": 0.85
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.6033449359105751
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.6146806341077211
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.6035120326642982
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.6058708438583154
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.6045684440485981
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.6064365551350319
+          }
+        ],
+        "mean": 0.60640224095409,
+        "contrast": -0.008809790249405758
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "motorMean": 0.60640224095409,
+        "motorContrast": -0.008809790249405758,
+        "activation": true,
+        "kind": "click",
+        "reason": "Motor population reached activation threshold"
+      },
+      "modelStartStep": 9000,
+      "modelEndStep": 9600,
+      "executed": {
+        "kind": "click",
+        "from": {
+          "x": 488,
+          "y": 216
+        },
+        "to": {
+          "x": 488,
+          "y": 216
+        },
+        "startedAt": "2026-09-11T13:55:26.080Z",
+        "completedAt": "2026-09-11T13:55:26.086Z",
+        "events": [
+          {
+            "type": "mousedown",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1675.6000000014901,
+            "timestamp": "2026-09-11T13:55:26.083Z"
+          },
+          {
+            "type": "mouseup",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1676.7000000011176,
+            "timestamp": "2026-09-11T13:55:26.085Z"
+          },
+          {
+            "type": "click",
+            "x": 488,
+            "y": 216,
+            "button": 0,
+            "trusted": true,
+            "pageTimeMs": 1676.7000000011176,
+            "timestamp": "2026-09-11T13:55:26.085Z"
+          }
+        ]
+      }
+    }
+  ],
+  "outcome": "not-activated",
+  "evaluator": {
+    "activated": false,
+    "activationCount": 0
+  },
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "1664a1347035490923ddb5752c4c21f2d13c6ace89c8e74707db68da1a82862d",
+      "bytes": 37233
+    },
+    {
+      "path": "frame-000.png",
+      "sha256": "1c666c718fde6ce43b600de84277d930af88496dda44e9ebeb97f3e1c8906bc9",
+      "bytes": 13549
+    },
+    {
+      "path": "frame-001.png",
+      "sha256": "54b679979063cf5f62b5a0d2b2fa10a697c41336101251ee01e74e11ae884e55",
+      "bytes": 13547
+    },
+    {
+      "path": "frame-002.png",
+      "sha256": "97fae59b4b744905f55423607e4c9213c0cf4ec8b78c7c35b8f9d0040d2149fb",
+      "bytes": 13587
+    },
+    {
+      "path": "frame-003.png",
+      "sha256": "44bb25e813fd031ba5dce90b6a4c8c2413d9b94f081ce5893325e5c6e3c09337",
+      "bytes": 13435
+    },
+    {
+      "path": "frame-004.png",
+      "sha256": "3f7beca52349200b9bad6cd92e9745b0428b29f506ceef3d8e0adb9b3626848f",
+      "bytes": 13439
+    },
+    {
+      "path": "frame-005.png",
+      "sha256": "cb4a1b5152576e0cb68c3fcdf0b095ad2e44300504ef094de4322c1bf3a95fe7",
+      "bytes": 13518
+    },
+    {
+      "path": "frame-006.png",
+      "sha256": "c53197313fe3900f80638c50264e1fc4924c6b21b33caa14fbf76981c787588f",
+      "bytes": 13594
+    },
+    {
+      "path": "frame-007.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-008.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-009.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-010.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-011.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-012.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-013.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-014.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-015.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "frame-016.png",
+      "sha256": "a4f9d29fb3be23ec736c3c00dd0864ea582f67d2ff58fa2a6ce43d3a6b0be9e9",
+      "bytes": 13542
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "bf6300394b270c44b46fd674b9a8094a8e7e84fb797d7394ff0f5efb855cb972",
+      "bytes": 230564
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "decisions": 16,
+    "states": 960,
+    "events": 34
+  }
+}

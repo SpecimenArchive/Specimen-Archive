@@ -32,6 +32,6 @@ export class Engine {
       pose:{...this.pose},environment,activity:Array.from(this.network.activity),motor:decodeMotor(this.circuit,this.network.activity),
       sensory:this.lastSensory??{left:environment.lightLeft,right:environment.lightRight},events:this.events.slice(-16)};
   }
-  checkpoint(){return {ticks:this.ticks,pose:this.pose,activity:Array.from(this.network.activity),events:this.events,eventCounter:this.eventCounter,epoch:this.epoch,responded:this.responded,moving:this.moving,condition:this.condition};}
-  restore(c:ReturnType<Engine['checkpoint']>){this.ticks=c.ticks;this.pose={...c.pose};this.network.activity.set(c.activity);this.events=c.events.slice(-80);this.eventCounter=c.eventCounter;this.epoch=c.epoch;this.responded=c.responded;this.moving=c.moving;this.condition=c.condition;}
+  checkpoint(){return {ticks:this.ticks,pose:this.pose,activity:Array.from(this.network.activity),events:this.events,eventCounter:this.eventCounter,epoch:this.epoch,responded:this.responded,moving:this.moving,condition:this.condition,lastSensory:this.lastSensory};}
+  restore(c:ReturnType<Engine['checkpoint']>){this.ticks=c.ticks;this.pose={...c.pose};this.network.activity.set(c.activity);this.events=c.events.slice(-80);this.eventCounter=c.eventCounter;this.epoch=c.epoch;this.responded=c.responded;this.moving=c.moving;this.condition=c.condition;this.lastSensory=c.lastSensory;}
 }

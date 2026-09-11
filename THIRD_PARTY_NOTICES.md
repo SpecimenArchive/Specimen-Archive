@@ -10,3 +10,7 @@
 - **Libraries:** React / React DOM (MIT), Vite (MIT), TypeScript (Apache-2.0), ws (MIT), tsx (MIT), Playwright (Apache-2.0). The lockfile pins the actual installed versions and transitive dependencies retain their included licences. Scientific preprocessing uses rdata (MIT) plus its scientific Python dependencies with their included terms.
 - **Fonts:** The application supports local system fallbacks. Any vendored DM Sans and IBM Plex Mono files carry their SIL Open Font License notices in `public/fonts/`.
 - **Inspiration:** flybrain.online and fruitflydev/flycoinrh were inspected for context only. Their code, visual identity, credentials, addresses and token operations were not incorporated.
+
+## Browser evidence dependencies
+
+pngjs 7.0.0: MIT, https://github.com/pngjs/pngjs. Playwright: Apache-2.0, https://github.com/microsoft/playwright. The controlled HTML task and its screenshots/recordings are original project material under the repository MIT licence. They contain no third-party website content. Browser binaries are installed separately by their vendor/Playwright and are not committed.

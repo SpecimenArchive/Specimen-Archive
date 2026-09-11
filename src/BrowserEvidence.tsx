@@ -3,9 +3,9 @@ import type { BrowserLive,BrowserDecision } from '../shared/browser';
 import type { BrowserRecord } from '../server/browser/evidence';
 import type { Publication } from '../server/experiment-store';
 export const browserArtifact=(runId:string,name:string)=>`/api/browser/artifacts/${runId}/${name}`;
-export function BrowserViewport({live}:{live:BrowserLive}){
+export function BrowserViewport({live,health}:{live:BrowserLive;health:string}){
   return <div className="browser-field" data-run-id={live.runId} data-decision={live.decision}>
-    <div className="browser-caption"><span>{live.state.toUpperCase()} · {live.intervention}</span><span>DECISION {live.decision+1} / 16 · STEP {live.snapshot?.seq}</span></div>
+    <div className="browser-caption"><span>{['live','replay','complete'].includes(health)?live.state.toUpperCase():`${health.toUpperCase()} · LAST RECEIVED ${live.state.toUpperCase()}`} · {live.intervention}</span><span>DECISION {live.decision+1} / 16 · STEP {live.snapshot?.seq}</span></div>
     <img key={live.image} src={`/api/browser/artifacts/${live.image}`} width="640" height="360" alt={`Actual controlled browser viewport, run ${live.runId}, decision ${live.decision+1}`}/>
     <div className="browser-caption"><span>PNG → 21 PRCs → 20 INs → 6 MNs → PLAYWRIGHT</span><span>VIEW ONLY</span></div>
   </div>;
@@ -15,7 +15,7 @@ export function BrowserEvidence({live,onReplay}:{live:BrowserLive|null;onReplay:
   const [trace,setTrace]=useState<BrowserDecision[]|null>(null),[index,setIndex]=useState(0);
   const [traceIntervention,setTraceIntervention]=useState<BrowserLive['intervention']>('intact');
   useEffect(()=>{let stopped=false;async function poll(){try{const [a,b]=await Promise.all([fetch('/api/browser/records'),fetch('/api/browser/publications')]);if(!a.ok||!b.ok)throw new Error('Browser evidence endpoint unavailable');const [r,p]=await Promise.all([a.json(),b.json()]);if(!stopped){setRecords(r);setReceipts(p);setError('');}}catch(e){if(!stopped)setError((e as Error).message);}}void poll();const timer=setInterval(poll,3000);return()=>{stopped=true;clearInterval(timer);};},[]);
-  async function replay(id:string,intervention:BrowserLive['intervention']){try{const response=await fetch(`/api/browser/replay/${id}`);if(!response.ok)throw new Error('Recorded trace unavailable');const d=await response.json() as BrowserDecision[];setTrace(d);setTraceIntervention(intervention);setIndex(0);onReplay(d[0],intervention);}catch(e){setError((e as Error).message);}}
+  async function replay(id:string,intervention:BrowserLive['intervention']){try{const response=await fetch(`/api/browser/replay/${id}`);if(!response.ok)throw new Error('Recorded trace unavailable');const d=await response.json() as BrowserDecision[];if(!d.length)throw new Error('This interrupted trial has no completed decisions');setTrace(d);setTraceIntervention(intervention);setIndex(0);onReplay(d[0],intervention);}catch(e){setError((e as Error).message);}}
   return <section className="browser-evidence panel"><div className="panel-heading"><span><b className="panel-number">04</b> NEURAL BROWSER EVIDENCE</span><a href="/docs/BROWSER_CONTROLLER.md">Protocol & reproduction ↗</a></div>
     <div className="browser-rule"><div><h2>Pixels. Wiring. Actions.</h2><p>Every command is decoded from computed motor activity. The evaluator reads success after the fixed 16-decision budget.</p></div><dl><dt>MOVE GATE</dt><dd>M ≥ 0.500</dd><dt>ACTIVATION</dt><dd>M ≥ 0.593</dd><dt>DIRECTION</dt><dd>MN3_r − MN2_r ≥ 0.008 → right</dd></dl></div>
     {live&&<div className="browser-current"><span>RETINAL DRIVE <b>L {live.input?.left.toFixed(2)??'—'} / R {live.input?.right.toFixed(2)??'—'}</b></span><span>PIXEL OFFSET <b>{live.input?.horizontalErrorPx?.toFixed(1)??'—'} px</b></span><span>LAST COMMAND <b>{live.command?`${live.command.kind} ${live.command.dx||''}`:live.history?.at(-1)?.command.kind??'integrating'}</b></span></div>}

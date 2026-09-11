@@ -1,6 +1,8 @@
 name: Verify local application
 on:
   push:
+    paths-ignore:
+      - 'experiments/**'
   pull_request:
 permissions:
   contents: read
@@ -23,3 +25,20 @@ jobs:
       - run: npm run build
       # Compact CC-BY processed graphs are in source control. Re-downloading
       # the RDS or any raw microscopy data is unnecessary for CI.
+  browser-causality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run browser:validate -- --fast
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-causality-evidence
+          path: runtime/browser/
+          retention-days: 14

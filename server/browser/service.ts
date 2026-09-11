@@ -11,6 +11,8 @@ import { SpecimenRecorder,GitHubCLI } from '../recorder';
 export class BrowserService {
   readonly root:string;readonly store:ExperimentStore<BrowserRecord>;readonly recorder:SpecimenRecorder;
   live:BrowserLive|null=null;stopping=false;private lastEmit=0;
+  readonly abort=new AbortController();
+  private work?:Promise<void>;
   constructor(runtime:string,readonly circuit:Circuit,readonly emit:(live:BrowserLive)=>void){
     this.root=resolve(runtime,'browser');mkdirSync(this.root,{recursive:true});
     this.store=new ExperimentStore<BrowserRecord>(resolve(runtime,'browser-publications'));
@@ -22,17 +24,19 @@ export class BrowserService {
     this.live={...live,history};
     if(live.state!=='integrating'||performance.now()-this.lastEmit>=50){this.lastEmit=performance.now();this.emit(this.live);}
   }
-  async start(repeat=false){
+  start(repeat=false){this.work=this.run(repeat);return this.work;}
+  async stop(){this.stopping=true;this.abort.abort(new Error('Browser trial interrupted by operator shutdown'));await this.work;}
+  private async run(repeat=false){
     do{
       for(const intervention of C.interventions)for(const seed of C.targetSeeds){
         if(this.stopping)return;
-        const {record}=await runBrowserTrial(this.circuit,{root:this.root,seed,intervention,onUpdate:live=>this.update(live)});
+        const {record}=await runBrowserTrial(this.circuit,{root:this.root,seed,intervention,signal:this.abort.signal,onUpdate:live=>this.update(live)});
         this.store.save(record);void this.recorder.tick();
       }
     }while(repeat&&!this.stopping);
   }
   file(id:string,name:string){
-    if(!/^browser_[A-Za-z0-9_-]+$/.test(id)||!/^([A-Za-z0-9_-]+\.(png|webm|json|gz))$/.test(name))return null;
+    if(!/^browser_[A-Za-z0-9_-]+$/.test(id)||! /^(?:[A-Za-z0-9_-]+\.(?:png|webm|json)|trace\.json\.gz)$/.test(name))return null;
     const local=join(this.root,id,name),exported=resolve('docs/evidence/browser',id,name);
     return existsSync(local)?local:existsSync(exported)?exported:null;
   }

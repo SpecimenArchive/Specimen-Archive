@@ -1,11 +1,13 @@
 # Development and recorder trail
 
-The user requested public GitHub development history and one concrete model-dependent experiment loop after the microscopy checkpoint. This supersedes the original local-only restriction specifically for this repository and its compact automated experiment records. It does not authorize unrelated posting, site deployment or token operations.
+Development commits use the Specimen Archive project identity and real timestamps. Public source is https://github.com/SpecimenArchive/Specimen-Archive. Normal source increments remain on master. Automated records use the specimen-records branch; their messages begin with Specimen Recorder and their JSON identifies the automation.
 
-Development commits use the Specimen Archive project identity and real work timestamps. Automated experiment records are identified as Specimen Recorder outputs in their messages and contents.
+The recorder publishes one immutable compact configuration/result record at a completed experiment boundary. It supports both the original motor-integral light experiment and the pixel-to-neural-to-browser task. Each record names the executed source revision, data/model/configuration versions, run ID, neural outputs, engineering selection rule, commands/condition and outcome. Continuous telemetry stays under ignored runtime/.
 
-Software development and experiment recording are distinct. The planned Specimen Recorder will author compact configuration/result records at completed experiment boundaries. Records must identify the executed source revision, data/model versions, run ID, motor integrals, fixed selection rule, chosen light and response. Continuous telemetry remains in ignored runtime storage. Only a confirmed actual GitHub commit marks publication complete; pending and failed states remain visible.
+Only verified GitHub contents and a real commit receipt produce the published state. Disabled, dirty-source and unversioned runs remain pending. Authentication or transport failures appear as failed with a reason and a bounded retry interval. After a lost receipt the recorder verifies the existing bytes and recovers the commit, preventing duplicate records. It never force-pushes or mutates the local development worktree.
 
-The first loop will integrate existing motor outputs over a fixed interval, apply an inspectable engineering mapping to a small light-condition set, execute the selection automatically, and record the response. No-threshold outcomes will be explicit. Replay and controlled output intervention must show whether changing those outputs changes selection. A scheduled publication alone is insufficient.
+Configure RECORDER_REPOSITORY=SpecimenArchive/Specimen-Archive and RECORDER_ENABLED=1 in the ignored .env file after pushing the executed source revision. The local GitHub CLI supplies credentials through its standard secure authentication flow. No tokens are stored in project files. A missing permission is reported, never treated as a completed publication.
 
-Repository destination/account connection were requested. No repository has been created or pushed at this checkpoint; the recorder and feedback extension are not yet implemented. See STATUS.md.
+For project-scoped manual pushes, use git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin master. Project-local user.name and user.email determine Git attribution separately from GitHub authentication.
+
+The observation feed links actual publication commits. Bounded exported evidence belongs in docs/evidence/browser with recorded hashes; a publication schedule alone is not proof of model involvement. See BROWSER_CONTROLLER.md and FEEDBACK_LOOP.md for the executed mappings, replay and interventions.

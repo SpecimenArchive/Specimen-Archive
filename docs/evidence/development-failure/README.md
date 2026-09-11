@@ -1,0 +1,3 @@
+# Retained development failure
+
+Encoder v1 included antialiased page text in the cyan cursor mask. The computed cursor centroid was displaced from the actual pointer, so the model generated activation at the wrong location. All 16 decisions were retained; outcome was not-activated. The record has sourceDirty=true and was not published by the automated recorder. It is historical diagnostic evidence, not part of the final v2 acceptance suite. The captured frame is also tests/fixtures/browser-retina.png. The current replay command deliberately rejects this older configuration. Full original local telemetry remains under runtime/browser/browser_1789134923784_f80d0e81.

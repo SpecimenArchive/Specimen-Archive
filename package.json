@@ -24,7 +24,10 @@
     "demo:loop": "npm run demo -- --repeat",
     "browser:validate": "node --env-file-if-exists=.env --import tsx scripts/browser-demo.ts --suite",
     "browser:replay": "tsx scripts/browser-replay.ts",
-    "browser:calibrate": "tsx scripts/browser-calibration.ts"
+    "browser:calibrate": "tsx scripts/browser-calibration.ts",
+    "browser:ui-check": "node scripts/browser-ui-check.mjs",
+    "browser:evidence-check": "tsx scripts/browser-evidence-check.ts",
+    "release:check": "node scripts/release-check.mjs"
   },
   "dependencies": {
     "pngjs": "7.0.0",

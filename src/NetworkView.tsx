@@ -8,7 +8,7 @@ export function NetworkView({circuit,snapshot,selected,onSelect}:{circuit:Circui
       positions.set(n.id,[158+Math.cos(angle)*r*(n.side==='L'?.95:1.05),70+g*120+Math.sin(angle)*r*.6]);});
   }
   const index=new Map(circuit.nodes.map((n,i)=>[n.id,i]));
-  return <svg viewBox="0 0 320 365" className="network-svg" role="img" aria-label="Published connectivity, arranged as a functional circuit layout">
+  return <svg viewBox="0 0 320 365" className="network-svg" data-run-id={snapshot?.runId} data-model-step={snapshot?.seq} role="img" aria-label="Published connectivity, arranged as a functional circuit layout">
     <defs><radialGradient id="node-glow"><stop stopColor="#8bdcd4" stopOpacity=".2"/><stop offset="1" stopColor="#8bdcd4" stopOpacity="0"/></radialGradient></defs>
     {[70,190,310].map(y=><g key={y}><circle cx="158" cy={y} r="76" fill="none" stroke="#283637" strokeDasharray="2 7"/><path d={`M 12 ${y} H 308`} stroke="#233033" strokeDasharray="2 7"/></g>)}
     {circuit.edges.map((e,i)=>{const a=positions.get(e.source)!,b=positions.get(e.target)!,v=snapshot?.activity[index.get(e.source)!]||0,highlight=selected===e.source||selected===e.target;return <path key={i} d={`M${a[0]},${a[1]} Q${(a[0]+b[0])/2+(i%2?10:-10)},${(a[1]+b[1])/2} ${b[0]},${b[1]}`} fill="none" stroke={highlight?'#b6e3db':'#72b9b5'} strokeOpacity={highlight?.6:.035+v*.17} strokeWidth={highlight?1:.3+Math.min(e.weight,12)*.045}/>;})}

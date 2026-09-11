@@ -37,7 +37,13 @@ Optional public identity values are listed in [.env.example](.env.example). Leav
 
 Connectivity is measured structure; effective signs, gains, dynamics, optics and motor mapping are assumptions. Activity is dimensionless and non-spiking. This is not a validated animal replica or a functional whole-brain reconstruction. [Methods](docs/METHODS.md) and [provenance](docs/DATA_PROVENANCE.md) explain the boundaries.
 
-## Architecture
+## Browser demonstration
+
+The actual decision path is `page.screenshot()` ? `encodeViewport()` ? `Engine.step()` ? `RateNetwork.step()` ? `motorReadout()` ? `decodeBrowser()` ? `page.mouse.move/down/up()` ? next screenshot. Setup and post-trial evaluation are separate harness code. No target selectors or target coordinates enter the controller.
+
+The circuit mediates an engineered colour/lane policy; it does not learn or demonstrate general browser intelligence. Run `npm run browser:validate` for matched trials and `npm run browser:replay` for exported traces. [Recorded evidence](docs/evidence/browser/summary.json), [protocol](docs/BROWSER_CONTROLLER.md), [audit](docs/CONTROLLER_AUDIT.md) and [UI verification](docs/results/browser-ui-check.json) expose the actual connection and limits.
+
+## Original microscopy architecture
 
 ```mermaid
 flowchart LR

@@ -67,11 +67,9 @@ A separate passive flow of `(0.45, 0.12)` virtual μm/s is added before chamber 
 
 ## Observation optics
 
-The renderer uses reference-informed 72 hpf proportions, a head/prototroch, three chaetigerous trunk regions and a tapered posterior. Virtual body length is about 215 μm, an illustrative scale consistent with the reference's order of magnitude, not an exact measurement of the reconstructed individual. The displayed 50 μm bar is calibrated to the drawing transform.
+The accepted renderer uses a synthetic microscopy-style photographic base grounded in 72 hpf references. A registered residual matte separates the specimen from a fixed water background. Bounded local bending, internal tissue displacement and independently moving peripheral ciliary/chaetal fields use the same streamed neural/motor state. The head and six attachment regions explicitly exclude the ciliary phase warp. The view uses constrained orientation and does not claim unrestricted 3D reconstruction. See [Photographic rig](PHOTOGRAPHIC_RIG.md) for exact masks, optical assumptions and measured regressions.
 
-A stable seeded set of granules, vesicles and bristles supplies visual texture. This seed creates **artistic microstructure**, not neuron identities, connectivity or measured anatomical positions. A generated ivory tissue material is blended at low opacity; its full prompt and provenance accompany the asset. Refractive edge contrast, pigment grains, selective internal contrast and depth-dependent visibility are optical illustration. They have no neural meaning.
-
-All pose, bend, roll and ciliary phase come from the server. The client interpolates between received snapshots, adding at most one snapshot of display delay and never extrapolating beyond the last state. With signal loss the specimen freezes. The viewport follows the specimen; the trajectory inset displays global chamber motion separately. Changing view, zoom or node selection cannot change the experiment.
+The image is synthetic optical presentation, not biological evidence or a measured neuron map. Generated asset prompts and provenance are stored beside the images. The renderer keeps physical proportions across viewport sizes, interpolates received states and never extrapolates active motion after a signal loss. Browser mode uses the controller's own neural state and accelerated model time; the original light experiment uses 0.5? wall time. View and neuron-selection controls cannot alter either model.
 
 ## Time, transport and persistence
 
@@ -86,3 +84,7 @@ The engine holds at most 80 events; a client keeps at most 600 snapshots. Local 
 ## Reproduction
 
 Run `npm run trace` for the documented closed-loop trace, `npm run validate:science` for controlled interventions, and `npm run benchmark` for local measurements. `docs/results/` contains the real outputs. `server/model/config.ts` holds the complete deterministic parameter set. See [validation](VALIDATION.md) for protocol limits and [data provenance](DATA_PROVENANCE.md) for sources and reuse terms.
+
+## Browser action experiment
+
+The browser mode replaces the scheduled light input with captured PNG information and uses a separate documented mouse decoder. The same neural engine drives both the graph and specimen presentation. Browser screenshots, actions and all sampled neurons share a run/decision/model-step identity. Its six-simulated-second integration windows, matched interventions, exact replay and record formats are documented in [BROWSER_CONTROLLER.md](BROWSER_CONTROLLER.md). This mode does not use the original continuous model scheduler or its restart checkpoint; every trial explicitly starts from zero state. Browser records are separate from bounded continuous light telemetry. One suite contains nine trials; repeated suites are opt-in and their evidence remains in runtime until deliberately archived or removed.

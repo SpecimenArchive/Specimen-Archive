@@ -1,0 +1,33 @@
+import { chromium } from '@playwright/test';
+import assert from 'node:assert/strict';
+import { writeFileSync } from 'node:fs';
+const base=process.env.BASE_URL||'http://127.0.0.1:4317';
+const b=await chromium.launch({channel:process.platform==='win32'?'msedge':undefined,headless:true});
+const context=await b.newContext({viewport:{width:1440,height:1000}}),p=await context.newPage(),errors=[];
+p.on('pageerror',e=>errors.push(e.message));
+await p.addInitScript(()=>{const Native=window.WebSocket;window.observerSockets=[];window.WebSocket=class extends Native{constructor(...args){super(...args);window.observerSockets.push(this);}};});
+await p.goto(base);await p.waitForSelector('.browser-field img');
+await p.waitForFunction(()=>document.querySelector('.live-label')?.textContent==='LIVE');
+const alignments=[];
+for(let i=0;i<12;i++){
+  alignments.push(await p.evaluate(()=>{const f=document.querySelector('.browser-field'),n=document.querySelector('.network-svg'),step=document.querySelector('.browser-caption')?.textContent?.match(/STEP (\d+)/)?.[1];return {run:f?.getAttribute('data-run-id'),neural:n?.getAttribute('data-run-id'),step,neuralStep:n?.getAttribute('data-model-step')};}));await p.waitForTimeout(70);
+}
+assert(alignments.every(x=>x.run===x.neural&&x.step===x.neuralStep),'Browser and graph must share a packet');
+await p.screenshot({path:'docs/screenshots/browser-console-verified.png',fullPage:true});
+await p.getByRole('button',{name:'Specimen',exact:true}).click();await p.waitForTimeout(500);
+await context.setOffline(true);await p.evaluate(()=>window.observerSockets.filter(s=>s.url.endsWith('/stream')).forEach(s=>s.close()));await p.waitForTimeout(2000);
+assert(await p.locator('.top-status').innerText().then(t=>t.includes('OFFLINE')));
+const a=await p.locator('.specimen-canvas').screenshot();await p.waitForTimeout(500);const c=await p.locator('.specimen-canvas').screenshot();assert(a.equals(c),'Specimen must freeze exactly after signal loss');
+await context.setOffline(false);await p.waitForFunction(()=>document.querySelector('.live-label')?.textContent==='LIVE',{},{timeout:12000});
+await p.getByRole('button',{name:'Browser',exact:true}).click();
+await p.getByRole('button',{name:'Inspect trace',exact:true}).first().click();await p.waitForSelector('.replay-controls');
+assert((await p.locator('.live-label').innerText()).includes('REPLAY'));
+const replayRun=await p.locator('.browser-field').getAttribute('data-run-id');
+await p.getByLabel('Browser replay decision').fill('4');await p.waitForTimeout(150);
+assert.equal(await p.locator('.browser-field').getAttribute('data-run-id'),replayRun);
+await p.getByRole('button',{name:'Return to live',exact:true}).click();
+await p.setViewportSize({width:390,height:844});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+await p.screenshot({path:'docs/screenshots/browser-console-narrow-verified.png',fullPage:true});
+const response=await fetch(base+'/api/browser/live',{method:'POST'});assert.equal(response.status,405);
+assert.equal(errors.length,0);const result={checkedAt:new Date().toISOString(),alignedSamples:alignments.length,alignments,offlineFreezeExact:true,reconnected:true,replayRun,narrowOverflow:false,mutationRouteStatus:405,errors};
+writeFileSync('docs/results/browser-ui-check.json',JSON.stringify(result,null,2)+'\n');console.log(result);await b.close();

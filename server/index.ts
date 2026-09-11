@@ -109,7 +109,7 @@ const interval=setInterval(()=>{
 },10);
 const heartbeat=setInterval(()=>{for(const ws of connections)if(ws.readyState===WebSocket.OPEN)ws.ping();},15000);
 const recorderPoll=setInterval(()=>{void recorder.tick();void browserService.recorder.tick();},10000);
-async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
+async function shutdown(){if(stopped)return;stopped=true;browserService.stopping=true;clearInterval(interval);clearInterval(heartbeat);clearInterval(recorderPoll);if(!browserEnabled)store.checkpoint(engine,experiment.state);store.close();for(const ws of connections)ws.close(1001,'Local engine stopped');wss.close();if(browserEnabled)await browserService.stop();await vite?.close();server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),1500).unref();}
 process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
-server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\nModel runs at ${C.timeScale}× wall time. Ctrl+C to stop.`));
+server.listen(port,'127.0.0.1',()=>console.log(`SPECIMEN 01 · ${circuit.nodes.length} neurons / ${circuit.edges.length} connections\nLocal observation: http://127.0.0.1:${port}\n${browserEnabled?'Browser mode: six simulated seconds per image; minimum 600 ms per window.':`Model runs at ${C.timeScale}× wall time.`} Ctrl+C to stop.`));
 if(browserEnabled)void browserService.start(process.argv.includes('--repeat')).catch(e=>console.error('Browser demonstration failed:',e.message));

@@ -16,7 +16,7 @@ npx playwright install chromium
 npm run demo
 ```
 
-Open http://127.0.0.1:4317. The observation interface is read-only; a separate isolated local browser receives the controller's actions. Closing the observer does not stop the trial. The demonstration repeats matched intact/motor-disabled/photoreceptor-disconnected trials. Stop with Ctrl+C. Model time advances in explicit accelerated integration windows and is displayed separately from wall time.
+Open http://127.0.0.1:4317. The observation interface is read-only; a separate isolated local browser receives the controller's actions. Closing the observer does not stop the trial. The demonstration runs one matched nine-trial suite, then displays its completed final state. Use `npm run demo:loop` for repeated suites. Stop with Ctrl+C. Model time advances in explicit accelerated integration windows and is displayed separately from wall time. Source provenance is captured when Node loads the implementation; restart after code changes.
 
 ```sh
 npm run browser:validate                # nine matched real-browser trials
@@ -54,6 +54,8 @@ All pixels are scanned. Green target pixels satisfy G>145, R<120, B<150 and G>1.
 | Insufficient pixels | 0 | 0 |
 
 Drives are assigned to actual photoreceptors by the existing L/R anatomical name mapping; unassigned sensory cells would receive the mean. This is an engineered visual preprocessing rule. It extracts coordinates from pixels; it never reads privileged target coordinates. The initial task restricts target and cursor to one horizontal lane. It does not solve vertical navigation, arbitrary colours, distractors, page scrolling or natural images.
+
+Perception and the lane-task policy are engineered. The circuit is a necessary dynamical mediator between that encoding and the motor decoder; it has not learned the task. Successful interventions establish causal dependence in this implementation, not innate larval cognition or general intelligence.
 
 ## Motor decoder and execution
 
