@@ -57,6 +57,10 @@ export class RemoteDesktopSession {
     this.viewport=locateWindowsViewport(PNG.sync.read(Buffer.from(capture.png,'base64')),after,this.info.scale);this.bounds=JSON.stringify(capture.window);
   }
   async present(page:Page,scale=1){
+    // Playwright setViewportSize restores the native window to normal bounds.
+    // Explicit presentation is setup/tab orchestration: maximize again before
+    // applying the page metrics. Capture itself never repairs lost focus.
+    await this.request('arrange');
     this.presentation={page,scale};let cdp=this.pageSessions.get(page);
     if(!cdp){cdp=await page.context().newCDPSession(page);this.pageSessions.set(page,cdp);}
     const size=page.viewportSize();assert(size,'Station page requires an explicit sensory/layout viewport');
