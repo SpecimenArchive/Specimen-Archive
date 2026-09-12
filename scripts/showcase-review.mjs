@@ -15,7 +15,7 @@ async function pairedViews(page){const m=await page.evaluate(()=>{const one=s=>d
 async function collect(seconds){const [health,planner,journal]=await Promise.all([json('/api/health'),json('/api/exploration'),json('/api/journal')]);assert.equal(health.sessionId,initial.sessionId);planner.choices.forEach(c=>choices.set(c.id,c));planner.recent.forEach(v=>visits.set(v.visitId,v));journal.entries.forEach(e=>entries.set(e.id,e));samples.push({seconds,at:new Date().toISOString(),health,narrator:journal.narrator,lastUrl:planner.lastUrl,known:planner.knownDestinations});return {health,planner,journal};}
 let a,b;
 try{
- a=await observer(!endurance);if(endurance)b=await observer();initial=await json('/api/health');const live=await json('/api/exhibit/live'),started=Date.now(),video=a.page.video();
+ a=await observer(!endurance);if(endurance)b=await observer();initial=await json('/api/health');if(!endurance)await a.page.locator('.session-line').evaluate(e=>e.scrollIntoView({block:'start'}));const live=await json('/api/exhibit/live'),started=Date.now(),video=a.page.video();
  console.log(JSON.stringify({ready:true,root,session:initial.sessionId,source:live.sourceRevision}));
  const duration=endurance?601000:55000;
  while(Date.now()-started<duration){const seconds=(Date.now()-started)/1000;const state=await collect(seconds);await pairedViews(a.page);
@@ -39,8 +39,8 @@ try{
  }
  if(restart?.promise)await restart.promise;
  const allChoices=[...choices.values()],allEntries=[...entries.values()],allVisits=[...visits.values()].sort((a,b)=>a.at.localeCompare(b.at));
- result={at:new Date().toISOString(),sourceRevision:live.sourceRevision,sourceDirty:live.sourceDirty,sessionId:initial.sessionId,seconds,matching,paired,offline,freeze,recovered,restart:restart?{...restart,promise:undefined}:undefined,layouts,errors,visits:allVisits,choices:allChoices,journal:allEntries,narrator:samples.at(-1).narrator};
+ result={startedAt:new Date(started).toISOString(),at:new Date().toISOString(),sourceRevision:live.sourceRevision,sourceDirty:live.sourceDirty,sessionId:initial.sessionId,seconds,matching,paired,offline,freeze,recovered,restart:restart?{...restart,promise:undefined}:undefined,layouts,errors,visits:allVisits,choices:allChoices,journal:allEntries,narrator:samples.at(-1).narrator};
  assert.equal(errors.length,0);assert(allEntries.some(e=>e.owner==='semantic-narrator'&&e.model),'No actual semantic narration');assert(allChoices.some(c=>c.memoryChangedSelection),'No memory-driven destination difference');
- if(endurance){assert(matching>500);assert(offline&&freeze&&recovered);assert(!restart.error,restart.error);assert(allVisits.filter(v=>Date.parse(v.at)>Date.parse(restart.completedAt)).length>=3);assert(new Set(allVisits.map(v=>new URL(v.url).hostname)).size>=3);assert(allVisits.length>=8);}
+ if(endurance){assert(allChoices.some(c=>c.memoryChangedSelection&&Date.parse(c.at)>=started),'No memory-driven choice during the sustained session');assert(allEntries.some(e=>e.model&&Date.parse(e.at)>=started),'No semantic entry during the sustained session');assert(matching>500);assert(offline&&freeze&&recovered);assert(!restart.error,restart.error);assert(allVisits.filter(v=>Date.parse(v.at)>Date.parse(restart.completedAt)).length>=3);assert(new Set(allVisits.filter(v=>Date.parse(v.at)>=started).map(v=>new URL(v.url).hostname)).size>=3);assert(allVisits.filter(v=>Date.parse(v.at)>=started).length>=8);}
  console.log(JSON.stringify({passed:true,root,seconds,matching,paired,visits:allVisits.length,memoryChoices:allChoices.filter(c=>c.memoryChangedSelection).length,semanticEntries:allEntries.filter(e=>e.model).length,recovered,layouts:layouts.length}));
 }catch(e){result={...result,error:e.message};console.error(e);process.exitCode=1;}finally{writeFileSync(root+'/result.json',JSON.stringify({...result,samples,observedChoices:[...choices.values()],observedVisits:[...visits.values()]},null,2));await browser.close();}

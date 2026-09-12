@@ -99,7 +99,9 @@ server.on('request',(req,res)=>{
   if(url.pathname==='/api/exhibit/workstation-preview'){
     const path=resolve(ROOT,'runtime/workstation-review/workstation-55s.webm');if(!existsSync(path)){json({error:'Local workstation review recording is not installed'},404);return;}serveVideo(req,res,path);return;
   }
-  if(url.pathname==='/api/exhibit/external-preview'||url.pathname==='/api/exhibit/external-desktop'){
+    if(url.pathname==='/api/exhibit/showcase-preview/info'){const path=resolve(ROOT,'runtime/external-review/showcase.json');json(existsSync(path)?JSON.parse(readFileSync(path,'utf8')):null);return;}
+    if(url.pathname==='/api/exhibit/showcase-preview'){const path=resolve(ROOT,'runtime/external-review/showcase.webm');if(!existsSync(path)){json({error:'The reviewed showcase recording is not installed'},404);return;}serveVideo(req,res,path);return;}
+    if(url.pathname==='/api/exhibit/external-preview'||url.pathname==='/api/exhibit/external-desktop'){
     const path=resolve(ROOT,'runtime/external-review',url.pathname.endsWith('external-desktop')?'desktop.webm':'integrated.webm');if(!existsSync(path)){json({error:'The reviewed external recording is not installed'},404);return;}serveVideo(req,res,path);return;
   }
   if(url.pathname.startsWith('/api/exhibit/decision/')){const [id,index]=url.pathname.slice('/api/exhibit/decision/'.length).split('/');const d=/^\d+$/.test(index)?exhibitService.decision(id,Number(index)):null;json(d??{error:'Raw trace expired or decision not complete'},d?200:404);return;}
