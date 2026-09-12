@@ -14,6 +14,14 @@ $env:EXHIBIT_WINDOWS_URL='http://127.0.0.1:4320'
 $env:EXHIBIT_WINDOWS_TOKEN_FILE=Join-Path $project 'runtime/remote-worker/worker-token.txt'
 $env:EXHIBIT_STOP_FILE=Join-Path $project 'runtime/remote-worker/stop-backend'
 $env:RUNTIME_DIR=Join-Path $project 'runtime'
+$memoryControl=Join-Path $project 'runtime/memory/control.json'
+$env:EXHIBIT_MEMORY_ENABLED='0'
+if(Test-Path -LiteralPath $memoryControl){
+ $memory=Get-Content -LiteralPath $memoryControl -Raw | ConvertFrom-Json
+ if($memory.mode -notin @('train','frozen','disabled')){throw 'Invalid memory mode.'}
+ $env:EXHIBIT_MEMORY_ENABLED=if($memory.enabled -eq $true){'1'}else{'0'}
+ $env:EXHIBIT_LEARNING_MODE=$memory.mode
+}
 $env:RECORDER_REPOSITORY='SpecimenArchive/Specimen-Archive'
 $env:RECORDER_ENABLED='0'
 $env:SPECIMEN_EXTERNAL_RECORDER='1'

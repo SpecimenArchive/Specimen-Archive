@@ -43,6 +43,7 @@ let segmentStart=engine.time;
 let snapshot=engine.snapshot(runId,seq,startedAt,0);
 const connections=new Set<WebSocket>();
 let lastExhibitBroadcast=0;
+let lastExhibitState='';
 const observerPacket=(live:import('../shared/exhibit').ExhibitLive)=>({...live,history:live.history.slice(-20),observation:live.observation?{...live.observation,events:live.observation.events.slice(-20),journey:live.observation.journey?.slice(-8)}:undefined});
 const browserService=new BrowserService(store.root,circuit,live=>{
   if(!live.snapshot)return;snapshot=live.snapshot;
@@ -53,7 +54,7 @@ const exhibitService=new ExhibitService(store.root,circuit,live=>{
   if(live.snapshot)snapshot=live.snapshot;
   // Recording keeps every neural sample. The observer receives bounded complete
   // state packets, at most 10 Hz, and skips a sample under backpressure.
-  const now=performance.now();if(now-lastExhibitBroadcast<100)return;lastExhibitBroadcast=now;
+  const now=performance.now();if(now-lastExhibitBroadcast<100&&live.state===lastExhibitState)return;lastExhibitBroadcast=now;lastExhibitState=live.state;
   const packet=JSON.stringify({type:'snapshot',snapshot:live.snapshot,exhibit:observerPacket(live)});
   for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){droppedFrames++;if(ws.bufferedAmount>2*1024*1024)ws.close(1013,'Slow observer');continue;}ws.send(packet);}
 });
@@ -71,7 +72,9 @@ const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text
 server.on('request',(req,res)=>{
   if(!allowedHosts.has(req.headers.host??'')){res.writeHead(421);res.end('Unrecognised observation host');return;}
   if(canonicalHost&&req.headers.host==='www.'+canonicalHost){res.writeHead(308,{Location:`https://${canonicalHost}${req.url?.startsWith('/')?req.url:'/'}`});res.end();return;}
+  if(canonicalHost&&req.headers.host===canonicalHost&&req.headers['x-forwarded-proto']==='http'){res.writeHead(308,{Location:`https://${canonicalHost}${req.url?.startsWith('/')?req.url:'/'}`});res.end();return;}
   res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
+  if(production)res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'none'");
   if(canonicalHost&&req.headers.host===canonicalHost)res.setHeader('Strict-Transport-Security','max-age=31536000');
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
@@ -79,6 +82,7 @@ server.on('request',(req,res)=>{
   if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null,recorderError:(exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).lastError});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
   if(url.pathname==='/api/memory'){json(exhibitService.memory?.view()??null);return;}
+  if(/^\/api\/memory\/memory-[a-f0-9]{24}\.png$/.test(url.pathname)){const file=exhibitService.memory?.frame(url.pathname.slice('/api/memory/'.length,-4));if(!file){json({error:'Memory frame unavailable'},404);return;}res.setHeader('Content-Type','image/png');res.setHeader('Cache-Control','public, max-age=86400, immutable');res.end(readFileSync(file));return;}
   if(url.pathname.startsWith('/api/memory/')){const id=url.pathname.slice('/api/memory/'.length),m=/^memory-[a-f0-9]{24}$/.test(id)?exhibitService.memory?.detail(id):null;json(m??{error:'Memory not found'},m?200:404);return;}
   if(url.pathname==='/api/exhibit/publications'){void exhibitService.archive().then(a=>json(a.publications.slice(0,200))).catch(()=>json({error:'Archive unavailable'},503));return;}
   if(url.pathname==='/api/exhibit/records'){void exhibitService.archive().then(({records})=>{const selected=[...new Map([...records.slice(0,200),...records.filter(r=>r.config.heldOutSeeds.includes(r.seed))].map(r=>[r.id,r])).values()];json(selected.map(({decisions,observationEvents,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,executedActions:observationEvents?observationEvents.filter(e=>e.source==='neural'&&e.kind!=='wait'&&e.status==='completed'&&e.result?.scrollAfter!==e.result?.scrollBefore).length:null,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));}).catch(()=>json({error:'Archive unavailable'},503));return;}

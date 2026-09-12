@@ -71,7 +71,7 @@ export class ExhibitService {
     }
   }
   file(id:string,name:string){
-    if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||!/^(?:(?:frame|desktop)-\d+\.png|view-\d+\.jpg|(?:browser|reference|worksheet)\.webm|record\.json|trace\.json\.gz|decision-\d+\.json\.gz)$/.test(name))return null;
+    if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||!/^(?:(?:frame|desktop)-\d+\.png|view-\d+\.jpg|(?:browser|reference|worksheet)\.webm|record\.json|(?:trace|display-timing)\.json\.gz|decision-\d+\.json\.gz)$/.test(name))return null;
     const candidates=[join(this.root,id,name),resolve(this.root,'../exhibit-validation',id,name),resolve('docs/evidence/exhibit',id,name)];return candidates.find(p=>existsSync(p))??null;
   }
   records(){

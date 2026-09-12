@@ -1,7 +1,8 @@
-import {useLayoutEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import type {ExhibitLive} from '../shared/exhibit';
 export function DirectDesktop({live,desktopImage,health}:{live:ExhibitLive|null;desktopImage:HTMLImageElement|null;health:string}){
  const canvas=useRef<HTMLCanvasElement>(null),[expanded,setExpanded]=useState(false),capture=live?.display??live?.desktop,r=live?.lastAction?.receipt??live?.receipt;
+ useEffect(()=>{if(!expanded)return;const close=(event:KeyboardEvent)=>{if(event.key==='Escape')setExpanded(false);};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);},[expanded]);
  useLayoutEffect(()=>{if(!desktopImage||!canvas.current)return;const c=canvas.current;c.width=desktopImage.naturalWidth;c.height=desktopImage.naturalHeight;c.getContext('2d')!.drawImage(desktopImage,0,0);},[desktopImage]);
  const visible=!!r?.dispatchedAt&&r.trustedEvents>0&&!!capture&&!!r.observedAt&&Math.abs(Date.parse(capture.capturedAt)-Date.parse(r.observedAt))<2500&&['live','replay'].includes(health);
  const point=r?{x:r.viewport.x+r.cursor.x*r.viewport.scale,y:r.viewport.y+r.cursor.y*r.viewport.scale}:null;
