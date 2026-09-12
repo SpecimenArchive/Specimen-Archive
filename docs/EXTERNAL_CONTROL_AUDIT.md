@@ -44,4 +44,4 @@ The first public stream test closed with code 1013 because large high-frequency 
 
 The first forced worker interruption exposed an error-status packet lost to throttling. a0f8396 always sends state changes. At that fixed commit, the repeated test verified an exact specimen freeze, honest error/connecting status and real capture recovery under the same backend session. [Recovery evidence](results/external-recovery.json). Native timing, live UI checks, memory results and the final publication receipt are linked from [the deployment report](PUBLIC_DEPLOYMENT.md).
 
-The selected circuit's anatomy is published; its rate dynamics, effective signs, contrast encoder and browser mapping are engineering assumptions. Causal dependence in this implementation does not establish biological browser competence or consciousness.
+The selected circuit's anatomy is published; its rate dynamics, effective signs, contrast encoder and browser mapping are engineering assumptions. The interventions measure dependence within this implemented pathway. [Assessment scope](ASSESSMENT_COMPANION.md).

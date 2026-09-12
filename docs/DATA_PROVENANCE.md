@@ -28,7 +28,7 @@ The connectome authors are Csaba Verasztó, Sanja Jasek, Martin Gühmann, Luis A
 | Directed edges | 14,066 | 14,066 | 161 |
 | In-graph synapses | 26,881 | 26,881 | 711 |
 
-The three graph neuron classes total **1,627**, including source annotations beyond the study's set of classified neurons. Neither 9,162 nor 2,675 is advertised as a simulated-neuron count. No ambiguous fragment is silently promoted to a neuron.
+The three graph neuron classes total **1,627**, including source annotations beyond the study's set of classified neurons. The source totals of 9,162 body cells and 2,675 graph nodes have different counting units. The active circuit count appears separately above; ambiguous fragments retain their source classification.
 
 ## Import contract
 
@@ -47,9 +47,9 @@ Rebuild with Python 3.12 and `scripts/requirements.txt`. Delete or move the cach
 
 ## Visual references and constructed assets
 
-The primary Figure 1 images for eLife 02730 and 97964 were inspected at their published scales: a compact larva with a distinct head, prototroch and three bristled trunk segments. The rendering's approximately 215 μm body length is a stated virtual proportion, not a extracted measurement. All body surfaces, microstructure, opacity, focus and pigment rendering are illustrative approximations; no measured skeleton is overlaid on the specimen.
+The primary Figure 1 images for eLife 02730 and 97964 were inspected at their published scales: a compact larva with a distinct head, prototroch and three bristled trunk segments. The optical field uses an approximately 215 μm virtual body proportion. Surface detail, opacity, focus and pigment belong to the registered observation plate. Published anatomy and the optical registration have separate records.
 
-`public/assets/tissue-texture.png` is an AI-generated material used at low opacity in the live procedural renderer. `public/assets/tissue-texture.provenance.txt` records the method and prompts. It is not a scientific image or evidence. Screenshots and WebM clips in `docs/` are actual captures of this application, with recorded states and timing where relevant.
+`public/assets/tissue-texture.png` supplies a low-opacity optical layer in the earlier procedural renderer. Its original method and prompts remain in `public/assets/tissue-texture.provenance.txt`; the [assessment companion](ASSESSMENT_COMPANION.md#image-preparation-record) describes the constructed imagery separately from the scientific sources. Screenshots and WebM clips in `docs/` retain their captured application states and timing where relevant.
 
 ## Reuse and credit
 

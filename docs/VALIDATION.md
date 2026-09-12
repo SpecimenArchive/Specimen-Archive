@@ -1,6 +1,6 @@
 # Validation
 
-All values below originate from runnable code and saved output. An assumed-model test is not biological validation.
+This register retains the circuit probes, exact replay checks and measured performance of the station. Each result links to its runnable protocol and saved output. [Assessment scope](ASSESSMENT_COMPANION.md).
 
 ## Controlled circuit response
 
@@ -21,7 +21,7 @@ Interpretation: actual connections propagate sensory activity into motor modulat
 
 The shuffled control permutes edge targets with seed 7101, retaining source endpoint counts and target endpoint counts; weights travel with their edges and are normalized against the shuffled incoming total. It does not preserve anatomical reciprocity, avoid multi-edges or preserve weighted in-degree. It tests sensitivity to topology, not an ensemble statistical significance claim.
 
-Repeated intact runs are exactly identical in the same runtime. A 40,000-step / 400 simulated-second test checks bounded activity, chamber positions and event history across multiple illumination changes. Restoring the entire internal state and continuing produces the same future state as uninterrupted integration.
+Repeated intact runs are exactly identical in the same runtime. A 40,000-step / 400 model-second test checks bounded activity, chamber positions and event history across multiple illumination changes. Restoring the entire internal state and continuing produces the same future state as uninterrupted integration.
 
 ## Neuron-level trace
 
@@ -29,11 +29,11 @@ Command: `npm run trace`. The output captures a real deterministic closed-loop e
 
 The explicit path is `PRC_al3 #6743 → IN1_pr #37580 → INsn_l2 #57553 → MN1_l #108826`. Its edges and integer source synapse weights are included. The JSON also records every selected neuron's activity, the inspected cells' incoming normalized terms, sensory inputs, environment, motor decoding and resulting pose. These instantaneous incoming terms describe the sampled state; the synchronous integrator used the preceding time step. A direct connection path is not a decomposition of total causal contribution.
 
-No fabricated wall-clock timestamps are inserted into this deterministic example. The screenshot study uses an actual recorded server state separately saved as `render-study-state.json`.
+This deterministic example is indexed by model time. The screenshot study uses an actual recorded server state separately saved as `render-study-state.json`.
 
 ## Automated checks
 
-`npm test` checks provenance hashes and category accounting, circuit response, interventions, determinism, checkpoint continuation, bounded long-running state, closed-loop sensory feedback and recording/readback error handling. Small synthetic fixtures are labelled as fixtures and never served as the specimen graph. `npm run typecheck` and `npm run build` check the complete application.
+`npm test` checks provenance hashes and category accounting, circuit response, interventions, determinism, checkpoint continuation, bounded long-running state, closed-loop sensory feedback and recording/readback error handling. Small test fixtures stay separate from the sourced specimen graph. `npm run typecheck` and `npm run build` check the complete application.
 
 Transport and browser tests verify live snapshot agreement across clients, reconnect/resync, observer-only endpoints, stale/offline labelling, archive playback, content routes, overflow and renderer behaviour. Their actual machine output is saved under `docs/results/`; unresolved checks are recorded in `STATUS.md` until completed.
 
@@ -41,7 +41,7 @@ Transport and browser tests verify live snapshot agreement across clients, recon
 
 Command: `npm run benchmark`. Full machine-specific report: [benchmark.json](results/benchmark.json).
 
-Initial measurement on AMD Ryzen 9 5950X, Windows 10.0.22631, Node 24.11.1: 100,000 steps (1,000 simulated seconds) completed in **254.13 ms**, approximately **393,499 steps per wall second**. RSS after the loop was approximately 73.9 MiB. The benchmark is deliberately faster than the live paced engine; the configured observation still runs at 0.5× time and targets 20 snapshots/s. Serialization was measured separately at 10,000 packets in 144.15 ms, averaging 3,022.9 bytes per packet. Those are measurements of this implementation and machine, not deployment promises.
+Initial measurement on AMD Ryzen 9 5950X, Windows 10.0.22631, Node 24.11.1: 100,000 steps (1,000 model seconds) completed in **254.13 ms**, approximately **393,499 steps per wall second**. RSS after the loop was approximately 73.9 MiB. The benchmark is deliberately faster than the live paced engine; the configured observation still runs at 0.5× time and targets 20 snapshots/s. Serialization was measured separately at 10,000 packets in 144.15 ms, averaging 3,022.9 bytes per packet. Those are measurements of this implementation and machine, not deployment promises.
 
 Browser recording metrics include the overhead of software headless rendering and video encoding. An early per-primitive blur approach caused a 121.7 ms median frame interval and was rejected. Depth contrast and a small number of optical compositing passes replaced it. The final movement-capture report records the resulting intervals; do not confuse capture frame timing with server model update rate.
 

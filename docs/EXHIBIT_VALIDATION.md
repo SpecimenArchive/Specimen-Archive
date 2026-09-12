@@ -30,7 +30,7 @@ The final production UI check measured **59.94 actual specimen draws/s over 10.0
 
 An isolated test deliberately closed the controlled browser before decision 2. The service recorded the failure, preserved completed commands and the finalized local video, then opened a new intact episode under the same session ID. Operator abort during the next partial integration window issued no action. See [recovery evidence](results/exhibit-recovery.json).
 
-All nine held-out records have actual verified public Specimen Recorder commits. A real receipt-loss test returned the original commit, with one commit before and after and no duplicate: [receipt recovery](results/exhibit-recorder-recovery.json). Continuous episodes publish through the same recorder at completed experiment boundaries. Generated apparatus/tissue licences and data attribution are listed in [third-party notices](../THIRD_PARTY_NOTICES.md).
+All nine held-out records have actual verified public Specimen Recorder commits. A real receipt-loss test returned the original commit, with one commit before and after and no duplicate: [receipt recovery](results/exhibit-recorder-recovery.json). Continuous episodes publish through the same recorder at completed experiment boundaries. Apparatus/tissue licences and data attribution are listed in [third-party notices](../THIRD_PARTY_NOTICES.md).
 
 Only the controlled colour-assisted lane/scroll task is demonstrated. Public websites, expanded circuitry, learning and a language-model journal remain deferred, with prerequisites in [the milestone](EXHIBIT_MILESTONE.md). The accepted photographic rig is unchanged; local deformation and optics remain explicitly documented presentation mappings.
 

@@ -9,7 +9,7 @@ export function DirectDesktop({live,desktopImage,health}:{live:ExhibitLive|null;
  return <section className={`direct-desktop panel ${expanded?'desktop-expanded':''}`} data-run-id={live?.runId} data-model-step={live?.snapshot?.seq} data-desktop-frame={capture?.path}>
   <div className="panel-heading"><span>B / WINDOWS 11 · DIRECT VIEW</span><button className="quiet-button" onClick={()=>setExpanded(!expanded)}>{expanded?'Close ×':'Expand ↗'}</button></div>
   <div className="desktop-containment"><div className="desktop-pixels" style={{aspectRatio:capture?`${capture.width}/${capture.height}`:'1280/800'}}>
-   <canvas ref={canvas} width="1280" height="800" aria-label="Genuine Windows desktop, the same decoded capture as the apparatus monitor"/>
+   <canvas ref={canvas} width="1280" height="800" aria-label="Windows desktop: the same decoded capture as the apparatus monitor"/>
    {visible&&point&&<svg viewBox={`0 0 ${capture!.width} ${capture!.height}`} className="action-annotation" aria-label={`Acknowledged wheel ${live?.lastAction?.command.wheelY} pixels; ${r!.reason}`}><g transform={`translate(${point.x} ${point.y})`}><circle r="12"/><path d={live?.lastAction?.command.wheelY!>0?'M0 -30 V30 M-7 23 L0 30 L7 23':'M0 30 V-30 M-7 -23 L0 -30 L7 -23'}/><text x="20" y="4">{r!.status==='boundary'?'NO DISPLACEMENT':`${r!.scrollAfter-r!.scrollBefore} px`}</text></g></svg>}
   </div>{!desktopImage&&<p className="desktop-wait">Awaiting a verified desktop capture</p>}</div>
   <div className="desktop-foot"><span>{health==='replay'?'RECORDED':health==='live'?'CAPTURED':'HELD'} · {capture?.capturedAt.slice(11,23)??'—'} UTC</span><span>{capture?`${capture.width} × ${capture.height}`:'WINDOWS CAPTURE'}</span></div>

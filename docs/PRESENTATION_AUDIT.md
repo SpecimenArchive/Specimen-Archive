@@ -1,36 +1,33 @@
-# Laboratory presentation audit
+# Laboratory register — presentation review
 
-The public presentation now speaks from the laboratory operating Specimen 01. It describes observations, motor activity, browser receipts, retained encounters and research questions directly. The separate [assessment companion](ASSESSMENT_COMPANION.md) and [worksheet](WORKSHEET.html) explain the fictional setting, imagery, assumed dynamics and actual software execution.
+The observation station keeps its language as carefully as its records. Each page describes the specimen’s field, circuit activity, encounters, retained memories and open research questions. Sources accompany observations; accepted navigation and verified wheel receipts have separate entries.
 
-## Surfaces reviewed
+## Reading the station
 
-The audit covers Observe, Specimens, Memory and encounter detail, Inside the system and its six signal tabs, Experiments, journal history and its evidence dialog. Navigation, footer, tooltips, alternative text, metadata, connection states and recorded-media captions were inspected alongside the README and documentation index. Earlier local observation components were also scanned so their specimen and methods captions use the same laboratory voice.
-
-| Surface | Change |
+| Surface | Register |
 | --- | --- |
-| Observe and footer | Replaced repeated image-origin and biological-thought disclaimers with observation-station language and an explicit circuit/supervisor/journal ownership statement |
-| Specimens | Recast the introduction and field notes around the specimen, source anatomy, registered landmarks and recorded motor state |
-| Memory | Replaced “generated connection” with “research connection”; described identity and coarse image matching concretely; kept retrieval and actual supervisor use distinct |
-| Journal | Labelled narrator output as commentary, including pending drafts and evidence inspection; retained evidence checks, provider/model identity, proposals and receipt links |
-| Inside the system | Kept the complete action pathway and numerical evidence; replaced repeated ontological caveats with the circuit’s actual operating method and links to detailed methods |
-| Experiments | Clarified that the featured journal is a recorded encounter; retained real durations, replay counts, failures and the negative memory result |
-| Accessibility and metadata | Updated specimen descriptions, still-view errors, site description and social metadata without altering the underlying imagery |
-| README and register | Established a laboratory introduction, six-stage encounter path, source register, reproduction instructions and a separate assessment entry point |
-| Current manuals | Reframed introductory disclaimers; retained equations, assumptions, source attribution and numerical results |
-| Assessment material | Explicitly identified the fictional setting and corrected the obsolete pre-narrator account of page selection and language support |
+| Observe | The workstation, motor response and current investigation share one observation context. |
+| Specimens | Field notes identify visible regions and link to the published anatomy. |
+| Memory | Research connections link encounters, original sources, retrievals and recorded supervisor use. |
+| Journal | Commentary, questions, proposals, acceptance and results retain their own labels and evidence. |
+| Inside the system | Captured pixels lead through the circuit and decoder to the Windows receipt and linked memory. |
+| Experiments | Recorded encounters retain their durations, source revisions, replay results and unsuccessful trials. |
+| Navigation and accessible descriptions | Labels name the instrument, observation or destination directly. |
+| Loading and errors | The station reports waiting, unavailable captures, exhausted budgets and playback failures with the available next step. |
+| README and manuals | The laboratory notebook links operating methods, sources, optical registrations and retained results. |
 
-The journal’s application budget, missing narration, pending validation, capture interruptions and media errors still report their actual state. The copy change does not label a proposed action as executed, turn a boundary into movement, or present a research question as a finding. “Computed,” “model,” and other useful implementation terms remain where they help explain an instrument. This is a narrative edit, not a blanket word filter over evidence.
+The second reading pass covered the optical and apparatus registers, data provenance overview, light protocol, validation narrative, journal method and retained review captions. It corrected the obsolete Methods account of the pre-narrator architecture and the light experiment’s launch command. Preparation methods and scientific scope are collected in the separate [assessment companion](ASSESSMENT_COMPANION.md); exact source records and licences remain available.
 
-## Preserved records
+## Records retained
 
-Original evidence JSON, failed trials, test counts, source/configuration hashes, commit history, licences, scientific attribution and generated-asset provenance are unchanged. Construction briefs and historical QA pages remain dated source records; production already excludes the private QA HTML routes. Historical video pixels are not rewritten to conceal their original labels.
+The active circuit has 47 cells and 161 connections. The frozen memory comparison found no measured gain. Supervisor navigation and memory use remain distinct from neural wheel control. A cold Windows reboot still requires manual console login.
 
-The main scientific results remain explicit: the active circuit has 47 cells and 161 connections; the frozen memory comparison found no measured gain; supervisor navigation and memory use remain separate from neural wheel control. The cold-boot manual login limitation remains in the operating guide and assessment companion.
+Original evidence JSON, failed trials, measured results, configuration hashes, source attribution, licences and commit history remain intact. Earlier briefs and raw recordings retain their original wording and timestamps. Current manuals describe the station; the historical records document how it reached this state.
 
-## Checks
+## Completed checks
 
-The [verification receipt](results/presentation-audit.json) records the actual reviewed revision, route/layout checks, relative-link audit and deployment status. Observer checks include six routes at 1920 and 390 px, journal pause/follow, evidence dialog/Escape, all signal tabs, memory detail and an explicit connection-error state. The production build checks TypeScript and the complete observer bundle. The public link review found that an in-progress episode could expose its not-yet-finalized compact record and compressed trace. The action detail now links to its already-available decision and neural samples, with a separate route to the episode archive.
+The [first presentation receipt](results/presentation-audit.json) retains six routes reviewed at 1920 and 390 px, journal pause/follow, evidence inspection and Escape, all six signal tabs, memory detail and an explicit connection-error state. All 188 inspected public links resolved after the repair. The action detail opens its available decision and neural samples; the episode archive holds finalized records.
 
-The film has a separate [evidence and playback report](SOCIAL_FILM.md). No browsing, memory, circuit, recorder or recovery algorithm is changed by this presentation work.
+Public HTML and selected documents matched their deployed hashes. The controller continued through the presentation deployments without service restarts. These are results from the interval and revisions in that receipt. The [film register](SOCIAL_FILM.md) separately records its source linkage and playback checks.
 
-Public acceptance: all six routes at 1920 and 390 px passed after the final link repair, including fully rendered desktop/specimen views. The deployed HTML and selected documents matched local hashes; linked memory and decision records were checked through the public endpoint. The controller session continued through both presentation deployments without service restarts. Exact counts and revisions are in the receipt above.
+The [second reading receipt](results/laboratory-copy-review.json) records 63 additional copy edits across 22 files, with the six-page desktop and phone review.

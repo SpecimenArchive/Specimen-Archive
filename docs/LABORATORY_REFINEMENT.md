@@ -2,7 +2,7 @@
 
 The observer now places the apparatus, real Windows desktop, specimen and neural instruments beside a wider live journal. Warm ivory carries the research notebook and method pages; charcoal separates live instrumentation. Headings use 42–46 px, section headings 22–28 px, body copy 16–17 px and journal prose 14–15 px. Responsive reviews cover 1920, 1280, 1024 and 390 px.
 
-Memory surfaces real retained connections and questions with encounter links. Numbered specimen field notes cite [the whole-body larval connectome](https://elifesciences.org/articles/97964). Their image landmarks are illustrative regions, not registered neuron positions. The six-step implementation diagram continues to use an actual selected decision, its PNG, neural samples and Windows receipt.
+Memory surfaces real retained connections and questions with encounter links. Numbered specimen field notes cite [the whole-body larval connectome](https://elifesciences.org/articles/97964). Their field landmarks identify the specimen’s visible regions; source neuron positions are inspected separately in the circuit atlas. The six-step implementation diagram continues to use an actual selected decision, its PNG, neural samples and Windows receipt.
 
 ## Journal and spending
 
@@ -12,9 +12,9 @@ Scheduling now respects both the configured minimum and an evenly spaced rolling
 
 The context includes at most 3 recalled encounters, 3 relevant source passages, 8 allowed candidates and 4 ranked open questions. Recent commentary is supplied to discourage repetition. The narrator is explicitly forbidden to infer backend architecture or security checks from public UI appearances.
 
-Factual page excerpts, actual retrieved encounter names, objectives, navigation transitions and neural receipts are independent of API availability. Extraction joins real DOM text nodes with spaces after removing navigation, avoiding concatenated form labels. Excluded drafts are reported separately from provider outages. The journal distinguishes structured observations, generated interpretation and supervisor proposals. Repetitive receipts remain compact and inspectable. Exact source, memory and command references remain available.
+Factual page excerpts, actual retrieved encounter names, objectives, navigation transitions and neural receipts are independent of API availability. Extraction joins real DOM text nodes with spaces after removing navigation, avoiding concatenated form labels. Excluded drafts are reported separately from provider outages. The journal distinguishes structured observations, narrator interpretation and supervisor proposals. Repetitive receipts remain compact and inspectable. Exact source, memory and command references remain available.
 
-Genuine [Responses streaming events](https://developers.openai.com/api/docs/guides/streaming-responses) feed a read-only SSE endpoint. Only generated text fields are displayed during generation, labelled as awaiting evidence validation. The first live review exposed old generated questions recycling unsupported backend assumptions. New version-2 commentary therefore requires a verbatim supporting passage, rejects near-duplicate prose and unobserved backend claims, and treats only version-2 questions/proposals as eligible narrator context. Original history is preserved. Incomplete, refused or invalid responses never become retained commentary. There is no artificial typing or replay of old text as new. Pause freezes the entries, current objective and draft; follow resumes live chronology. The configured request and output-token ceilings are unchanged. No additional paid capacity is required by this implementation. Stable journal sequence numbers persist across retention and restart; older retained entries receive a one-time sequence migration.
+Genuine [Responses streaming events](https://developers.openai.com/api/docs/guides/streaming-responses) feed a read-only SSE endpoint. Only incoming commentary text fields are displayed while the narrator writes, labelled as awaiting evidence validation. The first live review exposed older narrator questions recycling unsupported backend assumptions. New version-2 commentary therefore requires a verbatim supporting passage, rejects near-duplicate prose and unobserved backend claims, and treats only version-2 questions/proposals as eligible narrator context. Original history is preserved. Incomplete, refused or invalid responses never become retained commentary. There is no artificial typing or replay of old text as new. Pause freezes the entries, current objective and draft; follow resumes live chronology. The configured request and output-token ceilings are unchanged. No additional paid capacity is required by this implementation. Stable journal sequence numbers persist across retention and restart; older retained entries receive a one-time sequence migration.
 
 ## Playback and review
 
@@ -28,7 +28,7 @@ Existing behavioural and scientific evidence remains in its original reports; th
 
 ## Retained review corrections
 
-- The first live review exposed unsupported generated backend questions. Later reviews exposed whole-batch rejection and source-ID confusion. The corrected journal requires actual source excerpts, retains valid notes independently, and keeps factual updates flowing during omissions.
+- The first live review exposed unsupported narrator questions about backend behaviour. Later reviews exposed whole-batch rejection and source-ID confusion. The corrected journal requires actual source excerpts, retains valid notes independently, and keeps factual updates flowing during omissions.
 - A mobile review exposed an overflowing notebook thread. Its source titles now wrap and its grid can shrink to the viewport.
 - Two exact offline PNG comparisons failed. A focused diagnostic isolated a single colour channel changing by one level while model step, canvas size and pose stayed fixed. Retaining the last completed render removes this idle GPU rounding variation; a separate eight-sample review verified identical PNG hashes and no additional redraws while disconnected.
 - Observer checks attempted during deployment encountered initial-frame timeouts. These failed runs remain under ignored `runtime/`; they are not represented as successful acceptance. Deployment guards also refused checkout while a worker was still stopping, and succeeded only after it stopped.
@@ -49,7 +49,7 @@ The final sustained review ran **19:56:42–20:06:44 UTC on 12 September 2026**,
 | Disconnect and reconnect | Exact held pixels/model step; live recovery passed |
 | Encounters | 23 visits, 22 distinct URLs, four domains |
 | Memory changed supervisor selection | 17 choices |
-| Retained generated commentary | 11 entries; factual observations, recall and receipts continued separately |
+| Retained narrator commentary | 11 entries; factual observations, recall and receipts continued separately |
 | Browser errors / native failures during review | 0 / 0 |
 | Observer backpressure drops | Counter increased from 0 to 4; matched packets and displayed pairs remained consistent |
 | Configured narration ceiling | Unchanged at 60 requests/hour; effective minimum spacing 61 seconds |
@@ -57,7 +57,7 @@ The final sustained review ran **19:56:42–20:06:44 UTC on 12 September 2026**,
 
 [Sustained evidence and encounter paths](results/laboratory-acceptance.json) · [Layout and interaction checks](results/laboratory-layout.json) · [Exact held-pixel samples](results/laboratory-freeze.json).
 
-All five routes passed at **1920 and 390 px** on the final deployed observer, with no document overflow. Earlier layout checks also covered 1280 and 1024 px. The final review exercised pause/follow, history filtering, evidence dialog/Escape, memory detail, all six real signal tabs and private-QA exclusions. Source references remain inspectable; generated supporting excerpts can come from captured page text or a separately identified curated source note. Curated notes are interpretation, not newly retrieved primary-source quotations.
+All five routes passed at **1920 and 390 px** on the final deployed observer, with no document overflow. Earlier layout checks also covered 1280 and 1024 px. The final review exercised pause/follow, history filtering, evidence dialog/Escape, memory detail, all six real signal tabs and private-QA exclusions. Source references remain inspectable; supporting excerpts for commentary can come from captured page text or a separately identified curated source note. Curated notes are interpretation, not newly retrieved primary-source quotations.
 
 The **55-second genuine recording** in [Experiments](https://specimenarchive.com/experiments) contains actual streamed commentary and its accepted entry, followed by real browsing. It is a continuous segment of the preserved original capture; its source offset, original hash, rendered bundle, 395 nonempty draft updates and 111 distinct text states are recorded in [recording provenance](results/laboratory-recording.json). No frames or journal entries were inserted. The previous public showcase recording is retained on the VM. Its replacement poster is an actual frame from the new video.
 
@@ -69,7 +69,7 @@ A separate complete native episode at the same backend revision replayed **48 de
 
 Chrome, native capture/worker, controller, persistent memory, narrator, finalizer and recorder all run on the existing Windows 11 VM. The publisher and Cloudflare tunnel also run there. Service checks show all three station tasks running, their one-minute recovery settings present, tunnel readiness 200 and **zero established RDP connections**. The temporary home-PC presentation preview was stopped while the same VM session continued. The 257-training-outcome checkpoint remains `7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08`. [Service receipt](results/laboratory-services.json).
 
-The existing operational limitation remains: **a cold VM reboot needs a manual Windows console login**. No additional narrator capacity was purchased or requested. Generated drafts that lack support can still be omitted; factual records remain available. No improvement in neural learning or causal performance is claimed.
+The existing operational limitation remains: **a cold VM reboot needs a manual Windows console login**. No additional narrator capacity was purchased or requested. Narrator drafts that lack support can still be omitted; factual records remain available. No improvement in neural learning or causal performance is claimed.
 
 ![Final live observation](screenshots/laboratory-observe-desktop.png)
 

@@ -25,6 +25,7 @@ The journal’s separate OpenAI narrator writes sourced observations and propose
 
 ## The laboratory notebook
 
+- [Read the field journal](https://specimenarchive.com/journal): sourced observations, recalled encounters and questions under investigation.
 - [Follow one control trace](docs/CONTROL_TRACE.md): captured pixels, cell states, command and Windows receipt.
 - [Persistent exploration](docs/PURPOSEFUL_EXPLORATION.md): discovered links, revisit intervals, retained questions and memory-informed selection.
 - [Journal method](docs/JOURNAL_ARCHITECTURE.md): excerpts, commentary, evidence checks and request budgets.

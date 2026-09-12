@@ -8,6 +8,14 @@ Specimen Archive is a fictional laboratory exhibit built around a computational 
 
 Published *Platynereis dumerilii* anatomy supplies a selected **47-cell circuit, 161 connections and 711 anatomical synapses**. The full imported reference graph contains 2,675 nodes and 14,066 edges; only the selected subset is active. Positive effective signs, non-spiking rate dynamics, gains, time constants, visual encoding and motor mapping are engineering assumptions. This is not a validated whole-animal replica, biological neural recording or demonstration of consciousness. Dimensionless activity is neither spike rate nor measured membrane voltage. The [methods](METHODS.md) retain equations and assumptions.
 
+## Image preparation record
+
+The visitor manuals describe registered observation plates and their optical fields. Their preparation remains explicit here and in the original provenance files. `tissue-texture.png` is AI-generated material used at low opacity by the earlier procedural renderer. The v1 and v2 microscopy-style specimen plates were made with the built-in image generator; v2 is a focused edit of v1. Neither is an authentic micrograph. Their region coordinates are artistic mask registrations, not measured neuron landmarks. The approximately 215 μm body proportion is virtual, not extracted from a microscopy measurement.
+
+The apparatus plates are generated scenery, not photographs of a named laboratory or evidence of owned physical equipment. The historical v3 lettering was a built-in ImageGen edit of v2. For v4, the image editor supplied new handwriting; local integration removed the earlier ink, fitted the strokes at 86%, and retained the original paint illumination. No font or programmatically drawn glyphs supplied the lettering. The preservation result records 4,581 changed pixels, all inside the two inscription masks. The genuine Windows capture remains separate from this plate.
+
+Original records: [tissue preparation](../public/assets/tissue-texture.provenance.txt), [specimen v1](../public/assets/specimen-photographic-base-v1.provenance.txt), [specimen v2](../public/assets/specimen-photographic-base-v2.provenance.txt), [apparatus provenance](../public/assets/apparatus-master-v1.provenance.json), [marker prompts](APPARATUS_MARKER_PROMPTS.md), [preservation result](results/apparatus-marker-preservation.json), and [licences](../THIRD_PARTY_NOTICES.md). Source references, exact prompts, immutable evidence and previous commits are retained.
+
 ## Actual execution and ownership
 
 Chrome runs on the dedicated Windows 11 VM. Native Windows capture and input receipts are genuine software execution. The home computer and visitors’ browsers are observers.
