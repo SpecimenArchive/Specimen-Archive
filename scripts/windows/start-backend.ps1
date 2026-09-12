@@ -9,6 +9,7 @@ try { $running=Invoke-RestMethod -Uri 'http://127.0.0.1:4317/api/health' -Timeou
 if ($running) { throw 'An observer backend is already running on port 4317; do not create another session.' }
 $env:EXHIBIT_DESKTOP='windows'
 $env:EXHIBIT_OBSERVATION_PROFILE='1'
+$env:EXHIBIT_EXTERNAL_PROFILE='1'
 $env:EXHIBIT_WINDOWS_URL='http://127.0.0.1:4320'
 $env:EXHIBIT_WINDOWS_TOKEN_FILE=Join-Path $project 'runtime/remote-worker/worker-token.txt'
 $env:EXHIBIT_STOP_FILE=Join-Path $project 'runtime/remote-worker/stop-backend'
@@ -18,7 +19,8 @@ $env:RECORDER_ENABLED='0'
 $env:SPECIMEN_EXTERNAL_RECORDER='1'
 Remove-Item Env:SPECIMEN_PUBLISHER_CONFIG -ErrorAction SilentlyContinue
 $env:PORT='4317'
-$env:EXHIBIT_OBSERVER_ORIGINS='http://127.0.0.1:4319,http://localhost:4319'
+$env:EXHIBIT_OBSERVER_ORIGINS='http://127.0.0.1:4319,http://localhost:4319,https://specimenarchive.com,https://www.specimenarchive.com'
+$env:EXHIBIT_PUBLIC_HOST='specimenarchive.com'
 if (Test-Path -LiteralPath $env:EXHIBIT_STOP_FILE) { Remove-Item -LiteralPath $env:EXHIBIT_STOP_FILE }
 & "$PSScriptRoot/run-station-node.ps1" -Role backend -NodeArguments @('--env-file-if-exists=.env','--import','tsx','server/index.ts','--production')
 exit $LASTEXITCODE

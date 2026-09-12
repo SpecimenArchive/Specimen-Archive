@@ -83,7 +83,9 @@ public static class SpecimenDesktop {
     Thread.Sleep(150);
     if(GetForegroundWindow()!=h)throw new Exception("Windows did not grant foreground focus to owned Chrome during setup");
   }
-  public static string Capture(int pid){
+  public static string Capture(int pid){return CaptureImage(pid,false);}
+  public static string Display(int pid){return CaptureImage(pid,true);}
+  static string CaptureImage(int pid,bool display){
     var h=Browser(pid);var bar=Taskbar();var r=Bounds(pid);
     var input=OpenInputDesktop(0,false,0x0100);if(input==IntPtr.Zero)throw new Exception("Interactive desktop is locked or disconnected");CloseDesktop(input);
     if(GetForegroundWindow()!=h)throw new Exception("Owned Chrome lost foreground focus; operator recovery required");
@@ -94,7 +96,7 @@ public static class SpecimenDesktop {
       // This method is callable only from the guarded dedicated worker. GDI does
       // not add a hardware cursor: the existing recorded cyan page cursor is one.
       graphics.CopyFromScreen(0,0,0,0,new Size(Width,Height),CopyPixelOperation.SourceCopy);
-      bitmap.Save(stream,ImageFormat.Png);return Convert.ToBase64String(stream.ToArray());
+      bitmap.Save(stream,display?ImageFormat.Jpeg:ImageFormat.Png);return Convert.ToBase64String(stream.ToArray());
     }
   }
 }

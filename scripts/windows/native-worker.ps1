@@ -49,9 +49,9 @@ while ($line=[Console]::ReadLine()) {
       'info' { $result=@{os='Windows 11';isolation=$isolation;osBuild="$($os.CurrentBuild).$($os.UBR)";width=[SpecimenDesktop]::Width;height=[SpecimenDesktop]::Height;scale=[SpecimenDesktop]::Scale} }
       'arrange' { [SpecimenDesktop]::Arrange([int]$request.pid); $result=@{ok=$true} }
       'pin' { $result=Pin-Dashboard ([int]$request.pid) }
-      'capture' {
+      {$_ -in @('capture','display')} {
         $start=[DateTimeOffset]::UtcNow; $watch=[Diagnostics.Stopwatch]::StartNew()
-        $png=[SpecimenDesktop]::Capture([int]$request.pid)
+        $png=if($request.method -eq 'display'){[SpecimenDesktop]::Display([int]$request.pid)}else{[SpecimenDesktop]::Capture([int]$request.pid)}
         $watch.Stop(); $window=[SpecimenDesktop]::Bounds([int]$request.pid); $taskbar=[SpecimenDesktop]::Taskbar()
         $result=@{png=$png;sourceCapturedAt=$start.ToUnixTimeMilliseconds();captureMs=$watch.Elapsed.TotalMilliseconds;width=[SpecimenDesktop]::Width;height=[SpecimenDesktop]::Height;dpi=96;os='Windows 11';osBuild="$($os.CurrentBuild).$($os.UBR)";timeZone=(Get-TimeZone).Id;window=$window;taskbar=$taskbar}
       }

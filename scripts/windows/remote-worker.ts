@@ -99,7 +99,7 @@ const server=createServer(async(req,res)=>{
   const send=(status:number,value:object)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.headers.origin||!lease.authorize(req.headers.authorization)){send(401,{error:'Unauthorized'});return;}
   if(req.method!=='POST'){send(405,{error:'POST required'});return;}
-  if(!['/session','/heartbeat','/arrange','/pin','/capture','/stop'].includes(req.url??'')){send(404,{error:'Unknown operation'});return;}
+  if(!['/session','/heartbeat','/arrange','/pin','/capture','/display','/stop'].includes(req.url??'')){send(404,{error:'Unknown operation'});return;}
   try{
     let body='';for await(const chunk of req){body+=chunk;if(body.length>4096){send(413,{error:'Request too large'});return;}}
     if(req.url==='/session'){

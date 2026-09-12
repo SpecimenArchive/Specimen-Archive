@@ -15,6 +15,7 @@ export interface DesktopCapture {
   station?:{os:'Windows 11';osBuild:string;isolation:'windows-sandbox'|'remote-vm';id:string;bootId?:string;timeZone:string;dpi:number;viewport:{x:number;y:number;scale:number};window:unknown;taskbar:unknown};
 }
 export interface ExhibitDecision {
+  receipt?:import('./observation').ActionReceipt;
   sensoryProfile?:import('../server/exhibit/observation-encoder').ObservationProfile;page?:{id:string;label:string;url:string};
   context:Pick<ExhibitLive,'sourceRevision'|'sourceDirty'|'configSha256'|'dataVersion'|'intervention'|'episode'|'seed'|'layout'>;
   sessionId:string;runId:string;commandId:string;decision:number;modelStartStep:number;modelEndStep:number;
@@ -24,6 +25,9 @@ export interface ExhibitDecision {
   executed:{startedAt:string;completedAt:string;from:{x:number;y:number};to:{x:number;y:number};events:ExecutedEvent[];nativeInput?:{version:'windows-view-v2';coordinateScale:number;wheelScale:1;wheelEventScale:number;scrollBefore?:number;scrollAfter?:number}};
 }
 export interface ExhibitRecord extends PublishableRecord {
+  externalConfig?:typeof import('../server/exhibit/external-policy').EXTERNAL_POLICY;
+  initialCheckpoint?:ReturnType<import('../server/model/engine').Engine['checkpoint']>;
+  displayFrames?:import('./observation').DisplayFrame[];
   observationConfig?:{retina:typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA|typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA_V1;schedule:typeof import('../server/exhibit/observation-runner').OBSERVATION_SCHEDULE};
   observationEvents?:ObservationEvent[];stages?:{execution:'completed'|'failed';recording:'saved'|'failed'|'unavailable';recordingError?:string};
   schemaVersion:1;kind:'continuous-browser-episode';recorder:'Specimen Recorder';sessionId:string;startedAt:string;
@@ -36,6 +40,7 @@ export interface ExhibitRecord extends PublishableRecord {
   stationSchedule?:{version:string;dashboardUrl:string;dashboardSeconds:number;readingUrl:string};
 }
 export interface ExhibitLive {
+  display?:import('./observation').DisplayFrame|null;receipt?:import('./observation').ActionReceipt;
   observation?:ObservationState;
   sessionId:string;runId:string;packetSeq:number;timestamp:string;state:'starting'|'integrating'|'executed'|'complete'|'recovering'|'idle';
   episode:number;decision:number;intervention:BrowserIntervention;layout:TaskLayout;seed:number;

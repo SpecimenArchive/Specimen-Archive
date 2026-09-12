@@ -12,6 +12,7 @@ import type {DesktopCapture} from '../../shared/exhibit';
 export class RemoteDesktopSession {
   browser!:Browser;get width(){return this.info.width;}get height(){return this.info.height;}
   private sequence=0;private heartbeat?:ReturnType<typeof setInterval>;private failure?:Error;private closed=false;
+  private ordered:Promise<unknown>=Promise.resolve();
   private viewport?:{x:number;y:number;scale:number};private bounds?:string;
   get pageSize(){assert(this.viewport);return {width:this.width,height:this.height-48-this.viewport.y};}
   async pinDashboard(){return this.request('pin');}
@@ -36,7 +37,11 @@ export class RemoteDesktopSession {
       return session;
     }catch(error){await session.close();throw error;}
   }
-  private async request(method:string,ordered=true):Promise<any>{
+  private request(method:string,ordered=true):Promise<any>{
+    if(!ordered)return this.send(method,false);
+    const next=this.ordered.then(()=>this.send(method,true));this.ordered=next.catch(()=>{});return next;
+  }
+  private async send(method:string,ordered:boolean):Promise<any>{
     if(this.failure&&method!=='stop')throw this.failure;
     const response=await fetch(`${this.endpoint}/${method}`,{method:'POST',headers:{Authorization:`Bearer ${this.token}`,'Content-Type':'application/json'},body:JSON.stringify({...this.info,sequence:ordered?++this.sequence:undefined}),signal:AbortSignal.timeout(method==='pin'?35000:10000)});
     if(!response.ok)throw new Error(`Windows worker ${method} HTTP ${response.status}`);
@@ -96,4 +101,10 @@ export class RemoteDesktopSession {
     return {path,pageFrame,pageCapturedAt,capturedAt,completedAt:new Date().toISOString(),width:this.width,height:this.height,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs:+roundTripMs.toFixed(2),pageLagMs:Date.parse(capturedAt)-Date.parse(pageCapturedAt),source:'windows-gdi',cursorSource:'recorded-page-pointer',sourceCapturedAt:new Date(c.sourceCapturedAt).toISOString(),timestampBasis:'backend-midpoint-estimate',clockUncertaintyMs:+uncertainty.toFixed(2),station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:{...this.viewport,scale:this.presentation.scale},window:c.window,taskbar:c.taskbar}};
   }
   async close(){if(this.closed)return;this.closed=true;clearInterval(this.heartbeat);await this.request('stop').catch(()=>{});await this.browser?.close().catch(()=>{});}
+  async display(directory:string,runId:string,index:number):Promise<import('../../shared/observation').DisplayFrame>{
+    assert(this.viewport);const started=performance.now(),requestedAt=Date.now(),c=await this.request('display'),roundTripMs=performance.now()-started;this.validate(c);
+    const bytes=Buffer.from(c.png,'base64'),path=`view-${String(index).padStart(6,'0')}.jpg`,capturedAt=new Date(c.sourceCapturedAt).toISOString();
+    writeFileSync(join(directory,path),bytes);
+    return {runId,path,seq:index,capturedAt,width:c.width,height:c.height,captureMs:c.captureMs,roundTripMs,source:'windows-gdi',viewport:{...this.viewport,scale:1},sha256:sha256(bytes)};
+  }
 }

@@ -25,6 +25,9 @@ const exhibitEnabled=!browserEnabled&&!process.argv.includes('--light-demo');
 const port=Number(process.env.PORT||4317);
 if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('PORT must be an integer from 1024 to 65535');
 const allowedObservers=observerOrigins(port,process.env.EXHIBIT_OBSERVER_ORIGINS);
+const allowedHosts=new Set([...allowedObservers].map(o=>new URL(o).host));
+const canonicalHost=process.env.EXHIBIT_PUBLIC_HOST;
+if(canonicalHost&&!allowedHosts.has(canonicalHost))throw new Error('Public hostname needs an exact observer origin');
 const circuit=JSON.parse(readFileSync(resolve(ROOT,'data/processed/circuit.json'),'utf8')) as Circuit;
 const engine=new Engine(circuit);
 let runId=`s01_${Date.now()}_${randomUUID().slice(0,8)}`,startedAt=new Date().toISOString(),seq=0;
@@ -53,7 +56,7 @@ const server=createServer();
 const wss=new WebSocketServer({noServer:true,maxPayload:1024});
 let droppedFrames=0;
 server.on('upgrade',(request,socket,head)=>{
-  if(request.url?.split('?')[0]!=='/stream')return;
+  if(request.url?.split('?')[0]!=='/stream'||!allowedHosts.has(request.headers.host??'')){socket.destroy();return;}
   const origin=request.headers.origin;
   if(origin&&!allowedObservers.has(origin)){socket.destroy();return;}
   wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot:exhibitEnabled?exhibitService.live?.snapshot:snapshot,browser:browserEnabled?browserService.live:null,exhibit:exhibitEnabled?exhibitService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
@@ -61,6 +64,10 @@ server.on('upgrade',(request,socket,head)=>{
 const vite=production?null:await (await import('vite')).createServer({root:ROOT,server:{middlewareMode:true,hmr:{server}},appType:'spa'});
 const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.webm':'video/webm','.md':'text/markdown; charset=utf-8'};
 server.on('request',(req,res)=>{
+  if(!allowedHosts.has(req.headers.host??'')){res.writeHead(421);res.end('Unrecognised observation host');return;}
+  if(canonicalHost&&req.headers.host==='www.'+canonicalHost){res.writeHead(308,{Location:`https://${canonicalHost}${req.url?.startsWith('/')?req.url:'/'}`});res.end();return;}
+  res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
+  if(canonicalHost&&req.headers.host===canonicalHost)res.setHeader('Strict-Transport-Security','max-age=31536000');
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
@@ -101,7 +108,7 @@ server.on('request',(req,res)=>{
   }
   if(url.pathname==='/api/manifest'){json(JSON.parse(readFileSync(resolve(ROOT,'data/processed/manifest.json'),'utf8')));return;}
   if(url.pathname==='/api/connectome'){json(JSON.parse(readFileSync(resolve(ROOT,'data/processed/connectome.json'),'utf8')));return;}
-  if(url.pathname==='/api/sessions'){store.writeMeta();json(store.list());return;}
+  if(url.pathname==='/api/sessions'){json(store.list());return;}
   if(url.pathname.startsWith('/api/sessions/')){const frames=store.read(url.pathname.slice('/api/sessions/'.length));json(frames??{error:'Session not found'},frames?200:404);return;}
   if(url.pathname==='/api/config'){json({displayName:'Specimen 01',ticker:'$LARVA',xHandle:process.env.PUBLIC_X_HANDLE||null,contract:process.env.PUBLIC_CONTRACT_ADDRESS||null,model:C});return;}
   if(url.pathname.startsWith('/docs/')){
