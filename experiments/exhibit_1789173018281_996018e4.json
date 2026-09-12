@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789173018281_996018e4",
+  "sessionId": "session_1789172938412_694e92c0",
+  "origin": {
+    "runId": "exhibit_1789173018281_996018e4",
+    "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "startedAt": "2026-09-12T00:30:18.281Z",
+  "completedAt": "2026-09-12T00:31:57.334Z",
+  "seed": 307,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 3000,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Observation contrast profile: 48 paced windows in the unchanged rate circuit. Pixel texture in two documented bands drives PRCs; the existing motor decoder selects wheel direction. Approved tab preparation/focus and native pinning are orchestration. Main dashboard receives 38/48 windows. No DOM target or scroll offset reaches the controller.",
+    "events": []
+  },
+  "decisions": [],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "desktop-000.png",
+      "sha256": "8febb686af5529ec8cd586c198ae636b23450f713ab24d8c37f86a01384de62e",
+      "bytes": 103918
+    },
+    {
+      "path": "frame-0000.png",
+      "sha256": "210d931c1ed1ee5423daf6bf18652c75e5689310fd3b39c6b36c559cc797386b",
+      "bytes": 95411
+    },
+    {
+      "path": "page@46735d1cf2bb1affb18dff4eb8861d99.webm",
+      "sha256": "9b89e8323326e2d1b11dd46e11bfb683c879b3325a2372dc1a085713d8a3d626",
+      "bytes": 2497803
+    },
+    {
+      "path": "page@a1b4fbc3a24c3a744a4c2e69bba913a0.webm",
+      "sha256": "2afcda5fce5dca3a9b16d89513448d6670a95f032bf486fce911d848a97096e6",
+      "bytes": 2929147
+    },
+    {
+      "path": "page@ea4afeb33b574031061a0cc5cd3e4bed.webm",
+      "sha256": "6c5331ef9cb81c3dbe51609eabe22dada4ad12d3aa5ddd685d4fb2f0a864d528",
+      "bytes": 3278349
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    }
+  ],
+  "observationConfig": {
+    "retina": {
+      "version": "observation-contrast-v2",
+      "x": [
+        0.08,
+        0.92
+      ],
+      "upper": [
+        0.12,
+        0.46
+      ],
+      "lower": [
+        0.54,
+        0.9
+      ],
+      "contrastScale": 48,
+      "minimumContrast": 3,
+      "directionMinimum": 0.5
+    },
+    "schedule": [
+      {
+        "decision": 0,
+        "page": "dashboard"
+      },
+      {
+        "decision": 16,
+        "page": "reference"
+      },
+      {
+        "decision": 21,
+        "page": "dashboard"
+      },
+      {
+        "decision": 36,
+        "page": "worksheet"
+      },
+      {
+        "decision": 41,
+        "page": "dashboard"
+      }
+    ]
+  },
+  "error": "page.evaluate: Target page, context or browser has been closed",
+  "stages": {
+    "execution": "failed",
+    "recording": "failed",
+    "recordingError": "video.saveAs: Target page, context or browser has been closed"
+  },
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "pin",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Verified the native Chrome dashboard tab is pinned.",
+      "completedAt": "2026-09-12T00:30:37.120Z",
+      "id": "exhibit_1789173018281_996018e4:e22",
+      "createdAt": "2026-09-12T00:30:37.121Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Published connectome; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:30:42.628Z",
+      "id": "exhibit_1789173018281_996018e4:e23",
+      "createdAt": "2026-09-12T00:30:42.628Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Methods & worksheet; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:30:42.978Z",
+      "id": "exhibit_1789173018281_996018e4:e24",
+      "createdAt": "2026-09-12T00:30:42.978Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4"
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Observation dashboard",
+      "summary": "page.evaluate: Target page, context or browser has been closed",
+      "id": "exhibit_1789173018281_996018e4:e26",
+      "createdAt": "2026-09-12T00:31:57.309Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Published connectome",
+      "summary": "After 16 completed decisions, visit Published connectome.",
+      "parameters": {
+        "destination": "reference"
+      },
+      "decision": 16,
+      "id": "exhibit_1789173018281_996018e4:e18",
+      "createdAt": "2026-09-12T00:30:18.285Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4",
+      "completedAt": "2026-09-12T00:31:57.310Z",
+      "reason": "page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 21 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 21,
+      "id": "exhibit_1789173018281_996018e4:e19",
+      "createdAt": "2026-09-12T00:30:18.285Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4",
+      "completedAt": "2026-09-12T00:31:57.310Z",
+      "reason": "page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Methods & worksheet",
+      "summary": "After 36 completed decisions, visit Methods & worksheet.",
+      "parameters": {
+        "destination": "worksheet"
+      },
+      "decision": 36,
+      "id": "exhibit_1789173018281_996018e4:e20",
+      "createdAt": "2026-09-12T00:30:18.285Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4",
+      "completedAt": "2026-09-12T00:31:57.310Z",
+      "reason": "page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 41 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 41,
+      "id": "exhibit_1789173018281_996018e4:e21",
+      "createdAt": "2026-09-12T00:30:18.285Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4",
+      "completedAt": "2026-09-12T00:31:57.310Z",
+      "reason": "page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "Accepted -48 px wheel command.",
+      "reason": "page.evaluate: Target page, context or browser has been closed",
+      "commandId": "exhibit_1789173018281_996018e4:c000",
+      "decision": 0,
+      "modelStep": 600,
+      "inputFrame": "exhibit_1789173018281_996018e4/frame-0000.png",
+      "parameters": {
+        "wheelY": -48
+      },
+      "id": "exhibit_1789173018281_996018e4:e25",
+      "createdAt": "2026-09-12T00:31:57.307Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173018281_996018e4",
+      "completedAt": "2026-09-12T00:31:57.310Z"
+    }
+  ]
+}
