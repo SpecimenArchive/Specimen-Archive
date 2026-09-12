@@ -1,0 +1,85 @@
+{
+  "at": "2026-09-12T18:05:48.014Z",
+  "checks": [
+    {
+      "path": "/docs/SHOWCASE_VERIFICATION.md",
+      "status": 200
+    },
+    {
+      "path": "/docs/results/showcase-endurance.json",
+      "status": 200
+    },
+    {
+      "path": "/docs/previews/external-review.html",
+      "status": 404
+    },
+    {
+      "path": "/DOCS/PREVIEWS/external-review.html",
+      "status": 404
+    },
+    {
+      "path": "/docs/previews%2fexternal-review.html",
+      "status": 404
+    },
+    {
+      "path": "/api/journal",
+      "method": "POST",
+      "status": 405
+    },
+    {
+      "path": "/api/exploration",
+      "method": "POST",
+      "status": 405
+    },
+    {
+      "url": "http://specimenarchive.com",
+      "status": 308,
+      "location": "https://specimenarchive.com/"
+    },
+    {
+      "url": "https://www.specimenarchive.com",
+      "status": 308,
+      "location": "https://specimenarchive.com/"
+    }
+  ],
+  "video": {
+    "duration": 55,
+    "bytes": 10746206,
+    "sha256": "6bac085d69be3eaa785f1780cc3e650a389cf917e13f1fbdbeb66245e746c701",
+    "rangeStatus": 206,
+    "played": true,
+    "midpointSeek": true,
+    "mobileOverflow": false
+  },
+  "errors": [],
+  "health": {
+    "ok": true,
+    "runId": "exhibit_1789236240373_b3bfdd2e",
+    "sessionId": "session_1789235031580_70e7677b",
+    "seq": 174230,
+    "modelTime": 1742.3,
+    "clients": 1,
+    "droppedFrames": 0,
+    "timeScale": 2,
+    "mode": "exhibit",
+    "exhibit": {
+      "episodes": 8,
+      "failures": 3,
+      "rssMB": 495,
+      "windowWallMs": 1200,
+      "modelSecondsPerWindow": 6
+    },
+    "recorderError": null
+  },
+  "narrator": {
+    "configured": true,
+    "state": "ready",
+    "provider": "openai",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "message": "Semantic narration available; entries cite recorded evidence.",
+    "pending": 1,
+    "requestsThisHour": 55,
+    "maximumRequestsPerHour": 60,
+    "lastSuccess": "2026-09-12T18:05:19.877Z"
+  }
+}
