@@ -15,6 +15,8 @@ import {ObservationJournal} from './journal';
 import {GitRecordPublisher} from '../git-record-publisher';
 import {spawn} from 'node:child_process';
 import {ExternalStation} from './external-station';
+import {ExperienceStore} from '../memory/store';
+import {executionOrigin} from '../provenance';
 export class ExhibitService {
   readonly sessionId=`session_${Date.now()}_${randomUUID().slice(0,8)}`;
   readonly journal=new ObservationJournal(this.sessionId);
@@ -23,9 +25,10 @@ export class ExhibitService {
   private archiveAt=0;private archiveValue:{records:ExhibitRecord[];publications:Publication[]}|undefined;private archivePending?:Promise<{records:ExhibitRecord[];publications:Publication[]}>;
   private archiveFiles=new Map<string,{stamp:string;record:ExhibitRecord}>();
   private external?:ExternalStation;private finalizerQueue:string[]=[];private finalizerWork?:Promise<void>;
+  readonly memory?:ExperienceStore;
   constructor(runtime:string,readonly circuit:Circuit,readonly emit:(live:ExhibitLive)=>void){
     this.root=resolve(runtime,'exhibit');mkdirSync(this.root,{recursive:true});this.store=new ExperimentStore<ExhibitRecord>(resolve(runtime,'exhibit-publications'));
-    if(process.env.EXHIBIT_EXTERNAL_PROFILE==='1')this.external=new ExternalStation(this.journal);
+    if(process.env.EXHIBIT_EXTERNAL_PROFILE==='1'){if(process.env.EXHIBIT_MEMORY_ENABLED==='1')this.memory=new ExperienceStore(runtime,circuit,executionOrigin('memory-index').sourceRevision);this.external=new ExternalStation(this.journal,this.memory);}
     const publisher=process.env.SPECIMEN_PUBLISHER_CONFIG?JSON.parse(readFileSync(process.env.SPECIMEN_PUBLISHER_CONFIG,'utf8')):null;
     if(publisher&&(publisher.repository!=='SpecimenArchive/Specimen-Archive'||publisher.isolation!=='remote-vm'))throw new Error('Unexpected VM recorder configuration.');
     this.recorder=new SpecimenRecorder(this.store,new GitHubCLI(this.store.root),publisher?.repository??process.env.RECORDER_REPOSITORY,publisher?publisher.enabled===true:process.env.RECORDER_ENABLED==='1',publisher?new GitRecordPublisher(publisher.objectDirectory,{sshCommand:publisher.sshCommand}):undefined);

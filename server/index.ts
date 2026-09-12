@@ -42,6 +42,8 @@ engine.event('session','Observation session opened');
 let segmentStart=engine.time;
 let snapshot=engine.snapshot(runId,seq,startedAt,0);
 const connections=new Set<WebSocket>();
+let lastExhibitBroadcast=0;
+const observerPacket=(live:import('../shared/exhibit').ExhibitLive)=>({...live,history:live.history.slice(-20),observation:live.observation?{...live.observation,events:live.observation.events.slice(-20),journey:live.observation.journey?.slice(-8)}:undefined});
 const browserService=new BrowserService(store.root,circuit,live=>{
   if(!live.snapshot)return;snapshot=live.snapshot;
   const packet=JSON.stringify({type:'snapshot',snapshot,browser:live});
@@ -49,8 +51,11 @@ const browserService=new BrowserService(store.root,circuit,live=>{
 });
 const exhibitService=new ExhibitService(store.root,circuit,live=>{
   if(live.snapshot)snapshot=live.snapshot;
-  const packet=JSON.stringify({type:'snapshot',snapshot:live.snapshot,exhibit:live});
-  for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){droppedFrames++;ws.close(1013,'Slow observer');continue;}ws.send(packet);}
+  // Recording keeps every neural sample. The observer receives bounded complete
+  // state packets, at most 10 Hz, and skips a sample under backpressure.
+  const now=performance.now();if(now-lastExhibitBroadcast<100)return;lastExhibitBroadcast=now;
+  const packet=JSON.stringify({type:'snapshot',snapshot:live.snapshot,exhibit:observerPacket(live)});
+  for(const ws of connections)if(ws.readyState===WebSocket.OPEN){if(ws.bufferedAmount>256*1024){droppedFrames++;if(ws.bufferedAmount>2*1024*1024)ws.close(1013,'Slow observer');continue;}ws.send(packet);}
 });
 const server=createServer();
 const wss=new WebSocketServer({noServer:true,maxPayload:1024});
@@ -59,7 +64,7 @@ server.on('upgrade',(request,socket,head)=>{
   if(request.url?.split('?')[0]!=='/stream'||!allowedHosts.has(request.headers.host??'')){socket.destroy();return;}
   const origin=request.headers.origin;
   if(origin&&!allowedObservers.has(origin)){socket.destroy();return;}
-  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot:exhibitEnabled?exhibitService.live?.snapshot:snapshot,browser:browserEnabled?browserService.live:null,exhibit:exhibitEnabled?exhibitService.live:null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
+  wss.handleUpgrade(request,socket,head,ws=>{connections.add(ws);ws.send(JSON.stringify({type:'resync',snapshot:exhibitEnabled?exhibitService.live?.snapshot:snapshot,browser:browserEnabled?browserService.live:null,exhibit:exhibitEnabled&&exhibitService.live?observerPacket(exhibitService.live):null}));ws.on('close',()=>connections.delete(ws));ws.on('error',()=>connections.delete(ws));ws.on('message',()=>ws.close(1008,'Observation only'));});
 });
 const vite=production?null:await (await import('vite')).createServer({root:ROOT,server:{middlewareMode:true,hmr:{server}},appType:'spa'});
 const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.webm':'video/webm','.md':'text/markdown; charset=utf-8'};
@@ -73,6 +78,8 @@ server.on('request',(req,res)=>{
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
   if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null,recorderError:(exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).lastError});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
+  if(url.pathname==='/api/memory'){json(exhibitService.memory?.view()??null);return;}
+  if(url.pathname.startsWith('/api/memory/')){const id=url.pathname.slice('/api/memory/'.length),m=/^memory-[a-f0-9]{24}$/.test(id)?exhibitService.memory?.detail(id):null;json(m??{error:'Memory not found'},m?200:404);return;}
   if(url.pathname==='/api/exhibit/publications'){void exhibitService.archive().then(a=>json(a.publications.slice(0,200))).catch(()=>json({error:'Archive unavailable'},503));return;}
   if(url.pathname==='/api/exhibit/records'){void exhibitService.archive().then(({records})=>{const selected=[...new Map([...records.slice(0,200),...records.filter(r=>r.config.heldOutSeeds.includes(r.seed))].map(r=>[r.id,r])).values()];json(selected.map(({decisions,observationEvents,...r})=>({...r,decisions:decisions.length,actions:decisions.filter(d=>d.command.kind!=='wait').length,executedActions:observationEvents?observationEvents.filter(e=>e.source==='neural'&&e.kind!=='wait'&&e.status==='completed'&&e.result?.scrollAfter!==e.result?.scrollBefore).length:null,artifactsAvailable:!!exhibitService.file(r.id,'trace.json.gz')})));}).catch(()=>json({error:'Archive unavailable'},503));return;}
   if(url.pathname.startsWith('/api/exhibit/record/')){const r=exhibitService.record(url.pathname.slice('/api/exhibit/record/'.length));json(r??{error:'Record not found'},r?200:404);return;}

@@ -15,6 +15,7 @@ export interface DesktopCapture {
   station?:{os:'Windows 11';osBuild:string;isolation:'windows-sandbox'|'remote-vm';id:string;bootId?:string;timeZone:string;dpi:number;viewport:{x:number;y:number;scale:number};window:unknown;taskbar:unknown};
 }
 export interface ExhibitDecision {
+  memory?:{storedId:string;recallId?:string;retrievedIds:string[];usedIds:string[];retryBudget:number;adapterCheckpoint:string;mode:string};
   receipt?:import('./observation').ActionReceipt;
   sensoryProfile?:import('../server/exhibit/observation-encoder').ObservationProfile;page?:{id:string;label:string;url:string};
   context:Pick<ExhibitLive,'sourceRevision'|'sourceDirty'|'configSha256'|'dataVersion'|'intervention'|'episode'|'seed'|'layout'>;
@@ -29,6 +30,7 @@ export interface ExhibitRecord extends PublishableRecord {
   initialCheckpoint?:ReturnType<import('../server/model/engine').Engine['checkpoint']>;
   displayFrames?:import('./observation').DisplayFrame[];
   incompleteAction?:{commandId:string;receipt:import('./observation').ActionReceipt;events:ExecutedEvent[]};
+  memoryConfig?:{version:string;mode:string;initialAdapter:string};
   observationConfig?:{retina:typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA|typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA_V1;schedule:typeof import('../server/exhibit/observation-runner').OBSERVATION_SCHEDULE};
   observationEvents?:ObservationEvent[];stages?:{execution:'completed'|'failed';recording:'saved'|'failed'|'unavailable';recordingError?:string};
   schemaVersion:1;kind:'continuous-browser-episode';recorder:'Specimen Recorder';sessionId:string;startedAt:string;
