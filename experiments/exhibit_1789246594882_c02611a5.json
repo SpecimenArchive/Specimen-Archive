@@ -1,0 +1,771 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789246594882_c02611a5",
+  "sessionId": "session_1789242341320_350cbae5",
+  "origin": {
+    "runId": "exhibit_1789246594882_c02611a5",
+    "sourceRevision": "8e9c9621fcfac7e668b5b4293dd313c859387cf3",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "externalConfig": {
+    "version": "purposeful-exploration-v3",
+    "initial": "https://www.ponsfamily.com/launchpad",
+    "maximumUnchanged": 3,
+    "maximumEncounterDecisions": 8,
+    "maximumDwellMs": 55000,
+    "listingDecisions": 4,
+    "minimumDwellMs": 12000,
+    "researchAfterCoins": 4,
+    "displayIntervalMs": 250,
+    "windowWallMs": 1200,
+    "inputMaximumAgeMs": 6000,
+    "decisionWindows": 48
+  },
+  "initialCheckpoint": {
+    "ticks": 502800,
+    "pose": {
+      "x": 21.58263922118067,
+      "y": 789.1300096721047,
+      "heading": -94.75348409005198,
+      "roll": 2893.629001590446,
+      "bend": -0.009429742715450483,
+      "ciliaPhase": 391411.51349919505,
+      "distance": 171540.61725216176
+    },
+    "activity": [
+      0.5810098301307185,
+      0.20696649972945275,
+      0.5823620485318018,
+      0.41458041119548755,
+      0.5458789835307575,
+      0.5838261019203865,
+      0.20696649972945275,
+      0.7175166460862301,
+      0.58098532999197,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.5605430124421922,
+      0.4276108696237189,
+      0.42490134314494554,
+      0.5302806266296202,
+      0.5772635496478253,
+      0.5779556299210027,
+      0.5595592896669305,
+      0.39448531655435926,
+      0.5744232105418834,
+      0.522018662213037,
+      0.5640770469074525,
+      0.5821818557754351,
+      0.3728705327831864,
+      0.5276431332004641,
+      0.4614278344832862,
+      0.5485638419998935,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.5608398903363121,
+      0.7175166460862301,
+      0.5822015098736824,
+      0.7175166460862301,
+      0.7175166460862301,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.5795214919733407,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.57735839722145,
+      0.20696649972945275
+    ],
+    "events": [
+      {
+        "id": "e1555",
+        "t": 4776,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1556",
+        "t": 4776,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1557",
+        "t": 4782,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1558",
+        "t": 4782,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1559",
+        "t": 4788,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1560",
+        "t": 4788,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1561",
+        "t": 4794,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1562",
+        "t": 4794,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1563",
+        "t": 4800,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1564",
+        "t": 4800,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e1565",
+        "t": 4806,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1566",
+        "t": 4806,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.571"
+      },
+      {
+        "id": "e1567",
+        "t": 4812,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1568",
+        "t": 4812,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.573"
+      },
+      {
+        "id": "e1569",
+        "t": 4818,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1570",
+        "t": 4819.04,
+        "kind": "movement",
+        "message": "Bending response · -0.035 rad/s"
+      },
+      {
+        "id": "e1571",
+        "t": 4824,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1572",
+        "t": 4830,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1573",
+        "t": 4836,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1574",
+        "t": 4836,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.440 / R 0.386"
+      },
+      {
+        "id": "e1575",
+        "t": 4842,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1576",
+        "t": 4842,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.576 / R 0.572"
+      },
+      {
+        "id": "e1577",
+        "t": 4848,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1578",
+        "t": 4848,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1579",
+        "t": 4854,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1580",
+        "t": 4854,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1581",
+        "t": 4860,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1582",
+        "t": 4860,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1583",
+        "t": 4866,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1584",
+        "t": 4866,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1585",
+        "t": 4872,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1586",
+        "t": 4872,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1587",
+        "t": 4878,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1588",
+        "t": 4878,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1589",
+        "t": 4884,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1590",
+        "t": 4884,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1591",
+        "t": 4890,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1592",
+        "t": 4890,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1593",
+        "t": 4896,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1594",
+        "t": 4896,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1595",
+        "t": 4902,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1596",
+        "t": 4902,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1597",
+        "t": 4908,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1598",
+        "t": 4908,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1599",
+        "t": 4914,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1600",
+        "t": 4914,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1601",
+        "t": 4920,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1602",
+        "t": 4920,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1603",
+        "t": 4926,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1604",
+        "t": 4926,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e1605",
+        "t": 4932,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1606",
+        "t": 4932,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e1607",
+        "t": 4938,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1608",
+        "t": 4938,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.573"
+      },
+      {
+        "id": "e1609",
+        "t": 4944,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1610",
+        "t": 4945.04,
+        "kind": "movement",
+        "message": "Bending response · -0.035 rad/s"
+      },
+      {
+        "id": "e1611",
+        "t": 4950,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1612",
+        "t": 4956,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e1613",
+        "t": 4962,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1614",
+        "t": 4962,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.440 / R 0.386"
+      },
+      {
+        "id": "e1615",
+        "t": 4968,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1616",
+        "t": 4968,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.575 / R 0.571"
+      },
+      {
+        "id": "e1617",
+        "t": 4974,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1618",
+        "t": 4974,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1619",
+        "t": 4980,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1620",
+        "t": 4980,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1621",
+        "t": 4986,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1622",
+        "t": 4986,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.573"
+      },
+      {
+        "id": "e1623",
+        "t": 4992,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1624",
+        "t": 4992,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e1625",
+        "t": 4998,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1626",
+        "t": 4998,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e1627",
+        "t": 5004,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1628",
+        "t": 5004,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e1629",
+        "t": 5010,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1630",
+        "t": 5010,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.575"
+      },
+      {
+        "id": "e1631",
+        "t": 5016,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e1632",
+        "t": 5016,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e1633",
+        "t": 5022,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e1634",
+        "t": 5022,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.575"
+      }
+    ],
+    "eventCounter": 1634,
+    "epoch": 10,
+    "responded": true,
+    "moving": false,
+    "condition": {
+      "key": "pixels",
+      "label": "scroll: lower-texture",
+      "intensity": 0.3973241234718877,
+      "angle": 0,
+      "epoch": 10
+    },
+    "lastSensory": {
+      "left": 0.15,
+      "right": 0.6446482469437754
+    }
+  },
+  "startedAt": "2026-09-12T20:56:34.882Z",
+  "completedAt": "2026-09-12T20:57:02.940Z",
+  "seed": 203,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 1200,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Persistent external browser. Visible pixel contrast drives the unchanged rate circuit and wheel decoder. Environment supervisor selects approved pages from discovered links and visit coverage; navigation and fixed cursor placement are orchestration. DOM observations only guard/verify input and supply page metadata, never motor direction. Recording/replay run in a separate finalizer process.",
+    "events": []
+  },
+  "decisions": [],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "display-timing.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    }
+  ],
+  "stages": {
+    "execution": "failed",
+    "recording": "failed",
+    "recordingError": "Fewer than two genuine desktop frames were captured"
+  },
+  "memoryConfig": {
+    "version": "experience-v1",
+    "mode": "frozen",
+    "initialAdapter": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08"
+  },
+  "error": "page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"https://eth.blockscout.com/block/25962887\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "navigate",
+      "status": "failed",
+      "page": "Previously recorded exploration",
+      "summary": "Resume persistent exploration. Inspect an unvisited public block record: 25962887. Destination selected by the environment supervisor.",
+      "completedAt": "2026-09-12T20:56:57.872Z",
+      "id": "exhibit_1789246594882_c02611a5:e1210",
+      "createdAt": "2026-09-12T20:56:50.150Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789246594882_c02611a5",
+      "reason": "Approved navigation timed out or failed."
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Previously recorded exploration",
+      "summary": "page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"https://eth.blockscout.com/block/25962887\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "id": "exhibit_1789246594882_c02611a5:e1211",
+      "createdAt": "2026-09-12T20:56:57.873Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789246594882_c02611a5"
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 0,
+    "decisions": 0
+  }
+}
