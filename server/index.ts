@@ -82,6 +82,11 @@ server.on('request',(req,res)=>{
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
   if(production&&privateReviewPath(url.pathname)){json({error:'Not found'},404);return;}
   if(url.pathname==='/api/exploration'){json(exhibitService.exploration());return;}
+  if(url.pathname==='/api/journal/stream'){
+    res.writeHead(200,{'Content-Type':'text/event-stream; charset=utf-8','Cache-Control':'no-cache, no-transform','X-Accel-Buffering':'no'});if(req.method==='HEAD'){res.end();return;}
+    const unsubscribe=exhibitService.narrator.subscribe(draft=>{if(res.writableLength>128*1024){res.destroy();return;}res.write('data: '+JSON.stringify({draft})+'\n\n');});
+    const keepAlive=setInterval(()=>{if(res.writableLength>128*1024)res.destroy();else res.write(': connected\n\n');},15000);keepAlive.unref();res.on('close',()=>{unsubscribe();clearInterval(keepAlive);});return;
+  }
   if(url.pathname==='/api/journal'){json(exhibitService.publicJournal.view(exhibitService.narrator.view(),{before:url.searchParams.get('before')??undefined,kind:url.searchParams.get('kind')??undefined,limit:100}));return;}
   if(url.pathname.startsWith('/api/journal/')){const entry=exhibitService.publicJournal.detail(url.pathname.slice('/api/journal/'.length));json(entry??{error:'Journal entry left the retained history'},entry?200:404);return;}
   if(url.pathname==='/api/memories'){json(exhibitService.memory?.list()??[]);return;}

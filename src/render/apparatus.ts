@@ -14,15 +14,15 @@ export function createApparatusRenderer(canvas:HTMLCanvasElement){
       vec3 projected=inverse*vec3(uv*sourceSize,1.);
       vec2 q=projected.xy/projected.z;
       float edge=min(min(q.x,1.-q.x)*620.,min(q.y,1.-q.y)*340.);
-      float mask=smoothstep(0.,.7,edge)*available;
-      vec2 safe=clamp(q,vec2(0.),vec2(1.));
-      vec2 soft=vec2(.38)/desktopSize;
-      vec3 display=texture2D(desktop,safe).rgb*.60;
-      display+=(texture2D(desktop,safe+vec2(soft.x,0.)).rgb+texture2D(desktop,safe-vec2(soft.x,0.)).rgb+texture2D(desktop,safe+vec2(0.,soft.y)).rgb+texture2D(desktop,safe-vec2(0.,soft.y)).rgb)*.10;
-      float grey=dot(display,vec3(.2126,.7152,.0722));
-      display=mix(vec3(grey),display,.90);
-      // Actual fixed glass reflection and black floor, with no invented glare.
-      display=display*vec3(.79,.80,.81)+photo*.18+vec3(.018,.020,.022);
+      float mask=smoothstep(0.,.75,edge)*available;
+      float aspect=desktopSize.x/desktopSize.y;
+      vec2 fit=aspect<1.77777778?vec2(aspect/1.77777778,1.):vec2(1.,1.77777778/aspect);
+      vec2 source=(q-.5)/fit+.5;
+      float content=step(0.,source.x)*step(source.x,1.)*step(0.,source.y)*step(source.y,1.);
+      vec3 display=texture2D(desktop,clamp(source,vec2(0.),vec2(1.))).rgb;
+      // Single bilinear sample: preserve text. Original glass provides a restrained
+      // fixed reflection; inward coverage never paints over the physical bezel.
+      display=mix(vec3(.015),display*.92,content)+photo*.045+vec3(.009);
       gl_FragColor=vec4(mix(photo,display,mask),1.);
     }`);
   const program=gl.createProgram()!;gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program)||'Screen program');gl.useProgram(program);
