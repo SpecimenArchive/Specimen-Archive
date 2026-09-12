@@ -2,6 +2,9 @@ import {createHash} from 'node:crypto';
 import type {NarrationContext} from '../../shared/journal';
 /** Sparse UI forms still produce factual notes, but do not justify a paid interpretation. */
 export function hasNarrationMaterial(c:NarrationContext){return c.pageText.trim().length>=160&&(c.pageText.match(/[a-zA-Z]{3,}/g)?.length??0)>=20;}
+/** Accept typographic differences only, then return the actual source substring.
+ * Every word and number must occur consecutively; omissions/ellipsis cannot pass. */
+export function sourceExcerpt(passage:string,quote:string){const tokens=(s:string)=>[...s.matchAll(/[\p{L}\p{N}]+/gu)],source=tokens(passage),wanted=tokens(quote);if(wanted.length<3)return null;for(let i=0;i<=source.length-wanted.length;i++){if(wanted.every((w,j)=>w[0].toLowerCase()===source[i+j][0].toLowerCase())){const last=source[i+wanted.length-1];return passage.slice(source[i].index,last.index+last[0].length);}}return null;}
 /** Even pacing plus rolling-window protection; no burst after a restart or outage. */
 export function nextNarrationAt(times:number[],maximum:number,minimumSeconds:number,now:number){const recent=times.filter(t=>now-t<3600000).sort((a,b)=>a-b),interval=Math.max(minimumSeconds*1000,Math.ceil(3600000/maximum)+1000);return Math.max(now,(recent.at(-1)??0)+interval,recent.length>=maximum?recent[recent.length-maximum]+3600001:0);}
 export function contextKey(c:NarrationContext){const url=new URL(c.encounter.url);url.hash='';return createHash('sha256').update(JSON.stringify([url.href.replace(/\/$/,''),c.pageText.replace(/\s+/g,' ').trim(),c.memories.map(m=>m.id).sort()])).digest('hex');}
