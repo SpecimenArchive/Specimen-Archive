@@ -1,0 +1,77 @@
+{
+  "at": "2026-09-12T15:23:20.016Z",
+  "sourceRevision": "deb371af9b264543b5a46f61bbd69eb849faadab",
+  "sessionId": "session_1789226520307_b332fc35",
+  "stored": 26,
+  "trainingEvents": 257,
+  "checkpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08",
+  "encounter": {
+    "id": "memory-00e714da3ef05bf8d59113d8",
+    "title": "Explore · pons",
+    "url": "https://www.ponsfamily.com/launchpad",
+    "createdAt": "2026-09-12T14:49:22.830Z",
+    "originalEvidence": {
+      "runId": "exhibit_1789224541888_20f32a33",
+      "decision": 0,
+      "commandId": "exhibit_1789224541888_20f32a33:c000",
+      "at": "2026-09-12T14:49:22.830Z",
+      "frame": "exhibit_1789224541888_20f32a33/frame-0000.png",
+      "sourceRevision": "a80d5082090ede7a6b4437058d3da5dbe4090f46",
+      "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+      "input": {
+        "left": 0.15,
+        "right": 0.65,
+        "encoding": "lower-texture"
+      },
+      "motor": {
+        "mean": 0.5605730473190768,
+        "contrast": 0.01378555236304213
+      },
+      "wheelY": 48,
+      "status": "moved",
+      "displacement": 48
+    }
+  },
+  "postRestartRecall": {
+    "id": "recall-b0ad7f0b-53d4-4492-a470-7939e1190161",
+    "at": "2026-09-12T15:22:17.547Z",
+    "runId": "exhibit_1789226520699_7cf7d471",
+    "decision": 0,
+    "reason": "Entered an external visual context; compare prior public encounters. URL and coarse visual matching are reported separately.",
+    "matches": [
+      {
+        "id": "memory-00e714da3ef05bf8d59113d8",
+        "methods": [
+          "canonical-url",
+          "title-and-address-identity"
+        ],
+        "visualDistance": 3.234375
+      },
+      {
+        "id": "memory-2a29bd7cafd9602febca4cdf",
+        "methods": [
+          "coarse-visual-similarity"
+        ],
+        "visualDistance": 0.953125
+      },
+      {
+        "id": "memory-aefa3172505c2b11c078afc4",
+        "methods": [
+          "coarse-visual-similarity"
+        ],
+        "visualDistance": 0.984375
+      }
+    ],
+    "retrievedIds": [
+      "memory-00e714da3ef05bf8d59113d8",
+      "memory-2a29bd7cafd9602febca4cdf",
+      "memory-aefa3172505c2b11c078afc4"
+    ],
+    "usedIds": [],
+    "effect": {
+      "owner": "knowledge-panel",
+      "description": "Prior encounter links are shown as sourced context; no browser control changed."
+    }
+  },
+  "claim": "Canonical URL/content match and coarse visual similarity are reported separately. The prior encounter is shown as sourced context; this contextual recall does not change wheel direction."
+}

@@ -1,0 +1,221 @@
+{
+  "at": "2026-09-12T15:32:28.237Z",
+  "memoryId": "memory-dcec21f92a7cf958dd6a96d7",
+  "originalEvidence": {
+    "runId": "exhibit_1789224738386_fee256ac",
+    "decision": 11,
+    "commandId": "exhibit_1789224738386_fee256ac:c011",
+    "at": "2026-09-12T14:53:04.096Z",
+    "frame": "exhibit_1789224738386_fee256ac/frame-0022.png",
+    "sourceRevision": "a80d5082090ede7a6b4437058d3da5dbe4090f46",
+    "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+    "input": {
+      "left": 0.65,
+      "right": 0.15,
+      "encoding": "upper-texture"
+    },
+    "motor": {
+      "mean": 0.5779325114167667,
+      "contrast": 0.0032351511406371047
+    },
+    "wheelY": -48,
+    "status": "boundary",
+    "displacement": 0
+  },
+  "recall": {
+    "id": "recall-d91535d5-4257-4301-867a-27dde786c109",
+    "at": "2026-09-12T15:26:42.965Z",
+    "runId": "exhibit_1789226732799_b24c502c",
+    "decision": 15,
+    "reason": "Frozen supervisor adapter retrieved its prior outcome evidence for this engineering context.",
+    "matches": [
+      {
+        "id": "memory-dcec21f92a7cf958dd6a96d7",
+        "methods": [
+          "page-kind/contrast/direction context"
+        ],
+        "visualDistance": null
+      },
+      {
+        "id": "memory-aeec87aa904082d6735fe091",
+        "methods": [
+          "page-kind/contrast/direction context"
+        ],
+        "visualDistance": null
+      },
+      {
+        "id": "memory-f4b7d1aacfd977eb0f8d61af",
+        "methods": [
+          "page-kind/contrast/direction context"
+        ],
+        "visualDistance": null
+      }
+    ],
+    "retrievedIds": [
+      "memory-dcec21f92a7cf958dd6a96d7",
+      "memory-aeec87aa904082d6735fe091",
+      "memory-f4b7d1aacfd977eb0f8d61af"
+    ],
+    "usedIds": [
+      "memory-dcec21f92a7cf958dd6a96d7",
+      "memory-aeec87aa904082d6735fe091",
+      "memory-f4b7d1aacfd977eb0f8d61af"
+    ],
+    "effect": {
+      "owner": "environment-supervisor",
+      "description": "Set the unchanged-result retry budget from 3 to 1. Neural wheel direction is unchanged.",
+      "baseline": 3,
+      "selected": 1,
+      "checkpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08"
+    }
+  },
+  "decision": {
+    "runId": "exhibit_1789226732799_b24c502c",
+    "decision": 15,
+    "commandId": "exhibit_1789226732799_b24c502c:c015",
+    "source": {
+      "sourceRevision": "deb371af9b264543b5a46f61bbd69eb849faadab",
+      "sourceDirty": false,
+      "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+      "dataVersion": "elife-97964-fig2-data1-v1",
+      "intervention": "intact",
+      "episode": 1,
+      "seed": 203,
+      "layout": "standard"
+    },
+    "input": {
+      "version": "observation-contrast-v2",
+      "width": 1280,
+      "height": 665,
+      "targetPixels": 6,
+      "cursorPixels": 0,
+      "targetCentroid": {
+        "x": 253.16666666666666,
+        "y": 155.5
+      },
+      "cursorCentroid": null,
+      "horizontalErrorPx": null,
+      "encoding": "upper-texture",
+      "left": 0.65,
+      "right": 0.15,
+      "phase": "scroll",
+      "verticalError": null,
+      "guidePixels": 0,
+      "sampling": {
+        "kind": "observation-contrast-v2",
+        "upper": {
+          "bounds": {
+            "x": 102,
+            "y": 79,
+            "width": 1075,
+            "height": 226
+          },
+          "mean": 244.93583118729046,
+          "contrast": 42.961967202550106,
+          "samples": 60794
+        },
+        "lower": {
+          "bounds": {
+            "x": 102,
+            "y": 359,
+            "width": 1075,
+            "height": 239
+          },
+          "mean": 245.5790209448645,
+          "contrast": 35.93636602341388,
+          "samples": 64560
+        },
+        "strength": 1
+      }
+    },
+    "motor": {
+      "cells": [
+        {
+          "id": "826675",
+          "name": "MN2_l",
+          "activity": 0.5797372494089758
+        },
+        {
+          "id": "359142",
+          "name": "MN2_r",
+          "activity": 0.5708744587734951
+        },
+        {
+          "id": "344239",
+          "name": "MN3_l",
+          "activity": 0.5774103366638612
+        },
+        {
+          "id": "1732111",
+          "name": "MN3_r",
+          "activity": 0.5737754108011063
+        },
+        {
+          "id": "140828",
+          "name": "MN1_r",
+          "activity": 0.5793026232339182
+        },
+        {
+          "id": "108826",
+          "name": "MN1_l",
+          "activity": 0.5764716086260949
+        }
+      ],
+      "mean": 0.5762619479179086,
+      "contrast": 0.0029009520276112033
+    },
+    "command": {
+      "dx": 0,
+      "dy": 0,
+      "wheelY": -48,
+      "motorMean": 0.5762619479179086,
+      "motorContrast": 0.0029009520276112033,
+      "phase": "scroll",
+      "kind": "scroll",
+      "reason": "Scroll phase: motor contrast selects wheel direction"
+    },
+    "receipt": {
+      "proposedAt": "2026-09-12T15:26:42.183Z",
+      "status": "boundary",
+      "scrollBefore": 0,
+      "scrollAfter": 0,
+      "urlBefore": "https://elifesciences.org/articles/97964",
+      "urlAfter": "https://elifesciences.org/articles/97964",
+      "cursor": {
+        "x": 512,
+        "y": 465
+      },
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "trustedEvents": 1,
+      "reason": "Trusted wheel acknowledged; the scroll container did not move",
+      "acceptedAt": "2026-09-12T15:26:42.196Z",
+      "dispatchedAt": "2026-09-12T15:26:42.196Z",
+      "acknowledgedAt": "2026-09-12T15:26:42.411Z",
+      "observedAt": "2026-09-12T15:26:42.430Z"
+    },
+    "memory": {
+      "storedId": "memory-dcec21f92a7cf958dd6a96d7",
+      "recallId": "recall-d91535d5-4257-4301-867a-27dde786c109",
+      "retrievedIds": [
+        "memory-dcec21f92a7cf958dd6a96d7",
+        "memory-aeec87aa904082d6735fe091",
+        "memory-f4b7d1aacfd977eb0f8d61af"
+      ],
+      "usedIds": [
+        "memory-dcec21f92a7cf958dd6a96d7",
+        "memory-aeec87aa904082d6735fe091",
+        "memory-f4b7d1aacfd977eb0f8d61af"
+      ],
+      "retryBudget": 1,
+      "adapterCheckpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08",
+      "mode": "frozen"
+    },
+    "frameSha256": "0675f3842bbc648185137c7a41ed531388ebe445d06ce3737381e8d99e454a75",
+    "frame": "frame-0030.png"
+  },
+  "claim": "A real frozen-checkpoint lookup changed the supervisor retry budget from 3 to 1. The recorded neural wheel direction was unchanged; the held-out benchmark measured no improvement."
+}

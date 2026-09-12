@@ -24,6 +24,18 @@ Pons is reached through the VM's ordinary permitted connection. The home connect
 
 ## Evidence and failures
 
+### One complete native action and publication
+
+At repaired runtime source [deb371a](https://github.com/SpecimenArchive/Specimen-Archive/tree/deb371af9b264543b5a46f61bbd69eb849faadab), command `exhibit_1789226732799_b24c502c:c000` used a native sensory exposure at **15:25:37.607 UTC** on Pons Explore. Input PNG SHA-256 was `850299d7c470a1c55c91b39b3f5d57415ea73f0db82adc0ecf3102acc12ab185`. Lower-band texture encoded L=0.15, R=0.65. Model steps 28,800–29,400 produced M=0.5779699023203891 and D=0.0179707734974196, selecting +48 px.
+
+The proposal was recorded at 15:25:39.586, accepted/dispatched at 15:25:39.597, acknowledged at 15:25:39.956 and recaptured at 15:25:40.031 UTC. One trusted wheel event was observed at the fixed (512,465) viewport cursor; the measured scroll offset changed from 0 to 48 with no URL change. This is verified scrolling, not neural navigation. [Complete receipt, readout and publication proof](results/external-publication.json).
+
+That episode completed 48 decisions and replayed all 2,880 sampled neural states exactly. Its immutable [Specimen Recorder publication](https://github.com/SpecimenArchive/Specimen-Archive/commit/a8a24997d629fcfdbb849d4e51533f5d2a07ffbc) was read back from GitHub and matched record SHA-256 `d70b7a246a048858340f954e2491b7fbc65806fe5518a44337d57579488eed2c`. The native video is 199.881 seconds at 1280 × 800; its bytes and metadata were checked against the published manifest. [Native recording check](results/native-video-verification.json).
+
+Decision 15 retrieved the saved research-boundary evidence and changed the supervisor retry budget from 3 to 1, retaining the neural wheel command. The receipt acknowledged a boundary with zero displacement. [Actual memory use](results/memory-used.json). The matched held-out evaluation still found no improvement; that negative result is not overridden by showing one policy change.
+
+The complete published episode measured **2.356 native captures/second**, median interval 260 ms and p95 1,060 ms. Median input-capture-to-dispatch time was 2,047 ms; median decision interval was 3,490 ms, with page transitions contributing longer gaps. It contained 41 visible moves, five waits and two boundaries. [Timestamp-derived performance](results/external-performance.json). These are observed values from one episode, not a 4 fps guarantee.
+
 Five actual VM-held-out input PNGs were captured at 13:22–13:23 UTC before memory training. At clean a80d508, three matched page orders produced 15/15 intact wheel proposals, 0/15 with photoreceptor outputs disconnected and 0/15 with all motors clamped. All 45 decisions and 2,700 retained neural samples replayed exactly. This is pixel-to-proposal causal evidence; actual browser dispatch is established separately in native live records. [Machine-readable ablation](results/external-ablation.json).
 
 The asynchronous page/native pair at b31fa11 could diverge on changing content. Run `exhibit_1789220365662_b4191d16` preserved that failure after 20 completed decisions. Its complete neural windows replayed, but the capture mismatch was not accepted as valid input. ab7e015 changed the sensory path to one native exposure; 5f5c0fc corrected a separate UTF-8 presentation mistake. Subsequent native records reproduced 48 decisions / 2,880 sampled states exactly.

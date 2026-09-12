@@ -7,7 +7,7 @@ The canonical observer is **https://specimenarchive.com**. Both HTTP and `https:
 | Service | Runs on | Exposure / persistence |
 |---|---|---|
 | Genuine Windows 11 desktop and Chrome | Dedicated By-Hoster Windows 11 VM | Interactive console; native 1280 × 800 display. No authenticated Remote Desktop session is needed during operation. |
-| Capture/browser worker | VM, `SpecimenArchive-Worker` scheduled task | Loopback 4320, private bearer and browser control channel. Limited interactive account; logon startup and recovery. |
+| Capture/browser worker | VM, `SpecimenArchive-Worker` scheduled task | Loopback 4320, private bearer and browser control channel. Interactive console task; logon startup and recovery. |
 | Neural controller, observer, persistent memory | VM, `SpecimenArchive-Backend` task | Loopback 4317; one shared controller independent of visitors. Public routes allow GET/HEAD inspection only. |
 | Video and exact-replay finalizer | VM, backend-owned child process | Outside the live input loop; bounded queue and preserved pending evidence. |
 | Evidence publisher | VM, separate SYSTEM task | SYSTEM-only key and executable. Publishes compact immutable evidence to `specimen-records`; no force pushes, branch deletion or protection bypass. |
@@ -24,9 +24,15 @@ Memory is enabled by ignored VM file `C:\SpecimenArchive\runtime\memory\control.
 
 `memory.json` is replaced atomically, with `memory.previous.json`, seven rotating daily JSON exports, and a bounded set of original encounter PNG thumbnails. Retention is 600 encounter identities, 1,200 recalls and 12 evidence links per identity. Repeated decisions aggregate into outcomes; the first evidence link is preserved. Deployments and worker/backend restarts do not reset this directory. No credential, provider screen or deployment terminal enters the accepted public capture/memory path.
 
-Source documents and runtime configuration are indexed from a fixed public-file allowlist. Seven curated primary-source notes record exact retrieval timestamps, HTML hashes and supporting passages in `data/knowledge/source-receipts.json`. No LLM/API key or hidden language controller is used. URL identity, title/address identity and coarse visual similarity are labelled separately. Memory inspection never performs a recall or model update.
+Source documents and runtime configuration are indexed from a fixed public-file allowlist. Seven curated primary-source notes record exact retrieval timestamps, HTML hashes and supporting passages in `data/knowledge/source-receipts.json`. No LLM/API key or hidden language controller is used. URL identity, title/address identity and coarse visual similarity are labelled separately. Memory inspection never performs a recall or model update. The first restart defect and evidence-based recovery are disclosed in [the memory report](MEMORY_EXPERIMENT.md#restart-recovery-and-retrieval).
+
+The station tasks specify RunLevel Limited, but the built-in Administrator account still received an elevated token in the actual audit; this is not claimed as a non-administrative browser sandbox. Direct recorder-key reads were denied from that token. The tunnel token was additionally restricted to SYSTEM-only read access, and the station-account read check was denied while tunnel readiness remained 200. Private service credentials remain separate from the controller's allowed browser operations.
 
 ## Verification and operational limits
+
+The repaired memory-enabled public browser acceptance ran for **602.421 seconds**, with **2,111 matching observer updates**, no browser errors, exact disconnected specimen freeze and successful reconnection under the same session. Historical inspection and real memory-detail inspection worked. At widths 1920, 1440, 1024 and 390, neither the page nor the stage overflowed; the apparatus and direct view shared the same capture ID. Desktop-stage heights were 480, 480 and 440 px at the three desktop widths, with stacked mobile views. [Complete acceptance receipt](results/public-observer-acceptance.json).
+
+A later archive check measured an 8,504,506-byte list response fetched every five seconds even with the disclosure collapsed. The final delivery refinement removes per-frame manifests/checkpoints from list summaries, keeps video availability and full per-record evidence, mounts archive polling only after it is opened, and polls the open archive every 15 seconds. This affects observer delivery only, not the controller, recorded samples or stored evidence.
 
 The external control verdict and fixed source map are in [EXTERNAL_CONTROL_AUDIT.md](EXTERNAL_CONTROL_AUDIT.md). The memory objective and task matrix were published before training in [MEMORY_EXPERIMENT.md](MEMORY_EXPERIMENT.md). Final machine-readable results accompany those reports; failures remain in the bounded archive and are counted separately from movement.
 
