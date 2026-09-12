@@ -2,6 +2,7 @@ import { mkdirSync,readFileSync,readdirSync,existsSync,rmSync } from 'node:fs';
 import { resolve,join,sep } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { randomUUID } from 'node:crypto';
+import {readdir,readFile,stat} from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 import type { Circuit } from '../../shared/types';
 import type { ExhibitLive,ExhibitRecord,ExhibitDecision } from '../../shared/exhibit';
@@ -17,6 +18,8 @@ export class ExhibitService {
   readonly journal=new ObservationJournal(this.sessionId);
   readonly root:string;readonly store:ExperimentStore<ExhibitRecord>;readonly recorder:SpecimenRecorder;
   live:ExhibitLive|null=null;readonly abort=new AbortController();private work?:Promise<void>;private publicationTimer?:ReturnType<typeof setInterval>;private sequence=0;private episodes=0;private failures=0;
+  private archiveAt=0;private archiveValue:{records:ExhibitRecord[];publications:Publication[]}|undefined;private archivePending?:Promise<{records:ExhibitRecord[];publications:Publication[]}>;
+  private archiveFiles=new Map<string,{stamp:string;record:ExhibitRecord}>();
   constructor(runtime:string,readonly circuit:Circuit,readonly emit:(live:ExhibitLive)=>void){
     this.root=resolve(runtime,'exhibit');mkdirSync(this.root,{recursive:true});this.store=new ExperimentStore<ExhibitRecord>(resolve(runtime,'exhibit-publications'));
     const publisher=process.env.SPECIMEN_PUBLISHER_CONFIG?JSON.parse(readFileSync(process.env.SPECIMEN_PUBLISHER_CONFIG,'utf8')):null;
@@ -49,7 +52,35 @@ export class ExhibitService {
     if(existsSync(exported))for(const id of readdirSync(exported)){if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id)||all.some(r=>r.id===id))continue;const file=join(exported,id,'record.json');if(existsSync(file))all.push(JSON.parse(readFileSync(file,'utf8')));}
     return all.sort((a,b)=>b.completedAt.localeCompare(a.completedAt));
   }
-  record(id:string){return this.records().find(r=>r.id===id)??null;}
+  record(id:string){if(!/^exhibit_[A-Za-z0-9_-]+$/.test(id))return null;const stored=this.store.read(id);if(stored)return stored;const file=resolve('docs/evidence/exhibit',id,'record.json');try{return JSON.parse(readFileSync(file,'utf8')) as ExhibitRecord;}catch{return null;}}
+  /** Shared asynchronous archive reads never block live integration/heartbeats.
+   * Immutable records reuse parsed bytes; mutable receipts refresh every 5 s. */
+  archive(){
+    if(this.archiveValue&&Date.now()-this.archiveAt<5000)return Promise.resolve(this.archiveValue);
+    if(this.archivePending)return this.archivePending;
+    this.archivePending=(async()=>{
+      const exported=resolve('docs/evidence/exhibit'),localNames=await readdir(this.store.root),exportedNames=await readdir(exported).catch(()=>[]);
+      const paths=localNames.filter(n=>/^exhibit_[A-Za-z0-9_-]+\.record\.json$/.test(n)).map(n=>join(this.store.root,n));
+      paths.push(...exportedNames.filter(n=>/^exhibit_[A-Za-z0-9_-]+$/.test(n)).map(n=>join(exported,n,'record.json')));
+      const records:ExhibitRecord[]=[];
+      for(let start=0;start<paths.length;start+=16){
+        const batch=await Promise.all(paths.slice(start,start+16).map(async file=>{try{const info=await stat(file),stamp=`${info.mtimeMs}:${info.size}`,prior=this.archiveFiles.get(file);if(prior?.stamp===stamp)return prior.record;const record=JSON.parse(await readFile(file,'utf8')) as ExhibitRecord;this.archiveFiles.set(file,{stamp,record});return record;}catch{return null;}}));
+        for(const r of batch)if(r&&!records.some(prior=>prior.id===r.id))records.push(r);
+      }
+      const present=new Set(paths);for(const file of this.archiveFiles.keys())if(!present.has(file))this.archiveFiles.delete(file);
+      records.sort((a,b)=>b.completedAt.localeCompare(a.completedAt));
+      const publications:Publication[]=[];
+      for(let start=0;start<records.length;start+=16){
+        publications.push(...await Promise.all(records.slice(start,start+16).map(async record=>{
+          try{return JSON.parse(await readFile(join(this.store.root,record.id+'.publication.json'),'utf8')) as Publication;}catch{}
+          try{const p=JSON.parse(await readFile(join(exported,record.id,'publication.json'),'utf8')) as Publication;if(p.id===record.id&&p.state==='published'&&p.recordSha256===recordHash(record)&&p.url===`https://github.com/${p.repository}/commit/${p.commit}`)return p;}catch{}
+          return {id:record.id,state:'pending' as const,updatedAt:record.completedAt,attempts:0,recordSha256:recordHash(record),reason:'Recorder receipt not yet written'};
+        })));
+      }
+      this.archiveValue={records,publications};this.archiveAt=Date.now();return this.archiveValue;
+    })().finally(()=>{this.archivePending=undefined;});
+    return this.archivePending;
+  }
   publications(){
     const receipts=this.store.publications();
     for(const record of this.records()){
