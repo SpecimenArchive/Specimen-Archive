@@ -14,7 +14,7 @@ The designed [Inside the system](https://specimenarchive.com/inside) page select
 
 The six motor cells' mean below 0.5 produces a wait. Above that gate, activity contrast between cells 1732111 and 359142 is compared with 0.008 to select wheel direction. The fixed supervisor pointer is at 40% width, 70% height of the calibrated visible page. The circuit does not select that point, the website, a token or a financial action. DOM observations verify execution and supply semantic context outside the neural input path.
 
-The published imported graph contains 2,675 nodes and 14,066 edges; these are not all simulated. Effective signs, gains, rate dynamics, encoding and decoding are engineering assumptions. Generated apparatus/specimen imagery is distinct from genuine Windows capture and computed activity. See [Methods](METHODS.md) and [data provenance](DATA_PROVENANCE.md).
+The reference atlas retains 2,675 nodes and 14,066 edges; the active circuit is the 47-cell subset described above. Effective signs, gains, rate dynamics, encoding and decoding are specified in the [Methods](METHODS.md). [Data provenance](DATA_PROVENANCE.md) and the [assessment companion](ASSESSMENT_COMPANION.md) document the source and medium.
 
 The apparatus and direct view use one decoded full-desktop frame. Specimen and neural instruments share the presented run/model step; page captions follow that presented context while a new image decodes. A stale/disconnected observer holds its last complete presentation. Display sampling has its own cadence and does not insert extra neural decisions.
 

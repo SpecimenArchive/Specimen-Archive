@@ -1,57 +1,44 @@
 # Specimen Archive
 
-A shared observation of **Specimen 01 · $LARVA**: a selected larval circuit turns real Windows browser pixels into computed activity and verified wheel input. Persistent encounters and a separate sourced journal give each visit context.
+**An observation station for unusual encounters.**
 
-[Observe live](https://specimenarchive.com) · [Specimens](https://specimenarchive.com/specimens) · [Memory](https://specimenarchive.com/memory) · [Inside the system](https://specimenarchive.com/inside) · [Experiments](https://specimenarchive.com/experiments) · [X](https://x.com/SpecimenArchive)
+Specimen 01 · $LARVA occupies the first entry in the archive. Its visual circuit receives the browser field, its motor activity sets wheel direction, and each encounter leaves a trace. The laboratory keeps the sources, the receipts and the questions that remain open.
 
-![The deployed observation dashboard](docs/screenshots/laboratory-observe-desktop.png)
+[Observe](https://specimenarchive.com) · [Specimens](https://specimenarchive.com/specimens) · [Memory](https://specimenarchive.com/memory) · [Inside the system](https://specimenarchive.com/inside) · [Experiments](https://specimenarchive.com/experiments) · [X](https://x.com/SpecimenArchive)
 
-The laboratory presentation, source-backed live journal and monitor refinement are deployed. [Current verification report](docs/LABORATORY_REFINEMENT.md).
+![Specimen 01 at the observation station, with its Windows field, neural instruments and laboratory journal](docs/screenshots/presentation-observe-desktop.png)
 
-## What runs
+## Observation 001
 
-The existing Windows 11 VM runs Chrome, native desktop capture, the neural controller, persistent memory, research planning, OpenAI narration, recording and evidence publication. Cloudflare delivers the read-only observer. Visitors share one session; opening or closing a browser does not start or stop an experiment. The home PC can be off. A **cold VM reboot still requires a manual Windows console login**.
+The station holds a selected **47-cell circuit, 161 directed connections and 711 anatomical synapses**, drawn from the published *Platynereis dumerilii* connectome. The reference atlas retains 2,675 nodes and 14,066 edges. [Source anatomy and attribution](docs/DATA_PROVENANCE.md).
 
-The apparatus and specimen imagery are generated. The desktop is genuine Windows execution. The implemented circuit has **47 cells, 161 connections and 711 anatomical synapses**, selected from the published Platynereis dumerilii connectome. The full imported graph has 2,675 nodes and 14,066 edges; it is not all simulated. Positive effective signs, rate dynamics and pixel/motor mappings are engineering assumptions, not a validated whole-animal replica.
+One encounter passes through six instruments:
 
-```mermaid
-flowchart LR
-  W[Visible Windows Chrome] --> P[Guarded desktop pixels]
-  P --> E[PNG contrast encoder]
-  E --> N[47-cell rate circuit]
-  N --> D[Fixed wheel decoder]
-  D --> V[Guarded input and verified receipt]
-  V --> W
-  V --> R[Record and exact replay]
-  W --> M[Encounter memory]
-  M --> S[Research supervisor]
-  M --> J[Separate semantic journal]
-  J -->|proposed destination| S
-  S -->|read-only navigation| W
-  P --> O[Shared observer]
-  N --> O
-  J --> O
-  R --> G[Compact specimen-records evidence]
-```
+1. **Capture.** The visible Windows Chrome page supplies the sensory pixels.
+2. **Sense.** Image contrast becomes left and right sensory drive.
+3. **Compute.** The selected circuit updates its recorded cell activity.
+4. **Act.** The fixed decoder proposes wheel direction; Windows returns the receipt.
+5. **Remember.** The store links the page, original input, command and observed result.
+6. **Investigate.** The supervisor consults previous encounters and open questions before selecting the next public destination.
 
-Neural computation controls wheel direction where the saved trace supports it. The supervisor selects destinations and places the input cursor. Its planner follows discovered approved links, previous encounters, revisit cooldowns and sourced questions across Pons, Ethereum documentation, public explorers and larval research. Destination ownership and memory-induced ranking changes are recorded separately from neural input. No wallet connection, signing, trading, posting or public remote-control interface is enabled.
+The journal’s separate OpenAI narrator writes sourced observations and proposed connections. It can propose a destination; the supervisor accepts navigation. Neural computation owns wheel direction. The archive records these responsibilities separately. Browsing is read-only: no wallet connection, signing, trading or posting.
 
-The asynchronous OpenAI journal cites actual page excerpts, retrieved memories, primary sources and outcomes. Proposed research stays distinct from accepted navigation and verified execution. Missing/rejected narration shows its real status while factual events continue. This is generated system interpretation, not biological thought.
+## The laboratory notebook
 
-## Inspect the evidence
+- [Follow one control trace](docs/CONTROL_TRACE.md): captured pixels, cell states, command and Windows receipt.
+- [Persistent exploration](docs/PURPOSEFUL_EXPLORATION.md): discovered links, revisit intervals, retained questions and memory-informed selection.
+- [Journal method](docs/JOURNAL_ARCHITECTURE.md): excerpts, commentary, evidence checks and request budgets.
+- [Memory experiment](docs/MEMORY_EXPERIMENT.md): 257 training outcomes; baseline, frozen and disabled adaptation each produced **113 movements from 144 attempts**. No measured performance gain.
+- [Control audit](docs/EXTERNAL_CONTROL_AUDIT.md): matched interventions, exact replay and retained failures.
+- [Laboratory register](docs/README.md): methods, operating records and source material.
 
-- [Showcase and exploration verification](docs/SHOWCASE_VERIFICATION.md): actual public UI, journal, history, sustained browsing and restart checks.
-- [A real control trace](docs/CONTROL_TRACE.md): pixels → sensory drive → recorded states → command → Windows receipt.
-- [Persistent exploration](docs/PURPOSEFUL_EXPLORATION.md) and [journal architecture](docs/JOURNAL_ARCHITECTURE.md): selection, memory use, bounds and provider configuration.
-- [Memory experiment](docs/MEMORY_EXPERIMENT.md): **no measured improvement**. Baseline, frozen and disabled adaptation each produced 113 movements in 144 matched attempts. The frozen adapter retains 257 training outcomes.
-- [External control audit](docs/EXTERNAL_CONTROL_AUDIT.md): held-out causal controls, exact neural replay and retained failures.
-- [Deployment and recovery](docs/PUBLIC_DEPLOYMENT.md): service locations, access boundaries and the manual cold-boot login limit.
+The recordings in [Experiments](https://specimenarchive.com/experiments) are labelled historical sessions. Raw media stays outside Git. Compact episode evidence is published on [specimen-records](https://github.com/SpecimenArchive/Specimen-Archive/tree/specimen-records) by the separate Specimen Recorder, using normal pushes. Original results and unsuccessful trials remain in the archive.
 
-Selected recordings are playable in Experiments. Internal QA HTML is blocked in production; its underlying recordings and verification records are preserved. Runtime media stays out of Git. Compact immutable evidence is published to `specimen-records` by the separate SYSTEM recorder, with normal pushes and no force pushes or branch deletion.
+## Station operations
 
-## Reproduce locally
+Chrome, native capture, neural control, memory, research planning, narration, recording and publication run on the dedicated Windows 11 VM. Cloudflare delivers the shared observer. Visitors can arrive and leave without starting or stopping the station. A cold VM reboot requires a manual Windows console login. [Deployment and recovery](docs/PUBLIC_DEPLOYMENT.md).
 
-Use Node.js 24 LTS and npm. The current VM uses Node 24.21; source requires Node ≥22.12. In PowerShell use `npm.cmd` if script policy blocks `npm.ps1`.
+Use Node.js ≥22.12 and npm to reproduce the source checks. The deployed VM uses Node 24.21.
 
 ```powershell
 npm.cmd ci
@@ -60,36 +47,28 @@ npm.cmd run validate:science
 npm.cmd run build
 ```
 
-For the preserved local light-integral experiment, run `npm.cmd run observe:light` and open `http://127.0.0.1:4317`. This needs no provider credential. `npm.cmd run demo:baseline` preserves the earlier finite browser benchmark. For a real local Linux/WSL desktop, follow [WORKSTATION_CAPTURE.md](docs/WORKSTATION_CAPTURE.md); it is a separate reproduction environment, not the deployed VM.
+The preserved light-integral experiment starts with `npm.cmd run observe:light` at `http://127.0.0.1:4317`. The earlier finite browser benchmark uses `npm.cmd run demo:baseline`. [Neural methods](docs/METHODS.md) distinguish their schedules and controls.
 
-To reproduce the current external station on a dedicated Windows 11 VM, follow [WINDOWS_STATION.md](docs/WINDOWS_STATION.md) and the production settings in [PUBLIC_DEPLOYMENT.md](docs/PUBLIC_DEPLOYMENT.md). The existing deployment uses `scripts/windows/start-worker.ps1` and `start-backend.ps1`, loopback ports 4320/4317 and an authenticated private worker. Do not launch a second controller against the same runtime. Configure memory and the private narrator as documented; [narrator.example.json](config/narrator.example.json) contains no secret. Without that key, structured events continue with narration marked unavailable.
+For the external station, follow [WINDOWS_STATION.md](docs/WINDOWS_STATION.md) and [PUBLIC_DEPLOYMENT.md](docs/PUBLIC_DEPLOYMENT.md). The authenticated worker and observer use loopback ports 4320 and 4317. Keep credentials outside Git and do not start a second controller against the same runtime. Without a narrator credential, factual encounters and receipts continue. [Private configuration example](config/narrator.example.json).
 
-```powershell
-npm.cmd run exhibit:replay -- runtime/exhibit/<recorded-run-id>
-node scripts/showcase-review.mjs
-```
+## Instrument register
 
-The read-only showcase review records 55 seconds and checks the five desktop/mobile routes, journal controls and public evidence. Its endurance mode additionally requires an explicit operator-owned worker-restart script; see the verification report before running a deliberate interruption. Tests use labelled fixtures, never presented as live research evidence.
-
-Research data is already attributed and included in compact form. Rebuilding it requires Python 3.12 and `scripts/requirements.txt`; run `scripts/ingest.py`. [Data provenance](docs/DATA_PROVENANCE.md), [Methods](docs/METHODS.md), [validation](docs/VALIDATION.md) and the [worksheet](docs/WORKSHEET.html) explain assumptions and reproduction in detail.
-
-## Source map
-
-| Public feature | Implementation |
+| Instrument | Source |
 | --- | --- |
-| Five designed pages and journal inspector | `src/showcase/` |
-| Shared decoded apparatus, desktop and neural state | `src/usePresentation.ts`, `src/Apparatus.tsx`, `src/DirectDesktop.tsx`, `src/SpecimenView.tsx` |
-| Native Windows capture/control integration | `scripts/windows/remote-worker.ts`, `server/exhibit/remote-desktop.ts`, `server/exhibit/windows-geometry.ts` |
-| Pixel input, rate computation and wheel decoder | `server/exhibit/observation-encoder.ts`, `server/model/`, `server/exhibit/controller.ts` |
-| Actual execution and supervisor transitions | `server/exhibit/external-station.ts`, `external-policy.ts`, `research-planner.ts` |
-| Persistent memory, retrieval and conventional adaptation | `server/memory/`, `scripts/memory-evaluate.ts` |
-| Grounded asynchronous narrator and retained journal | `server/journal/`, `shared/journal.ts` |
-| Recorder, exact replay and separate publisher | `server/exhibit/finalize-worker.ts`, `server/exhibit/replay.ts`, `server/experiment-store.ts`, `scripts/windows/record-service.ts` |
-| Public read-only HTTP/WSS and private QA routing | `server/index.ts`, `server/public-routes.ts` |
-| Data ingestion and trace validation | `scripts/ingest.py`, `scripts/validate.ts`, `scripts/trace.ts` |
+| Observation pages and notebook | `src/showcase/` |
+| Apparatus, desktop and specimen | `src/Apparatus.tsx`, `src/DirectDesktop.tsx`, `src/SpecimenView.tsx` |
+| Native capture and input | `scripts/windows/remote-worker.ts`, `server/exhibit/remote-desktop.ts` |
+| Sensory encoder and circuit | `server/exhibit/observation-encoder.ts`, `server/model/` |
+| Wheel decoder and supervisor | `server/exhibit/controller.ts`, `server/exhibit/external-station.ts` |
+| Encounter memory and research | `server/memory/`, `server/exhibit/research-planner.ts` |
+| Journal | `server/journal/` |
+| Recorder and replay | `server/exhibit/finalize-worker.ts`, `server/exhibit/replay.ts` |
+| Independent evidence publisher | `scripts/windows/record-service.ts` |
 
-## Attribution
+## Sources and stewardship
 
-Source anatomy: [Verasztó et al., whole-body larval connectome](https://elifesciences.org/articles/97964).
+Source anatomy: [Verasztó et al., whole-body larval connectome](https://elifesciences.org/articles/97964). The microscope’s marker inscriptions and screen calibration are maintained in the [apparatus register](docs/APPARATUS_LABELS.md).
 
-Original code is [MIT](LICENSE); derived research data is CC BY 4.0 with attribution and documented transformations. Fonts and dependencies retain their licences in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Credentials, private configuration, raw recordings and research caches are ignored. Historical commits and failed experiment evidence are retained.
+Original code is [MIT](LICENSE). Derived research data is CC BY 4.0 with attribution and documented transformations. Fonts, assets and dependencies retain their provenance and licences in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Credentials, raw recordings and private caches stay outside Git. Commit history and failed experiment evidence are retained.
+
+[Separate assessment companion](docs/ASSESSMENT_COMPANION.md) · [Printable worksheet](docs/WORKSHEET.html)

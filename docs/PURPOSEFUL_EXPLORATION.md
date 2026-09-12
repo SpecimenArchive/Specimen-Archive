@@ -24,6 +24,6 @@ History is atomically persisted after discovery, arrival, outcome and choice. Ep
 
 ## Verification
 
-Unit coverage includes persisted discovered links and cooldowns, exhausted-destination holding, a memory-induced ranking change and attribution only after acceptance. The live review must additionally demonstrate multiple actual encounter paths, useful source transitions, real generated entries and memory effects both before and after a controlled worker restart. These are live measurements, not fixture output. See [SHOWCASE_VERIFICATION.md](SHOWCASE_VERIFICATION.md) for the final results and retained failures.
+Unit coverage includes persisted discovered links and cooldowns, exhausted-destination holding, a memory-induced ranking change and attribution only after acceptance. The live review must additionally demonstrate multiple actual encounter paths, useful source transitions, source-linked commentary and memory effects both before and after a controlled worker restart. These are live measurements, not fixture output. See [SHOWCASE_VERIFICATION.md](SHOWCASE_VERIFICATION.md) for the final results and retained failures.
 
 Implementation: [research-planner.ts](../server/exhibit/research-planner.ts), [external-station.ts](../server/exhibit/external-station.ts), [external-policy.ts](../server/exhibit/external-policy.ts), [journal architecture](JOURNAL_ARCHITECTURE.md), [focused tests](../tests/public-journal.test.ts).

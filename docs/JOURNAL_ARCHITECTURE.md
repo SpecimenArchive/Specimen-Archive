@@ -1,6 +1,6 @@
 # Memory, journal and research planning
 
-The public journal is a separate semantic layer beside the fixed neural controller. It is not a language capability of the 47-cell circuit. The Observe, Memory and Inside pages link each entry to its actual encounter, source and control evidence.
+The laboratory journal is a separate semantic layer beside the fixed neural controller. Its narrator writes commentary; the 47-cell circuit supplies motor activity. The Observe, Memory and Inside pages link each entry to its actual encounter, source and control evidence.
 
 ## Evidence and ownership
 
@@ -18,7 +18,7 @@ Copy [the example](../config/narrator.example.json) to an operator-controlled pr
 
 On the deployed Windows VM the backend reads `C:\ProgramData\SpecimenArchive\narrator.json`, protected to SYSTEM and Administrators, outside Git. Only its path is set in the backend launcher. The public API exposes availability, provider/model and request counts, never the configuration or key. No public command endpoint is added. The existing station account is the built-in Administrator, so this is not represented as OS isolation from an administrative process; the controlled browser has no filesystem/credential-reading tool. Publisher and tunnel credentials retain their separate SYSTEM-only protection.
 
-Production allows 60 requests/hour and at least 45 seconds between requests. There is one in-flight request and one replaceable pending context, a 30-second request timeout, 120-second context expiry and 1,100 output tokens per request. The hourly request budget persists across backend restarts. Provider failures, rejected output and exhausted budget show a real unavailable/limited status while factual events continue.
+Production allows 60 requests/hour. Its configured 45-second minimum is further bounded by even rolling-hour scheduling, giving an effective minimum spacing of 61 seconds at that allowance. There is one in-flight request and one replaceable pending context, a 30-second request timeout, 120-second context expiry and 1,100 output tokens per request. The hourly request budget persists across backend restarts. Provider failures, rejected output and exhausted budget show a real unavailable/limited status while factual events continue.
 
 ## Persistence
 

@@ -28,13 +28,13 @@ npm test
 npm run build
 ```
 
-For fast diagnosis append `--fast` to validation. It changes wall pacing only, not neural integration or the action budget. Normal recordings retain 600 ms minimum per six simulated seconds so the actions can be watched.
+For fast diagnosis append `--fast` to validation. It changes wall pacing only, not neural integration or the action budget. Normal recordings retain 600 ms minimum per six model seconds so the actions can be watched.
 
 ## Published structure and assumed computation
 
 The imported graph contains 2,675 nodes and 14,066 directed connections. The induced visual/postural circuit computes 21 photoreceptors, 20 interneurons and six motor neurons using 161 connections / 711 anatomical synapses. Every active neuron has its published ID. This excludes most of the animal's nervous system. `data/processed/circuit.json` carries the full active edge list and selection description.
 
-`RateNetwork` uses synchronous Euler updates at dt=0.01 simulated seconds:
+`RateNetwork` uses synchronous Euler updates at dt=0.01 model seconds:
 
 `a_next = a + dt/tau × (tanh(input) − a)`
 
@@ -59,7 +59,7 @@ Perception and the lane-task policy are engineered. The circuit is a necessary d
 
 ## Motor decoder and execution
 
-Each captured image is held for 600 model steps (six simulated seconds), with persistent neural state between images. No neural reset occurs between decisions. Sixty samples per decision record all 47 states at 0.1 simulated-second intervals; replay reconstructs every integration step.
+Each captured image is held for 600 model steps (six model seconds), with persistent neural state between images. No neural reset occurs between decisions. Sixty samples per decision record all 47 states at 0.1 model-second intervals; replay reconstructs every integration step.
 
 Let M be the arithmetic mean of all six motor activities. Let D be activity of MN3_r (#1732111) minus MN2_r (#359142).
 

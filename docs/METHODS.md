@@ -2,7 +2,7 @@
 
 ## Scope
 
-Specimen 01 is a synthetic, observation-only digital specimen. Its anatomical connectivity comes from a published reconstruction; its dynamics, virtual environment, functional gains and rendering are implemented here. It is an inspectable assumed model, not a validated replica of animal behaviour, a pretrained brain, an experiment on a living animal or evidence of consciousness.
+This register describes the laboratory’s observation-only Specimen 01. Published reconstruction supplies its selected connectivity; the station implements rate dynamics, a virtual environment, functional gains and optical presentation. The parameters below define the operating model. The [separate assessment companion](ASSESSMENT_COMPANION.md) describes the exhibit medium and scientific scope.
 
 The active model contains **47 neurons, 161 directed connections and 711 anatomical synapses**. The explorer contains all **2,675 nodes** of the imported filtered graph. Fragments, effectors, other cells and unselected neurons receive no model activity. An absent activity value means **not modelled**, never a measured zero.
 
@@ -34,7 +34,7 @@ Recurrent positive coupling can sustain activity after a stimulus. Bilateral con
 
 ## Preserved light experiment: environment and sensory encoding
 
-The server advances a six-phase illumination schedule every 16 simulated seconds: dark adaptation, left light (0.85), right light (0.85), low right light (0.24), oblique light (0.72), and dark recovery. It repeats every 96 simulated seconds. This schedule is conventional experiment code and is never chosen by the neural model.
+The server advances a six-phase illumination schedule every 16 model seconds: dark adaptation, left light (0.85), right light (0.85), low right light (0.24), oblique light (0.72), and dark recovery. It repeats every 96 model seconds. This schedule is conventional experiment code and is never chosen by the neural model.
 
 The environment is a 2,000 × 2,000 virtual μm periodic chamber. A smooth positional factor and directional shading encode the two visual inputs:
 
@@ -67,19 +67,19 @@ A separate passive flow of `(0.45, 0.12)` virtual μm/s is added before chamber 
 
 ## Observation optics
 
-The accepted renderer uses a synthetic microscopy-style photographic base grounded in 72 hpf references. A registered residual matte separates the specimen from a fixed water background. Bounded local bending, internal tissue displacement and independently moving peripheral ciliary/chaetal fields use the same streamed neural/motor state. The head and six attachment regions explicitly exclude the ciliary phase warp. The view uses constrained orientation and does not claim unrestricted 3D reconstruction. See [Photographic rig](PHOTOGRAPHIC_RIG.md) for exact masks, optical assumptions and measured regressions.
+The observation optics use the registered microscopy-style specimen plate, grounded in 72 hpf references. A registered residual matte separates the specimen from a fixed water background. Bounded local bending, internal tissue displacement and independently moving peripheral ciliary/chaetal fields use the same streamed neural/motor state. The head and six attachment regions explicitly exclude the ciliary phase warp. The view uses constrained orientation and does not claim unrestricted 3D reconstruction. See [Photographic rig](PHOTOGRAPHIC_RIG.md) for exact masks, optical assumptions and measured regressions.
 
 The image is synthetic optical presentation, not biological evidence or a measured neuron map. Generated asset prompts and provenance are stored beside the images. The renderer keeps physical proportions across viewport sizes, interpolates received states and never extrapolates active motion after a signal loss. Browser mode uses the controller's own neural state and accelerated model time; the original light experiment uses 0.5? wall time. View and neuron-selection controls cannot alter either model.
 
 ## Preserved light experiment: time, transport and persistence
 
-The configured model speed is **0.5 simulated seconds per wall second**. Integration is fixed-step; the local scheduler accumulates elapsed time. Large scheduling gaps are recorded and catch-up is bounded to prevent a resumed sleeping machine from making an unobserved leap.
+The configured model speed is **0.5 model seconds per wall second**. Integration is fixed-step; the local scheduler accumulates elapsed time. Large scheduling gaps are recorded and catch-up is bounded to prevent a resumed sleeping machine from making an unobserved leap.
 
 Version-1 WebSocket packets include run ID, monotonic sequence, ISO wall timestamp, model time, wall elapsed time, pose, environment, all 47 activities, motor/sensory readouts and recent events. They are state snapshots rather than fragile deltas. The server runs with no observer attached. It sends at a target 20 Hz; actual measured throughput is in the transport report.
 
 Clients reject duplicate/out-of-order sequences within a run, reconnect with bounded exponential backoff and accept an authoritative resync frame. After 1.5 seconds without a valid frame, LIVE becomes STALE; a closed socket is OFFLINE. A slow client exceeding 64 KiB buffered output is disconnected with a resync instruction. The observer interface has no experiment-mutation endpoint. Services bind to 127.0.0.1.
 
-The engine holds at most 80 events; a client keeps at most 600 snapshots. Local JSONL recording occurs at 5 Hz. An atomic state checkpoint and session metadata are written every five wall seconds. Recorded segments rotate every 120 simulated seconds, retaining at most 12 segments; archive reads are capped at 1,500 frames. Old automatically retained runtime segments are pruned, while review artifacts under `docs/` remain unchanged. Graceful shutdown saves a final checkpoint. Unfinished older sessions are marked interrupted at startup. A new run ID records the restart gap; the engine does not pretend the stopped interval was simulated.
+The engine holds at most 80 events; a client keeps at most 600 snapshots. Local JSONL recording occurs at 5 Hz. An atomic state checkpoint and session metadata are written every five wall seconds. Recorded segments rotate every 120 model seconds, retaining at most 12 segments; archive reads are capped at 1,500 frames. Old automatically retained runtime segments are pruned, while review artifacts under `docs/` remain unchanged. Graceful shutdown saves a final checkpoint. Unfinished older sessions are marked interrupted at startup. A new run ID records the restart gap; the stopped interval remains a recorded gap.
 
 ## Reproduction
 
@@ -87,7 +87,7 @@ Run `npm run trace` for the documented closed-loop trace, `npm run validate:scie
 
 ## Browser action experiment
 
-The browser mode replaces the scheduled light input with captured PNG information and uses a separate documented mouse decoder. The same neural engine drives both the graph and specimen presentation. Browser screenshots, actions and all sampled neurons share a run/decision/model-step identity. Its six-simulated-second integration windows, matched interventions, exact replay and record formats are documented in [BROWSER_CONTROLLER.md](BROWSER_CONTROLLER.md). This mode does not use the original continuous model scheduler or its restart checkpoint; every trial explicitly starts from zero state. Browser records are separate from bounded continuous light telemetry. One suite contains nine trials; repeated suites are opt-in and their evidence remains in runtime until deliberately archived or removed.
+The browser mode replaces the scheduled light input with captured PNG information and uses a separate documented mouse decoder. The same neural engine drives both the graph and specimen presentation. Browser screenshots, actions and all sampled neurons share a run/decision/model-step identity. Its six-model-second integration windows, matched interventions, exact replay and record formats are documented in [BROWSER_CONTROLLER.md](BROWSER_CONTROLLER.md). This mode does not use the original continuous model scheduler or its restart checkpoint; every trial explicitly starts from zero state. Browser records are separate from bounded continuous light telemetry. One suite contains nine trials; repeated suites are opt-in and their evidence remains in runtime until deliberately archived or removed.
 
 
 ## Active external Windows observation

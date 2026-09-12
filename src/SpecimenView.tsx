@@ -8,7 +8,7 @@ export function SpecimenView({snapshot,circuit,anatomy=false}:{snapshot:Snapshot
   useEffect(()=>{
     if(!circuit||!canvas.current)return;
     let disposed=false,frame=0,ready=false,lastDraw=0,renderCount=0,dirty=true,drawn:Snapshot|null=null,renderer:PhotographicRenderer;
-    try{renderer=new PhotographicRenderer(canvas.current,circuit);}catch{setError('WebGL unavailable — photographic still');return;}
+    try{renderer=new PhotographicRenderer(canvas.current,circuit);}catch{setError('Moving view unavailable — retained specimen plate');return;}
     const resize=new ResizeObserver(([entry])=>{renderer.resize(entry.contentRect.width,entry.contentRect.height);dirty=true;});resize.observe(canvas.current);
     renderer.ready.then(()=>{ready=true;}).catch(()=>setError('Specimen asset could not be loaded'));
     function render(now:number){
@@ -35,5 +35,5 @@ export function SpecimenView({snapshot,circuit,anatomy=false}:{snapshot:Snapshot
     frame=requestAnimationFrame(render);
     return()=>{disposed=true;cancelAnimationFrame(frame);resize.disconnect();renderer.dispose();};
   },[circuit]);
-  return <><canvas ref={canvas} className="specimen-canvas" aria-label="Photographic three-day Platynereis specimen, with local movement driven by the streamed model"/>{error&&<div className="renderer-error"><img src="/assets/specimen-photographic-base-v2.png" alt="Static photographic specimen"/><span>{error}</span></div>}{anatomy&&<div className="anatomy-key"><b>ANATOMICAL FIELD GUIDE</b><span>Rounded head · dark pigment cups</span><span>Three trunk regions · paired chaetal fans</span><span>Short ciliary fields · tapered posterior</span></div>}</>;
+  return <><canvas ref={canvas} className="specimen-canvas" aria-label="Specimen 01: three-day Platynereis, with posture and ciliary movement linked to the received motor state"/>{error&&<div className="renderer-error"><img src="/assets/specimen-photographic-base-v2.png" alt="Specimen 01 observation plate"/><span>{error}</span></div>}{anatomy&&<div className="anatomy-key"><b>ANATOMICAL FIELD GUIDE</b><span>Rounded head · dark pigment cups</span><span>Three trunk regions · paired chaetal fans</span><span>Short ciliary fields · tapered posterior</span></div>}</>;
 }
