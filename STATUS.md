@@ -1,8 +1,23 @@
 # Specimen Archive status
 
+## Public showcase and persistent exploration — 12 September 2026
+
+Live: **https://specimenarchive.com**. Observe, Specimens, Memory, Inside and Experiments are deployed with the preserved apparatus/lettering and a real private OpenAI journal. The repetition fix persists discovered documents, memory effects, questions and cooldowns; document anchors share one identity. Neural wheel controls and supervisor navigation remain distinct.
+
+Clean runtime 3f6e8c9 passed **602.537 seconds** with two observers: **2,042 matching updates**, 236 paired presentation checks, no browser errors/dropped frames, exact offline freeze/reconnect and controlled worker recovery under the same backend session. It encountered **26 distinct documents across four sites**, including **12 after restart**, with no repeated document. Memory changed **five** destination choices, **three after restart**; 39 sourced semantic entries and 14 accepted semantic proposals were recorded. The deliberate interruption retained three failed episodes. A separate backend restart preserved 146 visited identities and the frozen 257-outcome checkpoint.
+
+All five routes passed desktop/mobile review, journal pause/filter/evidence and real action inspection. Internal QA HTML returns 404; its recordings are preserved in Experiments. A new 55-second complete-stage recording is available there. A native 48-decision episode replayed all 2,880 samples exactly and its [evidence publication](https://github.com/SpecimenArchive/Specimen-Archive/commit/3e48fa6e21ed2971618c56fbec4f7bcb2cb8ece6) was hash-verified from GitHub. Outcomes were 9 movements, 36 boundaries and 3 waits.
+
+The complete 55-test suite passed before the final journal-label refinement; the final change passed seven focused tests, build and live acceptance. All services remain on the existing Windows 11 VM; RDP connections are zero and tunnel readiness is 200. **Cold VM reboot still requires manual Windows console login.** The earlier memory-adapter comparison still showed no improvement.
+
+[Verification and retained corrections](docs/SHOWCASE_VERIFICATION.md) · [Exploration policy](docs/PURPOSEFUL_EXPLORATION.md) · [Journal architecture](docs/JOURNAL_ARCHITECTURE.md) · [Service placement](docs/PUBLIC_DEPLOYMENT.md).
+
+Earlier entries below are historical checkpoints.
+
+
 ## Active VM verification - 12 September 2026
 
-The public observer is **https://specimenarchive.com**. HTTP and www redirect to canonical HTTPS. All controller, Chrome, capture, memory, recording, publisher and tunnel services run on the Windows 11 VM. The v4 marker asset is preserved. Build and 48 tests pass. [Fixed-source control audit](docs/EXTERNAL_CONTROL_AUDIT.md), [deployment report](docs/PUBLIC_DEPLOYMENT.md), and [saved review recordings](https://specimenarchive.com/docs/previews/external-review.html).
+The public observer is **https://specimenarchive.com**. HTTP and www redirect to canonical HTTPS. All controller, Chrome, capture, memory, recording, publisher and tunnel services run on the Windows 11 VM. The v4 marker asset is preserved. Build and 48 tests pass. [Fixed-source control audit](docs/EXTERNAL_CONTROL_AUDIT.md), [deployment report](docs/PUBLIC_DEPLOYMENT.md), and [selected recordings](https://specimenarchive.com/experiments).
 
 Clean source `deb371a` passed the final 602.421-second public two-observer test: 2,111 matching updates, no browser errors, paired native frames, historical and memory inspection, exact offline freeze and reconnect. Source `2d539db` subsequently makes archive fetching conditional on opening it and reduces list summaries; its delivery checks are reported separately. Exact native replay, held-out neural interventions, capture-worker recovery and a read-back-verified evidence publication passed. Neural computation proposes wheel actions; the supervisor chooses pages.
 

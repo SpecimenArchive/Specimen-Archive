@@ -1,0 +1,20 @@
+[
+  {
+    "path": "runtime/showcase/review-1789233610379/result.json",
+    "sha256": "ed4bb8f20c2115d7295a52e343c174e9252701de11982773705ebbea38066809",
+    "error": "/ 390 overflows",
+    "samples": 25,
+    "firstObservedAt": "2026-09-12T17:20:20.249Z",
+    "lastObservedAt": "2026-09-12T17:21:14.552Z",
+    "correction": "Long explorer titles now wrap on mobile."
+  },
+  {
+    "path": "runtime/showcase/review-1789234650292/result.json",
+    "sha256": "298e693e295c9716019f5b235b6b16d15f060936b872270f63ba24517926e6b1",
+    "error": "Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  'QUESTION\\n' +\n    '17:32:56\\n' +\n    '\\n' +\n    'Does Blockscout implement redundancy or cross-node validation by querying multiple Ethereum nodes or services to further ensure displayed data integrity and consensus alignment?\\n' +\n    '\\n' +\n...\n    '\\n' +\n+   'Explore the next sequential Ethereum block 25962729 on Blockscout to examine its backend data consistency and synchronization, relevant to understanding rea'... 8513 more characters\n-   'Explore the next sequential Ethereum block 25962729 on Blockscout to examine its backend data consistency and synchronization, relevant to understanding rea'... 8623 more characters\n",
+    "samples": 24,
+    "firstObservedAt": "2026-09-12T17:37:44.912Z",
+    "lastObservedAt": "2026-09-12T17:38:38.151Z",
+    "correction": "Pausing the journal also freezes the encounter-label context."
+  }
+]

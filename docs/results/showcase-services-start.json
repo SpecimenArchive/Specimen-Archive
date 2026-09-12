@@ -1,0 +1,35 @@
+{
+  "cloudflared": "Running",
+  "tunnelReadiness": 200,
+  "build": "26200",
+  "lastBoot": "2026-09-11T22:45:55.9057830Z",
+  "at": "2026-09-12T17:38:05.1887244+00:00",
+  "os": "Microsoft Windows 11 Enterprise Evaluation",
+  "memory": {
+    "trainingEvents": 257,
+    "stored": 140,
+    "checkpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08"
+  },
+  "sessions": " SESSIONNAME               USERNAME                 ID  STATE   TYPE        DEVICE \r\n>services                                            0  Disc                        \r\n console                   [VM user]             2  Active                      \r\n 31c5ce94259d4006a9e4                            65536  Listen                      \r\n rdp-tcp                                         65537  Listen                      \r\n",
+  "tasks": [
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Backend",
+      "restartCount": 999,
+      "state": "Running"
+    },
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Publisher",
+      "restartCount": 999,
+      "state": "Running"
+    },
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Worker",
+      "restartCount": 999,
+      "state": "Running"
+    }
+  ],
+  "establishedRdpConnections": 0
+}
