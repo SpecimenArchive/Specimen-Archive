@@ -1,12 +1,12 @@
-> Current checkpoint: the VM was provisioned and native capture verified before this upgrade. The new observation profile is awaiting Windows Update/SSH recovery and native acceptance. See [STATUS](../STATUS.md), [upgrade report](OBSERVATION_UPGRADE.md) and [isolated publisher](RECORD_SERVICE.md). The original provisioning notes below describe earlier checkpoints.
+> Current checkpoint, 12 September 2026: SSH and the native Windows observation profile are running at clean `7f72d2b`. RDP is disconnected; real scrolling, saved videos, exact replay and capture recovery are verified. See [STATUS](../STATUS.md), [the current acceptance report](OBSERVATION_UPGRADE.md) and [isolated publication](RECORD_SERVICE.md).
 
 # Remote Windows 11 station
 
 ## Current state
 
-SSH access to the By-Hoster Windows 11 VM is verified. The server host key matches the authenticated RDP console. Windows 11, Node 24, Git and genuine Google Chrome were verified remotely. The initial checkout, package installation, production build, video-encoder installation and private station preparation succeeded; **native capture and RDP continuity are not validated yet**. Exact capacity/installer receipts and connection metadata remain in private operator/runtime files. The running local preview remains Linux/X11; do not call its recordings Windows evidence or launch the preserved local Sandbox as a substitute.
+The trusted server host key matches the VM console. The VM runs Windows 11 Enterprise Evaluation build 26200, Node 24.21, Git 2.55 and genuine Chrome 153. The website/controller, capture worker and recordings run under C:\SpecimenArchive; the independent SYSTEM publisher uses its protected C:\ProgramData\SpecimenArchivePublisher directory. Connection details and the operator private key remain outside Git under %LOCALAPPDATA%\SpecimenArchive.
 
-The next step is to finish deployment and verify the persistent interactive display, actual recorded neural actions, disconnection and startup recovery. Connection data and private keys stay outside Git. The user provisioned this VM; no local VM was installed.
+Worker and backend are limited interactive tasks, triggered at station logon and configured to restart after failures at one-minute intervals. The publisher starts as SYSTEM at boot. The display was transferred to a persistent console, and actual captures/actions continued with zero RDP connections. A cold reboot still requires the station user to log on; unattended autologon is not configured. A home-PC shutdown only removes that observer's SSH tunnel.
 
 ## Minimum private connection setup
 
@@ -122,7 +122,7 @@ npm.cmd start
 
 Its one-time setup remains `wsl.exe -d Ubuntu -u root -- bash /mnt/c/path/to/SpecimenArchive/scripts/setup-desktop.sh`. Do not start both paths simultaneously on port 4317. Use `EXHIBIT_DESKTOP=0` only for explicitly labelled headless checks.
 
-## Tasks and capture semantics
+## Preserved benchmark capture semantics
 
 The frozen 47-neuron / 161-edge controller and original 48-window benchmark are unchanged. A 640 x 360 sensory screenshot is calibrated against every corresponding desktop pixel at exactly 2x display scale before inputs execute. The emulation change must leave that sensory PNG identical. Subsequent capture rejects changed dimensions, DPI, taskbar, focus or window bounds. Calibration is setup-only and never enters neural decisions.
 
@@ -132,13 +132,13 @@ After 48 decisions, the evaluator records success/failure, and the supervisor re
 
 Raw frames and videos remain under the existing eight-episode retention policy. The worker owns a temporary Chrome profile per lease and removes it on successful cleanup. If a process/profile remains locked, inspect the dedicated worker's private receipt and stop the owned process before restarting. Never clean up by killing all Chrome processes or deleting broad directories.
 
-## Shutdown, RDP and recovery acceptance
+## Shutdown, RDP and recovery
 
-Normal shutdown: Ctrl+C in the backend terminal, wait for recording finalization; Ctrl+C in the SSH tunnel terminal; Ctrl+C in the VM worker terminal. The worker terminal is also the private emergency stop. A tunnel loss expires the worker lease within 20 seconds and terminates only the owned Chrome process tree. Do not call `wsl --shutdown`, sign out unrelated accounts or kill Chrome by process name.
+For the deployed tasks, run `scripts/windows/stop-station.ps1` on the VM to request backend finalization and then graceful worker shutdown. It allows up to 100 seconds for bounded recording cleanup. Restart Worker and Backend with `Start-ScheduledTask` after confirming both stopped. The private worker stop marker is the capture emergency stop. Closing the home observer tunnel does not expire this VM-local backend/worker lease. The optional split-backend development topology does expire its lease when its forwarding connection disappears. Never kill Chrome by process name or stop unrelated sessions.
 
 An RDP disconnection can change or remove an interactive desktop. VM uptime is insufficient. Use the provider console/persistent display configuration, then **actually disconnect the operator's RDP client** while observers continue. Do not assume `tscon`, keeping a process alive or Windows task scheduling proves capture continuity. If a restart needs the dedicated user to log on through the provider console, record that as operator recovery; no unattended login is configured here.
 
-Pending acceptance on the actual VM:
+Historical commissioning checklist (the current observation results supersede its pending status):
 
 - Confirm OS, Chrome, account, timezone, native pinning, useful shortcuts and persistent display; inspect unwarped light/dark captures and exact calibration.
 - Run 30–60 seconds spanning the end of a task excursion and dashboard return; retain source revision, command trace and real desktop frames. Inspect all screen edges, marker faces, normal/expanded apparatus and narrow observer layouts.
@@ -146,6 +146,6 @@ Pending acceptance on the actual VM:
 - Stop/restart the worker, interrupt SSH, close Chrome and restart the VM separately. Verify interrupted records, new leases/boot IDs and no stale action replay. Record any required login/display assistance.
 - Run `npm.cmd run exhibit:validate` for the preserved held-out suite and matched interventions, then `npm.cmd run exhibit:replay -- runtime/exhibit/<run-id>` on actual Windows records. Report failed trials as well as successes.
 
-That original recovery checkpoint preceded actual native Windows execution at 0b64125. Its evidence is preserved. The new observation profile has not yet passed continuity acceptance; local compile/unit tests do not establish it.
+The original recovery checkpoint preceded native execution at 0b64125. Its evidence remains preserved. The current observation profile uses 1:1 visible-page sensory captures after scaled calibration, rejects covered or misaligned frames, and replaces the legacy 180-second task dwell with the dashboard/reference/worksheet schedule described in the upgrade report. The new report separates actual runtime acceptance from local tests.
 
 Primary implementation references: [Playwright CDP attachment](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp), [Playwright input](https://playwright.dev/docs/input), [Microsoft screen copying](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics.copyfromscreen), [Windows interactive remote sessions](https://learn.microsoft.com/en-us/windows/win32/termserv/terminal-services-sessions), [Windows OpenSSH setup](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).

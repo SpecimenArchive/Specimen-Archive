@@ -1,0 +1,441 @@
+{
+  "verifiedAt": "2026-09-12T01:26:50.177Z",
+  "sourceRevision": "7f72d2b492328bb7c5d9669bd947ba2e35da8f0d",
+  "sourceDirty": false,
+  "sessionId": "session_1789175785381_a881dfe6",
+  "durationSeconds": 601.119745,
+  "matchingObserverPackets": 5295,
+  "inspected": true,
+  "returnedToLive": true,
+  "observerReconnected": true,
+  "offlineSpecimenExact": true,
+  "pagesSeen": [
+    "dashboard",
+    "reference",
+    "worksheet"
+  ],
+  "uniqueFinishedCommandResults": 85,
+  "duplicateCommandResults": 0,
+  "verifiedEpisodeWheelEvents": 48,
+  "duplicateEpisodeWheelEvents": 0,
+  "pageErrors": [],
+  "readRetries": [
+    {
+      "at": "2026-09-12T01:22:00.994Z",
+      "path": "/api/exhibit/live",
+      "attempt": 1,
+      "error": "TimeoutError: The operation was aborted due to timeout"
+    }
+  ],
+  "successfulEpisode": {
+    "id": "exhibit_1789175785397_7a8b8445",
+    "stages": {
+      "execution": "completed",
+      "recording": "saved"
+    },
+    "replay": {
+      "exact": true,
+      "samples": 2880,
+      "decisions": 48
+    },
+    "actualScrollChanges": [
+      {
+        "decision": 0,
+        "page": "dashboard",
+        "before": 0,
+        "after": 48
+      },
+      {
+        "decision": 1,
+        "page": "dashboard",
+        "before": 48,
+        "after": 0
+      },
+      {
+        "decision": 36,
+        "page": "worksheet",
+        "before": 0,
+        "after": 48
+      },
+      {
+        "decision": 37,
+        "page": "worksheet",
+        "before": 48,
+        "after": 96
+      },
+      {
+        "decision": 38,
+        "page": "worksheet",
+        "before": 96,
+        "after": 144
+      },
+      {
+        "decision": 39,
+        "page": "worksheet",
+        "before": 144,
+        "after": 96
+      },
+      {
+        "decision": 40,
+        "page": "worksheet",
+        "before": 96,
+        "after": 144
+      }
+    ],
+    "recording": {
+      "source": "orchestration",
+      "kind": "recording",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "3/3 compact 640 × 360 page videos finalised in 19.8 s. Exact sensory and native desktop PNGs retained.",
+      "completedAt": "2026-09-12T01:21:48.084Z",
+      "id": "exhibit_1789175785397_7a8b8445:e57",
+      "createdAt": "2026-09-12T01:21:48.084Z",
+      "sessionId": "session_1789175785381_a881dfe6",
+      "runId": "exhibit_1789175785397_7a8b8445"
+    },
+    "videos": [
+      {
+        "path": "browser.webm",
+        "sha256": "d43f67b0a141e179c678f772edd22f951e608d78f86aca8477f7a55f0fda70ad",
+        "bytes": 4925311
+      },
+      {
+        "path": "reference.webm",
+        "sha256": "fde25e547bf259030f68a7b9d80ff3afd8f5742d3333ddde8d7f30fce015a924",
+        "bytes": 3808760
+      },
+      {
+        "path": "worksheet.webm",
+        "sha256": "bc55025089bd49b12df073fa35d7d12920a8b6f94bb5a166519b259d4d4d81c2",
+        "bytes": 4341730
+      }
+    ],
+    "playback": [
+      {
+        "name": "browser.webm",
+        "width": 640,
+        "height": 360,
+        "duration": 293.88,
+        "seeked": 20,
+        "readyState": 4
+      },
+      {
+        "name": "reference.webm",
+        "width": 640,
+        "height": 360,
+        "duration": 291.48,
+        "seeked": 20,
+        "readyState": 4
+      },
+      {
+        "name": "worksheet.webm",
+        "width": 640,
+        "height": 360,
+        "duration": 287.48,
+        "seeked": 20,
+        "readyState": 4
+      }
+    ],
+    "publication": {
+      "id": "exhibit_1789175785397_7a8b8445",
+      "state": "published",
+      "updatedAt": "2026-09-12T01:22:33.874Z",
+      "attempts": 1,
+      "recordSha256": "4cb80562cdbc7cb6232068d01a1ba2125408001488d77014c55ed33fc74b11ab",
+      "repository": "SpecimenArchive/Specimen-Archive",
+      "commit": "a8dab50f29b28f3f5ecad729b36fef218f6c5ab8",
+      "url": "https://github.com/SpecimenArchive/Specimen-Archive/commit/a8dab50f29b28f3f5ecad729b36fef218f6c5ab8",
+      "path": "experiments/exhibit_1789175785397_7a8b8445.json"
+    }
+  },
+  "captureInterruption": {
+    "sessionId": "session_1789175785381_a881dfe6",
+    "initialRun": "exhibit_1789176125758_55960d52",
+    "detectedAt": "2026-09-12T01:23:26.650Z",
+    "recoveredAt": "2026-09-12T01:24:09.120Z",
+    "specimenHeldExactly": true,
+    "interrupted": true,
+    "recovered": true,
+    "recordedFailures": [
+      {
+        "id": "exhibit_1789176224566_88164c05",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176221632_2db6c48a",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176218680_2f08a891",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176215796_dc9ae29f",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176213118_7ef903ac",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176210493_229c5d82",
+        "error": "fetch failed",
+        "decisions": 0,
+        "stages": {
+          "execution": "failed",
+          "recording": "unavailable"
+        }
+      },
+      {
+        "id": "exhibit_1789176125758_55960d52",
+        "error": "page.evaluate: Target page, context or browser has been closed",
+        "decisions": 10,
+        "stages": {
+          "execution": "failed",
+          "recording": "failed",
+          "recordingError": "video.saveAs: Target page, context or browser has been closed; video.saveAs: Target page, context or browser has been closed; video.saveAs: Target page, context or browser has been closed"
+        }
+      }
+    ]
+  },
+  "station": {
+    "publisher-migration": {
+      "at": "2026-09-12T00:28:19.6227061+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "revision": "7f72d2b492328bb7c5d9669bd947ba2e35da8f0d",
+    "sourceClean": true,
+    "boot": "2026-09-11T22:45:55.9057830Z",
+    "build": "26200",
+    "os": "Microsoft Windows 11 Enterprise Evaluation",
+    "at": "2026-09-12T01:21:06.8940105+00:00",
+    "rdpConnections": 0,
+    "console-transfer": {
+      "at": "2026-09-12T00:21:23.3773724+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "publisher-service-status": {
+      "at": "2026-09-12T01:20:54.994Z",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": 200,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "terminal-cleanup": {
+      "at": "2026-09-12T01:15:12.6409064+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": true,
+      "setupShellEnded": true,
+      "servicesVerifiedIndependent": true,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "tasks": [
+      {
+        "name": "SpecimenArchive-Backend",
+        "triggers": [
+          "MSFT_TaskLogonTrigger"
+        ],
+        "identity": "Interactive",
+        "runLevel": "Limited",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      },
+      {
+        "name": "SpecimenArchive-Publisher",
+        "triggers": [
+          "MSFT_TaskBootTrigger"
+        ],
+        "identity": "ServiceAccount",
+        "runLevel": "Highest",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      },
+      {
+        "name": "SpecimenArchive-Worker",
+        "triggers": [
+          "MSFT_TaskLogonTrigger"
+        ],
+        "identity": "Interactive",
+        "runLevel": "Limited",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      }
+    ]
+  },
+  "limitations": [
+    "Cold reboot still requires station-account interactive login; autologon is not configured.",
+    "No public domain or TLS hosting is configured; preview is private through SSH.",
+    "The model has limited pixel-contrast-driven scrolling, including boundary attempts; no semantic understanding or arbitrary-browser competence is claimed."
+  ],
+  "postRecoveryEpisode": {
+    "id": "exhibit_1789176227262_c9f6891f",
+    "completedAt": "2026-09-12T01:29:08.248Z",
+    "stages": {
+      "execution": "completed",
+      "recording": "saved"
+    },
+    "replay": {
+      "exact": true,
+      "samples": 2880,
+      "decisions": 48
+    },
+    "recording": {
+      "source": "orchestration",
+      "kind": "recording",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "3/3 compact 640 × 360 page videos finalised in 18.7 s. Exact sensory and native desktop PNGs retained.",
+      "completedAt": "2026-09-12T01:29:06.737Z",
+      "id": "exhibit_1789176227262_c9f6891f:e171",
+      "createdAt": "2026-09-12T01:29:06.737Z",
+      "sessionId": "session_1789175785381_a881dfe6",
+      "runId": "exhibit_1789176227262_c9f6891f"
+    }
+  },
+  "finalStation": {
+    "publisher-migration": {
+      "at": "2026-09-12T00:28:19.6227061+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "revision": "7f72d2b492328bb7c5d9669bd947ba2e35da8f0d",
+    "sourceClean": true,
+    "boot": "2026-09-11T22:45:55.9057830Z",
+    "build": "26200",
+    "os": "Microsoft Windows 11 Enterprise Evaluation",
+    "at": "2026-09-12T01:30:05.6026228+00:00",
+    "rdpConnections": 0,
+    "console-transfer": {
+      "at": "2026-09-12T00:21:23.3773724+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "publisher-service-status": {
+      "at": "2026-09-12T01:29:55.197Z",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": 200,
+      "terminalWindowClosed": null,
+      "setupShellEnded": null,
+      "servicesVerifiedIndependent": null,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "terminal-cleanup": {
+      "at": "2026-09-12T01:15:12.6409064+00:00",
+      "kind": null,
+      "state": null,
+      "error": null,
+      "published": null,
+      "terminalWindowClosed": true,
+      "setupShellEnded": true,
+      "servicesVerifiedIndependent": true,
+      "bundleSha256": null,
+      "installedAt": null
+    },
+    "tasks": [
+      {
+        "name": "SpecimenArchive-Backend",
+        "triggers": [
+          "MSFT_TaskLogonTrigger"
+        ],
+        "identity": "Interactive",
+        "runLevel": "Limited",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      },
+      {
+        "name": "SpecimenArchive-Publisher",
+        "triggers": [
+          "MSFT_TaskBootTrigger"
+        ],
+        "identity": "ServiceAccount",
+        "runLevel": "Highest",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      },
+      {
+        "name": "SpecimenArchive-Worker",
+        "triggers": [
+          "MSFT_TaskLogonTrigger"
+        ],
+        "identity": "Interactive",
+        "runLevel": "Limited",
+        "restartCount": 999,
+        "state": "Running",
+        "restartInterval": "PT1M"
+      }
+    ]
+  }
+}

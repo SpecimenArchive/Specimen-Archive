@@ -1,5 +1,13 @@
 # Specimen Archive status
 
+## Active VM verification - 12 September 2026
+
+SSH is restored with the original trusted host key. Clean source `7f72d2b` is deployed and running on the Windows 11 VM. Native maximization, pinning, pixel agreement, real wheel input and approved secondary-tab visits are working. The dashboard uses the unchanged v4 marker asset and calibrated monitor. Build and 41 tests pass. The separate SYSTEM recorder's current recovery bundle is installed and has verified evidence publications.
+
+The private preview is http://127.0.0.1:4319/. All execution, capture, recording and publication services run on the VM; the home PC supplies only this observer tunnel. RDP is disconnected and the redundant setup terminal is closed. A cold reboot still requires an interactive login. The 601-second upgraded acceptance check passed with 5,295 matching packets from two observers, actual scrolling, inspection/replay, saved recordings and network/capture recovery. The complete episode reproduced 48 decisions and 2,880 sampled neural states exactly. Seven expected failure records from the deliberate worker outage remain preserved. [Current report](docs/OBSERVATION_UPGRADE.md).
+
+Earlier entries below are historical checkpoints.
+
 ## Observation upgrade checkpoint — 11 September 2026
 
 Source milestones f2a17d5 and 374d379 are published. The VM last deployed f2a17d5; later recorder separation and covered-frame guards are ready for deployment. The dashboard redesign, neural instrumentation, command feed and historical inspection are implemented. Typecheck/build and 39 tests pass.
