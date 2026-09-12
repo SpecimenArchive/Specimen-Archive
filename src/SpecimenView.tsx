@@ -7,23 +7,26 @@ export function SpecimenView({snapshot,circuit,anatomy=false}:{snapshot:Snapshot
   useEffect(()=>{old.current=state.current;state.current=snapshot;arrival.current=performance.now();},[snapshot]);
   useEffect(()=>{
     if(!circuit||!canvas.current)return;
-    let disposed=false,frame=0,ready=false,lastDraw=0,renderCount=0,renderer:PhotographicRenderer;
+    let disposed=false,frame=0,ready=false,lastDraw=0,renderCount=0,dirty=true,drawn:Snapshot|null=null,renderer:PhotographicRenderer;
     try{renderer=new PhotographicRenderer(canvas.current,circuit);}catch{setError('WebGL unavailable — photographic still');return;}
-    const resize=new ResizeObserver(([entry])=>renderer.resize(entry.contentRect.width,entry.contentRect.height));resize.observe(canvas.current);
+    const resize=new ResizeObserver(([entry])=>{renderer.resize(entry.contentRect.width,entry.contentRect.height);dirty=true;});resize.observe(canvas.current);
     renderer.ready.then(()=>{ready=true;}).catch(()=>setError('Specimen asset could not be loaded'));
     function render(now:number){
       if(disposed)return;
       const s=state.current,p=old.current;
-      if(ready&&s&&now-lastDraw>=1000/60){
-        const period=1000/60;lastDraw+=Math.floor((now-lastDraw)/period)*period;let shown=s;
+      if(ready&&s&&(dirty||drawn!==s)&&now-lastDraw>=1000/60){
+        const period=1000/60;lastDraw+=Math.floor((now-lastDraw)/period)*period;let shown=s,settled=true;
         // Interpolate every model-dependent renderer input. Never extrapolate
         // beyond the authoritative newest state, including after signal loss.
         if(p&&p.runId===s.runId&&s.seq>=p.seq&&s.modelTime>=p.modelTime&&s.modelTime-p.modelTime<.3){
-          const a=Math.min(1,(now-arrival.current)/60),mix=(x:number,y:number)=>x+(y-x)*a;
+          const a=Math.min(1,(now-arrival.current)/60),mix=(x:number,y:number)=>x+(y-x)*a;settled=a===1;
           const pose={...s.pose};for(const key of Object.keys(pose) as (keyof typeof pose)[])pose[key]=mix(p.pose[key],s.pose[key]);
           shown={...s,pose,activity:s.activity.map((v,i)=>mix(p.activity[i],v)),motor:{left:mix(p.motor.left,s.motor.left),right:mix(p.motor.right,s.motor.right),forward:mix(p.motor.forward,s.motor.forward),turn:mix(p.motor.turn,s.motor.turn)}};
         }
         renderer.draw(shown);
+        // Keep an unchanged state as actual retained pixels, avoiding idle GPU
+        // rounding differences and work. Resizing still draws the same state.
+        dirty=false;drawn=settled?s:null;
         // Presentation diagnostic only, never sent to the neural engine.
         canvas.current!.dataset.renderCount=String(++renderCount);
       }
