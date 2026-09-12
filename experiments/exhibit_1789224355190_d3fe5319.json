@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789224355190_d3fe5319",
+  "sessionId": "session_1789224264384_587da4b8",
+  "origin": {
+    "runId": "exhibit_1789224355190_d3fe5319",
+    "sourceRevision": "a0f83966506b16572abeb60a1250c3f0b720bcee",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "externalConfig": {
+    "version": "external-exploration-v1",
+    "initial": "https://www.ponsfamily.com/launchpad",
+    "maximumUnchanged": 3,
+    "maximumEncounterDecisions": 8,
+    "researchAfterCoins": 4,
+    "displayIntervalMs": 250,
+    "windowWallMs": 1200,
+    "inputMaximumAgeMs": 6000,
+    "decisionWindows": 48
+  },
+  "initialCheckpoint": {
+    "ticks": 12000,
+    "pose": {
+      "x": -25.267323214668977,
+      "y": 893.877499369908,
+      "heading": -1.2947186940618773,
+      "roll": 69.20289710326868,
+      "bend": -0.0093284513509263,
+      "ciliaPhase": 9337.148912078359,
+      "distance": 4088.4272299383683
+    },
+    "activity": [
+      0.5812015565098523,
+      0.2069664997294524,
+      0.5827916880611319,
+      0.4154021667986818,
+      0.5471191657920231,
+      0.5853496434585503,
+      0.2069664997294524,
+      0.7211322540766993,
+      0.5811821341255541,
+      0.2069664997294524,
+      0.2069664997294524,
+      0.2069664997294524,
+      0.5608643465322256,
+      0.4284432036865814,
+      0.42583548378029334,
+      0.531163576990076,
+      0.5774814224292126,
+      0.5782099016455899,
+      0.5609665154137651,
+      0.39547706801034266,
+      0.5746595095006919,
+      0.5227675650592285,
+      0.5644637696132664,
+      0.5823910429275054,
+      0.3736432635195631,
+      0.5289241103794586,
+      0.4624027993416634,
+      0.5503739032442616,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.5626864330066375,
+      0.7211322540766993,
+      0.5824345431136111,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.2069664997294524,
+      0.2069664997294524,
+      0.5797233302499849,
+      0.2069664997294524,
+      0.2069664997294524,
+      0.5776051715900488,
+      0.2069664997294524
+    ],
+    "events": [
+      {
+        "id": "e1",
+        "t": 0,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e2",
+        "t": 0.89,
+        "kind": "movement",
+        "message": "Bending response · 0.036 rad/s"
+      },
+      {
+        "id": "e3",
+        "t": 1.34,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.065 / R 0.096"
+      },
+      {
+        "id": "e4",
+        "t": 6,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e5",
+        "t": 6,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.562 / R 0.560"
+      },
+      {
+        "id": "e6",
+        "t": 12,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e7",
+        "t": 12,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e8",
+        "t": 18,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e9",
+        "t": 18,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e10",
+        "t": 24,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e11",
+        "t": 24,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e12",
+        "t": 30,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e13",
+        "t": 30,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e14",
+        "t": 36,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e15",
+        "t": 36,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e16",
+        "t": 42,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e17",
+        "t": 42,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e18",
+        "t": 48,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e19",
+        "t": 48,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e20",
+        "t": 54,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e21",
+        "t": 54,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e22",
+        "t": 60,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e23",
+        "t": 60,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e24",
+        "t": 66,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e25",
+        "t": 66,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.573"
+      },
+      {
+        "id": "e26",
+        "t": 72,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e27",
+        "t": 72,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e28",
+        "t": 78,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e29",
+        "t": 78,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e30",
+        "t": 84,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e31",
+        "t": 84,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e32",
+        "t": 90,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e33",
+        "t": 90,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e34",
+        "t": 96,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e35",
+        "t": 96,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e36",
+        "t": 102,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e37",
+        "t": 102,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e38",
+        "t": 108,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e39",
+        "t": 108,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e40",
+        "t": 114,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e41",
+        "t": 114,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      }
+    ],
+    "eventCounter": 41,
+    "epoch": 19,
+    "responded": true,
+    "moving": false,
+    "condition": {
+      "key": "pixels",
+      "label": "scroll: lower-texture",
+      "intensity": 0.4,
+      "angle": 0,
+      "epoch": 19
+    },
+    "lastSensory": {
+      "left": 0.15,
+      "right": 0.65
+    }
+  },
+  "startedAt": "2026-09-12T14:45:55.190Z",
+  "completedAt": "2026-09-12T14:45:55.207Z",
+  "seed": 307,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 1200,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Persistent external browser. Visible pixel contrast drives the unchanged rate circuit and wheel decoder. Environment supervisor selects approved pages from discovered links and visit coverage; navigation and fixed cursor placement are orchestration. DOM observations only guard/verify input and supply page metadata, never motor direction. Recording/replay run in a separate finalizer process.",
+    "events": []
+  },
+  "decisions": [],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "display-timing.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "50c15d921df28492e2d9bf2da5d1cd5c78ee416bdcf478074db63d76d2381cba",
+      "bytes": 22
+    }
+  ],
+  "stages": {
+    "execution": "failed",
+    "recording": "failed",
+    "recordingError": "Fewer than two genuine desktop frames were captured"
+  },
+  "error": "fetch failed",
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Explore · pons",
+      "summary": "fetch failed",
+      "id": "exhibit_1789224355190_d3fe5319:e28",
+      "createdAt": "2026-09-12T14:45:55.206Z",
+      "sessionId": "session_1789224264384_587da4b8",
+      "runId": "exhibit_1789224355190_d3fe5319"
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 0,
+    "decisions": 0
+  }
+}
