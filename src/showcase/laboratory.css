@@ -33,8 +33,8 @@
 .showcase .apparatus-heading,.showcase .panel-heading,.showcase .card-heading{font-size:13px;line-height:1.4;padding:10px 13px;min-height:48px}
 .showcase .apparatus-heading button,.showcase .panel-heading button{font-size:12px;min-height:30px;padding:4px 7px}
 .showcase .apparatus-body{height:auto;min-height:0;padding:0;display:block}
-.showcase .apparatus-image{width:100%;height:auto}
-.showcase .apparatus-image canvas{width:100%;height:auto;object-fit:contain}
+.showcase .apparatus-image{width:100%;height:auto;aspect-ratio:1659/948}
+.showcase .apparatus-image canvas{display:block;width:100%;height:auto;aspect-ratio:1659/948;object-fit:contain}
 .showcase .desktop-containment{flex:initial;display:block}
 .showcase .desktop-pixels{height:auto}
 .showcase .desktop-pixels canvas{aspect-ratio:8/5;width:100%;height:auto;object-fit:contain}
@@ -207,7 +207,7 @@
 .showcase .station-expanded,.showcase .desktop-expanded{position:fixed!important;inset:24px!important;width:auto!important;height:auto!important;max-height:none!important;z-index:150}
 .showcase .station-expanded .apparatus-body{display:flex;align-items:center;justify-content:center;height:calc(100% - 48px)}
 .showcase .station-expanded .apparatus-image{height:100%;width:100%;display:flex;align-items:center;justify-content:center}
-.showcase .station-expanded .apparatus-image canvas{height:auto;width:auto;max-height:100%;max-width:100%}
+.showcase .station-expanded .apparatus-image canvas{height:100%;width:100%;max-height:100%;max-width:100%;object-fit:contain}
 .showcase .desktop-expanded .desktop-containment{display:flex;flex:1;min-height:0;align-items:center}
 .showcase .desktop-expanded .desktop-pixels{height:100%;display:flex;justify-content:center}
 .showcase .desktop-expanded .desktop-pixels canvas{height:100%;width:auto;max-width:100%;object-fit:contain}

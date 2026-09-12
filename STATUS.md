@@ -1,5 +1,12 @@
 # Specimen Archive status
 
+## Laboratory register — 12 September 2026
+
+All 67 tests, TypeScript and the production build passed.
+
+The second reading pass updates 63 passages across 22 files, corrects the pre-narrator Methods account and retains image preparation in the separate assessment companion. Six routes passed desktop/phone review. Existing evidence, results, model, memory, browsing and publication code remain unchanged. [Reading receipt](docs/results/laboratory-copy-review.json).
+
+
 ## Laboratory observer and journal refinement — 12 September 2026
 
 Live: **https://specimenarchive.com**. All five pages use the compact laboratory layout, linked notebook and sourced anatomy. The monitor preserves the complete desktop and the original microscope/lettering. The journal streams genuine provider deltas, retains independently supported notes and keeps factual observations active within the unchanged 60-request hourly cap.

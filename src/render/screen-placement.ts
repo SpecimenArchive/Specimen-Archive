@@ -1,6 +1,6 @@
 // Measured at the glass / inner bezel boundary in the unmodified 1659 × 948
 // master (TL, TR, BR, BL). Rendering remains in source-image space at all sizes.
-export const screenPlacement={asset:'/assets/apparatus-master-v4-marker.png',width:1659,height:948,aspect:16/9,corners:[[894,166],[1519,179],[1497,539],[878,483]] as [number,number][]};
+export const screenPlacement={asset:'/assets/apparatus-master-v4-marker.png',width:1659,height:948,aspect:16/9,corners:[[892,163],[1521,177],[1499,541],[876,484]] as [number,number][]};
 /** Contain the entire source in the physical 16:9 display plane before projection. */
 export function containedScreen(width:number,height:number){const aspect=width/height;return aspect<screenPlacement.aspect?[aspect/screenPlacement.aspect,1]:[1,screenPlacement.aspect/aspect];}
 export function homography(corners:readonly (readonly number[])[]){
