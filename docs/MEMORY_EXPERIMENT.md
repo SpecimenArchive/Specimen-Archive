@@ -28,4 +28,8 @@ The [reference project's voice description](https://github.com/fruitflydev/flyco
 
 ## Results
 
+### Controlled integration matrix, fixed before training
+
+Use the five VM PNGs captured at 13:22–13:23 UTC on 12 September, before memory training: Explore, Pons, ZZZ, Bundle Cat and eLife 97964. For a reproducible browser integration check, each original image is a single scrollable image in a 1280 × 360 Chrome viewport. Seeds 503, 607 and 809 fix page order and respectively top, middle and bottom starting offsets. Each arm receives 48 neural windows with the same eight-window encounter ceiling. Compare baseline retry budget 3, the frozen learned budget and disabled adaptation. Record actual trusted wheel events and scroll displacement and replay every sampled neural state from the captured fixture PNGs. This deliberately controlled image-scroll benchmark is distinct from live external browsing; its result cannot establish a live Pons improvement. Live native traces remain the separate evidence for real-site scrolling.
+
 Pending implementation and matched evaluation. No learning improvement is claimed at this protocol checkpoint.
