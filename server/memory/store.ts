@@ -2,7 +2,7 @@ import {mkdirSync,readFileSync,existsSync} from 'node:fs';import {writeFile,rena
 import type {Circuit} from '../../shared/types';import type {ExhibitDecision} from '../../shared/exhibit';import type {Encounter} from '../../shared/observation';import type {Experience,Recall,MemoryView,AdapterCheckpoint,LearningEvaluation,KnowledgeNote} from '../../shared/memory';import {MODEL_CONFIG} from '../model/config';import {approvedPage} from '../exhibit/external-policy';import {CORPUS} from './corpus';import {checkpoint,learn,retryBudget,adapterContext,ADAPTER,validateCheckpoint} from './adapter';import {projectNotes} from './project-index';
 const hash=(s:string)=>createHash('sha256').update(s).digest('hex');
 const clean=(s:string,max=160)=>s.replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim().slice(0,max);
-export function canonicalPage(value:string){if(!approvedPage(value))throw new Error('Only approved public encounters may enter memory');const u=new URL(value);u.hash='';u.search='';return u.href.replace(/\/$/,'');}
+export function canonicalPage(value:string){if(!approvedPage(value)&&!approvedPage(value+'/'))throw new Error('Only approved public encounters may enter memory');const u=new URL(value);u.hash='';u.search='';return u.href.replace(/\/$/,'');}
 /** Coarse 8x8 mean-luminance descriptor. Explicit similarity, not identification. */
 export function visualDescriptor(bytes:Buffer){const p=PNG.sync.read(bytes),values:number[]=[];for(let gy=0;gy<8;gy++)for(let gx=0;gx<8;gx++){let sum=0,n=0;for(let y=Math.floor(gy*p.height/8);y<Math.floor((gy+1)*p.height/8);y+=4)for(let x=Math.floor(gx*p.width/8);x<Math.floor((gx+1)*p.width/8);x+=4){const i=(y*p.width+x)*4;sum+=(p.data[i]*.2126+p.data[i+1]*.7152+p.data[i+2]*.0722);n++;}values.push(Math.round(sum/Math.max(1,n)/17));}return values;}
 export const visualDistance=(a:number[],b:number[])=>a.length===64&&b.length===64?a.reduce((s,n,i)=>s+Math.abs(n-b[i]),0)/64:Infinity;
@@ -13,7 +13,9 @@ export class ExperienceStore {
  constructor(runtime:string,readonly circuit:Circuit,readonly sourceRevision:string,mode=process.env.EXHIBIT_LEARNING_MODE||'train'){
   if(!['train','frozen','disabled'].includes(mode))throw new Error('Unknown learning mode');this.mode=mode;this.indexedNotes=projectNotes(sourceRevision);this.root=resolve(runtime,'memory');mkdirSync(this.root,{recursive:true});
   this.state={version:1,updatedAt:new Date().toISOString(),experiences:[],recalls:[],adapter:checkpoint(),evaluation:null};
-  for(const name of ['memory.json','memory.previous.json']){try{const s=JSON.parse(readFileSync(join(this.root,name),'utf8')) as State;if(s.version!==1||s.experiences.length>600||s.recalls.length>1200||s.adapter.version!==ADAPTER.version)throw new Error('Incompatible experience state');validateCheckpoint(s.adapter);for(const e of s.experiences)canonicalPage(e.url);this.state=s;break;}catch(e){if(existsSync(join(this.root,name)))this.ioError=`Recovered state unavailable: ${(e as Error).message}`;}}
+  let loaded=false,existing=false;
+  for(const name of ['memory.json','memory.previous.json']){try{if(!existsSync(join(this.root,name)))continue;existing=true;const s=JSON.parse(readFileSync(join(this.root,name),'utf8')) as State;if(s.version!==1||s.experiences.length>600||s.recalls.length>1200||s.adapter.version!==ADAPTER.version)throw new Error('Incompatible experience state');validateCheckpoint(s.adapter);for(const e of s.experiences)canonicalPage(e.url);this.state=s;loaded=true;break;}catch(e){this.ioError=`Recovered state unavailable: ${(e as Error).message}`;}}
+  if(existing&&!loaded)throw new Error(this.ioError+'; refusing to overwrite existing experience evidence');
   this.state.evaluation=this.evaluation();
  }
  private changed(){
