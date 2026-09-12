@@ -29,6 +29,6 @@ The main scientific results remain explicit: the active circuit has 47 cells and
 
 ## Checks
 
-The [verification receipt](results/presentation-audit.json) records the actual reviewed revision, route/layout checks, relative-link audit and deployment status. Observer checks include six routes at 1920 and 390 px, journal pause/follow, evidence dialog/Escape, all signal tabs, memory detail and an explicit connection-error state. The production build checks TypeScript and the complete observer bundle.
+The [verification receipt](results/presentation-audit.json) records the actual reviewed revision, route/layout checks, relative-link audit and deployment status. Observer checks include six routes at 1920 and 390 px, journal pause/follow, evidence dialog/Escape, all signal tabs, memory detail and an explicit connection-error state. The production build checks TypeScript and the complete observer bundle. The public link review found that an in-progress episode could expose its not-yet-finalized compact record and compressed trace. The action detail now links to its already-available decision and neural samples, with a separate route to the episode archive.
 
 The film has a separate [evidence and playback report](SOCIAL_FILM.md). No browsing, memory, circuit, recorder or recovery algorithm is changed by this presentation work.
