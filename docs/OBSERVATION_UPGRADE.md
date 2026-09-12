@@ -1,5 +1,7 @@
 # Observation dashboard and Windows runtime upgrade
 
+> Historical implementation checkpoint. The active external Windows profile and public domain are documented in [EXTERNAL_CONTROL_AUDIT.md](EXTERNAL_CONTROL_AUDIT.md) and [PUBLIC_DEPLOYMENT.md](PUBLIC_DEPLOYMENT.md). Earlier self-dashboard schedules below are preserved history, not the current runtime.
+
 The adopted request is preserved in [the upgrade brief](OBSERVATION_UPGRADE_BRIEF.md). The original neural engine, published circuit, benchmark profiles, imagery and calibrated apparatus v4 remain intact.
 
 ## Diagnosis before changes

@@ -1,5 +1,7 @@
 # Continuous controlled-browser exhibit
 
+> Historical implementation checkpoint. The active external Windows profile and public domain are documented in [EXTERNAL_CONTROL_AUDIT.md](EXTERNAL_CONTROL_AUDIT.md) and [PUBLIC_DEPLOYMENT.md](PUBLIC_DEPLOYMENT.md). Earlier self-dashboard schedules below are preserved history, not the current runtime.
+
 The frozen horizontal benchmark remains in `server/browser` with its original nine published trials. `server/exhibit` adds a separately versioned, bounded two-page task; it reuses the same neural engine and six motor cells. No LLM selects actions. There is no wallet, token creation or transaction execution. `$LARVA` is exhibit identity only.
 
 ## Exact computation boundary

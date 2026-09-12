@@ -1,0 +1,4007 @@
+{
+  "at": "2026-09-12T14:51:20.875Z",
+  "origin": {
+    "runId": "external-held-out-ablation",
+    "sourceRevision": "a80d5082090ede7a6b4437058d3da5dbe4090f46",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "method": "Five actual VM-captured held-out public pages; three seeded page orders; identical intact/disconnected/clamped budgets; fixed retina/rate model/decoder. This check covers pixel-to-proposal causality; browser dispatch is verified separately in the live native trace.",
+  "profile": "observation-contrast-v2",
+  "seeds": [
+    503,
+    607,
+    809
+  ],
+  "results": [
+    {
+      "seed": 503,
+      "intervention": "intact",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5616422111317891
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5522096870953361
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5628081016153804
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5659952394583783
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5609754650355214
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5598075795780554
+              }
+            ],
+            "mean": 0.5605730473190768,
+            "contrast": 0.01378555236304213
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5811447584038364
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5644275269587872
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5823342678465533
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5823874627569244
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5796690612739589
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5775533020029153
+              }
+            ],
+            "mean": 0.577919396540496,
+            "contrast": 0.01795993579813726
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "scroll",
+          "wheelY": -48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5815930446160533
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5721089010071284
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5792984357920995
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5753440176253374
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5810638190042536
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5781859917722196
+              }
+            ],
+            "mean": 0.5779323683028487,
+            "contrast": 0.0032351166182089663
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5767108067823625
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5535606224551947
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5774139211612543
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5765602841131894
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5749109215799639
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5713490002599252
+              }
+            ],
+            "mean": 0.5717509260586483,
+            "contrast": 0.02299966165799472
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5788285318163164
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5588048492826643
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5797740488107844
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5793599449001559
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5771840289099215
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5743265507755193
+              }
+            ],
+            "mean": 0.5747129924158937,
+            "contrast": 0.02055509561749158
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-503-intact.json.gz"
+    },
+    {
+      "seed": 503,
+      "intervention": "disconnect-photoreceptors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-503-disconnect-photoreceptors.json.gz"
+    },
+    {
+      "seed": 503,
+      "intervention": "clamp-all-motors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-503-clamp-all-motors.json.gz"
+    },
+    {
+      "seed": 607,
+      "intervention": "intact",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5616422111317891
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5522096870953361
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5628081016153804
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5659952394583783
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5609754650355214
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5598075795780554
+              }
+            ],
+            "mean": 0.5605730473190768,
+            "contrast": 0.01378555236304213
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "scroll",
+          "wheelY": -48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5815359246179798
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5720727725502525
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5792400617191366
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5752955343201756
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5810094927868201
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5781335844954192
+              }
+            ],
+            "mean": 0.5778812284149639,
+            "contrast": 0.003222761769923088
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5811706755872025
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5644507621275705
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5823582558121672
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5824072472177252
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5796932116989763
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5775780150980193
+              }
+            ],
+            "mean": 0.5779430279236102,
+            "contrast": 0.017956485090154684
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5767459932887449
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5535746126102763
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5774513136446981
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5765918341484352
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5749453916906606
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5713798060512569
+              }
+            ],
+            "mean": 0.5717814919056786,
+            "contrast": 0.023017221538158883
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5788286488381511
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5588049237766182
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5797741659972722
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5793600426534078
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5771841409555979
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5743266577118489
+              }
+            ],
+            "mean": 0.5747130966554826,
+            "contrast": 0.020555118876789624
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-607-intact.json.gz"
+    },
+    {
+      "seed": 607,
+      "intervention": "disconnect-photoreceptors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-607-disconnect-photoreceptors.json.gz"
+    },
+    {
+      "seed": 607,
+      "intervention": "clamp-all-motors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-607-clamp-all-motors.json.gz"
+    },
+    {
+      "seed": 809,
+      "intervention": "intact",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "2-coin-1.png",
+          "kind": "scroll",
+          "wheelY": -48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5613621717876411
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5595725985277672
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5585869693869778
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5579278517623452
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.56175891537098
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5596973163982384
+              }
+            ],
+            "mean": 0.5598176372056582,
+            "contrast": -0.0016447467654220338
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5766430349518866
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5535173204981307
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5773460596305677
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5765033794480408
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5748459487901388
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5712870049610563
+              }
+            ],
+            "mean": 0.5716904580466369,
+            "contrast": 0.022986058949910015
+          }
+        },
+        {
+          "file": "0-explore.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5811357661573076
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5644178534805353
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5823256361995938
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5823804607067585
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5796607044019494
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.577544281759908
+              }
+            ],
+            "mean": 0.5779107837843421,
+            "contrast": 0.017962607226223226
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5812013741930058
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5644636531576555
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5823908607626727
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5824343920589923
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5797231560748557
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5776050050849435
+              }
+            ],
+            "mean": 0.5779697402220209,
+            "contrast": 0.017970738901336825
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "scroll",
+          "wheelY": 48,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0.5788991631713575
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0.5588544769596843
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0.5798443035977544
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0.5794183607850099
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0.5772513671362286
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0.5743920364702451
+              }
+            ],
+            "mean": 0.5747766180200465,
+            "contrast": 0.02056388382532559
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-809-intact.json.gz"
+    },
+    {
+      "seed": 809,
+      "intervention": "disconnect-photoreceptors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-809-disconnect-photoreceptors.json.gz"
+    },
+    {
+      "seed": 809,
+      "intervention": "clamp-all-motors",
+      "decisions": 5,
+      "neuralSamples": 300,
+      "commands": [
+        {
+          "file": "2-coin-1.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "upper-texture",
+            "left": 0.65,
+            "right": 0.15,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 243.33201942296932,
+                "contrast": 33.61977458729812,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.538073110285,
+                "contrast": 20.91835504287401,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "1-coin-0.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 504,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1027.5714285714287,
+              "y": 561.75
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5213600946884406,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.85667623120727,
+                "contrast": 16.018152686060947,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 247.4332892627023,
+                "contrast": 19.632416404029353,
+                "samples": 64560
+              },
+              "strength": 0.7427201893768812
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "0-explore.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 494,
+            "cursorPixels": 259,
+            "targetCentroid": {
+              "x": 900.8785425101214,
+              "y": 411.3744939271255
+            },
+            "cursorCentroid": {
+              "x": 418.992277992278,
+              "y": 439.27799227799227
+            },
+            "horizontalErrorPx": 481.8862645178434,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 246.02492250220152,
+                "contrast": 16.734109151523082,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 203.26439486369654,
+                "contrast": 68.82568578808801,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "4-research.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 34,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 174.41176470588235,
+              "y": 449.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.65,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 244.93583118729046,
+                "contrast": 42.961967202550106,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 237.3884763476035,
+                "contrast": 47.53724821955571,
+                "samples": 64560
+              },
+              "strength": 1
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        },
+        {
+          "file": "3-coin-2.png",
+          "kind": "wait",
+          "wheelY": 0,
+          "input": {
+            "version": "observation-contrast-v2",
+            "width": 1280,
+            "height": 665,
+            "targetPixels": 28,
+            "cursorPixels": 0,
+            "targetCentroid": {
+              "x": 1024.357142857143,
+              "y": 72.5
+            },
+            "cursorCentroid": null,
+            "horizontalErrorPx": null,
+            "encoding": "lower-texture",
+            "left": 0.15,
+            "right": 0.5769533322094658,
+            "phase": "scroll",
+            "verticalError": null,
+            "guidePixels": 0,
+            "sampling": {
+              "kind": "observation-contrast-v2",
+              "upper": {
+                "bounds": {
+                  "x": 102,
+                  "y": 79,
+                  "width": 1075,
+                  "height": 226
+                },
+                "mean": 247.77142133763195,
+                "contrast": 17.18198550652483,
+                "samples": 60794
+              },
+              "lower": {
+                "bounds": {
+                  "x": 102,
+                  "y": 359,
+                  "width": 1075,
+                  "height": 239
+                },
+                "mean": 245.1265024783147,
+                "contrast": 23.805534385583886,
+                "samples": 64560
+              },
+              "strength": 0.8539066644189316
+            }
+          },
+          "motor": {
+            "cells": [
+              {
+                "id": "826675",
+                "name": "MN2_l",
+                "activity": 0
+              },
+              {
+                "id": "359142",
+                "name": "MN2_r",
+                "activity": 0
+              },
+              {
+                "id": "344239",
+                "name": "MN3_l",
+                "activity": 0
+              },
+              {
+                "id": "1732111",
+                "name": "MN3_r",
+                "activity": 0
+              },
+              {
+                "id": "140828",
+                "name": "MN1_r",
+                "activity": 0
+              },
+              {
+                "id": "108826",
+                "name": "MN1_l",
+                "activity": 0
+              }
+            ],
+            "mean": 0,
+            "contrast": 0
+          }
+        }
+      ],
+      "exactReplay": true,
+      "artifact": "external-control-809-clamp-all-motors.json.gz"
+    }
+  ]
+}

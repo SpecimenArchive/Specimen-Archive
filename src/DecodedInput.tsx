@@ -1,0 +1,2 @@
+import {useLayoutEffect,useRef} from 'react';
+export function DecodedInput({image}:{image:HTMLImageElement|null}){const ref=useRef<HTMLCanvasElement>(null);useLayoutEffect(()=>{if(!image||!ref.current)return;const c=ref.current;c.width=image.naturalWidth;c.height=image.naturalHeight;c.getContext('2d')!.drawImage(image,0,0);},[image]);return <canvas ref={ref} aria-label="Exact decoded PNG supplied to the neural encoder"/>;}

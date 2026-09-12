@@ -1,0 +1,8 @@
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';import {resolve,join} from 'node:path';import {createHash} from 'node:crypto';import {validateCheckpoint} from '../server/memory/adapter';
+const root=resolve(process.argv[2]||'runtime/memory'),state=JSON.parse(readFileSync(join(root,'memory.json'),'utf8'));
+try{const response=await fetch('http://127.0.0.1:4317/api/health',{signal:AbortSignal.timeout(1500)});if(response.ok)throw new Error('Stop the backend gracefully before freezing training.');}catch(e){if((e as Error).message.startsWith('Stop the backend'))throw e;}
+const adapter=validateCheckpoint(state.adapter);if(adapter.trainingEvents<5)throw new Error('Insufficient actual outcome evidence');
+const path=join(root,'frozen-checkpoint.json');if(existsSync(path))throw new Error('A frozen checkpoint already exists; do not overwrite a completed experiment.');
+writeFileSync(path,JSON.stringify(adapter,null,2)+'\n');writeFileSync(join(root,'control.json'),JSON.stringify({enabled:true,mode:'frozen'})+'\n');
+const receipt={at:new Date().toISOString(),checkpoint:adapter.sha256,trainingEvents:adapter.trainingEvents,stored:state.experiences.length,storeSha256:createHash('sha256').update(readFileSync(join(root,'memory.json'))).digest('hex'),sourceRevision:state.experiences.at(0)?.evidence.at(-1)?.sourceRevision,ids:state.experiences.map((e:any)=>e.id),firstExperience:state.experiences.at(-1)};
+writeFileSync(join(root,'freeze-receipt.json'),JSON.stringify(receipt,null,2));console.log(JSON.stringify({at:receipt.at,checkpoint:adapter.sha256,trainingEvents:adapter.trainingEvents,stored:receipt.stored,cells:adapter.cells}));

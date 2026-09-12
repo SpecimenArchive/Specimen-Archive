@@ -1,0 +1,2 @@
+import type {KnowledgeNote} from '../shared/memory';
+export function KnowledgeSources({notes}:{notes:KnowledgeNote[]}){return <details className="knowledge-sources"><summary>Source passages, retrieval times & configuration</summary>{notes.map(n=><p key={n.id}><a href={n.source} target="_blank" rel="noreferrer">{n.title} ↗</a><small>{n.creator} · retrieved {n.retrievedAt}</small><q>{n.support}</q><span>{n.note}</span></p>)}</details>;}

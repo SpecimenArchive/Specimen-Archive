@@ -32,7 +32,7 @@ These time constants, gains and effective positive signs are **assumptions**. An
 
 Recurrent positive coupling can sustain activity after a stimulus. Bilateral convergence limits directional contrast, and the model does not reproduce all measured navigation properties. The current intervention results show causal dependence on the selected wiring; they do not validate these assumptions.
 
-## Virtual environment and sensory encoding
+## Preserved light experiment: environment and sensory encoding
 
 The server advances a six-phase illumination schedule every 16 simulated seconds: dark adaptation, left light (0.85), right light (0.85), low right light (0.24), oblique light (0.72), and dark recovery. It repeats every 96 simulated seconds. This schedule is conventional experiment code and is never chosen by the neural model.
 
@@ -71,7 +71,7 @@ The accepted renderer uses a synthetic microscopy-style photographic base ground
 
 The image is synthetic optical presentation, not biological evidence or a measured neuron map. Generated asset prompts and provenance are stored beside the images. The renderer keeps physical proportions across viewport sizes, interpolates received states and never extrapolates active motion after a signal loss. Browser mode uses the controller's own neural state and accelerated model time; the original light experiment uses 0.5? wall time. View and neuron-selection controls cannot alter either model.
 
-## Time, transport and persistence
+## Preserved light experiment: time, transport and persistence
 
 The configured model speed is **0.5 simulated seconds per wall second**. Integration is fixed-step; the local scheduler accumulates elapsed time. Large scheduling gaps are recorded and catch-up is bounded to prevent a resumed sleeping machine from making an unobserved leap.
 
@@ -90,8 +90,22 @@ Run `npm run trace` for the documented closed-loop trace, `npm run validate:scie
 The browser mode replaces the scheduled light input with captured PNG information and uses a separate documented mouse decoder. The same neural engine drives both the graph and specimen presentation. Browser screenshots, actions and all sampled neurons share a run/decision/model-step identity. Its six-simulated-second integration windows, matched interventions, exact replay and record formats are documented in [BROWSER_CONTROLLER.md](BROWSER_CONTROLLER.md). This mode does not use the original continuous model scheduler or its restart checkpoint; every trial explicitly starts from zero state. Browser records are separate from bounded continuous light telemetry. One suite contains nine trials; repeated suites are opt-in and their evidence remains in runtime until deliberately archived or removed.
 
 
-## Windows observation profile
+## Active external Windows observation
 
-The Windows station now has a separately identified `observation-contrast-v2` input profile. Exact visible-tab PNGs provide luminance contrast from upper and lower sampling bands. These numerical values drive photoreceptors in the unchanged published 47-cell circuit; 600 fixed steps generate the motor outputs used by the existing wheel decoder. The engineering band geometry, scaling, thresholds and limitations are documented in [Observation upgrade](OBSERVATION_UPGRADE.md). No DOM text, URL or scroll position enters the model. The original coloured-target benchmarks remain separate.
+The deployed external profile starts at Pons Explore, discovers approved coin links and periodically visits published larval research. The observation website is exclusively for human observers. An explicit environment supervisor chooses pages and positions the cursor; only wheel proposals are attributed to the neural model. The [fixed-source audit](EXTERNAL_CONTROL_AUDIT.md) maps every input path and distinguishes active code from preserved benchmarks.
 
-The dashboard receives 38 of 48 decision windows, with two bounded five-window reference visits. Tab preparation, pinning, focus and pointer placement are recorded orchestration. Each accepted neural command retains exact frame IDs, drives, sampled states, decoder results, trusted browser events and actual scroll displacement. A boundary-blocked wheel attempt is distinct from successful movement. Activity is dimensionless 0–1, not spikes or millivolts. Inspection and replay are local to an observer and never execute commands.
+One guarded native GDI exposure supplies both the desktop PNG and its exact 1280 × 665 viewport crop. The observation-contrast-v2 encoder reads upper/lower pixel luminance contrast. It receives no DOM, URL, title or scroll position. Six model seconds (600 fixed steps) produce 60 retained samples of all 47 cells. The six-motor mean gates action at 0.500; MN3_r minus MN2_r at threshold 0.008 selects +48 or −48 px of wheel input. DOM checks can reject an unsafe proposal and measure displacement; they cannot choose its direction.
+
+Windows input records proposal, acceptance, dispatch, trusted acknowledgement and observed effect separately. A boundary no-op is not movement. Missing acknowledgement or invalid capture stops input and produces a failure record. The browser and neural checkpoint persist across 48-window recording segments. Native JPEG display capture targets 4 fps independently of the neural window, which is paced over at least 1.2 wall seconds plus real I/O overhead. Measured timestamps and latency are shown; target cadence is not a measured guarantee.
+
+Public observers receive complete bounded state packets, normally at most 10 Hz; state changes bypass that limit. Backpressure skips an observer update before disconnecting persistently slow clients. Every neural sample remains in raw evidence. All observers share one backend session; historical inspection is local and cannot dispatch commands. Decoded input and desktop images are paired with their recorded context. Disconnection freezes the displayed state, including when a late image finishes decoding.
+
+## Persistent experience and bounded adaptation
+
+Three roles remain separate: the larval rate circuit computes motor activity; conventional software stores/retrieves experiences; curated sourced notes explain encountered concepts. There is no language-model controller or first-person neural narration. Project configuration and public source documents are indexed directly, without making the specimen browse its dashboard. The factual self-profile describes implemented capabilities and limits, not self-awareness.
+
+The experience store aggregates acknowledged outcomes by canonical URL and title/address identity, retaining stable IDs, source timestamps, a safe original thumbnail, neural input/readout summaries and original command/configuration evidence links. Retrieval explicitly identifies URL, content identity and coarse 8 × 8 luminance similarity. Retrieval is distinct from a supervisor's recorded use of evidence. The [deployment report](PUBLIC_DEPLOYMENT.md) specifies persistence, backup and bounded retention.
+
+The boundary-budget-v1 adapter estimates acknowledged boundary probability by page kind, contrast category and wheel direction. Its predefined Beta prior and thresholds can change only the supervisor's unchanged-result retry budget from 3 to 1–3. Training records outcomes while retaining baseline retries; held-out evaluation freezes its checkpoint. It changes no neural connection, weight, rate parameter, retinal rule or decoder threshold. [Protocol and measured comparison](MEMORY_EXPERIMENT.md).
+
+The [annelid study](https://elifesciences.org/articles/97964) discusses developing mushroom-body circuits separately from the selected visual module; it does not establish this software update as biological plasticity. No fruit-fly learning rule was transplanted. Curated knowledge uses short checked passages from primary Ethereum and eLife documentation with actual retrieval timestamps and HTML checksums. The [reference project's voice description](https://github.com/fruitflydev/flycoinrh#the-voice) likewise distinguishes generated narration from neural computation.
