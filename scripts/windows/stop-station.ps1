@@ -5,7 +5,7 @@ $station=Get-Content -LiteralPath (Join-Path $stationRoot 'station.json') -Raw |
 if ($station.isolation -ne 'remote-vm' -or $station.userName -ne $env:USERNAME) { throw 'Wrong station account.' }
 # Private filesystem request invokes the normal backend recording shutdown.
 [IO.File]::WriteAllText((Join-Path $stationRoot 'stop-backend'),[DateTimeOffset]::UtcNow.ToString('o'))
-$deadline=(Get-Date).AddSeconds(40)
+$deadline=(Get-Date).AddSeconds(100)
 do {
   try { $health=Invoke-RestMethod -Uri 'http://127.0.0.1:4317/api/health' -TimeoutSec 2 } catch { $health=$null }
   if (!$health) { break }

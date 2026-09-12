@@ -8,7 +8,7 @@ export const OBSERVATION_PAGES:ObservationPage[]=[{id:'dashboard',label:'Observa
 const ORIGIN=executionOrigin('observation-process');
 export async function runObservationEpisode(circuit:Circuit,o:EpisodeOptions){
  const startedAt=new Date().toISOString(),runId=`exhibit_${Date.now()}_${randomUUID().slice(0,8)}`,directory=resolve(o.root,runId);mkdirSync(directory,{recursive:true});
- const journal=o.journal??new ObservationJournal(o.sessionId),origin={...ORIGIN,runId},decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],pages=new Map<string,Page>(),videos=new Map<string,Video>();
+ const journal=o.journal??new ObservationJournal(o.sessionId),origin={...ORIGIN,runId},decisions:ExhibitDecision[]=[],events:ExecutedEvent[]=[],pages=new Map<string,Page>(),videos=new Map<string,Video>(),savedVideos=new Set<string>();
  let desktop:RemoteDesktopSession|undefined,context:BrowserContext|undefined,active=OBSERVATION_PAGES[0],currentCommandId:string|null=null,frameIndex=0;
  const record:ExhibitRecord={schemaVersion:1,kind:'continuous-browser-episode',recorder:'Specimen Recorder',id:runId,sessionId:o.sessionId,origin,config:C,configSha256:sha256(JSON.stringify(C)),model:MODEL_CONFIG,startedAt,completedAt:'',seed:o.seed,layout:o.layout,intervention:o.intervention,browserVersion:'',execution:{paced:true,minimumWindowWallMs:C.windowWallMs,nodeVersion:process.version},coverage:{neuronIds:circuit.nodes.map(n=>n.id),edges:circuit.edges.length,synapses:circuit.edges.reduce((s,e)=>s+e.weight,0)},setup:{note:'Observation contrast profile: 48 paced windows in the unchanged rate circuit. Pixel texture in two documented bands drives PRCs; the existing motor decoder selects wheel direction. Approved tab preparation/focus, native pinning and native pointer centering are orchestration. Main dashboard receives 38/48 windows. No DOM target or scroll offset reaches the controller.',events:[]},decisions:[],evaluator:{navigated:false,activated:false,activationCount:0},outcome:'error',artifacts:[],observationConfig:{retina:OBSERVATION_RETINA,schedule:OBSERVATION_SCHEDULE}};
  let live:ExhibitLive={sessionId:o.sessionId,runId,packetSeq:0,timestamp:startedAt,state:'starting',episode:o.episode,decision:0,intervention:o.intervention,layout:o.layout,seed:o.seed,sourceRevision:origin.sourceRevision,sourceDirty:origin.sourceDirty,configSha256:record.configSha256,dataVersion:origin.dataVersion,inputFrame:null,browserFrame:null,capturedAt:null,snapshot:null,input:null,motor:null,command:null,commandId:null,history:[],notice:'Preparing the observation desktop.',metrics:{episodes:0,failures:0,rssMB:0,windowWallMs:C.windowWallMs,modelSecondsPerWindow:6}};
@@ -26,7 +26,7 @@ export async function runObservationEpisode(circuit:Circuit,o:EpisodeOptions){
  emit({});
  try{
   desktop=await RemoteDesktopSession.open();record.browserVersion=desktop.browser.version();
-  context=await desktop.browser.newContext({viewport:{width:640,height:360},deviceScaleFactor:1,acceptDownloads:false,serviceWorkers:'block',recordVideo:{dir:directory,size:{width:1280,height:720}}});context.setDefaultTimeout(8000);
+  context=await desktop.browser.newContext({viewport:{width:640,height:360},deviceScaleFactor:1,acceptDownloads:false,serviceWorkers:'block',recordVideo:{dir:directory,size:{width:640,height:360}}});context.setDefaultTimeout(8000);
   await context.route('**/*',async route=>{const request=route.request(),url=new URL(request.url()),allowed=url.origin==='http://127.0.0.1:4317'||url.protocol==='https:'&&(url.hostname==='elifesciences.org'||url.hostname.endsWith('.elifesciences.org'));if(!allowed||!['GET','HEAD'].includes(request.method())){await route.abort('blockedbyclient');return;}await route.continue();});
   await context.exposeBinding('__recordEvent',({page},event)=>{if(currentCommandId&&page===pages.get(active.id))events.push({...event,commandId:currentCommandId});});
   await context.addInitScript(()=>{for(const type of ['wheel','mousedown','mouseup','click','mousemove'])addEventListener(type,e=>{const m=e as MouseEvent,w=e as WheelEvent;void (window as any).__recordEvent({type,timestamp:new Date().toISOString(),pageTimeMs:performance.now(),url:location.pathname,x:m.clientX,y:m.clientY,deltaY:type==='wheel'?w.deltaY:undefined,trusted:e.isTrusted});},true);});
@@ -69,13 +69,23 @@ export async function runObservationEpisode(circuit:Circuit,o:EpisodeOptions){
  }catch(error){record.error=(error as Error).message;record.outcome='error';record.stages={execution:'failed',recording:'unavailable'};orchestration('recovery',record.error,'failed');emit({state:'recovering',inputFrame:null,input:null,command:null,commandId:null,notice:record.error},record.error);}
  finally{
   journal.cancelRun(runId,record.error??'Episode ended before queued maintenance.');currentCommandId=null;
-  const bounded=async<T>(work:Promise<T>,label:string)=>{let timer:ReturnType<typeof setTimeout>;try{return await Promise.race([work,new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out after browser disconnection`)),15000);})]);}finally{clearTimeout(timer!);}};
-  try{await bounded(Promise.resolve(context?.close()),'Recording context close');}catch(error){record.stages!.recording='failed';record.stages!.recordingError=(error as Error).message;}
-  try{for(const [id,video] of videos){await bounded(video.saveAs(join(directory,id==='dashboard'?'browser.webm':`${id}.webm`)),'Recording save');await bounded(video.delete(),'Recording cleanup');}if(videos.size&&record.stages!.recording!=='failed')record.stages!.recording='saved';}
-  catch(error){record.stages!.recording='failed';record.stages!.recordingError=(error as Error).message;}
+  if(record.outcome!=='error')emit({state:'idle',inputFrame:null,input:null,command:null,commandId:null,notice:'Model held while the episode recordings finish.'},'Finalising recordings');
+  const bounded=async<T>(work:Promise<T>,label:string,timeout=15000)=>{let timer:ReturnType<typeof setTimeout>;try{return await Promise.race([work,new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} exceeded ${timeout/1000} seconds`)),timeout);})]);}finally{clearTimeout(timer!);}};
+  const recordingStart=performance.now(),recordingErrors:string[]=[];
+  // Playwright flushes inactive-tab video gaps when closing the context. Allow
+  // that bounded flush before closing CDP; a timed-out file is not immutable evidence.
+  try{await bounded(Promise.resolve(context?.close()),'Recording context close',60000);}catch(error){recordingErrors.push((error as Error).message);}
+  await Promise.all([...videos].map(async([id,video])=>{
+   const name=id==='dashboard'?'browser.webm':`${id}.webm`;
+   try{await bounded(video.saveAs(join(directory,name)),`Recording save (${id})`);savedVideos.add(name);await bounded(video.delete(),`Recording cleanup (${id})`);}
+   catch(error){recordingErrors.push((error as Error).message);}
+  }));
+  if(recordingErrors.length){record.stages!.recording='failed';record.stages!.recordingError=recordingErrors.join('; ');}
+  else if(videos.size)record.stages!.recording='saved';
+  orchestration('recording',`${savedVideos.size}/${videos.size} compact 640 × 360 page videos finalised in ${((performance.now()-recordingStart)/1000).toFixed(1)} s. Exact sensory and native desktop PNGs retained.`,recordingErrors.length?'failed':'completed');
   await desktop?.close();
  }
  record.observationEvents=journal.runEvents(runId);record.completedAt=new Date().toISOString();record.decisions=decisions.map(({samples,...d})=>d);
- writeFileSync(join(directory,'trace.json.gz'),gzipSync(JSON.stringify(decisions)));record.artifacts=artifactManifest(directory);writeFileSync(join(directory,'record.json'),JSON.stringify(record,null,2)+'\n');
+ writeFileSync(join(directory,'trace.json.gz'),gzipSync(JSON.stringify(decisions)));record.artifacts=artifactManifest(directory,path=>!path.endsWith('.webm')||savedVideos.has(path));writeFileSync(join(directory,'record.json'),JSON.stringify(record,null,2)+'\n');
  emit({state:record.outcome==='error'?'recovering':'complete',inputFrame:null,input:null,command:null,commandId:null,notice:record.error??'Observation episode recorded; supervised renewal follows.'},record.error??'Finalising the observation record');return {record,directory};
 }

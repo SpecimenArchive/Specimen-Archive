@@ -28,6 +28,8 @@ export function eventSentence(event:ObservationEvent){
 export function observationHealth(transport:string,frameAt:string|undefined,now:number,state:string|undefined){
   if(transport!=='live')return transport;
   if(state==='recovering')return 'error';
+  if(state==='starting')return 'connecting';
+  if(state==='idle'||state==='complete')return 'idle';
   if(!frameAt)return 'connecting';
   if(now-Date.parse(frameAt)>12000)return 'stale';
   return 'live';

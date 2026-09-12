@@ -15,7 +15,7 @@ export async function replayEpisode(directory:string,circuit:Circuit){
   assert.deepEqual(r.config,C);assert.equal(r.configSha256,sha256(JSON.stringify(C)));assert.deepEqual(r.model,MODEL_CONFIG);
   if(r.observationConfig){assert.deepEqual(r.observationConfig.retina,r.observationConfig.retina.version===OBSERVATION_RETINA_V1.version?OBSERVATION_RETINA_V1:OBSERVATION_RETINA);assert.deepEqual(r.observationConfig.schedule,OBSERVATION_SCHEDULE);}
   assert.equal(r.origin.dataSha256,sha256(readFileSync('data/processed/circuit.json')));
-  for(const a of r.artifacts){const b=readFileSync(join(directory,a.path));assert.equal(b.length,a.bytes);assert.equal(sha256(b),a.sha256);}
+  for(const a of r.artifacts){const b=readFileSync(join(directory,a.path));assert.equal(b.length,a.bytes,`Artifact size changed: ${a.path}`);assert.equal(sha256(b),a.sha256,`Artifact hash changed: ${a.path}`);}
   const trace=JSON.parse(gunzipSync(readFileSync(join(directory,'trace.json.gz'))).toString()) as ExhibitDecision[];
   assert.deepEqual(trace.map(({samples,...d})=>d),r.decisions);
   const controller=new ExhibitController(circuit,r.id,r.startedAt,r.intervention);let samples=0,previous:ExhibitDecision|undefined;

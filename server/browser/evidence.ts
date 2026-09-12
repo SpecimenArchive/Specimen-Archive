@@ -20,7 +20,7 @@ export interface BrowserRecord {
   artifacts:{path:string;sha256:string;bytes:number}[];
   replay?:{exact:boolean;decisions:number;states:number;events:number};
 }
-export function artifactManifest(directory:string){return readdirSync(directory).filter(f=>/\.(png|gz|webm)$/.test(f)).sort().map(path=>{const bytes=readFileSync(join(directory,path));return {path,sha256:sha256(bytes),bytes:bytes.length};});}
+export function artifactManifest(directory:string,include:(path:string)=>boolean=()=>true){return readdirSync(directory).filter(f=>/\.(png|gz|webm)$/.test(f)&&include(f)).sort().map(path=>{const bytes=readFileSync(join(directory,path));return {path,sha256:sha256(bytes),bytes:bytes.length};});}
 export async function replayBrowser(directory:string,circuit:Circuit){
   const record=JSON.parse(readFileSync(join(directory,'record.json'),'utf8')) as BrowserRecord;
   if(record.configSha256!==sha256(JSON.stringify(C)))throw new Error('Controller configuration mismatch');

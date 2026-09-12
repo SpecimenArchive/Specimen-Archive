@@ -11,4 +11,6 @@ test('repetitive waits collapse without losing the latest inspectable decision; 
  const j=new ObservationJournal('session');for(let i=0;i<3;i++)j.event('run',{source:'neural',kind:'wait',status:'completed',page:'Dashboard',summary:'wait',reason:'motor gate closed',decision:i});
  const rows=collapseWaits(j.runEvents('run'));assert.equal(rows.length,1);assert.equal(rows[0].count,3);assert.equal(rows[0].event.decision,2);
  assert.equal(observationHealth('live',undefined,20000,'integrating'),'connecting');assert.equal(observationHealth('live',new Date(0).toISOString(),20000,'integrating'),'stale');assert.equal(observationHealth('disconnected',new Date(20000).toISOString(),20001,'integrating'),'disconnected');
+ for(const state of ['idle','complete'])assert.equal(observationHealth('live',new Date(20000).toISOString(),20001,state),'idle');
+ assert.equal(observationHealth('live',new Date(20000).toISOString(),20001,'recovering'),'error');
 });
