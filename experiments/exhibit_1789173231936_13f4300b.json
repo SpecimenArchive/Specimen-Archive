@@ -1,0 +1,643 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789173231936_13f4300b",
+  "sessionId": "session_1789172938412_694e92c0",
+  "origin": {
+    "runId": "exhibit_1789173231936_13f4300b",
+    "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "startedAt": "2026-09-12T00:33:51.936Z",
+  "completedAt": "2026-09-12T00:34:28.108Z",
+  "seed": 307,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 3000,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Observation contrast profile: 48 paced windows in the unchanged rate circuit. Pixel texture in two documented bands drives PRCs; the existing motor decoder selects wheel direction. Approved tab preparation/focus and native pinning are orchestration. Main dashboard receives 38/48 windows. No DOM target or scroll offset reaches the controller.",
+    "events": []
+  },
+  "decisions": [
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "dashboard",
+        "label": "Observation dashboard",
+        "url": "http://127.0.0.1:4317/?display=workstation"
+      },
+      "context": {
+        "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 5,
+        "seed": 307,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "commandId": "exhibit_1789173231936_13f4300b:c000",
+      "decision": 0,
+      "imageBefore": "frame-0000.png",
+      "imageAfter": "frame-0001.png",
+      "imageSha256": "f8719a095ee82250796d95422a7b598b52ff3786b22d9ebd037fabe015ed766b",
+      "afterSha256": "331e3ac8fe92960765d5d66a3f5d2ab6f91fa9bfc1011b82bacf8e52d64a716b",
+      "capturedAt": "2026-09-12T00:34:14.598Z",
+      "completedAt": "2026-09-12T00:34:18.705Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 404,
+        "cursorPixels": 0,
+        "targetCentroid": {
+          "x": 637.4727722772277,
+          "y": 342.05445544554453
+        },
+        "cursorCentroid": null,
+        "horizontalErrorPx": null,
+        "encoding": "upper-texture",
+        "left": 0.5986529879344397,
+        "right": 0.15,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 32.543613251322114,
+            "contrast": 23.131895144098117,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 37.27873319395434,
+            "contrast": 19.938791697608096,
+            "samples": 64560
+          },
+          "strength": 0.8973059758688794
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5583351535272485
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5550211898469145
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5555364103567939
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5548002896900747
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5585904725490609
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5562750730327997
+          }
+        ],
+        "mean": 0.556426431500482,
+        "contrast": -0.00022090015683984277
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": -48,
+        "motorMean": 0.556426431500482,
+        "motorContrast": -0.00022090015683984277,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "desktopBefore": {
+        "path": "desktop-000.png",
+        "pageFrame": "frame-0000.png",
+        "pageCapturedAt": "2026-09-12T00:34:14.598Z",
+        "capturedAt": "2026-09-12T00:34:14.654Z",
+        "completedAt": "2026-09-12T00:34:14.829Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "508373be4f162a02bb1b002cd59659e31b0327d777d54f88fdd5790e7dc99902",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 104.3101,
+        "roundTripMs": 127.6,
+        "pageLagMs": 56,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:34:14.646Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 11.65,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-001.png",
+        "pageFrame": "frame-0001.png",
+        "pageCapturedAt": "2026-09-12T00:34:18.705Z",
+        "capturedAt": "2026-09-12T00:34:18.768Z",
+        "completedAt": "2026-09-12T00:34:19.025Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "ad85756bf036d4e94269b9e675453dce1be2b566aa009c0340a7cda2bf336147",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 129.04940000000002,
+        "roundTripMs": 193.18,
+        "pageLagMs": 63,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:34:18.751Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 32.07,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T00:34:17.941Z",
+        "completedAt": "2026-09-12T00:34:18.216Z",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0,
+          "y": 0
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T00:34:18.061Z",
+            "pageTimeMs": 13828.700000000186,
+            "url": "/",
+            "x": 640,
+            "y": 332,
+            "deltaY": -48,
+            "trusted": true,
+            "commandId": "exhibit_1789173231936_13f4300b:c000"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 0
+        }
+      }
+    }
+  ],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "a6f7149ef1fd520bc31275e7695fffc8adb871405a4a5afb001f4112148548d3",
+      "bytes": 1452535
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "a75a93033325f9495958069b841fe84a923aded2a81c56260c7190e5fb176905",
+      "bytes": 28757
+    },
+    {
+      "path": "desktop-000.png",
+      "sha256": "508373be4f162a02bb1b002cd59659e31b0327d777d54f88fdd5790e7dc99902",
+      "bytes": 103729
+    },
+    {
+      "path": "desktop-001.png",
+      "sha256": "ad85756bf036d4e94269b9e675453dce1be2b566aa009c0340a7cda2bf336147",
+      "bytes": 108086
+    },
+    {
+      "path": "desktop-002.png",
+      "sha256": "433454e10a6e09e91b0ee61049957e81d896a208284b16b60a982b2071b98dbb",
+      "bytes": 110043
+    },
+    {
+      "path": "frame-0000.png",
+      "sha256": "f8719a095ee82250796d95422a7b598b52ff3786b22d9ebd037fabe015ed766b",
+      "bytes": 95534
+    },
+    {
+      "path": "frame-0001.png",
+      "sha256": "331e3ac8fe92960765d5d66a3f5d2ab6f91fa9bfc1011b82bacf8e52d64a716b",
+      "bytes": 99333
+    },
+    {
+      "path": "frame-0002.png",
+      "sha256": "4eb7a40a7fa95c44c1693c5fb99f3bc395d64ccf3798af30296ab6a1d9bdb9bd",
+      "bytes": 99366
+    },
+    {
+      "path": "reference.webm",
+      "sha256": "8b26f53390fa2d6aaef0bf111134da6bff44b5afbbbc03fe82b7cbdbbfcda213",
+      "bytes": 795047
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "d865017c7dc6dfe5016b831310c3929d8281fb0b030e8ce785bc2f228103bae6",
+      "bytes": 28761
+    },
+    {
+      "path": "worksheet.webm",
+      "sha256": "164af49376dd4f5d00f5b87728060013e69dbf59a8b721cb39a4af7c7ebbb62b",
+      "bytes": 524087
+    }
+  ],
+  "observationConfig": {
+    "retina": {
+      "version": "observation-contrast-v2",
+      "x": [
+        0.08,
+        0.92
+      ],
+      "upper": [
+        0.12,
+        0.46
+      ],
+      "lower": [
+        0.54,
+        0.9
+      ],
+      "contrastScale": 48,
+      "minimumContrast": 3,
+      "directionMinimum": 0.5
+    },
+    "schedule": [
+      {
+        "decision": 0,
+        "page": "dashboard"
+      },
+      {
+        "decision": 16,
+        "page": "reference"
+      },
+      {
+        "decision": 21,
+        "page": "dashboard"
+      },
+      {
+        "decision": 36,
+        "page": "worksheet"
+      },
+      {
+        "decision": 41,
+        "page": "dashboard"
+      }
+    ]
+  },
+  "error": "The operation was aborted",
+  "stages": {
+    "execution": "failed",
+    "recording": "saved"
+  },
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "pin",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Verified the native Chrome dashboard tab is pinned.",
+      "completedAt": "2026-09-12T00:34:08.673Z",
+      "id": "exhibit_1789173231936_13f4300b:e54",
+      "createdAt": "2026-09-12T00:34:08.673Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Published connectome; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:34:13.225Z",
+      "id": "exhibit_1789173231936_13f4300b:e55",
+      "createdAt": "2026-09-12T00:34:13.226Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Methods & worksheet; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:34:13.568Z",
+      "id": "exhibit_1789173231936_13f4300b:e56",
+      "createdAt": "2026-09-12T00:34:13.568Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b"
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "blocked",
+      "page": "Observation dashboard",
+      "summary": "Accepted -48 px wheel command.",
+      "reason": "The page is at its scroll boundary.",
+      "commandId": "exhibit_1789173231936_13f4300b:c000",
+      "decision": 0,
+      "modelStep": 600,
+      "inputFrame": "exhibit_1789173231936_13f4300b/frame-0000.png",
+      "parameters": {
+        "wheelY": -48
+      },
+      "id": "exhibit_1789173231936_13f4300b:e57",
+      "createdAt": "2026-09-12T00:34:17.941Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "startedAt": "2026-09-12T00:34:17.941Z",
+      "completedAt": "2026-09-12T00:34:18.216Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 0,
+        "scrollAfter": 0
+      }
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Observation dashboard",
+      "summary": "The operation was aborted",
+      "id": "exhibit_1789173231936_13f4300b:e58",
+      "createdAt": "2026-09-12T00:34:22.201Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Published connectome",
+      "summary": "After 16 completed decisions, visit Published connectome.",
+      "parameters": {
+        "destination": "reference"
+      },
+      "decision": 16,
+      "id": "exhibit_1789173231936_13f4300b:e50",
+      "createdAt": "2026-09-12T00:33:51.945Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "completedAt": "2026-09-12T00:34:22.201Z",
+      "reason": "The operation was aborted"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 21 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 21,
+      "id": "exhibit_1789173231936_13f4300b:e51",
+      "createdAt": "2026-09-12T00:33:51.945Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "completedAt": "2026-09-12T00:34:22.201Z",
+      "reason": "The operation was aborted"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Methods & worksheet",
+      "summary": "After 36 completed decisions, visit Methods & worksheet.",
+      "parameters": {
+        "destination": "worksheet"
+      },
+      "decision": 36,
+      "id": "exhibit_1789173231936_13f4300b:e52",
+      "createdAt": "2026-09-12T00:33:51.945Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "completedAt": "2026-09-12T00:34:22.201Z",
+      "reason": "The operation was aborted"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 41 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 41,
+      "id": "exhibit_1789173231936_13f4300b:e53",
+      "createdAt": "2026-09-12T00:33:51.945Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789173231936_13f4300b",
+      "completedAt": "2026-09-12T00:34:22.201Z",
+      "reason": "The operation was aborted"
+    }
+  ]
+}
