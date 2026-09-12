@@ -73,6 +73,9 @@ public static class SpecimenDesktop {
       if(foreground!=0&&foreground!=current)joinedForeground=AttachThreadInput(current,foreground,true);
       if(target!=current&&target!=foreground)joinedTarget=AttachThreadInput(current,target,true);
       ShowWindow(h,3);BringWindowToTop(h);SetForegroundWindow(h);
+      // Native tab setup leaves the OS pointer over Chrome's tab strip. Its
+      // hover card can cover later captures even after CDP mouse movement.
+      if(GetForegroundWindow()==h)SetCursorPos(Width/2,Height/2);
     }finally{
       if(joinedTarget)AttachThreadInput(current,target,false);
       if(joinedForeground)AttachThreadInput(current,foreground,false);

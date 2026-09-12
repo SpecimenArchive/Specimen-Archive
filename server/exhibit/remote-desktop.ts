@@ -79,7 +79,11 @@ export class RemoteDesktopSession {
     // session restores its own metrics and silently changes on-screen scale.
     // Only viewport/scroll geometry is read; no DOM target is consulted.
     const {cssVisualViewport}=await cdp.send('Page.getLayoutMetrics');
-    const shot=await cdp.send('Page.captureScreenshot',{format:'png',clip:{x:cssVisualViewport.pageX,y:cssVisualViewport.pageY,...size,scale:1},captureBeyondViewport:true});
+    // The observation profile uses the actual 1:1 visible Chrome view, including
+    // its scrollbar allocation. Scaled legacy/calibration input stays unscaled.
+    const shot=await cdp.send('Page.captureScreenshot',this.presentation?.scale===1
+      ?{format:'png',fromSurface:false,captureBeyondViewport:false}
+      :{format:'png',clip:{x:cssVisualViewport.pageX,y:cssVisualViewport.pageY,...size,scale:1},captureBeyondViewport:true});
     const bytes=Buffer.from(shot.data,'base64'),png=PNG.sync.read(bytes);assert.equal(png.width,size.width);assert.equal(png.height,size.height);return bytes;
   }
   async capture(directory:string,index:number,pageFrame:string,pageCapturedAt:string,cursor:{x:number;y:number}):Promise<DesktopCapture>{
