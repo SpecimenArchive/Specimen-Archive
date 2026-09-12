@@ -1,0 +1,61 @@
+{
+    "boot":  "2026-09-11T22:45:55.9057830Z",
+    "recorderPrivateKeyReadDenied":  true,
+    "rdp":  [
+                {
+                    "name":  "RemoteDesktop-UserMode-In-TCP",
+                    "unrestricted":  false
+                },
+                {
+                    "name":  "RemoteDesktop-UserMode-In-UDP",
+                    "unrestricted":  false
+                }
+            ],
+    "build":  "26200",
+    "at":  "2026-09-12T15:55:55.2237528+00:00",
+    "os":  "Microsoft Windows 11 Enterprise Evaluation",
+    "tunnel":  {
+                   "ready":  200,
+                   "tokenFileArgument":  true,
+                   "startMode":  "Auto",
+                   "identity":  "LocalSystem",
+                   "state":  "Running"
+               },
+    "ssh":  [
+                {
+                    "name":  "{35F7ACE9-439D-424C-BD3B-6D2CEEB2F925}",
+                    "unrestricted":  false
+                },
+                {
+                    "name":  "OpenSSH-Server-In-TCP",
+                    "unrestricted":  false
+                },
+                {
+                    "name":  "SpecimenArchive-SSH-Operator",
+                    "unrestricted":  false
+                }
+            ],
+    "tasks":  [
+                  {
+                      "runLevel":  "Limited",
+                      "restartInterval":  "PT1M",
+                      "name":  "SpecimenArchive-Worker",
+                      "restartCount":  999,
+                      "state":  "Running"
+                  },
+                  {
+                      "runLevel":  "Limited",
+                      "restartInterval":  "PT1M",
+                      "name":  "SpecimenArchive-Backend",
+                      "restartCount":  999,
+                      "state":  "Running"
+                  },
+                  {
+                      "runLevel":  "Highest",
+                      "restartInterval":  "PT1M",
+                      "name":  "SpecimenArchive-Publisher",
+                      "restartCount":  999,
+                      "state":  "Running"
+                  }
+              ]
+}

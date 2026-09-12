@@ -1,0 +1,90 @@
+{
+  "at": "2026-09-12T15:53:58.293Z",
+  "headers": {
+    "status": 200,
+    "hsts": "max-age=31536000",
+    "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'none'"
+  },
+  "redirects": [
+    {
+      "url": "http://specimenarchive.com/",
+      "status": 308,
+      "location": "https://specimenarchive.com/"
+    },
+    {
+      "url": "https://www.specimenarchive.com/",
+      "status": 308,
+      "location": "https://specimenarchive.com/"
+    }
+  ],
+  "mutations": 405,
+  "input": {
+    "width": 1280,
+    "height": 665
+  },
+  "archiveInspection": {
+    "visibleRows": 6,
+    "decisions": 34
+  },
+  "archiveRequests": {
+    "closedInitial": 0,
+    "afterOpen": 1,
+    "afterClosedInterval": 1
+  },
+  "offlineFreeze": true,
+  "reconnected": true,
+  "review": {
+    "url": "https://specimenarchive.com/docs/previews/external-review.html",
+    "status": 200,
+    "videos": [
+      {
+        "name": "integrated",
+        "path": "/api/exhibit/external-preview",
+        "bytes": 4576164,
+        "sha256": "256839c7cb8ff5fd8213fdec779fa3bba54fd00b15389a83dcefb0e825c72111",
+        "rangeStatus": 206,
+        "metadata": {
+          "duration": 45.84,
+          "width": 1920,
+          "height": 1080
+        },
+        "playback": true,
+        "seek": true
+      },
+      {
+        "name": "native",
+        "path": "/api/exhibit/external-desktop",
+        "bytes": 4425139,
+        "sha256": "3190e192cc130467a146d74e0fd7a99679780b1a8bbea3dcdc4cb0746d235cb4",
+        "rangeStatus": 206,
+        "metadata": {
+          "duration": 199.881,
+          "width": 1280,
+          "height": 800
+        },
+        "playback": true,
+        "seek": true
+      }
+    ]
+  },
+  "health": {
+    "ok": true,
+    "runId": "exhibit_1789228340477_0de9d460",
+    "sessionId": "session_1789228340088_f8f27dfb",
+    "seq": 18220,
+    "modelTime": 182.20000000000002,
+    "clients": 1,
+    "droppedFrames": 0,
+    "timeScale": 2,
+    "mode": "exhibit",
+    "exhibit": {
+      "episodes": 0,
+      "failures": 0,
+      "rssMB": 388,
+      "windowWallMs": 1200,
+      "modelSecondsPerWindow": 6
+    },
+    "recorderError": null
+  },
+  "errors": []
+}
