@@ -121,6 +121,9 @@
 .showcase .memory-story,.showcase .trace-story{background:#f8f4e9;border:1px solid #c1c7b3;border-top:3px solid #6f815d;padding:28px;margin-bottom:28px}
 .showcase .memory-story h2{font-size:28px}
 .showcase .memory-story-intro{gap:30px}
+.showcase .memory-story>.story-columns{align-items:start}
+.showcase .memory-story>.story-columns>div{max-height:590px;overflow:auto;scrollbar-width:thin;scrollbar-color:#a3b08e transparent;padding-right:8px}
+.showcase .memory-story>.story-columns h3{position:sticky;top:0;background:#f8f4e9;padding:8px 0;z-index:1}
 .showcase .evidence-row{font-size:14px;color:#526347;border-color:#c9cfbb}
 .showcase .recall-card{border-left:2px solid #9aaa84;border-bottom:1px solid #cbd0bf;background:none;padding:14px 0 15px 18px}
 .showcase .recall-card p{font-size:16px;margin-bottom:9px}
@@ -193,7 +196,7 @@
 .showcase .comparison-chart>div>div{background:#c4ceb4}
 .showcase .comparison-chart span{background:#758e5f}
 .showcase .comparison-chart p{font-size:14px}
-.showcase .detail-sheet{background:#f3f0e4;color:#34402e;border:1px solid #9da98d}
+.showcase .detail-sheet{--paper:#283326;--muted:#626b60;--accent:#3b624c;--line:#c8cbbd;--panel:#f6f2e8;background:#f3f0e4;color:#34402e;border:1px solid #9da98d}
 .showcase .detail-sheet p{font-size:16px}
 .showcase .detail-sheet h2{font-size:28px}
 .showcase .detail-sheet a{color:#405f35}
