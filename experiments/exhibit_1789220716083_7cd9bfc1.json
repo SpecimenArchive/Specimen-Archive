@@ -1,0 +1,2519 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789220716083_7cd9bfc1",
+  "sessionId": "session_1789220365646_4b8e4609",
+  "origin": {
+    "runId": "exhibit_1789220716083_7cd9bfc1",
+    "sourceRevision": "b31fa1194ddf537dca8edbc2483737296747dcff",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "externalConfig": {
+    "version": "external-exploration-v1",
+    "initial": "https://www.ponsfamily.com/launchpad",
+    "maximumUnchanged": 3,
+    "maximumEncounterDecisions": 8,
+    "researchAfterCoins": 4,
+    "displayIntervalMs": 250,
+    "windowWallMs": 1200,
+    "inputMaximumAgeMs": 6000,
+    "decisionWindows": 48
+  },
+  "initialCheckpoint": {
+    "ticks": 30600,
+    "pose": {
+      "x": -121.8429246497285,
+      "y": 177.6713951826673,
+      "heading": -3.2200907330980306,
+      "roll": 177.9404407051027,
+      "bend": -0.009328451350925021,
+      "ciliaPhase": 23908.26190669613,
+      "distance": 10550.944505489224
+    },
+    "activity": [
+      0.5812015565098525,
+      0.20696649972945275,
+      0.5827916880611332,
+      0.4154021667986857,
+      0.5471191657920293,
+      0.5853496434585559,
+      0.20696649972945275,
+      0.7211322540766993,
+      0.581182134125555,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.5608643465322263,
+      0.4284432036865856,
+      0.4258354837802968,
+      0.5311635769900842,
+      0.5774814224292129,
+      0.5782099016455904,
+      0.5609665154137708,
+      0.39547706801034477,
+      0.5746595095006921,
+      0.5227675650592374,
+      0.5644637696132697,
+      0.5823910429275059,
+      0.3736432635195658,
+      0.5289241103794644,
+      0.46240279934166784,
+      0.5503739032442652,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.5626864330066408,
+      0.7211322540766993,
+      0.5824345431136113,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.5797233302499851,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.5776051715900499,
+      0.20696649972945275
+    ],
+    "events": [
+      {
+        "id": "e24",
+        "t": 66,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e25",
+        "t": 66,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.575"
+      },
+      {
+        "id": "e26",
+        "t": 72,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e27",
+        "t": 72,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e28",
+        "t": 78,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e29",
+        "t": 78,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e30",
+        "t": 84,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e31",
+        "t": 84,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e32",
+        "t": 90,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e33",
+        "t": 90,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e34",
+        "t": 96,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e35",
+        "t": 96,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e36",
+        "t": 102,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e37",
+        "t": 102,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e38",
+        "t": 108,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e39",
+        "t": 108,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e40",
+        "t": 114,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e41",
+        "t": 114,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e42",
+        "t": 120,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43",
+        "t": 120,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.576 / R 0.570"
+      },
+      {
+        "id": "e44",
+        "t": 126,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e45",
+        "t": 126,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e46",
+        "t": 132,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e47",
+        "t": 132,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e48",
+        "t": 138,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e49",
+        "t": 138,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e50",
+        "t": 144,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e51",
+        "t": 144,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e52",
+        "t": 150,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e53",
+        "t": 150,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e54",
+        "t": 156,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e55",
+        "t": 156,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e56",
+        "t": 162,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e57",
+        "t": 162,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e58",
+        "t": 168,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e59",
+        "t": 168,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e60",
+        "t": 174,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e61",
+        "t": 174,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e62",
+        "t": 180,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e63",
+        "t": 180,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e64",
+        "t": 186,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e65",
+        "t": 186,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e66",
+        "t": 192,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e67",
+        "t": 192,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e68",
+        "t": 198,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e69",
+        "t": 198,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e70",
+        "t": 204,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e71",
+        "t": 204,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e72",
+        "t": 210,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e73",
+        "t": 210,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e74",
+        "t": 216,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e75",
+        "t": 216,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e76",
+        "t": 222,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e77",
+        "t": 222,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e78",
+        "t": 228,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e79",
+        "t": 228,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e80",
+        "t": 234,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e81",
+        "t": 234,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e82",
+        "t": 240,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e83",
+        "t": 240,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e84",
+        "t": 246,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e85",
+        "t": 246,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e86",
+        "t": 252,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e87",
+        "t": 252,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e88",
+        "t": 258,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e89",
+        "t": 258,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e90",
+        "t": 264,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e91",
+        "t": 264,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e92",
+        "t": 270,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e93",
+        "t": 270,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e94",
+        "t": 276,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e95",
+        "t": 276,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e96",
+        "t": 282,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e97",
+        "t": 282,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e98",
+        "t": 288,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e99",
+        "t": 288,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e100",
+        "t": 294,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e101",
+        "t": 294,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e102",
+        "t": 300,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e103",
+        "t": 300,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      }
+    ],
+    "eventCounter": 103,
+    "epoch": 30,
+    "responded": true,
+    "moving": false,
+    "condition": {
+      "key": "pixels",
+      "label": "scroll: lower-texture",
+      "intensity": 0.4,
+      "angle": 0,
+      "epoch": 30
+    },
+    "lastSensory": {
+      "left": 0.15,
+      "right": 0.65
+    }
+  },
+  "startedAt": "2026-09-12T13:45:16.083Z",
+  "completedAt": "2026-09-12T13:45:51.995Z",
+  "seed": 307,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 1200,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Persistent external browser. Visible pixel contrast drives the unchanged rate circuit and wheel decoder. Environment supervisor selects approved pages from discovered links and visit coverage; navigation and fixed cursor placement are orchestration. DOM observations only guard/verify input and supply page metadata, never motor direction. Recording/replay run in a separate finalizer process.",
+    "events": []
+  },
+  "decisions": [
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "https://www.ponsfamily.com/launchpad",
+        "label": "Explore · pons",
+        "url": "https://www.ponsfamily.com/launchpad"
+      },
+      "receipt": {
+        "proposedAt": "2026-09-12T13:45:35.630Z",
+        "status": "moved",
+        "scrollBefore": 0,
+        "scrollAfter": 48,
+        "urlBefore": "https://www.ponsfamily.com/launchpad",
+        "urlAfter": "https://www.ponsfamily.com/launchpad",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "viewport": {
+          "x": 0,
+          "y": 87,
+          "scale": 1
+        },
+        "trustedEvents": 1,
+        "reason": "Observed 48 px down in the html scroll container",
+        "acceptedAt": "2026-09-12T13:45:35.639Z",
+        "dispatchedAt": "2026-09-12T13:45:35.639Z",
+        "acknowledgedAt": "2026-09-12T13:45:35.983Z",
+        "observedAt": "2026-09-12T13:45:37.008Z"
+      },
+      "context": {
+        "sourceRevision": "b31fa1194ddf537dca8edbc2483737296747dcff",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 2,
+        "seed": 307,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c000",
+      "decision": 0,
+      "imageBefore": "frame-0000.png",
+      "imageAfter": "frame-0001.png",
+      "imageSha256": "b0081d8b3541cd5225c155b60aa2e30861bd4e168be6e8681b9368101bb61df6",
+      "afterSha256": "3af70a141a73256ed64f6c81ba088c83ad3499cdfe10f28e2cbeca852db88af8",
+      "capturedAt": "2026-09-12T13:45:33.571Z",
+      "completedAt": "2026-09-12T13:45:37.008Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 494,
+        "cursorPixels": 260,
+        "targetCentroid": {
+          "x": 900.8785425101214,
+          "y": 411.3744939271255
+        },
+        "cursorCentroid": {
+          "x": 418.7230769230769,
+          "y": 437.2923076923077
+        },
+        "horizontalErrorPx": 482.1554655870445,
+        "encoding": "lower-texture",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 246.04808363981343,
+            "contrast": 16.701782285879187,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 203.4477107032277,
+            "contrast": 68.90050577553174,
+            "samples": 64560
+          },
+          "strength": 1
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565098525
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637696132697
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429275059
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431136113
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233302499851
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715900499
+          }
+        ],
+        "mean": 0.5779699023340458,
+        "contrast": 0.017970773500341597
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5779699023340458,
+        "motorContrast": 0.017970773500341597,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 30600,
+      "modelEndStep": 31200,
+      "desktopBefore": {
+        "path": "desktop-000.png",
+        "pageFrame": "frame-0000.png",
+        "pageCapturedAt": "2026-09-12T13:45:33.571Z",
+        "capturedAt": "2026-09-12T13:45:33.745Z",
+        "completedAt": "2026-09-12T13:45:34.109Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "48c7796d1673bb7b517579514500c0da9fad0b5dc89683183fcddac0b21300ac",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 191.31730000000002,
+        "roundTripMs": 367.9,
+        "pageLagMs": 174,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:33.715Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 88.29,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-001.png",
+        "pageFrame": "frame-0001.png",
+        "pageCapturedAt": "2026-09-12T13:45:37.008Z",
+        "capturedAt": "2026-09-12T13:45:37.197Z",
+        "completedAt": "2026-09-12T13:45:37.727Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "1a0c82698388b7ea833eadbe90b18aed42bbc3a60072e93b3bd7d705d635c4df",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 239.1927,
+        "roundTripMs": 544.67,
+        "pageLagMs": 189,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:37.193Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 152.74,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T13:45:35.639Z",
+        "completedAt": "2026-09-12T13:45:37.008Z",
+        "from": {
+          "x": 512,
+          "y": 465
+        },
+        "to": {
+          "x": 512,
+          "y": 465
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T13:45:35.859Z",
+            "pageTimeMs": 8400.5,
+            "url": "https://www.ponsfamily.com/launchpad",
+            "x": 512,
+            "y": 465,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789220716083_7cd9bfc1:c000"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 48
+        }
+      }
+    },
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "https://www.ponsfamily.com/launchpad",
+        "label": "Explore · pons",
+        "url": "https://www.ponsfamily.com/launchpad"
+      },
+      "receipt": {
+        "proposedAt": "2026-09-12T13:45:41.859Z",
+        "status": "moved",
+        "scrollBefore": 48,
+        "scrollAfter": 96,
+        "urlBefore": "https://www.ponsfamily.com/launchpad",
+        "urlAfter": "https://www.ponsfamily.com/launchpad",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "viewport": {
+          "x": 0,
+          "y": 87,
+          "scale": 1
+        },
+        "trustedEvents": 1,
+        "reason": "Observed 48 px down in the html scroll container",
+        "acceptedAt": "2026-09-12T13:45:41.995Z",
+        "dispatchedAt": "2026-09-12T13:45:41.995Z",
+        "acknowledgedAt": "2026-09-12T13:45:42.346Z",
+        "observedAt": "2026-09-12T13:45:43.310Z"
+      },
+      "context": {
+        "sourceRevision": "b31fa1194ddf537dca8edbc2483737296747dcff",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 2,
+        "seed": 307,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c001",
+      "decision": 1,
+      "imageBefore": "frame-0002.png",
+      "imageAfter": "frame-0003.png",
+      "imageSha256": "ba3ab44e79f6b955a5633bdd40f22e0f145870728ab295fb2f7d0e57d5cdb07b",
+      "afterSha256": "eee0926d633231fca9debd1423b062f36a44c982395b309edd412a3e0b82a473",
+      "capturedAt": "2026-09-12T13:45:39.037Z",
+      "completedAt": "2026-09-12T13:45:43.310Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 494,
+        "cursorPixels": 260,
+        "targetCentroid": {
+          "x": 900.8785425101214,
+          "y": 363.88461538461536
+        },
+        "cursorCentroid": {
+          "x": 418.7230769230769,
+          "y": 389.2923076923077
+        },
+        "horizontalErrorPx": 482.1554655870445,
+        "encoding": "lower-texture",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 243.51363924398467,
+            "contrast": 24.432777322609088,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 207.26275946096393,
+            "contrast": 68.70477933177729,
+            "samples": 64560
+          },
+          "strength": 1
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565098525
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637696132697
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429275059
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431136113
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233302499851
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715900499
+          }
+        ],
+        "mean": 0.5779699023340458,
+        "contrast": 0.017970773500341597
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5779699023340458,
+        "motorContrast": 0.017970773500341597,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 31200,
+      "modelEndStep": 31800,
+      "desktopBefore": {
+        "path": "desktop-002.png",
+        "pageFrame": "frame-0002.png",
+        "pageCapturedAt": "2026-09-12T13:45:39.037Z",
+        "capturedAt": "2026-09-12T13:45:39.604Z",
+        "completedAt": "2026-09-12T13:45:40.399Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "d7da4c12d3dd3d8d6853138cb46e1559630f1eb0590a1e9d61e5b5db75e627a7",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 316.49530000000004,
+        "roundTripMs": 1051.84,
+        "pageLagMs": 567,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:39.533Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 367.67,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-003.png",
+        "pageFrame": "frame-0003.png",
+        "pageCapturedAt": "2026-09-12T13:45:43.310Z",
+        "capturedAt": "2026-09-12T13:45:43.447Z",
+        "completedAt": "2026-09-12T13:45:43.836Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "66a915c1dbb445f1aa42f6af91de5e425f1be0c558d90b8d1bf45391be9e3dab",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 190.77020000000002,
+        "roundTripMs": 363.54,
+        "pageLagMs": 137,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:43.366Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 86.39,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T13:45:41.995Z",
+        "completedAt": "2026-09-12T13:45:43.310Z",
+        "from": {
+          "x": 512,
+          "y": 465
+        },
+        "to": {
+          "x": 512,
+          "y": 465
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T13:45:42.207Z",
+            "pageTimeMs": 14748.69999999553,
+            "url": "https://www.ponsfamily.com/launchpad",
+            "x": 512,
+            "y": 465,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789220716083_7cd9bfc1:c001"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 48,
+          "scrollAfter": 96
+        }
+      }
+    },
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "https://www.ponsfamily.com/launchpad",
+        "label": "Explore · pons",
+        "url": "https://www.ponsfamily.com/launchpad"
+      },
+      "receipt": {
+        "proposedAt": "2026-09-12T13:45:47.029Z",
+        "status": "moved",
+        "scrollBefore": 96,
+        "scrollAfter": 144,
+        "urlBefore": "https://www.ponsfamily.com/launchpad",
+        "urlAfter": "https://www.ponsfamily.com/launchpad",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "viewport": {
+          "x": 0,
+          "y": 87,
+          "scale": 1
+        },
+        "trustedEvents": 1,
+        "reason": "Observed 48 px down in the html scroll container",
+        "acceptedAt": "2026-09-12T13:45:47.054Z",
+        "dispatchedAt": "2026-09-12T13:45:47.054Z",
+        "acknowledgedAt": "2026-09-12T13:45:47.333Z",
+        "observedAt": "2026-09-12T13:45:49.719Z"
+      },
+      "context": {
+        "sourceRevision": "b31fa1194ddf537dca8edbc2483737296747dcff",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 2,
+        "seed": 307,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c002",
+      "decision": 2,
+      "imageBefore": "frame-0004.png",
+      "imageAfter": "frame-0005.png",
+      "imageSha256": "eee0926d633231fca9debd1423b062f36a44c982395b309edd412a3e0b82a473",
+      "afterSha256": "16d49ec6b6b5583702690048d1924e63e02faf916aa10e2ef5c4eb54f2553973",
+      "capturedAt": "2026-09-12T13:45:45.188Z",
+      "completedAt": "2026-09-12T13:45:49.719Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 494,
+        "cursorPixels": 260,
+        "targetCentroid": {
+          "x": 900.8785425101214,
+          "y": 318.60526315789474
+        },
+        "cursorCentroid": {
+          "x": 418.7230769230769,
+          "y": 341.2923076923077
+        },
+        "horizontalErrorPx": 482.1554655870445,
+        "encoding": "lower-texture",
+        "left": 0.15,
+        "right": 0.65,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 232.32199164061043,
+            "contrast": 44.45690201475056,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 201.17263844484404,
+            "contrast": 78.037891960583,
+            "samples": 64560
+          },
+          "strength": 1
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5812015565098525
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5644637696132697
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5823910429275059
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5824345431136113
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5797233302499851
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5776051715900499
+          }
+        ],
+        "mean": 0.5779699023340458,
+        "contrast": 0.017970773500341597
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5779699023340458,
+        "motorContrast": 0.017970773500341597,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 31800,
+      "modelEndStep": 32400,
+      "desktopBefore": {
+        "path": "desktop-004.png",
+        "pageFrame": "frame-0004.png",
+        "pageCapturedAt": "2026-09-12T13:45:45.188Z",
+        "capturedAt": "2026-09-12T13:45:45.311Z",
+        "completedAt": "2026-09-12T13:45:45.648Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "66a915c1dbb445f1aa42f6af91de5e425f1be0c558d90b8d1bf45391be9e3dab",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 166.07240000000002,
+        "roundTripMs": 354.84,
+        "pageLagMs": 123,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:45.307Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 94.39,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-005.png",
+        "pageFrame": "frame-0005.png",
+        "pageCapturedAt": "2026-09-12T13:45:49.719Z",
+        "capturedAt": "2026-09-12T13:45:49.957Z",
+        "completedAt": "2026-09-12T13:45:50.418Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "8ef0deb58a8ed7fe732d0bf8bcb609c22305c9881503603a139d803e4e23308f",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 225.22420000000002,
+        "roundTripMs": 474.27,
+        "pageLagMs": 238,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T13:45:49.967Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 124.52,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "95b93fb3-5974-4287-a409-fd45aec19799",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T13:45:47.054Z",
+        "completedAt": "2026-09-12T13:45:49.719Z",
+        "from": {
+          "x": 512,
+          "y": 465
+        },
+        "to": {
+          "x": 512,
+          "y": 465
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T13:45:47.096Z",
+            "pageTimeMs": 19637.89999999851,
+            "url": "https://www.ponsfamily.com/launchpad",
+            "x": 512,
+            "y": 465,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789220716083_7cd9bfc1:c002"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 96,
+          "scrollAfter": 144
+        }
+      }
+    }
+  ],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "7fe4df3b32638904d337e01c0eb59ebad40e8cfc5a87afee5afe4c6203f467e1",
+      "bytes": 380373
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "b865c2e05bf6bc9584146629406cfcbb8130a3f59737702307639064ee200124",
+      "bytes": 10059
+    },
+    {
+      "path": "decision-1.json.gz",
+      "sha256": "b5f17838735a43c8eef12ec0cd245fb8811e45da4f334a0f6ea7d404ab6072e2",
+      "bytes": 10025
+    },
+    {
+      "path": "decision-2.json.gz",
+      "sha256": "96bcaef5904c12893fd05ab575a02e9b9e455736ce16b1e7710386f9b83c5978",
+      "bytes": 10053
+    },
+    {
+      "path": "desktop-000.png",
+      "sha256": "48c7796d1673bb7b517579514500c0da9fad0b5dc89683183fcddac0b21300ac",
+      "bytes": 559579
+    },
+    {
+      "path": "desktop-001.png",
+      "sha256": "1a0c82698388b7ea833eadbe90b18aed42bbc3a60072e93b3bd7d705d635c4df",
+      "bytes": 604407
+    },
+    {
+      "path": "desktop-002.png",
+      "sha256": "d7da4c12d3dd3d8d6853138cb46e1559630f1eb0590a1e9d61e5b5db75e627a7",
+      "bytes": 604290
+    },
+    {
+      "path": "desktop-003.png",
+      "sha256": "66a915c1dbb445f1aa42f6af91de5e425f1be0c558d90b8d1bf45391be9e3dab",
+      "bytes": 673365
+    },
+    {
+      "path": "desktop-004.png",
+      "sha256": "66a915c1dbb445f1aa42f6af91de5e425f1be0c558d90b8d1bf45391be9e3dab",
+      "bytes": 673365
+    },
+    {
+      "path": "desktop-005.png",
+      "sha256": "8ef0deb58a8ed7fe732d0bf8bcb609c22305c9881503603a139d803e4e23308f",
+      "bytes": 755641
+    },
+    {
+      "path": "frame-0000.png",
+      "sha256": "b0081d8b3541cd5225c155b60aa2e30861bd4e168be6e8681b9368101bb61df6",
+      "bytes": 455617
+    },
+    {
+      "path": "frame-0001.png",
+      "sha256": "3af70a141a73256ed64f6c81ba088c83ad3499cdfe10f28e2cbeca852db88af8",
+      "bytes": 483595
+    },
+    {
+      "path": "frame-0002.png",
+      "sha256": "ba3ab44e79f6b955a5633bdd40f22e0f145870728ab295fb2f7d0e57d5cdb07b",
+      "bytes": 483493
+    },
+    {
+      "path": "frame-0003.png",
+      "sha256": "eee0926d633231fca9debd1423b062f36a44c982395b309edd412a3e0b82a473",
+      "bytes": 537292
+    },
+    {
+      "path": "frame-0004.png",
+      "sha256": "eee0926d633231fca9debd1423b062f36a44c982395b309edd412a3e0b82a473",
+      "bytes": 537292
+    },
+    {
+      "path": "frame-0005.png",
+      "sha256": "16d49ec6b6b5583702690048d1924e63e02faf916aa10e2ef5c4eb54f2553973",
+      "bytes": 592069
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "8d0e4c4f9c5e8dff2059ae851665bf658ce9915e81c82cd465c2c3aaf655b874",
+      "bytes": 28097
+    }
+  ],
+  "stages": {
+    "execution": "failed",
+    "recording": "saved"
+  },
+  "error": "Operator shutdown",
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "navigate",
+      "status": "completed",
+      "page": "Explore · pons",
+      "summary": "Opened Explore · pons. Environment selection is orchestration.",
+      "completedAt": "2026-09-12T13:45:32.535Z",
+      "id": "exhibit_1789220716083_7cd9bfc1:e74",
+      "createdAt": "2026-09-12T13:45:27.434Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1"
+    },
+    {
+      "source": "orchestration",
+      "kind": "pointer",
+      "status": "completed",
+      "page": "Pons Explore",
+      "summary": "Supervisor positioned the input cursor at (512, 465) CSS px. No neural cursor movement is claimed.",
+      "completedAt": "2026-09-12T13:45:32.489Z",
+      "id": "exhibit_1789220716083_7cd9bfc1:e75",
+      "createdAt": "2026-09-12T13:45:32.489Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1"
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "completed",
+      "page": "Explore · pons",
+      "summary": "Observed 48 px down in the html scroll container",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c000",
+      "decision": 0,
+      "modelStep": 31200,
+      "inputFrame": "exhibit_1789220716083_7cd9bfc1/frame-0000.png",
+      "reason": "Observed 48 px down in the html scroll container",
+      "parameters": {
+        "wheelY": 48
+      },
+      "id": "exhibit_1789220716083_7cd9bfc1:e76",
+      "createdAt": "2026-09-12T13:45:35.639Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "completedAt": "2026-09-12T13:45:37.008Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 0,
+        "scrollAfter": 48
+      }
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "completed",
+      "page": "Explore · pons",
+      "summary": "Observed 48 px down in the html scroll container",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c001",
+      "decision": 1,
+      "modelStep": 31800,
+      "inputFrame": "exhibit_1789220716083_7cd9bfc1/frame-0002.png",
+      "reason": "Observed 48 px down in the html scroll container",
+      "parameters": {
+        "wheelY": 48
+      },
+      "id": "exhibit_1789220716083_7cd9bfc1:e77",
+      "createdAt": "2026-09-12T13:45:41.994Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "completedAt": "2026-09-12T13:45:43.310Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 48,
+        "scrollAfter": 96
+      }
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "completed",
+      "page": "Explore · pons",
+      "summary": "Observed 48 px down in the html scroll container",
+      "commandId": "exhibit_1789220716083_7cd9bfc1:c002",
+      "decision": 2,
+      "modelStep": 32400,
+      "inputFrame": "exhibit_1789220716083_7cd9bfc1/frame-0004.png",
+      "reason": "Observed 48 px down in the html scroll container",
+      "parameters": {
+        "wheelY": 48
+      },
+      "id": "exhibit_1789220716083_7cd9bfc1:e78",
+      "createdAt": "2026-09-12T13:45:47.054Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "completedAt": "2026-09-12T13:45:49.719Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 96,
+        "scrollAfter": 144
+      }
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Explore · pons",
+      "summary": "Operator shutdown",
+      "id": "exhibit_1789220716083_7cd9bfc1:e79",
+      "createdAt": "2026-09-12T13:45:50.679Z",
+      "sessionId": "session_1789220365646_4b8e4609",
+      "runId": "exhibit_1789220716083_7cd9bfc1"
+    }
+  ],
+  "displayFrames": [
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000000.jpg",
+      "seq": 0,
+      "capturedAt": "2026-09-12T13:45:32.558Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 80.15390000000001,
+      "roundTripMs": 118.42729999998119,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61bdfbe336593564043d18e62596ad990c023060c47c7cfcc9e2ada1b136931f"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000001.jpg",
+      "seq": 1,
+      "capturedAt": "2026-09-12T13:45:32.796Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 102.00710000000001,
+      "roundTripMs": 122.74699999997392,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "c1b29cedff76b393e1f64599871cd092a524aa955ffdfb637a1d351240e9becf"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000002.jpg",
+      "seq": 2,
+      "capturedAt": "2026-09-12T13:45:33.053Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 119.67760000000001,
+      "roundTripMs": 175.19980000000214,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b0a32ad5e7eabe46e621d2a3134bb2f27b933ba7df716ea7b1f42cf892d59e04"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000003.jpg",
+      "seq": 3,
+      "capturedAt": "2026-09-12T13:45:33.308Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 72.1786,
+      "roundTripMs": 109.74960000003921,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "9c4fab98e3f0c32735014dd2b2802c4c49412a3d077147fdd6fed935bef97acc"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000004.jpg",
+      "seq": 4,
+      "capturedAt": "2026-09-12T13:45:33.594Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 66.081,
+      "roundTripMs": 129.42900000000373,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "2cac98d1114ee1f1837b03618b91c6adde3252fa88695786fb1d2f9ba24d7968"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000005.jpg",
+      "seq": 5,
+      "capturedAt": "2026-09-12T13:45:34.281Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 119.676,
+      "roundTripMs": 836.2228999999934,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "528aa01b4fface6c6da56e34fe9d9e6709f222f01150abacfa0bb207d51e5f25"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000006.jpg",
+      "seq": 6,
+      "capturedAt": "2026-09-12T13:45:34.724Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 100.6281,
+      "roundTripMs": 220.85000000003492,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "4c2c56e5a6c56ac1e3862d9494e72249b56071e132c339dd4c53846627cff681"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000007.jpg",
+      "seq": 7,
+      "capturedAt": "2026-09-12T13:45:34.944Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 89.1453,
+      "roundTripMs": 116.18760000000475,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "4c2c56e5a6c56ac1e3862d9494e72249b56071e132c339dd4c53846627cff681"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000008.jpg",
+      "seq": 8,
+      "capturedAt": "2026-09-12T13:45:35.199Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 95.949,
+      "roundTripMs": 152.38510000001406,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "4c2c56e5a6c56ac1e3862d9494e72249b56071e132c339dd4c53846627cff681"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000009.jpg",
+      "seq": 9,
+      "capturedAt": "2026-09-12T13:45:35.461Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 83.5261,
+      "roundTripMs": 109.38459999999031,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "4c2c56e5a6c56ac1e3862d9494e72249b56071e132c339dd4c53846627cff681"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000010.jpg",
+      "seq": 10,
+      "capturedAt": "2026-09-12T13:45:35.713Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 129.4077,
+      "roundTripMs": 163.21210000000428,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "4c2c56e5a6c56ac1e3862d9494e72249b56071e132c339dd4c53846627cff681"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000011.jpg",
+      "seq": 11,
+      "capturedAt": "2026-09-12T13:45:35.964Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 118.08670000000001,
+      "roundTripMs": 170.22299999999814,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "694b7293e46cb0537f3eb809b834adf66c681ef9ab8466387fb894f95bd3384e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000012.jpg",
+      "seq": 12,
+      "capturedAt": "2026-09-12T13:45:36.225Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 143.0343,
+      "roundTripMs": 180.41599999996834,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "694b7293e46cb0537f3eb809b834adf66c681ef9ab8466387fb894f95bd3384e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000013.jpg",
+      "seq": 13,
+      "capturedAt": "2026-09-12T13:45:36.479Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 107.0402,
+      "roundTripMs": 164.49910000001546,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "694b7293e46cb0537f3eb809b834adf66c681ef9ab8466387fb894f95bd3384e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000014.jpg",
+      "seq": 14,
+      "capturedAt": "2026-09-12T13:45:36.734Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 77.7556,
+      "roundTripMs": 116.84700000000885,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "694b7293e46cb0537f3eb809b834adf66c681ef9ab8466387fb894f95bd3384e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000015.jpg",
+      "seq": 15,
+      "capturedAt": "2026-09-12T13:45:37.030Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 96.5464,
+      "roundTripMs": 161.7398000000394,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "694b7293e46cb0537f3eb809b834adf66c681ef9ab8466387fb894f95bd3384e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000016.jpg",
+      "seq": 16,
+      "capturedAt": "2026-09-12T13:45:38.135Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 92.80420000000001,
+      "roundTripMs": 966.7890999999945,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61ae2f4355e97f11c921fc2cdcce5905ee27faa4d3abe79390277c4c94132d44"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000017.jpg",
+      "seq": 17,
+      "capturedAt": "2026-09-12T13:45:38.270Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 98.1183,
+      "roundTripMs": 121.16670000000158,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61ae2f4355e97f11c921fc2cdcce5905ee27faa4d3abe79390277c4c94132d44"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000018.jpg",
+      "seq": 18,
+      "capturedAt": "2026-09-12T13:45:38.522Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 104.22630000000001,
+      "roundTripMs": 130.57909999997355,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61ae2f4355e97f11c921fc2cdcce5905ee27faa4d3abe79390277c4c94132d44"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000019.jpg",
+      "seq": 19,
+      "capturedAt": "2026-09-12T13:45:38.775Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 90.4906,
+      "roundTripMs": 294.4580999999889,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61ae2f4355e97f11c921fc2cdcce5905ee27faa4d3abe79390277c4c94132d44"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000020.jpg",
+      "seq": 20,
+      "capturedAt": "2026-09-12T13:45:39.180Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 132.0235,
+      "roundTripMs": 423.14100000000326,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "61ae2f4355e97f11c921fc2cdcce5905ee27faa4d3abe79390277c4c94132d44"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000021.jpg",
+      "seq": 21,
+      "capturedAt": "2026-09-12T13:45:40.596Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 64.6686,
+      "roundTripMs": 1559.3386000000173,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b25a906046d965e51d389e35b25ff255366ea466a73246a9fbd7ed1ff2f029c1"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000022.jpg",
+      "seq": 22,
+      "capturedAt": "2026-09-12T13:45:41.112Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 64.4452,
+      "roundTripMs": 106.24209999997402,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b25a906046d965e51d389e35b25ff255366ea466a73246a9fbd7ed1ff2f029c1"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000023.jpg",
+      "seq": 23,
+      "capturedAt": "2026-09-12T13:45:41.363Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 74.66250000000001,
+      "roundTripMs": 113.52919999998994,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b25a906046d965e51d389e35b25ff255366ea466a73246a9fbd7ed1ff2f029c1"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000024.jpg",
+      "seq": 24,
+      "capturedAt": "2026-09-12T13:45:41.634Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 139.4135,
+      "roundTripMs": 180.11960000003455,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b25a906046d965e51d389e35b25ff255366ea466a73246a9fbd7ed1ff2f029c1"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000025.jpg",
+      "seq": 25,
+      "capturedAt": "2026-09-12T13:45:41.890Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 85.7496,
+      "roundTripMs": 124.39179999998305,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "b25a906046d965e51d389e35b25ff255366ea466a73246a9fbd7ed1ff2f029c1"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000026.jpg",
+      "seq": 26,
+      "capturedAt": "2026-09-12T13:45:42.153Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 111.73,
+      "roundTripMs": 142.1149999999907,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "39207c83ad498b6e5655c692243c050eec0245de2a5539a9e623339776a0a9a7"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000027.jpg",
+      "seq": 27,
+      "capturedAt": "2026-09-12T13:45:42.403Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 80.3167,
+      "roundTripMs": 113.15669999999227,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "fd582b8cec851ce86941cf9f180356f5ee595a5efc299e3fbabe9787dfe6474e"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000028.jpg",
+      "seq": 28,
+      "capturedAt": "2026-09-12T13:45:42.659Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 74.7972,
+      "roundTripMs": 100.16060000000289,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000029.jpg",
+      "seq": 29,
+      "capturedAt": "2026-09-12T13:45:42.910Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 69.7206,
+      "roundTripMs": 113.0219999999972,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000030.jpg",
+      "seq": 30,
+      "capturedAt": "2026-09-12T13:45:43.162Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 73.9889,
+      "roundTripMs": 163.64099999994505,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000031.jpg",
+      "seq": 31,
+      "capturedAt": "2026-09-12T13:45:44.266Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 102.3555,
+      "roundTripMs": 983.5950999999768,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000032.jpg",
+      "seq": 32,
+      "capturedAt": "2026-09-12T13:45:44.407Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 57.5857,
+      "roundTripMs": 84.09829999995418,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000033.jpg",
+      "seq": 33,
+      "capturedAt": "2026-09-12T13:45:44.660Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 69.3892,
+      "roundTripMs": 124.1298999999999,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000034.jpg",
+      "seq": 34,
+      "capturedAt": "2026-09-12T13:45:44.911Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 45.5629,
+      "roundTripMs": 65.38779999996768,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000035.jpg",
+      "seq": 35,
+      "capturedAt": "2026-09-12T13:45:45.198Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 80.8859,
+      "roundTripMs": 106.72310000000289,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000036.jpg",
+      "seq": 36,
+      "capturedAt": "2026-09-12T13:45:45.822Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 64.4274,
+      "roundTripMs": 664.8440999999875,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000037.jpg",
+      "seq": 37,
+      "capturedAt": "2026-09-12T13:45:46.133Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 99.2971,
+      "roundTripMs": 160.28960000001825,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000038.jpg",
+      "seq": 38,
+      "capturedAt": "2026-09-12T13:45:46.390Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 80.63260000000001,
+      "roundTripMs": 151.08730000001378,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000039.jpg",
+      "seq": 39,
+      "capturedAt": "2026-09-12T13:45:46.647Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 95.88510000000001,
+      "roundTripMs": 123.06539999996312,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000040.jpg",
+      "seq": 40,
+      "capturedAt": "2026-09-12T13:45:46.898Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 92.8472,
+      "roundTripMs": 121.22460000001593,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "3d4bd376f4dda68e332959f6144acd74b072258ae5dec0541fea77129e472e35"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000041.jpg",
+      "seq": 41,
+      "capturedAt": "2026-09-12T13:45:47.328Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 83.6033,
+      "roundTripMs": 121.27970000001369,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "0778b9a75595aba19037ce13904ea117bd4a11a8e390040c0071976d609d4914"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000042.jpg",
+      "seq": 42,
+      "capturedAt": "2026-09-12T13:45:49.539Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 107.3896,
+      "roundTripMs": 252.04809999995632,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "0778b9a75595aba19037ce13904ea117bd4a11a8e390040c0071976d609d4914"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000043.jpg",
+      "seq": 43,
+      "capturedAt": "2026-09-12T13:45:49.807Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 121.63000000000001,
+      "roundTripMs": 156.6376000000164,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "0778b9a75595aba19037ce13904ea117bd4a11a8e390040c0071976d609d4914"
+    },
+    {
+      "runId": "exhibit_1789220716083_7cd9bfc1",
+      "path": "view-000044.jpg",
+      "seq": 44,
+      "capturedAt": "2026-09-12T13:45:50.685Z",
+      "width": 1280,
+      "height": 800,
+      "captureMs": 86.8071,
+      "roundTripMs": 732.5937999999733,
+      "source": "windows-gdi",
+      "viewport": {
+        "x": 0,
+        "y": 87,
+        "scale": 1
+      },
+      "sha256": "0778b9a75595aba19037ce13904ea117bd4a11a8e390040c0071976d609d4914"
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 180,
+    "decisions": 3
+  }
+}
