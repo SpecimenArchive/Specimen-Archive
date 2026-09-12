@@ -1,0 +1,1264 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789172955022_40903348",
+  "sessionId": "session_1789172938412_694e92c0",
+  "origin": {
+    "runId": "exhibit_1789172955022_40903348",
+    "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "startedAt": "2026-09-12T00:29:15.022Z",
+  "completedAt": "2026-09-12T00:30:14.957Z",
+  "seed": 203,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 3000,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Observation contrast profile: 48 paced windows in the unchanged rate circuit. Pixel texture in two documented bands drives PRCs; the existing motor decoder selects wheel direction. Approved tab preparation/focus and native pinning are orchestration. Main dashboard receives 38/48 windows. No DOM target or scroll offset reaches the controller.",
+    "events": []
+  },
+  "decisions": [
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "dashboard",
+        "label": "Observation dashboard",
+        "url": "http://127.0.0.1:4317/?display=workstation"
+      },
+      "context": {
+        "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 1,
+        "seed": 203,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "commandId": "exhibit_1789172955022_40903348:c000",
+      "decision": 0,
+      "imageBefore": "frame-0000.png",
+      "imageAfter": "frame-0001.png",
+      "imageSha256": "f14d7d433cc4b5f60cf81deccbab85f4fc9812d046658cc1814d52f4efe5c159",
+      "afterSha256": "c558dc8d9bbad26149ee7a15af7ea00783dd1f62c35dd2c2e89d034414ea57ff",
+      "capturedAt": "2026-09-12T00:29:35.204Z",
+      "completedAt": "2026-09-12T00:29:40.656Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 408,
+        "cursorPixels": 0,
+        "targetCentroid": {
+          "x": 639.9240196078431,
+          "y": 343.45588235294116
+        },
+        "cursorCentroid": null,
+        "horizontalErrorPx": null,
+        "encoding": "upper-texture",
+        "left": 0.5982703558549746,
+        "right": 0.15,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 32.54048549858335,
+            "contrast": 23.110391549422687,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 37.271942196432605,
+            "contrast": 19.923562612654877,
+            "samples": 64560
+          },
+          "strength": 0.8965407117099492
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5583104092039074
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5549839824141164
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5555114601005285
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5547747754678454
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5585646012802332
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5562471048605119
+          }
+        ],
+        "mean": 0.5563987222211905,
+        "contrast": -0.00020920694627102332
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": -48,
+        "motorMean": 0.5563987222211905,
+        "motorContrast": -0.00020920694627102332,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 0,
+      "modelEndStep": 600,
+      "desktopBefore": {
+        "path": "desktop-000.png",
+        "pageFrame": "frame-0000.png",
+        "pageCapturedAt": "2026-09-12T00:29:35.204Z",
+        "capturedAt": "2026-09-12T00:29:35.250Z",
+        "completedAt": "2026-09-12T00:29:35.483Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "23c1dc54c22ccb102d99a7196ab5cab87a7ac4a37a764cdf5f29b64c1d51a204",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 155.0735,
+        "roundTripMs": 181.27,
+        "pageLagMs": 46,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:35.241Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 13.1,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-001.png",
+        "pageFrame": "frame-0001.png",
+        "pageCapturedAt": "2026-09-12T00:29:40.656Z",
+        "capturedAt": "2026-09-12T00:29:40.741Z",
+        "completedAt": "2026-09-12T00:29:41.018Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "2e7c1fc60c03c23204dfdc03daf19b26ba68019b66dd0f48471ebbefca8b9350",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 149.7595,
+        "roundTripMs": 236.65,
+        "pageLagMs": 85,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:40.717Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 43.44,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T00:29:39.816Z",
+        "completedAt": "2026-09-12T00:29:40.158Z",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0,
+          "y": 0
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T00:29:39.972Z",
+            "pageTimeMs": 14337.400000000373,
+            "url": "/",
+            "x": 640,
+            "y": 332,
+            "deltaY": -48,
+            "trusted": true,
+            "commandId": "exhibit_1789172955022_40903348:c000"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 0
+        }
+      }
+    },
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "dashboard",
+        "label": "Observation dashboard",
+        "url": "http://127.0.0.1:4317/?display=workstation"
+      },
+      "context": {
+        "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 1,
+        "seed": 203,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "commandId": "exhibit_1789172955022_40903348:c001",
+      "decision": 1,
+      "imageBefore": "frame-0002.png",
+      "imageAfter": "frame-0003.png",
+      "imageSha256": "43fccf9f1c2668911cb64071ec3ea356d2f84f5463a7d0210a637a5fe15fb3b2",
+      "afterSha256": "44d44252c08d57fb9ce373601b3b30d140dd9a9fea5541d3169481335ae63995",
+      "capturedAt": "2026-09-12T00:29:41.818Z",
+      "completedAt": "2026-09-12T00:29:46.423Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 388,
+        "cursorPixels": 0,
+        "targetCentroid": {
+          "x": 576.4484536082474,
+          "y": 334.36082474226805
+        },
+        "cursorCentroid": null,
+        "horizontalErrorPx": null,
+        "encoding": "balanced-texture",
+        "left": 0,
+        "right": 0,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 32.568201434366486,
+            "contrast": 23.23542826025139,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 38.25591043373545,
+            "contrast": 23.34562733878123,
+            "samples": 64560
+          },
+          "strength": 0.9704386583131797
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.4749348716659622
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.2783450625645834
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.4656489864351771
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.4555653241452035
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.46871936917153284
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.42698793647645855
+          }
+        ],
+        "mean": 0.4283669250764863,
+        "contrast": 0.1772202615806201
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 0,
+        "motorMean": 0.4283669250764863,
+        "motorContrast": 0.1772202615806201,
+        "phase": "scroll",
+        "kind": "wait",
+        "reason": "M < 0.500: motor gate closed"
+      },
+      "modelStartStep": 600,
+      "modelEndStep": 1200,
+      "desktopBefore": {
+        "path": "desktop-002.png",
+        "pageFrame": "frame-0002.png",
+        "pageCapturedAt": "2026-09-12T00:29:41.818Z",
+        "capturedAt": "2026-09-12T00:29:41.888Z",
+        "completedAt": "2026-09-12T00:29:42.251Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "b584f7d43e0509329429d67a6cc45f37c8c18afd91c304bff88a2bc1a1cbac3d",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 179.84650000000002,
+        "roundTripMs": 223.09,
+        "pageLagMs": 70,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:41.874Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 21.62,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-003.png",
+        "pageFrame": "frame-0003.png",
+        "pageCapturedAt": "2026-09-12T00:29:46.423Z",
+        "capturedAt": "2026-09-12T00:29:46.612Z",
+        "completedAt": "2026-09-12T00:29:46.853Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "dca3881450a565330875198f63c15b1019382d3feafbc54f00c3a391005f85f7",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 131.43040000000002,
+        "roundTripMs": 191.85,
+        "pageLagMs": 189,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:46.606Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 30.21,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T00:29:45.554Z",
+        "completedAt": "2026-09-12T00:29:45.843Z",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0,
+          "y": 0
+        },
+        "events": [],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 0
+        }
+      }
+    },
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "dashboard",
+        "label": "Observation dashboard",
+        "url": "http://127.0.0.1:4317/?display=workstation"
+      },
+      "context": {
+        "sourceRevision": "46391dca884289429ca4a613378311c3b41806d3",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 1,
+        "seed": 203,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "commandId": "exhibit_1789172955022_40903348:c002",
+      "decision": 2,
+      "imageBefore": "frame-0004.png",
+      "imageAfter": "frame-0005.png",
+      "imageSha256": "dbf165b9a256d4195d8217a2560a75caeda0cf4bcd0febf55fed63ccb11f3cf4",
+      "afterSha256": "196c23fdb41d4dc545deaf39a3089c255506b1e7549b6c38c0f7f203e7abaa20",
+      "capturedAt": "2026-09-12T00:29:47.672Z",
+      "completedAt": "2026-09-12T00:29:52.533Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 483,
+        "cursorPixels": 0,
+        "targetCentroid": {
+          "x": 675.3540372670808,
+          "y": 354.5983436853002
+        },
+        "cursorCentroid": null,
+        "horizontalErrorPx": null,
+        "encoding": "lower-texture",
+        "left": 0.15,
+        "right": 0.6406878290049353,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 32.58623873081021,
+            "contrast": 23.301909650226452,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 40.81062997836984,
+            "contrast": 23.804121934247334,
+            "samples": 64560
+          },
+          "strength": 0.9813756580098705
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5792881141080853
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5626843755782273
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5804638249502097
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5807329627790544
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5778692385902106
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5757146132495257
+          }
+        ],
+        "mean": 0.5761255215425521,
+        "contrast": 0.018048587200827138
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": 48,
+        "motorMean": 0.5761255215425521,
+        "motorContrast": 0.018048587200827138,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 1200,
+      "modelEndStep": 1800,
+      "desktopBefore": {
+        "path": "desktop-004.png",
+        "pageFrame": "frame-0004.png",
+        "pageCapturedAt": "2026-09-12T00:29:47.672Z",
+        "capturedAt": "2026-09-12T00:29:47.849Z",
+        "completedAt": "2026-09-12T00:29:48.096Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "cb89454986072cd791560c3c968b61e440b478e1cfaad36c989f1ae5b5c280da",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 146.333,
+        "roundTripMs": 244.34,
+        "pageLagMs": 177,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:47.870Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 49,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-005.png",
+        "pageFrame": "frame-0005.png",
+        "pageCapturedAt": "2026-09-12T00:29:52.533Z",
+        "capturedAt": "2026-09-12T00:29:52.830Z",
+        "completedAt": "2026-09-12T00:29:53.041Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "5db102bc08114523709725a74c925f263f80cdcfccdfe625db1ef3e8a66d19d0",
+        "cursor": {
+          "x": 0,
+          "y": 0
+        },
+        "captureMs": 119.4813,
+        "roundTripMs": 142.22,
+        "pageLagMs": 297,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-12T00:29:52.824Z",
+        "timestampBasis": "backend-midpoint-estimate",
+        "clockUncertaintyMs": 11.37,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "05676965-3144-4541-8704-d2823355acb7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-12T00:29:51.302Z",
+        "completedAt": "2026-09-12T00:29:51.976Z",
+        "from": {
+          "x": 0,
+          "y": 0
+        },
+        "to": {
+          "x": 0,
+          "y": 0
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-12T00:29:51.826Z",
+            "pageTimeMs": 26192.10000000056,
+            "url": "/",
+            "x": 640,
+            "y": 332,
+            "deltaY": 48,
+            "trusted": true,
+            "commandId": "exhibit_1789172955022_40903348:c002"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 48
+        }
+      }
+    }
+  ],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "9734d329a84206bd4a7e493a65f42896a920e61f2d5269bd1df9895fa1425e72",
+      "bytes": 3170373
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "7e8a3d07099a2ad1b7e032d1f91191dbfbae2d21ece92c21006d036362b28c59",
+      "bytes": 28746
+    },
+    {
+      "path": "decision-1.json.gz",
+      "sha256": "17ddc5f75b98f6117c860f8eda207c84db2c04ea3a5b5e78072cc664083e3f5c",
+      "bytes": 29118
+    },
+    {
+      "path": "decision-2.json.gz",
+      "sha256": "b5c26e20f9062f5205f8372c35133db122b0f4f685ffb449eec1405038819160",
+      "bytes": 28521
+    },
+    {
+      "path": "desktop-000.png",
+      "sha256": "23c1dc54c22ccb102d99a7196ab5cab87a7ac4a37a764cdf5f29b64c1d51a204",
+      "bytes": 103685
+    },
+    {
+      "path": "desktop-001.png",
+      "sha256": "2e7c1fc60c03c23204dfdc03daf19b26ba68019b66dd0f48471ebbefca8b9350",
+      "bytes": 109206
+    },
+    {
+      "path": "desktop-002.png",
+      "sha256": "b584f7d43e0509329429d67a6cc45f37c8c18afd91c304bff88a2bc1a1cbac3d",
+      "bytes": 109136
+    },
+    {
+      "path": "desktop-003.png",
+      "sha256": "dca3881450a565330875198f63c15b1019382d3feafbc54f00c3a391005f85f7",
+      "bytes": 110701
+    },
+    {
+      "path": "desktop-004.png",
+      "sha256": "cb89454986072cd791560c3c968b61e440b478e1cfaad36c989f1ae5b5c280da",
+      "bytes": 107939
+    },
+    {
+      "path": "desktop-005.png",
+      "sha256": "5db102bc08114523709725a74c925f263f80cdcfccdfe625db1ef3e8a66d19d0",
+      "bytes": 107778
+    },
+    {
+      "path": "desktop-006.png",
+      "sha256": "601546912cd8119382a65b830656d8449c42ffd862ecda307bf18d0c785aef32",
+      "bytes": 106510
+    },
+    {
+      "path": "desktop-007.png",
+      "sha256": "c77056558c7ffafd8df23bd57c961d70552b2135e1f5f0ea7551e1d1ac615e6c",
+      "bytes": 109909
+    },
+    {
+      "path": "frame-0000.png",
+      "sha256": "f14d7d433cc4b5f60cf81deccbab85f4fc9812d046658cc1814d52f4efe5c159",
+      "bytes": 95292
+    },
+    {
+      "path": "frame-0001.png",
+      "sha256": "c558dc8d9bbad26149ee7a15af7ea00783dd1f62c35dd2c2e89d034414ea57ff",
+      "bytes": 99450
+    },
+    {
+      "path": "frame-0002.png",
+      "sha256": "43fccf9f1c2668911cb64071ec3ea356d2f84f5463a7d0210a637a5fe15fb3b2",
+      "bytes": 99370
+    },
+    {
+      "path": "frame-0003.png",
+      "sha256": "44d44252c08d57fb9ce373601b3b30d140dd9a9fea5541d3169481335ae63995",
+      "bytes": 99524
+    },
+    {
+      "path": "frame-0004.png",
+      "sha256": "dbf165b9a256d4195d8217a2560a75caeda0cf4bcd0febf55fed63ccb11f3cf4",
+      "bytes": 98430
+    },
+    {
+      "path": "frame-0005.png",
+      "sha256": "196c23fdb41d4dc545deaf39a3089c255506b1e7549b6c38c0f7f203e7abaa20",
+      "bytes": 95030
+    },
+    {
+      "path": "frame-0006.png",
+      "sha256": "d981353f40a7624a54b7ce8cdf78b8815d7ca06caf39deb9b5bcb5c1a91354bd",
+      "bytes": 96035
+    },
+    {
+      "path": "frame-0007.png",
+      "sha256": "4d623aa9d88befd42a08701077ae74c6d64c416e21afc07aed40b01d7950fd0c",
+      "bytes": 98564
+    },
+    {
+      "path": "reference.webm",
+      "sha256": "6c53696212d93a12ead8c6f825d22ada12ebbd4f4fc9c27c4ff3cd109b914f0e",
+      "bytes": 1612576
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "cba754aa0775cbecde429aaa9a24b871b3612f9a354fa206a8474a33bef0b7d4",
+      "bytes": 85219
+    },
+    {
+      "path": "worksheet.webm",
+      "sha256": "044fbbec6c3edd9e788c8c14365611acc6d9639d1340aa9dfd8b1fb8a7896720",
+      "bytes": 1632901
+    }
+  ],
+  "observationConfig": {
+    "retina": {
+      "version": "observation-contrast-v2",
+      "x": [
+        0.08,
+        0.92
+      ],
+      "upper": [
+        0.12,
+        0.46
+      ],
+      "lower": [
+        0.54,
+        0.9
+      ],
+      "contrastScale": 48,
+      "minimumContrast": 3,
+      "directionMinimum": 0.5
+    },
+    "schedule": [
+      {
+        "decision": 0,
+        "page": "dashboard"
+      },
+      {
+        "decision": 16,
+        "page": "reference"
+      },
+      {
+        "decision": 21,
+        "page": "dashboard"
+      },
+      {
+        "decision": 36,
+        "page": "worksheet"
+      },
+      {
+        "decision": 41,
+        "page": "dashboard"
+      }
+    ]
+  },
+  "error": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry.",
+  "stages": {
+    "execution": "failed",
+    "recording": "saved"
+  },
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "pin",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Verified the native Chrome dashboard tab is pinned.",
+      "completedAt": "2026-09-12T00:29:30.038Z",
+      "id": "exhibit_1789172955022_40903348:e10",
+      "createdAt": "2026-09-12T00:29:30.038Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Published connectome; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:29:33.934Z",
+      "id": "exhibit_1789172955022_40903348:e11",
+      "createdAt": "2026-09-12T00:29:33.934Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348"
+    },
+    {
+      "source": "orchestration",
+      "kind": "prepare",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Prepared Methods & worksheet; no neural action was attributed to setup.",
+      "completedAt": "2026-09-12T00:29:34.344Z",
+      "id": "exhibit_1789172955022_40903348:e12",
+      "createdAt": "2026-09-12T00:29:34.344Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348"
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "blocked",
+      "page": "Observation dashboard",
+      "summary": "Accepted -48 px wheel command.",
+      "reason": "The page is at its scroll boundary.",
+      "commandId": "exhibit_1789172955022_40903348:c000",
+      "decision": 0,
+      "modelStep": 600,
+      "inputFrame": "exhibit_1789172955022_40903348/frame-0000.png",
+      "parameters": {
+        "wheelY": -48
+      },
+      "id": "exhibit_1789172955022_40903348:e13",
+      "createdAt": "2026-09-12T00:29:39.816Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "startedAt": "2026-09-12T00:29:39.816Z",
+      "completedAt": "2026-09-12T00:29:40.158Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 0,
+        "scrollAfter": 0
+      }
+    },
+    {
+      "source": "neural",
+      "kind": "wait",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Wait for the next sensory sample.",
+      "reason": "M < 0.500: motor gate closed",
+      "commandId": "exhibit_1789172955022_40903348:c001",
+      "decision": 1,
+      "modelStep": 1200,
+      "inputFrame": "exhibit_1789172955022_40903348/frame-0002.png",
+      "parameters": {
+        "wheelY": 0
+      },
+      "id": "exhibit_1789172955022_40903348:e14",
+      "createdAt": "2026-09-12T00:29:45.554Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "startedAt": "2026-09-12T00:29:45.554Z",
+      "completedAt": "2026-09-12T00:29:45.843Z",
+      "result": {
+        "trustedInputs": 0,
+        "scrollBefore": 0,
+        "scrollAfter": 0
+      }
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "completed",
+      "page": "Observation dashboard",
+      "summary": "Accepted 48 px wheel command.",
+      "reason": "Scroll phase: motor contrast selects wheel direction",
+      "commandId": "exhibit_1789172955022_40903348:c002",
+      "decision": 2,
+      "modelStep": 1800,
+      "inputFrame": "exhibit_1789172955022_40903348/frame-0004.png",
+      "parameters": {
+        "wheelY": 48
+      },
+      "id": "exhibit_1789172955022_40903348:e15",
+      "createdAt": "2026-09-12T00:29:51.302Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "startedAt": "2026-09-12T00:29:51.302Z",
+      "completedAt": "2026-09-12T00:29:51.976Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 0,
+        "scrollAfter": 48
+      }
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "failed",
+      "page": "Observation dashboard",
+      "summary": "Accepted -48 px wheel command.",
+      "reason": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry.",
+      "commandId": "exhibit_1789172955022_40903348:c003",
+      "decision": 3,
+      "modelStep": 2400,
+      "inputFrame": "exhibit_1789172955022_40903348/frame-0006.png",
+      "parameters": {
+        "wheelY": -48
+      },
+      "id": "exhibit_1789172955022_40903348:e16",
+      "createdAt": "2026-09-12T00:29:57.305Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "startedAt": "2026-09-12T00:29:57.305Z",
+      "completedAt": "2026-09-12T00:30:00.412Z"
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Observation dashboard",
+      "summary": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry.",
+      "id": "exhibit_1789172955022_40903348:e17",
+      "createdAt": "2026-09-12T00:30:00.411Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348"
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Published connectome",
+      "summary": "After 16 completed decisions, visit Published connectome.",
+      "parameters": {
+        "destination": "reference"
+      },
+      "decision": 16,
+      "id": "exhibit_1789172955022_40903348:e6",
+      "createdAt": "2026-09-12T00:29:15.025Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "completedAt": "2026-09-12T00:30:00.412Z",
+      "reason": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry."
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 21 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 21,
+      "id": "exhibit_1789172955022_40903348:e7",
+      "createdAt": "2026-09-12T00:29:15.025Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "completedAt": "2026-09-12T00:30:00.412Z",
+      "reason": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry."
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Methods & worksheet",
+      "summary": "After 36 completed decisions, visit Methods & worksheet.",
+      "parameters": {
+        "destination": "worksheet"
+      },
+      "decision": 36,
+      "id": "exhibit_1789172955022_40903348:e8",
+      "createdAt": "2026-09-12T00:29:15.025Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "completedAt": "2026-09-12T00:30:00.412Z",
+      "reason": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry."
+    },
+    {
+      "source": "orchestration",
+      "kind": "visit",
+      "status": "cancelled",
+      "page": "Observation dashboard",
+      "summary": "After 41 completed decisions, visit Observation dashboard.",
+      "parameters": {
+        "destination": "dashboard"
+      },
+      "decision": 41,
+      "id": "exhibit_1789172955022_40903348:e9",
+      "createdAt": "2026-09-12T00:29:15.025Z",
+      "sessionId": "session_1789172938412_694e92c0",
+      "runId": "exhibit_1789172955022_40903348",
+      "completedAt": "2026-09-12T00:30:00.412Z",
+      "reason": "Visible Windows page differs from the sensory PNG (88.8% agreement). Input stopped; check an OS overlay or changed page geometry."
+    }
+  ]
+}
