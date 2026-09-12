@@ -17,6 +17,8 @@ import {spawn} from 'node:child_process';
 import {ExternalStation} from './external-station';
 import {ExperienceStore} from '../memory/store';
 import {executionOrigin} from '../provenance';
+import {LiveJournal} from '../journal/store';
+import {SemanticNarrator} from '../journal/narrator';
 export class ExhibitService {
   readonly sessionId=`session_${Date.now()}_${randomUUID().slice(0,8)}`;
   readonly journal=new ObservationJournal(this.sessionId);
@@ -25,17 +27,19 @@ export class ExhibitService {
   private archiveAt=0;private archiveValue:{records:ExhibitRecord[];publications:Publication[]}|undefined;private archivePending?:Promise<{records:ExhibitRecord[];publications:Publication[]}>;
   private archiveFiles=new Map<string,{stamp:string;record:ExhibitRecord}>();
   private external?:ExternalStation;private finalizerQueue:string[]=[];private finalizerWork?:Promise<void>;
-  readonly memory?:ExperienceStore;
+  readonly memory?:ExperienceStore;readonly publicJournal:LiveJournal;readonly narrator:SemanticNarrator;
   constructor(runtime:string,readonly circuit:Circuit,readonly emit:(live:ExhibitLive)=>void){
+    this.publicJournal=new LiveJournal(runtime);this.narrator=new SemanticNarrator(this.publicJournal);
     this.root=resolve(runtime,'exhibit');mkdirSync(this.root,{recursive:true});this.store=new ExperimentStore<ExhibitRecord>(resolve(runtime,'exhibit-publications'));
-    if(process.env.EXHIBIT_EXTERNAL_PROFILE==='1'){if(process.env.EXHIBIT_MEMORY_ENABLED==='1')this.memory=new ExperienceStore(runtime,circuit,executionOrigin('memory-index').sourceRevision);this.external=new ExternalStation(this.journal,this.memory);}
+    if(process.env.EXHIBIT_EXTERNAL_PROFILE==='1'){if(process.env.EXHIBIT_MEMORY_ENABLED==='1')this.memory=new ExperienceStore(runtime,circuit,executionOrigin('memory-index').sourceRevision);this.external=new ExternalStation(this.journal,this.memory,this.publicJournal,this.narrator,runtime);}
     const publisher=process.env.SPECIMEN_PUBLISHER_CONFIG?JSON.parse(readFileSync(process.env.SPECIMEN_PUBLISHER_CONFIG,'utf8')):null;
     if(publisher&&(publisher.repository!=='SpecimenArchive/Specimen-Archive'||publisher.isolation!=='remote-vm'))throw new Error('Unexpected VM recorder configuration.');
     this.recorder=new SpecimenRecorder(this.store,new GitHubCLI(this.store.root),publisher?.repository??process.env.RECORDER_REPOSITORY,publisher?publisher.enabled===true:process.env.RECORDER_ENABLED==='1',publisher?new GitRecordPublisher(publisher.objectDirectory,{sshCommand:publisher.sshCommand}):undefined);
   }
+  exploration(){return this.external?.exploration()??null;}
   private update(live:ExhibitLive){this.live={...live,packetSeq:++this.sequence,metrics:{...live.metrics,episodes:this.episodes,failures:this.failures,rssMB:Math.round(process.memoryUsage().rss/1048576)}};this.emit(this.live);}
   start(){if(process.env.SPECIMEN_EXTERNAL_RECORDER!=='1')this.publicationTimer=setInterval(()=>void this.recorder.tick(),30000);this.work=this.run();return this.work;}
-  async stop(){clearInterval(this.publicationTimer);this.abort.abort(new Error('Operator shutdown'));await this.work;await this.external?.close();await this.finalizerWork;}
+  async stop(){clearInterval(this.publicationTimer);this.abort.abort(new Error('Operator shutdown'));await this.work;await this.external?.close();await this.finalizerWork;await this.narrator.stop();}
   private enqueue(directory:string){this.finalizerQueue.push(directory);if(this.external)this.external.recording.pending=this.finalizerQueue.length;this.finalizerWork??=this.finalize().finally(()=>{this.finalizerWork=undefined;});}
   private async finalize(){
     while(this.finalizerQueue.length){const directory=this.finalizerQueue[0];

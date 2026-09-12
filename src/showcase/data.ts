@@ -1,0 +1,8 @@
+import {useEffect,useState} from 'react';
+export function usePublicData<T>(url:string|null,interval=10000){const [data,setData]=useState<T|null>(null),[error,setError]=useState(''),[loaded,setLoaded]=useState(false);useEffect(()=>{if(!url){setData(null);setLoaded(true);return;}let active=true,busy=false;const controller=new AbortController();async function read(){if(busy)return;busy=true;try{const r=await fetch(url!,{signal:controller.signal});if(!r.ok)throw Error(`Unavailable (HTTP ${r.status})`);const d=await r.json();if(active){setData(d);setError('');setLoaded(true);}}catch{if(active){setError('Connection unavailable. Previously received records remain visible.');setLoaded(true);}}finally{busy=false;}}void read();const timer=setInterval(read,interval);return()=>{active=false;controller.abort();clearInterval(timer);};},[url,interval]);return {data,error,loaded};}
+export const source=(revision:string|undefined,path:string)=>`https://github.com/SpecimenArchive/Specimen-Archive/blob/${revision||'master'}/${path}`;
+export const actionLink=(run:string,decision:number)=>`/inside?run=${encodeURIComponent(run)}&decision=${decision}`;
+export const thumb=(value:string)=>value.startsWith('memory/')?'/api/'+value:'/api/exhibit/artifacts/'+value;
+export const date=(value:string)=>new Date(value).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+export const time=(value:string)=>value.slice(11,19)+' UTC';
+export const num=(value:number|null|undefined,digits=2)=>value===undefined||value===null||!Number.isFinite(value)?'—':value.toFixed(digits);

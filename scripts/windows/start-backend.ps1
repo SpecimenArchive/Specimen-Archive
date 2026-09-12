@@ -7,6 +7,7 @@ $station=Get-Content -LiteralPath $stationPath -Raw | ConvertFrom-Json
 if ($station.isolation -ne 'remote-vm' -or $station.dedicated -ne $true -or $station.userName -ne $env:USERNAME) { throw 'Wrong station account.' }
 try { $running=Invoke-RestMethod -Uri 'http://127.0.0.1:4317/api/health' -TimeoutSec 2 } catch { $running=$null }
 if ($running) { throw 'An observer backend is already running on port 4317; do not create another session.' }
+$env:SPECIMEN_NARRATOR_CONFIG='C:\ProgramData\SpecimenArchive\narrator.json'
 $env:EXHIBIT_DESKTOP='windows'
 $env:EXHIBIT_OBSERVATION_PROFILE='1'
 $env:EXHIBIT_EXTERNAL_PROFILE='1'

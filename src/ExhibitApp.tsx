@@ -12,8 +12,9 @@ import { ExhibitArchive } from './ExhibitArchive';
 import { App as LegacyApp } from './App';
 import './exhibit.css';
 import {ObservationApp} from './ObservationApp';
+import {ShowcaseApp} from './showcase/ShowcaseApp';
 const artifact=(path:string|null)=>path?'/api/exhibit/artifacts/'+path:undefined;
-export function App(){const [mode,setMode]=useState('exhibit');useEffect(()=>{fetch('/api/health').then(r=>r.json()).then(h=>setMode(h.mode));},[]);return mode==='exhibit'?<ObservationApp/>:<LegacyApp/>;}
+export function App(){const [mode,setMode]=useState('exhibit');useEffect(()=>{fetch('/api/health').then(r=>r.json()).then(h=>setMode(h.mode));},[]);return mode==='exhibit'?<ShowcaseApp/>:<LegacyApp/>;}
 function Exhibit(){
   const workstation=new URLSearchParams(location.search).get('display')==='workstation';
   const stream=useExhibit(),[circuit,setCircuit]=useState<Circuit|null>(null),[selected,setSelected]=useState('1732111'),[replay,setReplay]=useState<{d:ExhibitDecision;record?:ExhibitRecord}|null>(null),[sampleIndex,setSampleIndex]=useState(59),[playing,setPlaying]=useState(false),[error,setError]=useState('');

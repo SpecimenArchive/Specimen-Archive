@@ -17,6 +17,7 @@ import { BrowserService } from './browser/service';
 import { ExhibitService } from './exhibit/service';
 import { serveVideo } from './media';
 import { observerOrigins } from './observer-origins';
+import {privateReviewPath} from './public-routes';
 
 const ROOT=fileURLToPath(new URL('../',import.meta.url));
 const production=process.argv.includes('--production');
@@ -79,6 +80,11 @@ server.on('request',(req,res)=>{
   const url=new URL(req.url||'/',`http://127.0.0.1:${port}`);
   const json=(value:unknown,status=200)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));};
   if(req.method!=='GET'&&req.method!=='HEAD'){json({error:'Observation only'},405);return;}
+  if(production&&privateReviewPath(url.pathname)){json({error:'Not found'},404);return;}
+  if(url.pathname==='/api/exploration'){json(exhibitService.exploration());return;}
+  if(url.pathname==='/api/journal'){json(exhibitService.publicJournal.view(exhibitService.narrator.view(),{before:url.searchParams.get('before')??undefined,kind:url.searchParams.get('kind')??undefined,limit:100}));return;}
+  if(url.pathname.startsWith('/api/journal/')){const entry=exhibitService.publicJournal.detail(url.pathname.slice('/api/journal/'.length));json(entry??{error:'Journal entry left the retained history'},entry?200:404);return;}
+  if(url.pathname==='/api/memories'){json(exhibitService.memory?.list()??[]);return;}
   if(url.pathname==='/api/health'){json({ok:true,runId:exhibitEnabled?exhibitService.live?.runId:snapshot.runId,sessionId:exhibitService.sessionId,seq:snapshot.seq,modelTime:snapshot.modelTime,clients:connections.size,droppedFrames,timeScale:exhibitEnabled?2:browserEnabled?'accelerated windows':C.timeScale,mode:exhibitEnabled?'exhibit':browserEnabled?'browser':'light',exhibit:exhibitEnabled?exhibitService.live?.metrics:null,recorderError:(exhibitEnabled?exhibitService.recorder:browserEnabled?browserService.recorder:recorder).lastError});return;}
   if(url.pathname==='/api/exhibit/live'){json(exhibitService.live);return;}
   if(url.pathname==='/api/memory'){json(exhibitService.memory?.view()??null);return;}

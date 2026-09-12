@@ -1,5 +1,5 @@
 export interface ObservationPage {id:string;label:string;url:string}
-export interface Encounter extends ObservationPage {visitId:string;kind:'explore'|'coin'|'research';enteredAt:string;source:'orchestration'|'neural';tokenAddress?:string;thumbnail?:string;runId:string;decision?:number;transitionId:string}
+export interface Encounter extends ObservationPage {visitId:string;kind:'explore'|'coin'|'research'|'knowledge'|'explorer';enteredAt:string;source:'orchestration'|'neural';tokenAddress?:string;thumbnail?:string;runId:string;decision?:number;transitionId:string;reason?:string;proposalId?:string;selectionOwner?:'supervisor'|'semantic-assistant'|'memory'}
 export interface DisplayFrame {runId:string;path:string;seq:number;capturedAt:string;width:number;height:number;captureMs:number;roundTripMs:number;source:'windows-gdi';viewport:{x:number;y:number;scale:number};sha256:string}
 export interface ActionReceipt {proposedAt:string;acceptedAt?:string;dispatchedAt?:string;acknowledgedAt?:string;observedAt?:string;status:'moved'|'boundary'|'policy-blocked'|'stale-input'|'failed'|'wait';scrollBefore:number;scrollAfter:number;urlBefore:string;urlAfter:string;cursor:{x:number;y:number};viewport:{x:number;y:number;scale:number};trustedEvents:number;reason:string}
 export interface ObservationEvent {
