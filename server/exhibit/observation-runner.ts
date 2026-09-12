@@ -66,11 +66,12 @@ export async function runObservationEpisode(circuit:Circuit,o:EpisodeOptions){
    emit({state:'executed',browserFrame:`${runId}/${after.name}`,desktop:after.native,motor:d.motor,command,commandId,history:[...live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:`${command.wheelY} px · ${changed?'page scrolled':command.kind==='wait'?'motor gate closed':'scroll boundary'}`,timestamp:actionCompleted}].slice(-60),notice:command.reason},`Observed ${command.kind==='wait'?'a neural wait':changed?'page scrolling':'a scroll boundary'} on ${active.label.toLowerCase()}`,'previous-decision');
   }
   record.outcome='observed';record.stages={execution:'completed',recording:'unavailable'};
- }catch(error){record.error=(error as Error).message;record.outcome='error';record.stages={execution:'failed',recording:'unavailable'};orchestration('recovery',record.error,'failed');}
+ }catch(error){record.error=(error as Error).message;record.outcome='error';record.stages={execution:'failed',recording:'unavailable'};orchestration('recovery',record.error,'failed');emit({state:'recovering',inputFrame:null,input:null,command:null,commandId:null,notice:record.error},record.error);}
  finally{
   journal.cancelRun(runId,record.error??'Episode ended before queued maintenance.');currentCommandId=null;
-  try{await context?.close();}catch{}
-  try{for(const [id,video] of videos){await video.saveAs(join(directory,id==='dashboard'?'browser.webm':`${id}.webm`));await video.delete();}if(videos.size)record.stages!.recording='saved';}
+  const bounded=async<T>(work:Promise<T>,label:string)=>{let timer:ReturnType<typeof setTimeout>;try{return await Promise.race([work,new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out after browser disconnection`)),15000);})]);}finally{clearTimeout(timer!);}};
+  try{await bounded(Promise.resolve(context?.close()),'Recording context close');}catch(error){record.stages!.recording='failed';record.stages!.recordingError=(error as Error).message;}
+  try{for(const [id,video] of videos){await bounded(video.saveAs(join(directory,id==='dashboard'?'browser.webm':`${id}.webm`)),'Recording save');await bounded(video.delete(),'Recording cleanup');}if(videos.size&&record.stages!.recording!=='failed')record.stages!.recording='saved';}
   catch(error){record.stages!.recording='failed';record.stages!.recordingError=(error as Error).message;}
   await desktop?.close();
  }
