@@ -1,0 +1,69 @@
+{
+  "source": "8e9c9621fcfac7e668b5b4293dd313c859387cf3",
+  "cloudflared": "Running",
+  "tunnelReadiness": 200,
+  "build": "26200",
+  "at": "2026-09-12T20:11:05.3907062+00:00",
+  "os": "Microsoft Windows 11 Enterprise Evaluation",
+  "memory": {
+    "trainingEvents": 257,
+    "stored": 385,
+    "checkpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08"
+  },
+  "health": {
+    "ok": true,
+    "runId": "exhibit_1789243847712_d4b5e96c",
+    "sessionId": "session_1789242341320_350cbae5",
+    "seq": 175200,
+    "modelTime": 1752,
+    "clients": 2,
+    "droppedFrames": 4,
+    "timeScale": 2,
+    "mode": "exhibit",
+    "exhibit": {
+      "episodes": 6,
+      "failures": 0,
+      "rssMB": 586,
+      "windowWallMs": 1200,
+      "modelSecondsPerWindow": 6
+    },
+    "recorderError": null
+  },
+  "tasks": [
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Backend",
+      "restartCount": 999,
+      "state": "Running"
+    },
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Publisher",
+      "restartCount": 999,
+      "state": "Running"
+    },
+    {
+      "restartInterval": "PT1M",
+      "name": "SpecimenArchive-Worker",
+      "restartCount": 999,
+      "state": "Running"
+    }
+  ],
+  "narrator": {
+    "configured": true,
+    "state": "ready",
+    "provider": "openai",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "message": "Factual notes continue. Generated commentary cites the encountered page and retrieved evidence.",
+    "pending": 0,
+    "requestsThisHour": 53,
+    "maximumRequestsPerHour": 60,
+    "minimumIntervalSeconds": 61,
+    "lastSuccess": "2026-09-12T20:10:37.339Z",
+    "lastOmission": "Narration quote is not in the cited evidence",
+    "skippedDuplicates": 1,
+    "skippedSparse": 22,
+    "withheldDrafts": 22
+  },
+  "establishedRdpConnections": 0
+}

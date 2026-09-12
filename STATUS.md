@@ -1,5 +1,15 @@
 # Specimen Archive status
 
+## Laboratory observer and journal refinement — 12 September 2026
+
+Live: **https://specimenarchive.com**. All five pages use the compact laboratory layout, linked notebook and sourced anatomy. The monitor preserves the complete desktop and the original microscope/lettering. The journal streams genuine provider deltas, retains independently supported notes and keeps factual observations active within the unchanged 60-request hourly cap.
+
+Backend 8e9c962, observer 37c487f: **601.563 seconds**, **1,971 matching updates**, 202 paired-view checks, exact offline freeze/reconnect, 23 encounters across four sites and **17 memory-influenced destination choices**. Eleven generated entries were retained during the interval. Browser errors and native failures were zero; four backpressure drops were recorded. All 67 tests and production build passed. The final five-page desktop/mobile interaction review passed. A new 55-second recording and actual poster are in Experiments; the native 48-decision episode replayed all 2,880 samples and its published hash was verified.
+
+All required services remain on the VM, with RDP disconnected and the home presentation preview stopped. **Cold VM reboot still requires manual console login.** [Complete refinement and measured results](docs/LABORATORY_REFINEMENT.md).
+
+Earlier checkpoints below are preserved.
+
 ## Public showcase and persistent exploration — 12 September 2026
 
 Live: **https://specimenarchive.com**. Observe, Specimens, Memory, Inside and Experiments are deployed with the preserved apparatus/lettering and a real private OpenAI journal. The repetition fix persists discovered documents, memory effects, questions and cooldowns; document anchors share one identity. Neural wheel controls and supervisor navigation remain distinct.

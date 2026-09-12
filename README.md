@@ -4,7 +4,9 @@ A shared observation of **Specimen 01 · $LARVA**: a selected larval circuit tur
 
 [Observe live](https://specimenarchive.com) · [Specimens](https://specimenarchive.com/specimens) · [Memory](https://specimenarchive.com/memory) · [Inside the system](https://specimenarchive.com/inside) · [Experiments](https://specimenarchive.com/experiments) · [X](https://x.com/SpecimenArchive)
 
-![The deployed observation dashboard](docs/screenshots/showcase-observe-desktop.png)
+![The deployed observation dashboard](docs/screenshots/laboratory-observe-desktop.png)
+
+The laboratory presentation, source-backed live journal and monitor refinement are deployed. [Current verification report](docs/LABORATORY_REFINEMENT.md).
 
 ## What runs
 

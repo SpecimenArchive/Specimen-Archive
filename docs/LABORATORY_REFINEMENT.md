@@ -20,4 +20,56 @@ Genuine [Responses streaming events](https://developers.openai.com/api/docs/guid
 
 Both featured videos have genuine extracted poster frames, explicit play-to-load text, delayed-loading guidance, retry and direct-file links. Initial metadata loading no longer masquerades as active playback. Playback and seeking are tested against the actual video element, including ready state and advancing frames.
 
-Live deployment, integrated recording, sustained observation and final verification receipts are recorded below after execution. Existing behavioural and scientific evidence remains in its original reports; this presentation change does not claim improved neural performance.
+The implementation also resolves a quoted live-page excerpt to the captured page when the narrator supplied the summary ID for that same URL. Typography may differ, but every word and number must occur consecutively; the stored excerpt is copied from the actual source. Notes are checked independently. A rejected comparison does not erase a separately supported observation, and a partially rejected batch cannot propose navigation. References retain the actual source URL. A bounded private runtime review file retains the latest acceptance/omission reasons without provider credentials.
+
+Memory queries retained connections and questions independently of the busy factual-event stream, so research threads do not disappear merely because more wheel receipts arrived. Long source titles wrap on phones. Identical API responses retain their object identity. Once specimen interpolation reaches its authoritative state, the renderer retains those pixels until a new state or resize; it no longer redraws an unchanged disconnected specimen.
+
+Existing behavioural and scientific evidence remains in its original reports; this presentation change does not claim improved neural performance. The frozen training checkpoint and 47-cell encoder/decoder are unchanged.
+
+## Retained review corrections
+
+- The first live review exposed unsupported generated backend questions. Later reviews exposed whole-batch rejection and source-ID confusion. The corrected journal requires actual source excerpts, retains valid notes independently, and keeps factual updates flowing during omissions.
+- A mobile review exposed an overflowing notebook thread. Its source titles now wrap and its grid can shrink to the viewport.
+- Two exact offline PNG comparisons failed. A focused diagnostic isolated a single colour channel changing by one level while model step, canvas size and pose stayed fixed. Retaining the last completed render removes this idle GPU rounding variation; a separate eight-sample review verified identical PNG hashes and no additional redraws while disconnected.
+- Observer checks attempted during deployment encountered initial-frame timeouts. These failed runs remain under ignored `runtime/`; they are not represented as successful acceptance. Deployment guards also refused checkout while a worker was still stopping, and succeeded only after it stopped.
+
+Raw attempts, unsuccessful checks and native episode errors remain in their original runtime/evidence records. The successful final checks below supersede those presentation attempts, without deleting them.
+
+## Final deployed verification
+
+Live preview: **https://specimenarchive.com**. The backend/controller/narrator runs clean source `8e9c9621fcfac7e668b5b4293dd313c859387cf3`. Observer source `37c487ff930acb1d943edb2e826c979b3f46483a` supplies bundle `index-DeCjAtck.js`; its final presentation fixes were deployed without restarting the backend. Subsequent documentation and poster updates do not change that running code. The apparatus photograph is byte-identical to the starting asset (Git blob `13b11b8e26b59a489d25b3631ac3a8792e3e63f3`).
+
+The final sustained review ran **19:56:42–20:06:44 UTC on 12 September 2026**, after the backend restart and the final observer deployment. Counts below include only events inside that interval, excluding older context returned by the APIs.
+
+| Check | Measured result |
+| --- | --- |
+| Two-observer duration | 601.563 seconds |
+| Identical shared packets | 1,971 |
+| Paired frame/run/model-step checks | 202 |
+| Disconnect and reconnect | Exact held pixels/model step; live recovery passed |
+| Encounters | 23 visits, 22 distinct URLs, four domains |
+| Memory changed supervisor selection | 17 choices |
+| Retained generated commentary | 11 entries; factual observations, recall and receipts continued separately |
+| Browser errors / native failures during review | 0 / 0 |
+| Observer backpressure drops | Counter increased from 0 to 4; matched packets and displayed pairs remained consistent |
+| Configured narration ceiling | Unchanged at 60 requests/hour; effective minimum spacing 61 seconds |
+| Final full automated suite | 67/67 passed; TypeScript and production build passed |
+
+[Sustained evidence and encounter paths](results/laboratory-acceptance.json) · [Layout and interaction checks](results/laboratory-layout.json) · [Exact held-pixel samples](results/laboratory-freeze.json).
+
+All five routes passed at **1920 and 390 px** on the final deployed observer, with no document overflow. Earlier layout checks also covered 1280 and 1024 px. The final review exercised pause/follow, history filtering, evidence dialog/Escape, memory detail, all six real signal tabs and private-QA exclusions. Source references remain inspectable; generated supporting excerpts can come from captured page text or a separately identified curated source note. Curated notes are interpretation, not newly retrieved primary-source quotations.
+
+The **55-second genuine recording** in [Experiments](https://specimenarchive.com/experiments) contains actual streamed commentary and its accepted entry, followed by real browsing. It is a continuous segment of the preserved original capture; its source offset, original hash, rendered bundle, 395 nonempty draft updates and 111 distinct text states are recorded in [recording provenance](results/laboratory-recording.json). No frames or journal entries were inserted. The previous public showcase recording is retained on the VM. Its replacement poster is an actual frame from the new video.
+
+Both the new 55-second observer recording and the preserved 199.881-second native episode **played and decoded after forward and backward seeking**. Seek-and-advance checks took 0.659–2.096 seconds, with ready state 4 and no media errors. Initial posters, deliberate observer-only network failure, actionable error/direct-file links, retry recovery and reduced-motion/mobile layout passed. [Playback receipt](results/laboratory-playback.json) · [Experiments review](screenshots/laboratory-experiments.png).
+
+The full video read back through public HTTPS matched SHA-256 `0da067a740b80db65ecf2d9a04ae627e0f7b66d824a8bc7ab7a2310ff688d3e2`. Public mutation attempts still return 405, private QA pages return 404, and HTTP/www redirect to canonical HTTPS. [Delivery checks](results/laboratory-public-delivery.json).
+
+A separate complete native episode at the same backend revision replayed **48 decisions and all 2,880 neural samples exactly**. Its outcomes were **7 verified movements and 41 acknowledged boundaries**. The published record was read back from GitHub and its SHA-256 matched. [Native proof](results/laboratory-native-publication.json) · [Published evidence](https://github.com/SpecimenArchive/Specimen-Archive/commit/562c55bfee04e76c28a15e9b48eb65102c9b300a).
+
+Chrome, native capture/worker, controller, persistent memory, narrator, finalizer and recorder all run on the existing Windows 11 VM. The publisher and Cloudflare tunnel also run there. Service checks show all three station tasks running, their one-minute recovery settings present, tunnel readiness 200 and **zero established RDP connections**. The temporary home-PC presentation preview was stopped while the same VM session continued. The 257-training-outcome checkpoint remains `7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08`. [Service receipt](results/laboratory-services.json).
+
+The existing operational limitation remains: **a cold VM reboot needs a manual Windows console login**. No additional narrator capacity was purchased or requested. Generated drafts that lack support can still be omitted; factual records remain available. No improvement in neural learning or causal performance is claimed.
+
+![Final live observation](screenshots/laboratory-observe-desktop.png)
+

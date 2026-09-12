@@ -1,5 +1,7 @@
 ﻿# Public showcase verification — 12 September 2026
 
+The later laboratory, monitor and live-journal refinement is deployed. See [the current verification report](LABORATORY_REFINEMENT.md) and [new recording provenance](results/laboratory-recording.json). The results below preserve the earlier behavioural/restart checkpoint.
+
 The deployed public showcase and persistent exploration passed their live review at clean runtime source **3f6e8c95ab024e8ecacabf98f13b71dbce761468**. OpenAI narration is configured privately on the VM and produced actual sourced entries. The browser worker recovered during a controlled interruption while the backend session and stored history remained intact.
 
 ## Sustained exploration and restart
