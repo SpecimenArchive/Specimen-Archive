@@ -56,10 +56,9 @@ export class ExternalStation {
  },this.cursor);}
  private async capture(){
   if(this.displayError)throw this.displayError;if(!await this.page!.evaluate(()=>document.visibilityState==='visible'))throw new Error('The sensory page lost visibility; input stopped');
-  const png=await this.desktop!.screenshot(this.page!),at=new Date().toISOString(),name=`frame-${String(this.frame).padStart(4,'0')}.png`;writeFileSync(join(this.directory,name),png);
-  const native=await this.desktop!.capture(this.directory,this.frame++,name,at,this.cursor);native.cursorSource='not-present';const agreement=windowsPageAgreement(PNG.sync.read(readFileSync(join(this.directory,native.path))),PNG.sync.read(png),native.station!.viewport);
-  if(agreement<.92)throw new Error(`Visible page/input mismatch (${(agreement*100).toFixed(1)}% agreement); input stopped`);
-  return {png,at,name,native};
+  // One guarded native exposure supplies both the desktop and the exact crop.
+  // No second screenshot can drift while a chart or scrolling surface changes.
+  return this.desktop!.nativeView(this.directory,this.frame++,this.cursor);
  }
  private startDisplay(){
   this.displayRunning=true;this.displayError=undefined;
@@ -81,6 +80,7 @@ export class ExternalStation {
     const calculation=await controller.observe(before.png,decision,async(snapshot,input)=>{o.signal?.throwIfAborted();if(this.displayError)throw this.displayError;await delay(Math.max(0,windowStart+(snapshot.seq-baseStep)/C.modelSteps*P.windowWallMs-performance.now()),undefined,{signal:o.signal});this.emit({state:'integrating',decision,inputFrame:`${runId}/${before.name}`,browserFrame:`${runId}/${before.name}`,desktop:before.native,capturedAt:before.at,snapshot,input,motor:null,command:null,commandId:null,notice:'Integrating captured pixels through the larval circuit.'},`Sensing ${this.encounter!.label}`,'current');},OBSERVATION_RETINA.version);
     const command=calculation.command,commandId=`${runId}:c${String(decision).padStart(3,'0')}`,proposedAt=new Date().toISOString(),check=await this.position();
     const receipt:ActionReceipt={proposedAt,status:'wait',scrollBefore:check.scroll,scrollAfter:check.scroll,urlBefore:check.url,urlAfter:check.url,cursor:{...this.cursor},viewport:before.native.station!.viewport,trustedEvents:0,reason:command.reason};
+    record.incompleteAction={commandId,receipt,events:[]};
     const event=this.journal.event(runId,{source:'neural',kind:command.kind,status:'queued',page:this.encounter!.label,summary:`Proposed ${command.kind==='scroll'?`${command.wheelY} px wheel input`:'wait'} from recorded motor outputs.`,commandId,decision,modelStep:calculation.modelEndStep,inputFrame:`${runId}/${before.name}`,reason:command.reason,parameters:{wheelY:command.wheelY}});
     if(Date.now()-Date.parse(before.at)>P.inputMaximumAgeMs||check.url!==position.url||!check.visible||this.displayError){receipt.status='stale-input';receipt.reason='Source frame is stale or no longer the visible page';this.counters.policyBlocked++;}
     else if(!approvedPage(check.url)||check.form){receipt.status='policy-blocked';receipt.reason='The fixed cursor is over a form control or the page route is unapproved';this.counters.policyBlocked++;}
@@ -96,12 +96,13 @@ export class ExternalStation {
     const d:ExhibitDecision={sensoryProfile:OBSERVATION_RETINA.version,page:{id:this.encounter!.id,label:this.encounter!.label,url:this.encounter!.url},receipt,context:{sourceRevision:ORIGIN.sourceRevision,sourceDirty:ORIGIN.sourceDirty,configSha256:record.configSha256,dataVersion:ORIGIN.dataVersion,intervention:o.intervention,episode:o.episode,seed:o.seed,layout:o.layout},sessionId:o.sessionId,runId,commandId,decision,imageBefore:before.name,imageAfter:after.name,imageSha256:sha256(before.png),afterSha256:sha256(after.png),capturedAt:before.at,completedAt:after.at,...calculation,desktopBefore:before.native,desktopAfter:after.native,executed:{startedAt:receipt.dispatchedAt??proposedAt,completedAt:after.at,from:{...this.cursor},to:{...this.cursor},events:this.events.filter(e=>e.commandId===commandId),nativeInput:{version:'windows-view-v2',coordinateScale:1,wheelScale:1,wheelEventScale:1,scrollBefore:receipt.scrollBefore,scrollAfter:receipt.scrollAfter}}};decisions.push(d);writeFileSync(join(this.directory,`decision-${decision}.json.gz`),gzipSync(JSON.stringify(d)));
     if(this.encounter!.decision===undefined){this.encounter!.decision=decision;this.encounter!.runId=runId;this.encounter!.thumbnail=`${runId}/${before.name}`;}
     this.journal.finish(event,{status:receipt.status==='failed'?'failed':['policy-blocked','stale-input','boundary'].includes(receipt.status)?'blocked':'completed',summary:receipt.reason,reason:receipt.reason,completedAt:after.at,result:{trustedInputs:receipt.trustedEvents,scrollBefore:receipt.scrollBefore,scrollAfter:receipt.scrollAfter}});this.journal.decision(Date.parse(receipt.dispatchedAt??proposedAt),Date.parse(after.at),Date.parse(before.at),6,!!receipt.dispatchedAt,receipt.status==='moved');
-    this.emit({state:'executed',desktop:after.native,browserFrame:`${runId}/${after.name}`,receipt,command,motor:calculation.motor,commandId,history:[...this.live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:receipt.reason,timestamp:after.at}].slice(-60),notice:receipt.reason},receipt.reason,'previous-decision');
+    record.incompleteAction=undefined;
+    this.emit({state:'executed',desktop:after.native,browserFrame:`${runId}/${after.name}`,receipt,lastAction:{runId,decision,commandId,input:calculation.input,motor:calculation.motor,command,receipt},command,motor:calculation.motor,commandId,history:[...this.live.history,{commandId,runId,decision,modelStep:d.modelEndStep,kind:command.kind,detail:receipt.reason,timestamp:after.at}].slice(-60),notice:receipt.reason},receipt.reason,'previous-decision');
     if(receipt.status==='failed'||receipt.status==='stale-input')throw new Error(receipt.reason);
    }
    record.outcome='observed';record.stages!.execution='completed';this.checkpoint=controller.engine.checkpoint();
   }catch(e){record.error=(e as Error).message;this.counters.failed++;this.operation('recovery',record.error,'failed');this.emit({state:'recovering',notice:record.error},'External capture interrupted; supervisor recovery.','not-sampling');await this.close();this.checkpoint=controller.engine.checkpoint();}
-  finally{this.commandId=null;await this.stopDisplay();this.journal.cancelRun(runId,record.error??'Recording segment ended');}
+  finally{if(record.incompleteAction)record.incompleteAction.events=this.events.filter(e=>e.commandId===record.incompleteAction!.commandId);this.commandId=null;await this.stopDisplay();this.journal.cancelRun(runId,record.error??'Recording segment ended');}
   record.completedAt=new Date().toISOString();record.decisions=decisions.map(({samples,...d})=>d);record.observationEvents=this.journal.runEvents(runId);record.displayFrames=this.displayFrames;writeFileSync(join(this.directory,'trace.json.gz'),gzipSync(JSON.stringify(decisions)));writeFileSync(join(this.directory,'pending-record.json'),JSON.stringify(record,null,2)+'\n');return {record,directory:this.directory};
  }
 }

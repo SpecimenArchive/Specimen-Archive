@@ -107,4 +107,16 @@ export class RemoteDesktopSession {
     writeFileSync(join(directory,path),bytes);
     return {runId,path,seq:index,capturedAt,width:c.width,height:c.height,captureMs:c.captureMs,roundTripMs,source:'windows-gdi',viewport:{...this.viewport,scale:1},sha256:sha256(bytes)};
   }
+  async nativeView(directory:string,index:number,cursor:{x:number;y:number}){
+    assert(this.viewport&&this.presentation?.scale===1,'Native sensory crops require the calibrated 1:1 Chrome viewport');
+    const started=performance.now(),c=await this.request('capture'),roundTripMs=performance.now()-started;this.validate(c);
+    const bytes=Buffer.from(c.png,'base64'),full=PNG.sync.read(bytes),size=this.pageSize;
+    assert.equal(full.width,this.width);assert.equal(full.height,this.height);
+    assert(this.viewport.x>=0&&this.viewport.y>=0&&this.viewport.x+size.width<=full.width&&this.viewport.y+size.height<=full.height);
+    const crop=new PNG(size);PNG.bitblt(full,crop,this.viewport.x,this.viewport.y,size.width,size.height,0,0);const png=PNG.sync.write(crop);
+    const at=new Date(c.sourceCapturedAt).toISOString(),name=`frame-${String(index).padStart(4,'0')}.png`,path=`desktop-${String(index).padStart(3,'0')}.png`;
+    writeFileSync(join(directory,path),bytes);writeFileSync(join(directory,name),png);
+    const native:DesktopCapture={path,pageFrame:name,pageCapturedAt:at,capturedAt:at,completedAt:new Date().toISOString(),width:this.width,height:this.height,sha256:sha256(bytes),cursor:{...cursor},captureMs:c.captureMs,roundTripMs,pageLagMs:0,source:'windows-gdi',cursorSource:'not-present',sourceCapturedAt:at,timestampBasis:'native-clock',clockUncertaintyMs:0,station:{os:c.os,osBuild:c.osBuild,isolation:'remote-vm',id:this.info.stationId,bootId:this.info.bootId,timeZone:c.timeZone,dpi:c.dpi,viewport:{...this.viewport,scale:1},window:c.window,taskbar:c.taskbar}};
+    return {png,at,name,native};
+  }
 }

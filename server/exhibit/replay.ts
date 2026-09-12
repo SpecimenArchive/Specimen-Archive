@@ -11,6 +11,7 @@ import { sha256 } from '../browser/evidence';
 import {OBSERVATION_RETINA,OBSERVATION_RETINA_V1} from './observation-encoder';
 import {OBSERVATION_SCHEDULE} from './observation-runner';
 import {EXTERNAL_POLICY} from './external-policy';
+import {PNG} from 'pngjs';
 export async function replayEpisode(directory:string,circuit:Circuit){
   const r=JSON.parse(readFileSync(join(directory,'record.json'),'utf8')) as ExhibitRecord;
   assert.deepEqual(r.config,C);assert.equal(r.configSha256,sha256(JSON.stringify(C)));assert.deepEqual(r.model,MODEL_CONFIG);
@@ -29,6 +30,10 @@ export async function replayEpisode(directory:string,circuit:Circuit){
       assert(['x11-root','windows-gdi'].includes(capture.source));assert.equal(capture.pageFrame,pageFrame);assert.deepEqual(capture.cursor,cursor);
       if(capture.source==='windows-gdi'){assert.equal(capture.station?.os,'Windows 11');assert.equal(capture.station.dpi,96);assert((capture.width===1600&&capture.height===900&&(capture.station.viewport.scale===2||d.sensoryProfile&&capture.station.viewport.scale===1))||(capture.width===1280&&capture.height===800&&(capture.station.viewport.scale===1.5||d.sensoryProfile&&capture.station.viewport.scale===1)));assert(capture.station.id);}
       assert.equal(sha256(readFileSync(join(directory,capture.path))),capture.sha256);
+      if(capture.timestampBasis==='native-clock'){
+        const full=PNG.sync.read(readFileSync(join(directory,capture.path))),input=PNG.sync.read(readFileSync(join(directory,pageFrame))),crop=new PNG({width:input.width,height:input.height}),view=capture.station!.viewport;
+        PNG.bitblt(full,crop,view.x,view.y,input.width,input.height,0,0);assert(crop.data.equals(input.data),'Native desktop and exact sensory crop differ');
+      }
       assert.equal(capture.pageLagMs,Date.parse(capture.capturedAt)-Date.parse(capture.pageCapturedAt));assert(capture.pageLagMs>=0);
     }
     assert.equal(d.commandId,`${r.id}:c${String(d.decision).padStart(3,'0')}`);assert.equal(d.sessionId,r.sessionId);

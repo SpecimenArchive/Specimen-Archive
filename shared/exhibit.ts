@@ -11,7 +11,7 @@ export interface DesktopCapture {
   path:string;pageFrame:string;pageCapturedAt:string;capturedAt:string;completedAt:string;
   width:number;height:number;sha256:string;cursor:{x:number;y:number};captureMs:number;roundTripMs:number;pageLagMs:number;
   source:'x11-root'|'windows-gdi';cursorSource:'recorded-page-pointer'|'not-present';
-  sourceCapturedAt?:string;timestampBasis?:'backend-midpoint-estimate';clockUncertaintyMs?:number;
+  sourceCapturedAt?:string;timestampBasis?:'backend-midpoint-estimate'|'native-clock';clockUncertaintyMs?:number;
   station?:{os:'Windows 11';osBuild:string;isolation:'windows-sandbox'|'remote-vm';id:string;bootId?:string;timeZone:string;dpi:number;viewport:{x:number;y:number;scale:number};window:unknown;taskbar:unknown};
 }
 export interface ExhibitDecision {
@@ -28,6 +28,7 @@ export interface ExhibitRecord extends PublishableRecord {
   externalConfig?:typeof import('../server/exhibit/external-policy').EXTERNAL_POLICY;
   initialCheckpoint?:ReturnType<import('../server/model/engine').Engine['checkpoint']>;
   displayFrames?:import('./observation').DisplayFrame[];
+  incompleteAction?:{commandId:string;receipt:import('./observation').ActionReceipt;events:ExecutedEvent[]};
   observationConfig?:{retina:typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA|typeof import('../server/exhibit/observation-encoder').OBSERVATION_RETINA_V1;schedule:typeof import('../server/exhibit/observation-runner').OBSERVATION_SCHEDULE};
   observationEvents?:ObservationEvent[];stages?:{execution:'completed'|'failed';recording:'saved'|'failed'|'unavailable';recordingError?:string};
   schemaVersion:1;kind:'continuous-browser-episode';recorder:'Specimen Recorder';sessionId:string;startedAt:string;
@@ -41,6 +42,7 @@ export interface ExhibitRecord extends PublishableRecord {
 }
 export interface ExhibitLive {
   display?:import('./observation').DisplayFrame|null;receipt?:import('./observation').ActionReceipt;
+  lastAction?:{runId:string;decision:number;commandId:string;input:ExhibitInput;motor:MotorReadout;command:ExhibitCommand;receipt:import('./observation').ActionReceipt};
   observation?:ObservationState;
   sessionId:string;runId:string;packetSeq:number;timestamp:string;state:'starting'|'integrating'|'executed'|'complete'|'recovering'|'idle';
   episode:number;decision:number;intervention:BrowserIntervention;layout:TaskLayout;seed:number;
