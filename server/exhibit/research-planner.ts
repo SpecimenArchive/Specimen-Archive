@@ -7,6 +7,7 @@ interface Choice {id:string;at:string;from:string;to:string;objective:string;own
 interface State {version:1;destinations:Destination[];recent:{url:string;at:string;visitId:string}[];choices:Choice[];lastUrl?:string;questionVisits:Record<string,string>}
 const canonical=(url:string)=>url.replace(/\/$/,'');
 const kind=(url:string)=>coinAddress(url)?'coin':url.includes('ponsfamily')?'explore':url.includes('ethereum.org')?'knowledge':url.includes('blockscout')?'explorer':'research';
+export class ExplorationCooldown extends Error {constructor(readonly waitMs:number){super('Approved destinations are cooling down; holding exploration without repeating input.');}}
 /** Persistent environment planning, separate from sensory input and motor decoding.
  * Candidate links come from actual approved pages; memory effects have a recorded
  * counterfactual ranking without memory. No random choice or positional reset. */
@@ -28,7 +29,7 @@ export class ResearchPlanner {
  next(current?:string){return this.rank(current??this.state.lastUrl??'',undefined,undefined).selected.url;}
  rank(current:string,e?:Encounter,pageText='',ignoreMemory=false){if(this.ioError)throw Error(this.ioError);const now=Date.now(),memories=this.memory?.list()??[],currentMemory=memories.find(m=>canonical(m.url)===canonical(current)),questions=this.journal?.pending()??[],recent=this.state.recent.slice(-4).map(v=>canonical(v.url)),currentKind=kind(current),terms=(pageText+' '+e?.label).toLowerCase();
   let candidates=this.state.destinations.filter(d=>canonical(d.url)!==canonical(current)&&(!this.ponsBlocked||!d.url.includes('ponsfamily'))&&(!d.failedUntil||Date.parse(d.failedUntil)<now));
-  const cooled=candidates.filter(d=>!d.lastVisit||now-Date.parse(d.lastVisit)>=180000);if(cooled.length)candidates=cooled;
+  const cooled=candidates.filter(d=>!d.lastVisit||now-Date.parse(d.lastVisit)>=180000);if(!cooled.length){const ready=this.state.destinations.filter(d=>canonical(d.url)!==canonical(current)&&(!this.ponsBlocked||!d.url.includes('ponsfamily'))).map(d=>Math.max(d.lastVisit?Date.parse(d.lastVisit)+180000:now,d.failedUntil?Date.parse(d.failedUntil):now));throw new ExplorationCooldown(Math.max(1000,Math.min(...ready)-now));}candidates=cooled;
   const ranked=candidates.map(d=>{const question=questions.find(p=>canonical(p.url)===canonical(d.url)&&(!p.questionId||!this.state.questionVisits[p.questionId]||now-Date.parse(this.state.questionVisits[p.questionId])>=300000)),sameKind=kind(d.url)===currentKind,age=d.lastVisit?(now-Date.parse(d.lastVisit))/60000:120;
    const categoryCount=this.state.recent.slice(-6).filter(v=>kind(v.url)===kind(d.url)).length;
    const historyScore=(d.visits===0?34:Math.min(25,age/3))-Math.min(18,d.visits*.5)-(sameKind?22:0)-categoryCount*8-(recent.includes(canonical(d.url))?35:0)+(d.from&&canonical(d.from)===canonical(current)?12:0)+(question?45:0);
