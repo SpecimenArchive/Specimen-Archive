@@ -1,30 +1,20 @@
 {
-  "at": "2026-09-13T14:55:22.902Z",
+  "at": "2026-09-13T15:09:57.001Z",
   "deployment": {
-    "seqBefore": 7621800,
+    "seqBefore": 7722300,
     "sameBackendSession": true,
-    "htmlSha256": "e8fb50f49417d056b9bf362ca2307fe9f5a18b9e5a75e9eddc6151f34294dcb2",
+    "htmlSha256": "e775bc8fef314bf2d691d43d991ae44996950ba7d8ff1764ffb9625cafb31291",
     "backendSessionBefore": "session_1789242341320_350cbae5",
     "backendSessionAfter": "session_1789242341320_350cbae5",
-    "seqAfter": 7623000,
-    "at": "2026-09-13T14:53:00.2317979Z",
+    "seqAfter": 7723200,
+    "at": "2026-09-13T15:08:20.8856857Z",
     "changedFiles": [
-      "docs/OBSERVER_STARTUP.md",
-      "index.html",
-      "public/observer-start.js",
-      "scripts/audit-presentation-links.mjs",
-      "scripts/observer-handover-review.mjs",
-      "scripts/observer-reconnect-review.mjs",
-      "src/DecodedInput.tsx",
-      "src/observer-start.ts",
-      "src/showcase/ShowcaseApp.tsx",
-      "src/useExhibit.ts",
-      "src/usePresentation.ts"
+      "vite.config.ts"
     ],
-    "previousCheckout": "bfbe40773939c989eeebdd3bf0fd7efa27454ef3",
+    "previousCheckout": "fe08582dafcc50354a4e68e02c61cbf106940825",
     "servicesRestarted": false,
-    "startupSha256": "1af29c0aef10d71b62b4b7b34e244aebec404329d8d4eb5edbf32d054e54b844",
-    "observerRevision": "1a3a5f470276f27c60fd1f5d867fe1271703e2f5"
+    "startupSha256": "055ee2560264730dcf45e8188c805cd7fb1ea2e4289f08b6caf00de1e6504031",
+    "observerRevision": "6eb64ff6012fbc4a8db0c397354befc24cc53851"
   },
   "measurement": "Three independent fresh browsing contexts before/after; three same-tab refreshes after. Times are measured from document initialization until both desktop views have a decoded capture. These samples are not a network-latency guarantee.",
   "summary": {
@@ -34,18 +24,18 @@
       7745.800000000745
     ],
     "coldMs": [
-      1548.699999999255,
-      568.5999999996275,
-      469.7000000011176
+      1308.0999999996275,
+      1218.0999999996275,
+      1641.5
     ],
     "refreshMs": [
-      41.70000000111759,
-      142.40000000037253,
-      223.39999999850988
+      160.40000000037253,
+      151.80000000074506,
+      123.69999999925494
     ],
     "beforeMedianMs": 3362.4000000003725,
-    "coldMedianMs": 568.5999999996275,
-    "refreshMedianMs": 142.40000000037253
+    "coldMedianMs": 1308.0999999996275,
+    "refreshMedianMs": 151.80000000074506
   },
   "handover": {
     "at": "2026-09-13T14:44:28.997Z",
@@ -78,25 +68,27 @@
     "errors": []
   },
   "reconnect": {
-    "at": "2026-09-13T14:54:26.316Z",
+    "at": "2026-09-13T15:08:38.017Z",
     "base": "https://specimenarchive.com",
     "method": "Only this observing tab withheld network data. The VM station continued throughout.",
     "checks": [
       {
         "name": "stale stream holds exact direct pixels, frame and model step",
-        "frame": "view-000244.jpg",
-        "step": "7633200"
+        "frame": "view-000359.jpg",
+        "step": "7723200"
       },
       {
         "name": "refresh retains the exact prior capture with HTTP and stream data withheld",
-        "ms": 402,
-        "frame": "view-000244.jpg",
-        "health": "CONNECTING"
+        "ms": 594,
+        "frame": "view-000359.jpg",
+        "health": "CONNECTING",
+        "heldAge": 7,
+        "warmAge": 9.1
       },
       {
         "name": "reconnect replaces held capture with a new matching desktop/model packet",
-        "frame": "view-000258.jpg",
-        "step": "7633800"
+        "frame": "view-000373.jpg",
+        "step": "7724410"
       },
       {
         "name": "phone layout and expanded station remain usable"
@@ -111,7 +103,8 @@
     "tests": 66,
     "failed": 0,
     "productionBuild": "passed",
-    "relativeReferences": 310,
+    "relativeReferences": 312,
     "missingLinks": 0
-  }
+  },
+  "heldClock": "Cached server time continues across refresh; original capture timestamps do not become fresh. Earlier caches without the saved server clock are ignored."
 }

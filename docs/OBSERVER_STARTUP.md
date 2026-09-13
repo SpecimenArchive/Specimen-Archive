@@ -24,8 +24,10 @@ The production build and 66 existing tests passed. First visits still require a 
 
 ## Public acceptance — 13 September 2026
 
-Observer revision **1a3a5f470276f27c60fd1f5d867fe1271703e2f5** is deployed. The original VM session remained **session_1789242341320_350cbae5**, with no service restart. The published HTML and early-loading script matched their deployment hashes.
+Observer revision **6eb64ff6012fbc4a8db0c397354befc24cc53851** is deployed. The original VM session remained **session_1789242341320_350cbae5**, with no service restart. The published HTML and early-loading script matched their deployment hashes.
 
-Three fresh public visits had a median first desktop of **0.57 seconds**, compared with **3.36 seconds** before this change. Three refreshes had a median of **0.14 seconds**. Individual timings and the network conditions are retained in the [acceptance receipt](results/observer-startup.json); they are samples, not a latency guarantee.
+Three fresh public visits had a median first desktop of **1.31 seconds**, compared with **3.36 seconds** before this change. Three refreshes had a median of **0.15 seconds**. Individual timings are retained in the [acceptance receipt](results/observer-startup.json); they are samples, not a latency guarantee.
 
 All five isolated transport checks and all five real public viewer checks passed. These include exact held pixels on reload while HTTP images and incoming stream packets were withheld, fresh-frame recovery, matching apparatus/direct/specimen identifiers, phone layout, expansion, and browser storage being unavailable.
+
+The final held-clock check also passed: an interrupted capture aged from 7 to 9.1 seconds across the held interval and reload. Its pixels and model step remained identical. The early loader uses a content-addressed filename, preventing an older CDN-cached script from outliving the page revision while respecting the existing self-only script policy. Its public contents were verified against the build source.

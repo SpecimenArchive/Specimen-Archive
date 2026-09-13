@@ -2,7 +2,7 @@
 
 ## Immediate observer handover — 13 September 2026
 
-Deployed the eager first-capture loader, progressive desktop/sensory handover and tab-local held-frame cache. The original VM session continued without a restart. Public median first desktop: 3.36 → 0.57 seconds across three fresh loads; median refresh 0.14 seconds. Ten browser handover/reconnect checks, the 66-test suite and the production build passed. All server/controller/memory code is unchanged. [Startup review](docs/OBSERVER_STARTUP.md).
+Deployed the eager first-capture loader, progressive desktop/sensory handover and tab-local held-frame cache. The original VM session continued without a restart. Public median first desktop: 3.36 → 1.31 seconds across three fresh loads; median refresh 0.15 seconds. Ten browser handover/reconnect checks, the 66-test suite and the production build passed. All server/controller/memory code is unchanged. [Startup review](docs/OBSERVER_STARTUP.md).
 
 
 ## Laboratory register — 12 September 2026
