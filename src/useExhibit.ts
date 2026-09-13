@@ -1,17 +1,18 @@
 import { useEffect,useRef,useState } from 'react';
 import type { ExhibitLive } from '../shared/exhibit';
 import type { Snapshot } from '../shared/types';
-import {startup} from './observer-start';
+import {startup,recordObserverClock} from './observer-start';
 export function useExhibit(){
   const cached=startup()?.cached,initial=startup()?.current??cached?.live??null;
   const [live,setLive]=useState<ExhibitLive|null>(initial),[health,setHealth]=useState('connecting');
-  const history=useRef<Snapshot[]>([]),last=useRef<ExhibitLive|null>(initial),received=useRef(performance.now()),serverTime=useRef(initial?Date.parse(initial.timestamp)+(initial===cached?.live?Math.max(0,Date.now()-cached.savedAt):0):Date.now());
+  const history=useRef<Snapshot[]>([]),last=useRef<ExhibitLive|null>(initial),received=useRef(performance.now()),serverTime=useRef(initial===cached?.live&&cached?cached.serverNow+Math.max(0,Date.now()-cached.savedAt):initial?Date.parse(initial.timestamp):Date.now());
   useEffect(()=>{
+    recordObserverClock(serverTime.current,received.current);
     let disposed=false,socket:WebSocket,retry:ReturnType<typeof setTimeout>,attempt=0,streamReceived=false;
     function accept(p:ExhibitLive,connected:boolean){
       if(connected){streamReceived=true;setHealth('live');attempt=0;}
       if(last.current?.sessionId===p.sessionId&&p.packetSeq<last.current.packetSeq)return;
-      received.current=performance.now();serverTime.current=Date.parse(p.timestamp);
+      received.current=performance.now();serverTime.current=Date.parse(p.timestamp);recordObserverClock(serverTime.current,received.current);
       if(last.current?.runId!==p.runId)history.current=[];
       if(p.snapshot&&p.snapshot.seq!==history.current.at(-1)?.seq){history.current.push(p.snapshot);if(history.current.length>600)history.current.shift();}
       last.current=p;setLive(p);

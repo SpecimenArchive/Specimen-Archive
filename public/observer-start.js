@@ -6,7 +6,7 @@
   const paths = live => ({desktop:live?.display ? live.display.runId+'/'+live.display.path : live?.desktop ? live.runId+'/'+live.desktop.path : null,input:live?.inputFrame??null});
   let cached = null;
   try { const saved=JSON.parse(sessionStorage.getItem('specimen-observer-frame-v1')||'null');
-    if(saved&&Date.now()-saved.savedAt<30*60*1000&&saved.live?.sessionId&&saved.live?.snapshot&&saved.desktop?.startsWith('data:image/png;base64,'))cached=saved;
+    if(saved&&Number.isFinite(saved.serverNow)&&Date.now()-saved.savedAt<30*60*1000&&saved.live?.sessionId&&saved.live?.snapshot&&saved.desktop?.startsWith('data:image/png;base64,'))cached=saved;
   } catch {}
   const savedPaths=paths(cached?.live);
   function image(path) {
