@@ -1,0 +1,117 @@
+{
+  "at": "2026-09-13T14:55:22.902Z",
+  "deployment": {
+    "seqBefore": 7621800,
+    "sameBackendSession": true,
+    "htmlSha256": "e8fb50f49417d056b9bf362ca2307fe9f5a18b9e5a75e9eddc6151f34294dcb2",
+    "backendSessionBefore": "session_1789242341320_350cbae5",
+    "backendSessionAfter": "session_1789242341320_350cbae5",
+    "seqAfter": 7623000,
+    "at": "2026-09-13T14:53:00.2317979Z",
+    "changedFiles": [
+      "docs/OBSERVER_STARTUP.md",
+      "index.html",
+      "public/observer-start.js",
+      "scripts/audit-presentation-links.mjs",
+      "scripts/observer-handover-review.mjs",
+      "scripts/observer-reconnect-review.mjs",
+      "src/DecodedInput.tsx",
+      "src/observer-start.ts",
+      "src/showcase/ShowcaseApp.tsx",
+      "src/useExhibit.ts",
+      "src/usePresentation.ts"
+    ],
+    "previousCheckout": "bfbe40773939c989eeebdd3bf0fd7efa27454ef3",
+    "servicesRestarted": false,
+    "startupSha256": "1af29c0aef10d71b62b4b7b34e244aebec404329d8d4eb5edbf32d054e54b844",
+    "observerRevision": "1a3a5f470276f27c60fd1f5d867fe1271703e2f5"
+  },
+  "measurement": "Three independent fresh browsing contexts before/after; three same-tab refreshes after. Times are measured from document initialization until both desktop views have a decoded capture. These samples are not a network-latency guarantee.",
+  "summary": {
+    "beforeMs": [
+      3362.4000000003725,
+      2425.4000000003725,
+      7745.800000000745
+    ],
+    "coldMs": [
+      1548.699999999255,
+      568.5999999996275,
+      469.7000000011176
+    ],
+    "refreshMs": [
+      41.70000000111759,
+      142.40000000037253,
+      223.39999999850988
+    ],
+    "beforeMedianMs": 3362.4000000003725,
+    "coldMedianMs": 568.5999999996275,
+    "refreshMedianMs": 142.40000000037253
+  },
+  "handover": {
+    "at": "2026-09-13T14:44:28.997Z",
+    "kind": "Browser transport fixtures using retained native image pixels. Packet sequences and delays are test inputs, not neural activity.",
+    "checks": [
+      {
+        "name": "desktop appears while later frames arrive and sensory PNG is delayed",
+        "ms": 1348,
+        "first": {
+          "frame": "view-900003.jpg",
+          "run": "exhibit_1789310588076_4d6ebfef",
+          "step": "900003",
+          "input": "false",
+          "desktop": "true"
+        }
+      },
+      {
+        "name": "old sensory pixels clear until the matching new image arrives"
+      },
+      {
+        "name": "late old frame cannot replace a newer decoded frame"
+      },
+      {
+        "name": "disconnect hold blocks completed downloads; reconnect adopts a complete frame"
+      },
+      {
+        "name": "episode handover retains the last frame and rejects late prior-run downloads"
+      }
+    ],
+    "errors": []
+  },
+  "reconnect": {
+    "at": "2026-09-13T14:54:26.316Z",
+    "base": "https://specimenarchive.com",
+    "method": "Only this observing tab withheld network data. The VM station continued throughout.",
+    "checks": [
+      {
+        "name": "stale stream holds exact direct pixels, frame and model step",
+        "frame": "view-000244.jpg",
+        "step": "7633200"
+      },
+      {
+        "name": "refresh retains the exact prior capture with HTTP and stream data withheld",
+        "ms": 402,
+        "frame": "view-000244.jpg",
+        "health": "CONNECTING"
+      },
+      {
+        "name": "reconnect replaces held capture with a new matching desktop/model packet",
+        "frame": "view-000258.jpg",
+        "step": "7633800"
+      },
+      {
+        "name": "phone layout and expanded station remain usable"
+      },
+      {
+        "name": "disabled browser storage still loads genuine current capture"
+      }
+    ],
+    "errors": []
+  },
+  "validation": {
+    "tests": 66,
+    "failed": 0,
+    "productionBuild": "passed",
+    "relativeReferences": 310,
+    "missingLinks": 0
+  }
+}
