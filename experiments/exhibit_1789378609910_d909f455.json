@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": 1,
+  "kind": "continuous-browser-episode",
+  "recorder": "Specimen Recorder",
+  "id": "exhibit_1789378609910_d909f455",
+  "sessionId": "session_1789242341320_350cbae5",
+  "origin": {
+    "runId": "exhibit_1789378609910_d909f455",
+    "sourceRevision": "8e9c9621fcfac7e668b5b4293dd313c859387cf3",
+    "sourceDirty": false,
+    "dataVersion": "elife-97964-fig2-data1-v1",
+    "dataSha256": "c3b2220cc730a13870fc62c38ede37bfe860448f7dbbe838e8e23bf372e88588",
+    "modelVersion": "rate-v1"
+  },
+  "config": {
+    "version": "pixel-lane-scroll-v1",
+    "width": 640,
+    "height": 360,
+    "cursor": {
+      "x": 320,
+      "y": 216
+    },
+    "modelSteps": 600,
+    "sampleEvery": 10,
+    "windowWallMs": 3000,
+    "decisions": 48,
+    "movePixels": 24,
+    "scrollPixels": 48,
+    "verticalTolerance": 24,
+    "guideMinimumPixels": 24,
+    "motorGate": 0.5,
+    "activationMean": 0.593,
+    "rightContrast": 0.008,
+    "phaseOrder": [
+      "point",
+      "scroll"
+    ],
+    "continuousSeeds": [
+      101,
+      203,
+      307
+    ],
+    "heldOutSeeds": [
+      503,
+      607,
+      809
+    ],
+    "rawRunsRetained": 8,
+    "compactRunsRetained": 200,
+    "recoveryDelayMs": 2000
+  },
+  "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+  "model": {
+    "version": "rate-v1",
+    "seed": 7101,
+    "dt": 0.01,
+    "timeScale": 0.5,
+    "sensoryTau": 0.12,
+    "interTau": 0.28,
+    "motorTau": 0.42,
+    "gain": 1.15,
+    "sensoryGain": 1.4,
+    "epochSeconds": 16,
+    "basalSpeed": 7,
+    "motorSpeedGain": 48,
+    "turnGain": 2.4,
+    "chamberSize": 2000,
+    "streamHz": 20
+  },
+  "externalConfig": {
+    "version": "purposeful-exploration-v3",
+    "initial": "https://www.ponsfamily.com/launchpad",
+    "maximumUnchanged": 3,
+    "maximumEncounterDecisions": 8,
+    "maximumDwellMs": 55000,
+    "listingDecisions": 4,
+    "minimumDwellMs": 12000,
+    "researchAfterCoins": 4,
+    "displayIntervalMs": 250,
+    "windowWallMs": 1200,
+    "inputMaximumAgeMs": 6000,
+    "decisionWindows": 48
+  },
+  "initialCheckpoint": {
+    "ticks": 13201800,
+    "pose": {
+      "x": -946.5083176474764,
+      "y": -397.1025092535324,
+      "heading": -2130.532292713197,
+      "roll": 76351.07773905192,
+      "bend": -0.006768564628211276,
+      "ciliaPhase": 10297593.600507308,
+      "distance": 4530133.387595903
+    },
+    "activity": [
+      0.5815932044731178,
+      0.7211322540766993,
+      0.5512447152994886,
+      0.5842727654373343,
+      0.48441160158726515,
+      0.4264665162055525,
+      0.7211322540766993,
+      0.20696649972945275,
+      0.581633701233611,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.5757484126215535,
+      0.5831819741812487,
+      0.5799411527181534,
+      0.5396348524655904,
+      0.5793168976894287,
+      0.5744211195605229,
+      0.45972017806481746,
+      0.5759774298755509,
+      0.5787506139907125,
+      0.5581166723041269,
+      0.5721090021423366,
+      0.5792985991300953,
+      0.5987605981169398,
+      0.4928449411511442,
+      0.5550954524436513,
+      0.42829516572013854,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.41633099321429085,
+      0.20696649972945275,
+      0.5753441532830372,
+      0.20696649972945275,
+      0.20696649972945275,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.5810639710340451,
+      0.7211322540766993,
+      0.7211322540766993,
+      0.5781861384395496,
+      0.7211322540766993
+    ],
+    "events": [
+      {
+        "id": "e43204",
+        "t": 131766,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43205",
+        "t": 131766,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e43206",
+        "t": 131772,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43207",
+        "t": 131773.04,
+        "kind": "movement",
+        "message": "Bending response · -0.035 rad/s"
+      },
+      {
+        "id": "e43208",
+        "t": 131778,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43209",
+        "t": 131784,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43210",
+        "t": 131790,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43211",
+        "t": 131790,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.440 / R 0.386"
+      },
+      {
+        "id": "e43212",
+        "t": 131796,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43213",
+        "t": 131796,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.575"
+      },
+      {
+        "id": "e43214",
+        "t": 131802,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43215",
+        "t": 131802,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43216",
+        "t": 131808,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43217",
+        "t": 131808,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43218",
+        "t": 131814,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43219",
+        "t": 131814,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43220",
+        "t": 131820,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43221",
+        "t": 131820,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.574"
+      },
+      {
+        "id": "e43222",
+        "t": 131826,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43223",
+        "t": 131826,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.574"
+      },
+      {
+        "id": "e43224",
+        "t": 131832,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43225",
+        "t": 131832,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.574"
+      },
+      {
+        "id": "e43226",
+        "t": 131838,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43227",
+        "t": 131838,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.574"
+      },
+      {
+        "id": "e43228",
+        "t": 131844,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43229",
+        "t": 131844,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.575 / R 0.569"
+      },
+      {
+        "id": "e43230",
+        "t": 131850,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43231",
+        "t": 131850,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.571"
+      },
+      {
+        "id": "e43232",
+        "t": 131856,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43233",
+        "t": 131856,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.573"
+      },
+      {
+        "id": "e43234",
+        "t": 131862,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43235",
+        "t": 131862,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e43236",
+        "t": 131868,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43237",
+        "t": 131868,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.573"
+      },
+      {
+        "id": "e43238",
+        "t": 131874,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43239",
+        "t": 131874,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e43240",
+        "t": 131880,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43241",
+        "t": 131880,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.575"
+      },
+      {
+        "id": "e43242",
+        "t": 131886,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43243",
+        "t": 131886,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.573"
+      },
+      {
+        "id": "e43244",
+        "t": 131892,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43245",
+        "t": 131892,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.573"
+      },
+      {
+        "id": "e43246",
+        "t": 131898,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43247",
+        "t": 131898,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.573"
+      },
+      {
+        "id": "e43248",
+        "t": 131904,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43249",
+        "t": 131904,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.573"
+      },
+      {
+        "id": "e43250",
+        "t": 131910,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43251",
+        "t": 131910,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43252",
+        "t": 131916,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43253",
+        "t": 131916,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43254",
+        "t": 131922,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43255",
+        "t": 131922,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43256",
+        "t": 131928,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43257",
+        "t": 131928,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43258",
+        "t": 131934,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43259",
+        "t": 131934,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43260",
+        "t": 131940,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43261",
+        "t": 131940,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43262",
+        "t": 131946,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43263",
+        "t": 131946,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43264",
+        "t": 131952,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43265",
+        "t": 131952,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.578 / R 0.572"
+      },
+      {
+        "id": "e43266",
+        "t": 131958,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43267",
+        "t": 131958,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.577 / R 0.572"
+      },
+      {
+        "id": "e43268",
+        "t": 131964,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43269",
+        "t": 131964,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e43270",
+        "t": 131970,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43271",
+        "t": 131971.04,
+        "kind": "movement",
+        "message": "Bending response · -0.035 rad/s"
+      },
+      {
+        "id": "e43272",
+        "t": 131976,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43273",
+        "t": 131982,
+        "kind": "environment",
+        "message": "scroll: balanced-texture"
+      },
+      {
+        "id": "e43274",
+        "t": 131988,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43275",
+        "t": 131988,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.440 / R 0.386"
+      },
+      {
+        "id": "e43276",
+        "t": 131994,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43277",
+        "t": 131994,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.579 / R 0.574"
+      },
+      {
+        "id": "e43278",
+        "t": 132000,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43279",
+        "t": 132000,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43280",
+        "t": 132006,
+        "kind": "environment",
+        "message": "scroll: lower-texture"
+      },
+      {
+        "id": "e43281",
+        "t": 132006,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      },
+      {
+        "id": "e43282",
+        "t": 132012,
+        "kind": "environment",
+        "message": "scroll: upper-texture"
+      },
+      {
+        "id": "e43283",
+        "t": 132012,
+        "kind": "response",
+        "message": "Motor activity crossed 0.08 · L 0.580 / R 0.576"
+      }
+    ],
+    "eventCounter": 43283,
+    "epoch": 17,
+    "responded": true,
+    "moving": false,
+    "condition": {
+      "key": "pixels",
+      "label": "scroll: upper-texture",
+      "intensity": 0.4,
+      "angle": 0,
+      "epoch": 17
+    },
+    "lastSensory": {
+      "left": 0.65,
+      "right": 0.15
+    }
+  },
+  "startedAt": "2026-09-14T09:36:49.910Z",
+  "completedAt": "2026-09-14T09:37:22.008Z",
+  "seed": 101,
+  "layout": "standard",
+  "intervention": "intact",
+  "browserVersion": "153.0.8010.37",
+  "execution": {
+    "paced": true,
+    "minimumWindowWallMs": 1200,
+    "nodeVersion": "v24.21.0"
+  },
+  "coverage": {
+    "neuronIds": [
+      "826675",
+      "7501",
+      "73954",
+      "73059",
+      "71248",
+      "68613",
+      "6743",
+      "59671",
+      "590953",
+      "58968",
+      "58877",
+      "58694",
+      "57553",
+      "55935",
+      "55238",
+      "54090",
+      "411531",
+      "409861",
+      "40141",
+      "37580",
+      "370662",
+      "366449",
+      "359142",
+      "344239",
+      "34044",
+      "328632",
+      "32460",
+      "32142",
+      "27917",
+      "27064",
+      "26163",
+      "25010",
+      "24659",
+      "23921",
+      "22876",
+      "22159",
+      "19515",
+      "1732111",
+      "16668",
+      "15519",
+      "151847",
+      "14162",
+      "140828",
+      "13459",
+      "12115",
+      "108826",
+      "10536"
+    ],
+    "edges": 161,
+    "synapses": 711
+  },
+  "setup": {
+    "note": "Persistent external browser. Visible pixel contrast drives the unchanged rate circuit and wheel decoder. Environment supervisor selects approved pages from discovered links and visit coverage; navigation and fixed cursor placement are orchestration. DOM observations only guard/verify input and supply page metadata, never motor direction. Recording/replay run in a separate finalizer process.",
+    "events": []
+  },
+  "decisions": [
+    {
+      "sensoryProfile": "observation-contrast-v2",
+      "page": {
+        "id": "https://eth.blockscout.com/block/25962797",
+        "label": "Ethereum block 25962797 | Blockscout",
+        "url": "https://eth.blockscout.com/block/25962797"
+      },
+      "receipt": {
+        "proposedAt": "2026-09-14T09:37:12.705Z",
+        "status": "boundary",
+        "scrollBefore": 0,
+        "scrollAfter": 0,
+        "urlBefore": "https://eth.blockscout.com/block/25962797",
+        "urlAfter": "https://eth.blockscout.com/block/25962797",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "viewport": {
+          "x": 0,
+          "y": 87,
+          "scale": 1
+        },
+        "trustedEvents": 1,
+        "reason": "Trusted wheel acknowledged; the scroll container did not move",
+        "acceptedAt": "2026-09-14T09:37:12.715Z",
+        "dispatchedAt": "2026-09-14T09:37:12.716Z",
+        "acknowledgedAt": "2026-09-14T09:37:12.912Z",
+        "observedAt": "2026-09-14T09:37:12.918Z"
+      },
+      "context": {
+        "sourceRevision": "8e9c9621fcfac7e668b5b4293dd313c859387cf3",
+        "sourceDirty": false,
+        "configSha256": "1c947e02cb4d782180d233e5c2eac973b007b283b61a63a972583e5b2aa7f4f4",
+        "dataVersion": "elife-97964-fig2-data1-v1",
+        "intervention": "intact",
+        "episode": 951,
+        "seed": 101,
+        "layout": "standard"
+      },
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789378609910_d909f455",
+      "commandId": "exhibit_1789378609910_d909f455:c000",
+      "decision": 0,
+      "imageBefore": "frame-0000.png",
+      "imageAfter": "frame-0001.png",
+      "imageSha256": "02cb65d1fc968c36073063278596842408fb42242cc9d894d7b2f89dbb764601",
+      "afterSha256": "94af298b13d2ddd1c95daa7876adae0ecfaeafed12f7d6c803736d3b8738a9bf",
+      "capturedAt": "2026-09-14T09:37:10.764Z",
+      "completedAt": "2026-09-14T09:37:12.918Z",
+      "input": {
+        "version": "observation-contrast-v2",
+        "width": 1280,
+        "height": 665,
+        "targetPixels": 34,
+        "cursorPixels": 0,
+        "targetCentroid": {
+          "x": 227.52941176470588,
+          "y": 16.764705882352942
+        },
+        "cursorCentroid": null,
+        "horizontalErrorPx": null,
+        "encoding": "upper-texture",
+        "left": 0.5798179986587036,
+        "right": 0.15,
+        "phase": "scroll",
+        "verticalError": null,
+        "guidePixels": 0,
+        "sampling": {
+          "kind": "observation-contrast-v2",
+          "upper": {
+            "bounds": {
+              "x": 102,
+              "y": 79,
+              "width": 1075,
+              "height": 226
+            },
+            "mean": 249.8485808829822,
+            "contrast": 23.455431045191727,
+            "samples": 60794
+          },
+          "lower": {
+            "bounds": {
+              "x": 102,
+              "y": 359,
+              "width": 1075,
+              "height": 239
+            },
+            "mean": 252.53934934634293,
+            "contrast": 17.807096826043818,
+            "samples": 64560
+          },
+          "strength": 0.8596359973174073
+        }
+      },
+      "motor": {
+        "cells": [
+          {
+            "id": "826675",
+            "name": "MN2_l",
+            "activity": 0.5792188234496183
+          },
+          {
+            "id": "359142",
+            "name": "MN2_r",
+            "activity": 0.5668405844646413
+          },
+          {
+            "id": "344239",
+            "name": "MN3_l",
+            "activity": 0.5769123098248085
+          },
+          {
+            "id": "1732111",
+            "name": "MN3_r",
+            "activity": 0.5726652802046897
+          },
+          {
+            "id": "140828",
+            "name": "MN1_r",
+            "activity": 0.5784496959737339
+          },
+          {
+            "id": "108826",
+            "name": "MN1_l",
+            "activity": 0.5750868794613035
+          }
+        ],
+        "mean": 0.5748622622297992,
+        "contrast": 0.005824695740048402
+      },
+      "command": {
+        "dx": 0,
+        "dy": 0,
+        "wheelY": -48,
+        "motorMean": 0.5748622622297992,
+        "motorContrast": 0.005824695740048402,
+        "phase": "scroll",
+        "kind": "scroll",
+        "reason": "Scroll phase: motor contrast selects wheel direction"
+      },
+      "modelStartStep": 13201800,
+      "modelEndStep": 13202400,
+      "desktopBefore": {
+        "path": "desktop-000.png",
+        "pageFrame": "frame-0000.png",
+        "pageCapturedAt": "2026-09-14T09:37:10.764Z",
+        "capturedAt": "2026-09-14T09:37:10.764Z",
+        "completedAt": "2026-09-14T09:37:11.475Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "4b981923e66e38ced8261a9bf6920d035d466dc87d0a79a277d01102a3c44eec",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 170.3151,
+        "roundTripMs": 539.9703000187874,
+        "pageLagMs": 0,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-14T09:37:10.764Z",
+        "timestampBasis": "native-clock",
+        "clockUncertaintyMs": 0,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "1924ffce-5fef-404c-91cb-c54c1ae38da7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "desktopAfter": {
+        "path": "desktop-001.png",
+        "pageFrame": "frame-0001.png",
+        "pageCapturedAt": "2026-09-14T09:37:12.918Z",
+        "capturedAt": "2026-09-14T09:37:12.918Z",
+        "completedAt": "2026-09-14T09:37:13.452Z",
+        "width": 1280,
+        "height": 800,
+        "sha256": "c0c35c53bf9492d0e7495fd8879b17aaca09b2fcd73246ba1e1efdb614e042cd",
+        "cursor": {
+          "x": 512,
+          "y": 465
+        },
+        "captureMs": 119.8255,
+        "roundTripMs": 138.86229997873306,
+        "pageLagMs": 0,
+        "source": "windows-gdi",
+        "cursorSource": "not-present",
+        "sourceCapturedAt": "2026-09-14T09:37:12.918Z",
+        "timestampBasis": "native-clock",
+        "clockUncertaintyMs": 0,
+        "station": {
+          "os": "Windows 11",
+          "osBuild": "26200.8875",
+          "isolation": "remote-vm",
+          "id": "cdefdf82-62ac-4ff5-9f23-22ffef54f13e",
+          "bootId": "1924ffce-5fef-404c-91cb-c54c1ae38da7",
+          "timeZone": "GMT Standard Time",
+          "dpi": 96,
+          "viewport": {
+            "x": 0,
+            "y": 87,
+            "scale": 1
+          },
+          "window": {
+            "Left": -8,
+            "Top": -8,
+            "Right": 1288,
+            "Bottom": 760
+          },
+          "taskbar": {
+            "Left": 0,
+            "Top": 752,
+            "Right": 1280,
+            "Bottom": 800
+          }
+        }
+      },
+      "executed": {
+        "startedAt": "2026-09-14T09:37:12.716Z",
+        "completedAt": "2026-09-14T09:37:12.918Z",
+        "from": {
+          "x": 512,
+          "y": 465
+        },
+        "to": {
+          "x": 512,
+          "y": 465
+        },
+        "events": [
+          {
+            "type": "wheel",
+            "timestamp": "2026-09-14T09:37:12.734Z",
+            "pageTimeMs": 8761.09999999404,
+            "url": "https://eth.blockscout.com/block/25962797",
+            "x": 512,
+            "y": 465,
+            "deltaY": -48,
+            "trusted": true,
+            "commandId": "exhibit_1789378609910_d909f455:c000"
+          }
+        ],
+        "nativeInput": {
+          "version": "windows-view-v2",
+          "coordinateScale": 1,
+          "wheelScale": 1,
+          "wheelEventScale": 1,
+          "scrollBefore": 0,
+          "scrollAfter": 0
+        }
+      },
+      "memory": {
+        "storedId": "memory-813d4a3c3df6ee751e5728f5",
+        "recallId": "recall-90d0c337-449d-4dc2-a0ac-b5eecc3e1cdc",
+        "retrievedIds": [
+          "memory-813d4a3c3df6ee751e5728f5",
+          "memory-5ed4fb96f9ee4d27ce9fa530",
+          "memory-f4b7d1aacfd977eb0f8d61af"
+        ],
+        "usedIds": [],
+        "retryBudget": 3,
+        "adapterCheckpoint": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08",
+        "mode": "frozen"
+      }
+    }
+  ],
+  "evaluator": {
+    "navigated": false,
+    "activated": false,
+    "activationCount": 0
+  },
+  "outcome": "error",
+  "artifacts": [
+    {
+      "path": "browser.webm",
+      "sha256": "2c951e0748f56c71e19bcba611ec3f29a852c6fff27c36ed8cbf19780a923d55",
+      "bytes": 117554
+    },
+    {
+      "path": "decision-0.json.gz",
+      "sha256": "4b264596742c17e8d172bfc5c4d83605608e81811f47a49bdb6fc1e06bd782ff",
+      "bytes": 27504
+    },
+    {
+      "path": "desktop-000.png",
+      "sha256": "4b981923e66e38ced8261a9bf6920d035d466dc87d0a79a277d01102a3c44eec",
+      "bytes": 81234
+    },
+    {
+      "path": "desktop-001.png",
+      "sha256": "c0c35c53bf9492d0e7495fd8879b17aaca09b2fcd73246ba1e1efdb614e042cd",
+      "bytes": 81176
+    },
+    {
+      "path": "display-timing.json.gz",
+      "sha256": "7fd29639f130c499bdfd2cd006a7e845ea6e4adde17b09abf6917b004d4e3bd2",
+      "bytes": 464
+    },
+    {
+      "path": "frame-0000.png",
+      "sha256": "02cb65d1fc968c36073063278596842408fb42242cc9d894d7b2f89dbb764601",
+      "bytes": 102475
+    },
+    {
+      "path": "frame-0001.png",
+      "sha256": "94af298b13d2ddd1c95daa7876adae0ecfaeafed12f7d6c803736d3b8738a9bf",
+      "bytes": 102179
+    },
+    {
+      "path": "trace.json.gz",
+      "sha256": "0528603163028345489c239b376ca090b57c7ca85e5a3b048911f487468ddfa2",
+      "bytes": 27507
+    }
+  ],
+  "stages": {
+    "execution": "failed",
+    "recording": "saved"
+  },
+  "memoryConfig": {
+    "version": "experience-v1",
+    "mode": "frozen",
+    "initialAdapter": "7032af3b32b2950278790e8034eb22e7e824bb355521454784c568f0e99bed08"
+  },
+  "error": "page.evaluate: Target page, context or browser has been closed",
+  "observationEvents": [
+    {
+      "source": "orchestration",
+      "kind": "navigate",
+      "status": "completed",
+      "page": "Ethereum block 25962797 | Blockscout",
+      "summary": "Opened Ethereum block 25962797 | Blockscout. Environment selection is orchestration.",
+      "completedAt": "2026-09-14T09:37:10.519Z",
+      "id": "exhibit_1789378609910_d909f455:e33093",
+      "createdAt": "2026-09-14T09:37:03.773Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789378609910_d909f455"
+    },
+    {
+      "source": "orchestration",
+      "kind": "pointer",
+      "status": "completed",
+      "page": "Previously recorded exploration",
+      "summary": "Supervisor positioned the input cursor at (512, 465) CSS px. No neural cursor movement is claimed.",
+      "completedAt": "2026-09-14T09:37:10.475Z",
+      "id": "exhibit_1789378609910_d909f455:e33094",
+      "createdAt": "2026-09-14T09:37:10.475Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789378609910_d909f455"
+    },
+    {
+      "source": "neural",
+      "kind": "scroll",
+      "status": "blocked",
+      "page": "Ethereum block 25962797 | Blockscout",
+      "summary": "Trusted wheel acknowledged; the scroll container did not move",
+      "commandId": "exhibit_1789378609910_d909f455:c000",
+      "decision": 0,
+      "modelStep": 13202400,
+      "inputFrame": "exhibit_1789378609910_d909f455/frame-0000.png",
+      "reason": "Trusted wheel acknowledged; the scroll container did not move",
+      "parameters": {
+        "wheelY": -48
+      },
+      "id": "exhibit_1789378609910_d909f455:e33095",
+      "createdAt": "2026-09-14T09:37:12.715Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789378609910_d909f455",
+      "completedAt": "2026-09-14T09:37:12.918Z",
+      "result": {
+        "trustedInputs": 1,
+        "scrollBefore": 0,
+        "scrollAfter": 0
+      }
+    },
+    {
+      "source": "orchestration",
+      "kind": "recovery",
+      "status": "failed",
+      "page": "Ethereum block 25962797 | Blockscout",
+      "summary": "page.evaluate: Target page, context or browser has been closed",
+      "id": "exhibit_1789378609910_d909f455:e33096",
+      "createdAt": "2026-09-14T09:37:20.127Z",
+      "sessionId": "session_1789242341320_350cbae5",
+      "runId": "exhibit_1789378609910_d909f455"
+    }
+  ],
+  "replay": {
+    "exact": true,
+    "samples": 60,
+    "decisions": 1
+  }
+}
