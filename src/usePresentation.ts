@@ -1,6 +1,8 @@
 import {useEffect,useRef,useState} from 'react';
 import type {ExhibitLive} from '../shared/exhibit';
 import {availablePresentation,captureImage,desktopPath,presentationKey,savePresentation,startup,type DecodedPresentation} from './observer-start';
+/** Longest a first visit keeps the capture panels covered while its first desktop decodes. */
+export const OPENING_HOLD_MS=6000;
 /** Show the first decoded desktop without waiting for the larger sensory PNG.
  * Each displayed image keeps its own matching packet; a missing sensory image
  * stays empty until that exact packet's image decodes. Never cancel a useful
@@ -9,13 +11,18 @@ export function usePresentation(live:ExhibitLive|null,suppressCaptures=false,pau
  const key=presentationKey(live),latest=useRef(live),held=useRef(paused),active=useRef(true);
  latest.current=live;held.current=paused;
  const [pair,setPair]=useState<DecodedPresentation|null>(()=>availablePresentation(live)),displayed=useRef<DecodedPresentation|null>(pair);
+ // Opening hold: the monitor and direct view appear together with their first desktop.
+ // It ends early when no capture is coming (no path, failed image, held transport).
+ const [holding,setHolding]=useState(()=>!pair),settle=()=>{if(active.current)setHolding(false);};
+ useEffect(()=>{if(!holding)return;const timer=setTimeout(()=>setHolding(false),OPENING_HOLD_MS);return()=>clearTimeout(timer);},[holding]);
  useEffect(()=>{active.current=true;const save=()=>savePresentation(displayed.current);window.addEventListener('pagehide',save);return()=>{active.current=false;window.removeEventListener('pagehide',save);};},[]);
  useEffect(()=>{
   // The eager HTTP capture can finish ahead of the WebSocket's newer image.
   // Use it only to fill an empty display, with its own matching packet.
-  void startup()?.ready.then(async first=>{const path=first&&desktopPath(first);if(!first||!path||displayed.current||suppressCaptures)return;await captureImage(path);const decoded=availablePresentation(first);if(active.current&&!held.current&&!displayed.current&&latest.current?.sessionId===first.sessionId&&latest.current?.runId===first.runId&&decoded)setPair(current=>current??decoded);}).catch(()=>{});
+  void startup()?.ready.then(async first=>{const path=first&&desktopPath(first);if(!first||!path){settle();return;}if(displayed.current||suppressCaptures)return;await captureImage(path);const decoded=availablePresentation(first);if(active.current&&!held.current&&!displayed.current&&latest.current?.sessionId===first.sessionId&&latest.current?.runId===first.runId&&decoded)setPair(current=>current??decoded);}).catch(settle);
  },[suppressCaptures]);
  useEffect(()=>{
+  if(live&&!suppressCaptures&&(paused||!desktopPath(live)))settle();
   if(suppressCaptures||!live||(!live.display&&!live.browserFrame)||paused)return;
   const candidate=live,candidateKey=key,path=desktopPath(candidate);let input:HTMLImageElement|null=null;
   const eligible=()=>active.current&&!held.current&&latest.current?.sessionId===candidate.sessionId&&latest.current?.runId===candidate.runId;
@@ -24,15 +31,16 @@ export function usePresentation(live:ExhibitLive|null,suppressCaptures=false,pau
   const load=path?captureImage(path):candidate.browserFrame?captureImage(candidate.browserFrame).then(()=>null):Promise.resolve(null);
   void load.then(desktop=>{
    if(!eligible())return;
+   if(!desktop)settle();
    const current=latest.current!,packet=presentationKey(current)===candidateKey?current:candidate;
    setPair(previous=>{
     if(previous&&previous.live.sessionId===packet.sessionId&&previous.live.packetSeq>packet.packetSeq)return previous;
     return {key:candidateKey,live:packet,desktop,input};
    });
-  }).catch(()=>{/* Keep the last received capture during a failed image request. */});
+  }).catch(()=>{settle();/* Keep the last received capture during a failed image request. */});
  },[key,suppressCaptures,paused]);
- if(suppressCaptures){displayed.current=null;return {live,desktopImage:null,inputImage:null,pending:false};}
+ if(suppressCaptures){displayed.current=null;return {live,desktopImage:null,inputImage:null,pending:false,opening:false};}
  if(!paused&&pair){displayed.current=pair.key===key&&live?{...pair,live}:pair;}
  const shown=displayed.current;
- return {live:shown?.live??null,desktopImage:shown?.desktop??null,inputImage:shown?.input??null,pending:!!live&&shown?.key!==key};
+ return {live:shown?.live??null,desktopImage:shown?.desktop??null,inputImage:shown?.input??null,pending:!!live&&shown?.key!==key,opening:holding&&!shown?.desktop};
 }

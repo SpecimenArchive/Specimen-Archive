@@ -38,6 +38,10 @@
 .showcase .desktop-containment{flex:initial;display:block}
 .showcase .desktop-pixels{height:auto}
 .showcase .desktop-pixels canvas{aspect-ratio:8/5;width:100%;height:auto;object-fit:contain}
+.showcase .apparatus-image{position:relative}
+.showcase .apparatus-image canvas,.showcase .desktop-pixels canvas{transition:opacity .35s ease}
+.showcase .awaiting-capture canvas{opacity:0}
+.showcase .station-opening{position:absolute;inset:0;display:grid;place-items:center;font:12px/1.4 Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);pointer-events:none}
 .showcase .desktop-foot{font-size:12px;padding:7px 11px;border-top:1px solid #3a443a}
 .showcase .showcase-stage>.live-journal{grid-column:3;grid-row:1/3;align-self:stretch;contain:size;height:100%;min-height:0;background:#202923;border:1px solid #3c4e3d;box-shadow:inset 3px 0 #a4bb8d}
 .showcase .showcase-stage>.showcase-connected{grid-column:1/3;grid-row:2;display:grid;grid-template-columns:1fr 1fr;margin:0;gap:16px;align-self:stretch}
